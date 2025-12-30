@@ -1,0 +1,103 @@
+
+
+.main_page_holder{
+    display: flex;
+    flex-direction: column;
+    top: 0%;
+    left: 0%;
+    position: absolute;
+    height: fit-content;
+    width: 100%;
+    background: var(--background-color);
+    overflow-y: auto;
+}
+
+.intro_section{
+    display: flex;
+    width: 100%;
+    height: 100svh;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    gap:1rem;
+}
+
+.intro_section .intro_header{
+    font-size: 3rem;
+}
+
+
+.intro_section .intro_desc_holder{
+    display: flex;
+    position: relative;
+    top: 0%;
+    left: 0%;
+    width: 85%;
+    align-self: center;
+    /* border: 1px solid #ff2f00; */
+}
+
+.intro_desc_holder .intro_desc{
+    padding: 1rem;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    backdrop-filter: blur(1.0rem);
+    border-radius: 1rem;
+    overflow: hidden;
+    line-height: 3rem;
+}
+
+.intro_desc_holder .intro_desc_after{
+    z-index: 0;
+    content: "";
+    background-color:var(--background-color);
+    position: absolute;
+    opacity: 1;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    filter: blur(0.4rem);
+    box-shadow: 0rem 0rem 0.5rem #000000 inset, 0.1rem 0.1rem 0.5rem #000000;
+}
+
+.special_word_holder{
+    font-size: 2rem;
+    position: relative;
+    font-weight: bold;
+    width: 5rem;
+    height: 5rem;
+    background: transparent;
+}
+
+.special_word_holder .special_word_underline{
+    z-index: 2;
+    position: absolute;
+    bottom: -10%;
+    left: 0%;
+    background: transparent;
+    transition: all 0.5s ease;
+}
+
+.special_word_underline.expanded{
+    width: 100%;
+    height: 2rem;
+
+}
+
+.special_word_underline.hidden{
+    width: 0rem;
+    height: 2rem;
+}
+
+.intro_desc .normal_word{
+    font-size: 2rem;
+    background: transparent;
+}
+
+
+

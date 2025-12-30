@@ -1,0 +1,11 @@
+* {
+  padding: 0rem;
+  margin: 0rem;
+  font-family: "Figtree", sans-serif;
+  box-sizing: border-box;
+}
+
+:root {
+    --background-color: #fcf5da ;
+    --text-color: black;
+}

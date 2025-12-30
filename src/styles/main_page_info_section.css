@@ -1,0 +1,128 @@
+
+
+
+.info_section{
+    width: 100%;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid #ff0000; */
+}
+
+
+
+.card_container{
+    display: flex;
+    top: 10%;
+    left: 0%;
+    width: 80%;
+    padding: 0rem 10rem 30rem 10rem;
+    perspective: 1000px;
+    border-radius: 1rem;
+    will-change: width;
+    overflow-x: hidden;
+    /* box-shadow: 0rem 0rem 3rem #131313; */
+}
+
+
+.info_card{
+    z-index: 3;
+    position: relative;
+    top: 10%;
+    flex-basis: auto;
+    flex: 10 0 auto;
+    width: calc((100% - 6rem) / 3);
+    /* width: 30rem; */
+    /* aspect-ratio: 5/7; */
+    aspect-ratio: 5/7;
+    transform-style: preserve-3d;
+    transform-origin: top;
+}
+
+.card_front, .card_back{
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: inherit;
+    overflow: hidden;
+}
+
+.card_front_behind{
+    z-index: 0;
+    position: absolute;
+    background-color: transparent;
+    transform: scale(0.8);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+
+#card_2_computer_image{
+    width: fit-content;
+    height: 100%;
+    position: absolute;
+    transform: scale(1.3);
+    left: 38%;
+}
+
+#card_3_computer_image{
+    width: fit-content;
+    height: 100%;
+    position: absolute;
+    transform: scale(1.3);
+    left: -62%;
+}
+
+#card_4_computer_image{
+    width: fit-content;
+    height: 100%;
+    position: absolute;
+    transform: scale(1.3);
+    right: 11%;
+}
+
+
+
+.card_back{
+    opacity: 1.0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform: rotateY(180deg);
+    padding: 2rem;
+}
+
+
+
+#card_1 .card_front{
+    opacity: 0.5;
+    border-radius: 1rem 0 0 0rem;
+}
+
+#card_2 .card_front{
+    border-radius: 0rem;
+}
+
+#card_3 .card_front{
+    border-radius: 0rem 1rem 0 0rem;
+}
+
+
+#card_1 .card_back{
+    background: var(--background-color);
+}
+
+#card_2 .card_back{
+    background: var(--background-color);
+}
+
+#card_3 .card_back{
+    background: var(--background-color);
+}
+
+
