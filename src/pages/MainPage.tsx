@@ -25,8 +25,6 @@ export default function MainPage(){
     const cardsFrontBehindRef = useRef<HTMLDivElement[]>([]);
     const cardsRef = useRef<HTMLDivElement[]>([]);
 
-    const [clicked, setClicked] = useState<boolean>(false);
-
 
     const projectCardsRef = useRef<HTMLDivElement[]>([]);
     const currentIndexRef = useRef<number>(-1);
@@ -34,7 +32,10 @@ export default function MainPage(){
     const [currentIndex, setCurrentIndex] = useState<number>(-1);
 
     const projectNamesArray = Object.keys(ProjectNames) as Array<keyof typeof ProjectNames>;
-    const projectDescriptionArray = Object.keys(ProjectDescriptions) as Array<keyof typeof ProjectDescriptions>;
+    const projectDescriptionKeyArray = Object.keys(ProjectDescriptions) as Array<keyof typeof ProjectDescriptions>;
+    const projectDescriptionArray = Object.values(ProjectDescriptions);
+
+    const [closeFromProjectCard, setCloseFromProjectCard] = useState<boolean>(false);
 
     useEffect(()=>{
         useBetterScroll();
@@ -46,8 +47,16 @@ export default function MainPage(){
         cards: cardsRef
     });
 
+    function handleCloseSignalFromChild(data : boolean){
+        console.log("closing!!!");
+        console.log(closeFromProjectCard);
+        setCloseFromProjectCard(data);
+    }
+
     function selectNext(direction : number){
+        setCloseFromProjectCard(false);
         const maxIndex = projectNamesArray.length-1;
+
         let newIndex : number = currentIndexRef.current + direction;
 
         if (newIndex > maxIndex){
@@ -71,11 +80,14 @@ export default function MainPage(){
             card.style.top = "-15%";
             console.log(currentIndexRef.current);
         });
-        setClicked(false);
-        setCurrentIndex(currentIndexRef.current);
+
+        setTimeout(() => {
+            setCurrentIndex(currentIndexRef.current);
+        }, 500);
     }
 
     function selectSpecificCard(index : number){
+        setCloseFromProjectCard(false);
         currentIndexRef.current = index;
         raiseCard();
     }
@@ -158,22 +170,30 @@ export default function MainPage(){
                     </div>
                 </div>
                 </div>
-                <div className="project_information_card_holder">
-                    {projectNamesArray.map((projectName : string, index : number) =>{
-                        
-                        let projectDescription :string = projectDescriptionArray[index];
-                        if(currentIndex === index){
+                    <div className="projects_card_showcase">
+                        <div className="project_information_card_holder">
+                        {!closeFromProjectCard && projectNamesArray.map((projectName : string, index : number) =>{
+                            let projectDescription : string = projectDescriptionArray[index];
+                            if(currentIndex === index){
+                                    return (
+                                    <ProjectInformation projectDescription={projectDescription} projectName={projectName} projectImage={knowingYourselfImage} isPastSelectedProject={currentIndex===index} sendCloseSignalParent={handleCloseSignalFromChild}></ProjectInformation>
+                                )
+                            }
+                            else{
                                 return (
-                                <ProjectInformation projectDescription={projectDescription} projectName={projectName} projectImage={knowingYourselfImage}></ProjectInformation>
-                            )
-                        }
-                        else{
-                            return (
-                                <></>
-                            )
-                        }
-                    })}
-                </div>
+                                    <></>
+                                )
+                            }
+                        })}
+                        <div className="project_information_card_behind"></div>
+                        </div>
+                        <div className="emitter_platform_holder">
+                            <div className="emitter_platform">
+                            <div className="emitter"></div>
+                            </div>
+                            <span className="emitter_ray"></span>
+                        </div>
+                    </div>
             </div>
         </div>
 

@@ -165,7 +165,7 @@ export const useRecalculateOnResize = (elements: AnimationElements) => {
             window.removeEventListener("resize", recalculateScrollTriggers);
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };
-    }, [elements.cardContainer.current, elements.cards.current, elements.cardsFrontBehind.current]);
+    }, []);
     //},[]);
 
     //Earlier bug--> [elements] causes the useEffect() to trigger on every re-render, which kills and resets scroll triggers and jumps the
