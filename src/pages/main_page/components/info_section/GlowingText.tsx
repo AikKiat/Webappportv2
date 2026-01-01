@@ -1,4 +1,5 @@
 
+import React from "react";
 import { useState } from "react";
 
 
@@ -6,7 +7,7 @@ interface glowingTextProps{
     text : string;
 }
 
-export default function GlowingText({text} : glowingTextProps){
+const GlowingText = ({text} : glowingTextProps, ref: React.Ref<HTMLDivElement> | undefined) =>{
     const lines = text.split('\n'); 
 
     const colours : string[] = ["#eb77607c","#6095eb7f", "#60eb757f", "#db60eb85"];
@@ -19,7 +20,7 @@ export default function GlowingText({text} : glowingTextProps){
     }
 
     return (
-        <div className="intro_desc">
+        <div className="intro_desc" ref={ref}>
             {lines.map((line, lineIndex) => {
 
                 const words = line.trim().split(" ");
@@ -65,4 +66,6 @@ export default function GlowingText({text} : glowingTextProps){
         </div>
     )
 }
+
+export default React.forwardRef(GlowingText)
 

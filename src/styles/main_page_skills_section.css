@@ -1,0 +1,187 @@
+
+
+.skills_section{
+    background: var(--background-color);
+    width: 100%;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    perspective: 2500px;
+    border: 1px solid #ff2600;
+}
+
+
+.skills_section_header{
+    position: relative;
+    margin-bottom: 2rem;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    flex: 0.1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+.skills_icons_desc_holder{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    top: 0%;
+    left: 0%;
+    width: 70%;
+    height: 70%;
+    box-shadow: -0.5rem -0.3rem 0.5rem var(--background-color) , -0.5rem 0.5rem 1rem var(--background-color), -0.5rem 0rem 3rem #1e1e1e;
+}
+
+.skill_brief_desc{
+    transform-origin: 0 100%;
+    margin-top: 3rem;
+    margin-left: 3rem;
+    padding: 2rem;
+    position: relative;
+    top: 0%;
+    left: 0%;
+    width: 50%;
+    height: fit-content;
+    border-radius: 2rem;
+    transition: all 0.5s ease;
+}
+
+.skill_brief_desc.hidden{
+    transform: scaleX(0);
+    opacity: 1;
+}
+
+.skill_brief_desc.shown{
+    transform: scaleX(1.0);
+    opacity: 1;
+    box-shadow: .3rem 0.3rem 1rem #1e1e1e inset, -0.5rem -0.5rem 1rem #fffbeb inset;
+}
+
+.skills_grid{
+    padding: 2rem;
+    position: relative;
+    top: 0%;
+    left: 0%;
+    justify-self: flex-end;
+    width: fit-content;
+    height: fit-content;
+    display: grid;
+    gap: 1rem;
+    align-items: center;
+    justify-content: right;
+    background: var(--background-color);
+    border-radius: 1rem;
+    grid-template-columns: auto auto auto auto;
+}
+
+.skill_item_holder{
+    padding: 1rem;
+    position: relative;
+    background: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    top: 0%;
+    left: 0%;
+    width: 8rem;
+    height: 8rem;
+    /* border: 1px solid #ff2600; */
+}
+
+.skill_item{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    border-radius: 1rem;
+    position: absolute;
+    background: var(--background-color);
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    border-radius: 10%;
+    transition: all 0.5s ease;
+    perspective: 2500px;
+}
+
+.skill_item:hover{
+    box-shadow: -0.3rem -0.3rem 0.5rem #fff4ce, 0.3rem 0.3rem 0.5rem #424141;
+}
+
+.skill_item.normal{
+
+}
+
+.skill_item.focused{
+
+}
+
+.skill_item .description{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    border-radius: 1rem;
+    background: transparent;
+    text-shadow: 0rem 0rem 1rem #7676f4;
+    opacity: 0;
+}
+
+.skill_item:hover .description{
+    opacity: 1;
+}
+
+
+.skill_image{
+    padding: 1rem;
+    position: relative;
+    top: 0%;
+    left: 0%;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 1rem;
+    anchor-name: --skill_image;
+}
+
+.skill_image_behind{
+    z-index: -1;
+    transform-origin: 0 100%;
+    position: absolute;
+    top: anchor(top);
+    left: anchor(left);
+    width: 5rem;
+    height: 5rem;
+    transform: scaleY(0.0);
+    background: #77b0f1;
+    border-radius: 1rem;
+    transition: all 0.5s ease;
+    position-anchor: --skill-image;
+}
+
+
+.skill_item:hover .skill_image_behind{
+    transform: scaleY(1.0);
+    box-shadow: 0rem 0rem 1rem #1e1e1e inset;
+}
+
+.skill_image img{
+    padding: 0.5rem;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+

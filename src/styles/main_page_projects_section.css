@@ -171,9 +171,10 @@
     width: 40%;
     height: 30%;
     transform: skew(-40deg) rotateX(70deg);
-    box-shadow: -0.5rem 1.5rem 3rem 4rem var(--background-color), 1rem 4rem 0.3rem 2rem #1e1e1e;
+    box-shadow: -0.5rem 1.5rem 3rem 3rem var(--background-color), 1rem 4rem 0.3rem 2rem #1e1e1e;
     transition: all 0.5s ease;
 }
+
 
 .emitter_platform .emitter{
     position: absolute;
@@ -184,11 +185,10 @@
     border-radius: 20%;
     display: flex;
     flex-direction: row;
-    background: radial-gradient(circle at 55% 55% , transparent 0%,#9cbce6 20%, var(--background-color) 20%);
-    box-shadow: 0.5rem 0.5rem 1rem 0.1rem #686868 inset,1rem 1rem 0.3rem 1rem var(--background-color) inset;
     perspective: 2500px;
     transform: preserve-3d;
 }
+
 
 .emitter_ray{
     position: absolute;
@@ -200,6 +200,15 @@
     opacity: 0.8;
     clip-path: polygon(0 0, 100% 0, 50% 100%, 50% 100%);
     animation: hologram_wave 0.05s ease-in-out infinite;
+    transition: all 0.5s ease;
+}
+
+.emitter_ray.hidden{
+    opacity: 0;
+}
+
+.emitter_ray.expanded{
+    opacity: 1;
 }
 
 @keyframes hologram_wave{
@@ -211,21 +220,29 @@
     }
 }
 
+
+
+
+
+
+/*Project Information Card*/
+
+@keyframes spinout_anim {
+    50%{
+        transform: skew(180deg);
+    }
+}
+
+
 .project_information_card_holder{
     z-index: 1;
     position: relative;
     top: -10%;
     left: 0%;
     width: 100%;
-    aspect-ratio: 5/7;
     /* border: 1px solid #006eff; */
     height: 80%;
-}
-
-@keyframes spinout_anim {
-    50%{
-        transform: skew(180deg);
-    }
+    transition: all 0.2s ease;
 }
 
 .project_information_card{
@@ -243,6 +260,7 @@
     align-items: center;
     padding: 1rem;
     gap: 1rem;
+    transition: all 0.5s ease;
 }
 
 .project_information_card_behind{

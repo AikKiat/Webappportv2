@@ -1,13 +1,12 @@
 
-import infoImage from "../../assets/infoImage.svg";
-import "../../styles/main_page_projects_section.css";
 
 interface projectInformationProps{
     projectImage : string,
     projectName : string,
     projectDescription : string,
     isPastSelectedProject : boolean,
-    sendCloseSignalParent : (data : boolean) => void
+    closeFromProjectCardCurrentVal : number,
+    sendCloseSignalParent : (data : number) => void
 }
 
 
@@ -15,6 +14,12 @@ export default function ProjectInformation(props : projectInformationProps){
 
     const additionalStyle : React.CSSProperties = {
         animation: `${props.isPastSelectedProject? "spinout_anim 0.05s linear forwards" : "none"}`
+    }
+
+    function handleCloseFromProjectCardState(){
+        if(props.closeFromProjectCardCurrentVal % 2 == 1){ //odd number, means open
+            props.sendCloseSignalParent(props.closeFromProjectCardCurrentVal + 1);
+        }
     }
 
     return (
@@ -26,7 +31,7 @@ export default function ProjectInformation(props : projectInformationProps){
                 <span id="title">{props.projectName}</span>
                 <p id="project_description">{props.projectDescription}</p>
             </div>
-            <div className="close_button" onClick={() => {props.sendCloseSignalParent(true)}}>
+            <div className="close_button" onClick={() => {handleCloseFromProjectCardState()}}>
                 <span id="close_left_bar"></span>
                 <span id="close_right_bar"></span>
             </div>
