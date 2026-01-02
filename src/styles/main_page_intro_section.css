@@ -39,6 +39,7 @@
 }
 
 .intro_desc_holder .intro_desc{
+    font-size: 2rem;
     padding: 1rem;
     z-index: 1;
     width: 100%;
@@ -66,7 +67,6 @@
 }
 
 .special_word_holder{
-    font-size: 2rem;
     position: relative;
     font-weight: bold;
     width: 5rem;
@@ -95,7 +95,6 @@
 }
 
 .intro_desc .normal_word{
-    font-size: 2rem;
     background: transparent;
 }
 

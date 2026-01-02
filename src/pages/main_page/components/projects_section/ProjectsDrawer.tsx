@@ -1,39 +1,74 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ProjectNames, ProjectDescriptions } from "../../../../enums/word_paragraphs";
+import {motion} from "motion/react";
 
 
 interface ProjectsDrawerProps{
     closeFromProjectCard : number;
     setCloseFromProjectCard : React.Dispatch<React.SetStateAction<number>>;
     setCurrentIndex : React.Dispatch<React.SetStateAction<number>>;
+    setRefDrawerSide : ( data : HTMLDivElement) => void
+    setRefDrawerFront : (data : HTMLDivElement) => void
+    setRefProjectCards : (data : HTMLDivElement[]) => void
+    setRefDrawerLabel : (data : HTMLDivElement) => void
+    setRefButtonLeft : (data : HTMLDivElement) => void
+    setRefButtonRight : (data : HTMLDivElement) => void
 }
 
 
-export default function ProjectsDrawer({closeFromProjectCard, setCloseFromProjectCard, setCurrentIndex} : ProjectsDrawerProps){
+export default function ProjectsDrawer(props : ProjectsDrawerProps){
 
     const projectNamesArray = Object.keys(ProjectNames) as Array<keyof typeof ProjectNames>;
 
     const nextIndexRef = useRef<number>(-1);
     const projectCardsRef = useRef<HTMLDivElement[]>([]);
 
+    const refDrawerSide = useRef<HTMLDivElement>(null);
+    const refDrawerFront = useRef<HTMLDivElement>(null);
+
+    const refDrawerLabel = useRef<HTMLDivElement>(null);
+    const refButtonleft = useRef<HTMLDivElement>(null);
+    const refButtonRight = useRef<HTMLDivElement>(null);
+
+    useEffect(() =>{
+        if(refDrawerFront.current){
+            props.setRefDrawerFront(refDrawerFront.current);
+        }
+        if(refDrawerSide.current){
+            props.setRefDrawerSide(refDrawerSide.current);
+        }
+        if(projectCardsRef.current){
+            props.setRefProjectCards(projectCardsRef.current);
+        }
+        if(refDrawerLabel.current){
+            props.setRefDrawerLabel(refDrawerLabel.current); 
+        }
+        if(refButtonRight.current){
+            props.setRefButtonRight(refButtonRight.current);
+        }
+        if(refButtonleft.current){
+            props.setRefButtonLeft(refButtonleft.current);
+        }
+    },[])
+
 
     useEffect(() => {
         
-        if(closeFromProjectCard % 2 == 0){ //means close
+        if(props.closeFromProjectCard % 2 == 0){ //means close
             nextIndexRef.current = -1;
             raiseCard();
         }
 
-    }, [closeFromProjectCard])
+    }, [props.closeFromProjectCard])
 
     function selectSpecificCard(index : number){
 
-        if(closeFromProjectCard % 2 == 0){
-            setCloseFromProjectCard(prev => prev + 1)
+        if(props.closeFromProjectCard % 2 == 0){
+            props.setCloseFromProjectCard(prev => prev + 1)
         }
         else{
-            setCloseFromProjectCard(prev => prev + 2)
+            props.setCloseFromProjectCard(prev => prev + 2)
         }
         nextIndexRef.current = index;
         raiseCard();
@@ -41,11 +76,11 @@ export default function ProjectsDrawer({closeFromProjectCard, setCloseFromProjec
 
     function selectNext(direction : number){
         
-        if(closeFromProjectCard % 2 == 0){
-            setCloseFromProjectCard(prev => prev + 1)
+        if(props.closeFromProjectCard % 2 == 0){
+            props.setCloseFromProjectCard(prev => prev + 1)
         }
         else{
-            setCloseFromProjectCard(prev => prev + 2)
+            props.setCloseFromProjectCard(prev => prev + 2)
         }
 
         const maxIndex = projectNamesArray.length-1;
@@ -74,7 +109,7 @@ export default function ProjectsDrawer({closeFromProjectCard, setCloseFromProjec
         });
 
         setTimeout(() => {
-            setCurrentIndex(nextIndexRef.current);
+            props.setCurrentIndex(nextIndexRef.current);
         }, 500);
     }
 
@@ -98,6 +133,7 @@ export default function ProjectsDrawer({closeFromProjectCard, setCloseFromProjec
                                 if (element) projectCardsRef.current[index] = element;
                             }}
                             key={index}
+                            id={`drawer_card_${index+1}`}
                             onClick={()=>selectSpecificCard(index)}>
                             
                             <span>{index}</span> 
@@ -106,16 +142,12 @@ export default function ProjectsDrawer({closeFromProjectCard, setCloseFromProjec
                     )
                 })}
             </div>
-            <div className="drawer_side"></div>
-            <div className="drawer_front">
+            <div className="drawer_side" ref={refDrawerSide}></div>
+            <div className="drawer_front" ref={refDrawerFront}>
                 <div className="drawer_label">
-                    <span className="drawer_label_wording">PROJECTS</span>
-                    <span className="toggle_button" id="select_right" onClick={() => {selectNext(1);}}>
-                        <span>{">"}</span>
-                    </span>
-                    <span className="toggle_button" id="select_left" onClick={() => {selectNext(-1);}}>
-                        <span>{"<"}</span>
-                    </span>
+                    <span className="drawer_label_wording" ref={refDrawerLabel}></span>
+                    <span className="toggle_button" id="select_right" onClick={() => {selectNext(1);}} ref={refButtonRight}></span>
+                    <span className="toggle_button" id="select_left" onClick={() => {selectNext(-1);}} ref={refButtonleft}></span>
                 </div>
             </div>
         </div>

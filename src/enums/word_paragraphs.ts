@@ -1,3 +1,4 @@
+import { title } from "motion/react-client"
 
 
 export enum IntroTexts{
@@ -9,7 +10,7 @@ export enum IntroTexts{
 }
 
 export enum ProjectNames{
-    Project1 = "**SmartHealth**",
+    Project1 = "SmartHealth",
     Project2 = "Come Fly with Me",
     Project3 = "Pools of Possibilities",
     Project4 = "The Mathematician's Massacre",
@@ -130,3 +131,59 @@ export const skills : skill[] = [
         description : "Delved into exploring this database hosting service, to create a **Time-series database** and store time-series data for the **AI-Driven Resource Monitor**, tracking the information from the simulated entities for configurable time intervals. Data was catergorised, organised and sent to the Langchain/Langgraph-powered AI Module to generate analyses."
     }
 ]
+
+export interface personal{
+    index : number,
+    title : string,
+    description : string
+}
+
+const leadership : personal[] = [
+    {
+        index : 0,
+        title : "President, Unreal Enthusiasts Interest Group",
+        description : "-Led workshops on 3D Digital Art, VR and Animation.\n-Hosted Projects during key events such as Open House."
+    },
+    {
+        index : 1,
+        title : "University Ambassador",
+        description: "- Conducted School tours for visitors during Open House.\n- Consultant for candidates' enquiries during SUTD Admissions Interview.\n- Welcomed potential students during for Offer Receptions."
+    }
+]
+
+const experiences : personal[] = [
+    {
+        index : 0,
+        title : "Product Engineering Intern, Asset Development, Next Open Innovation (NCS)",
+        description: "- Created a fullstack AI-Driven Resource Monitoring System to Streamline Baggage Handling at Airports via Robotics Autonomous Systems."
+        
+        // \n- Picked key concepts of both Product and Software Engineering, such as identifying from the broad perspective how a software solution could be applied, defining the key attributes and then delving into System Design by creating a modular, cleanly layered Solution, scalable and expandable.\n- For more info, look into the Projects Section."
+    },
+    {
+        index : 1,
+        title : "DellInnovateFest 2025 Hackathon",
+        description: "- A memorable, and truly meaningful 1-month long hackathon focusing on developing a software solution to alleviate the mental health situation amongst teenagers in Singapore."
+        
+        
+        // \n- Worked with key organisations such as Singapore Association of Mental Health (SAMH) to hone in on the key problem areas and fine-tune our target audience as well as their needs.\n - Emerged as one of the finalist teams, fruitful experience in highighting how a meticulous and sincere dendeavour to aid a demographic is truly possible with our technical expertise in Software Engineering."
+    }
+]
+
+const education : personal[] = [
+    {
+        index : 0,
+        title : "Year 3 Computer Science @SUTD",
+        description : "Currently pursuing a BEngg in Computer Science, Singapore University of Technology and Design. Taking on a minor in AI, and also currently taking more courses in Security (Network and System Security) to further expand my knowledge."
+    },
+    {
+        index : 1,
+        title : "Certifications",
+        description: "View my Certifications here."
+    }
+]
+
+export const personalQualities = {
+    leadership : leadership,
+    experiences : experiences,
+    education : education,
+}

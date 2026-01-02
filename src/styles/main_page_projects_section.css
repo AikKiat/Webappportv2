@@ -29,7 +29,9 @@
 
 .project_card{
     position: absolute;
-    top: 0%;
+    top: 50%;
+    opacity: 0;
+    transform: translateY(10rem);
     font-size: 3rem;
     width: 100%;
     aspect-ratio: 7/5;
@@ -38,8 +40,9 @@
     box-shadow: -0.1rem 0.3rem 0.1rem 0.5rem #131313;
     border: 0.1rem solid #080808;
     background: #d2d2d2;
-    opacity: 0.5;
-        
+    /* opacity: 0.5; */
+    /* animation: bounce;
+    animation-duration: 2s; */
 }
 
 .project_card .card_tab{
@@ -67,7 +70,8 @@
     background: var(--background-color);
     /* border: 1px solid #0a23ff; */
     transform: rotateY(60deg) rotateZ(10deg) rotateX(5deg) translate(-125%, 75%);
-    box-shadow: 0rem 0rem 0.1rem 1rem var(--background-color), 1.5rem -1rem 1rem 0.1rem #363535;
+    /* box-shadow: 0rem 0rem 0.1rem 1rem var(--background-color), 1.5rem -1rem 1rem 0.1rem #363535; */
+    box-shadow: none;
     
 }
 
@@ -78,8 +82,10 @@
     width: 130%;
     aspect-ratio: 7/4;
     background: var(--background-color);
-    box-shadow: -1rem 0rem 0.1rem 1rem var(--background-color), 0rem -1rem 1rem 0.1rem #363535;
-    transform: rotateY(40deg) rotateZ(-10deg) rotateX(-15deg) translate(12%, 33%) ;
+    /* box-shadow: -1rem 0rem 0.1rem 1rem var(--background-color), 0rem -1rem 1rem 0.1rem #363535; */
+    box-shadow: none;
+    transform: rotateY(40deg) rotateZ(-10deg) rotateX(-15deg) translate(5%, 33%);
+    /* transform: rotateY(40deg) rotateZ(-10deg) rotateX(-15deg) translate(5%, 33%) ; */
 
 }
 
@@ -101,7 +107,7 @@
     aspect-ratio: 1/1;
     border-radius: 50%;
     background: var(--background-color) ;
-    box-shadow:  -0.5rem -0.3rem 0.5rem var(--background-color) , -0.5rem 0rem 1rem #1e1e1e;
+    /* box-shadow:  -0.5rem -0.3rem 0.5rem var(--background-color) , -0.5rem 0rem 1rem #1e1e1e; */
 }
 
 #select_right{

@@ -5,7 +5,7 @@ import ProjectInformation from "./ProjectInformation";
 import { ProjectDescriptions, ProjectNames } from "../../../../enums/word_paragraphs";
 import { useEffect, useRef, useState } from "react";
 
-import knowingYourselfImage from "../../../../assets/infoImage.svg";
+import knowingYourselfImage from "../../../../assets/info_img.svg";
 
 
 interface ProjectsCardHologramProps{

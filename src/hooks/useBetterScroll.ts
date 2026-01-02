@@ -1,6 +1,7 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+
 import Lenis from "lenis";
 
 

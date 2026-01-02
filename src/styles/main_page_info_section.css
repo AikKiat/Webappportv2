@@ -13,8 +13,9 @@
 
 
 .card_container{
+    position: relative;
     display: flex;
-    top: 10%;
+    top: 20%;
     left: 0%;
     width: 80%;
     padding: 0rem 10rem 30rem 10rem;
@@ -41,6 +42,7 @@
 }
 
 .card_front, .card_back{
+    padding: 0.3rem;
     z-index: 1;
     position: absolute;
     width: 100%;
@@ -61,7 +63,7 @@
 }
 
 
-#card_2_computer_image{
+#card_1_computer_image{
     width: fit-content;
     height: 100%;
     position: absolute;
@@ -69,15 +71,15 @@
     left: 38%;
 }
 
-#card_3_computer_image{
+#card_2_computer_image{
     width: fit-content;
     height: 100%;
     position: absolute;
     transform: scale(1.3);
-    left: -62%;
+    left: -20%;
 }
 
-#card_4_computer_image{
+#card_3_computer_image{
     width: fit-content;
     height: 100%;
     position: absolute;
@@ -95,12 +97,31 @@
     text-align: center;
     transform: rotateY(180deg);
     padding: 2rem;
+    box-shadow : 0.5rem 0.5rem 1rem #1f1f1fff inset, -0.5rem -0.5rem #fef8e2ff inset;
+}
+
+#card_1{
+    text-align: right;
+}
+
+#card_1 #splash_text{
+    position: relative;
+    font-size: 2rem;
+}
+
+#card_1 #splash_text_2{
+    position: relative;
+    font-size: 2rem;
+}
+
+#card_2 #splash_text{
+    position: relative;
+    font-size: 2rem;
 }
 
 
 
 #card_1 .card_front{
-    opacity: 0.5;
     border-radius: 1rem 0 0 0rem;
 }
 
@@ -125,4 +146,124 @@
     background: var(--background-color);
 }
 
+.card_back .card_back_desc{
+    width: 15rem;
+    height: 3rem;
+    text-align: center;
+    padding: 1rem;
+    padding-bottom: 2rem;
+    z-index: 1;
+    background: var(--background-color);
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    font-size: 2rem; 
+    margin: 2rem;   
+    border-radius: 1rem 0 1rem 0;
+    box-shadow: 0rem 0rem 0.1rem 0.5rem var(--background-color);
+}
 
+
+ .card_back .qualities_list{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid #e5ff00; */
+ }
+
+.qualities_list .quality_card{
+    z-index: 0;
+    padding: 2rem;
+    text-align: start;
+    padding-top: 10%;
+    border-radius: 1rem;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    overflow:hidden;
+    /* box-shadow: 0rem 0rem 0rem #e5ff00 , 0rem 0rem 3rem #e5ff00 inset; */
+}
+
+.quality_card::before{
+    z-index: -2;
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 10rem;
+    height: 10rem;
+    background: #fff; 
+}
+
+.quality_card .intro_desc{
+    margin: 1rem;
+    font-size: 1.5rem;
+}
+
+
+/* "#6095eb7f", "#60eb757f", "#db60eb85" */
+.quality_card.education{
+    background: #db60eb85;  
+}
+
+.quality_card.experiences{
+    background: #60eb757f;
+}
+
+.quality_card.leadership{
+    background: #6095eb7f;
+}
+
+
+/* .quality_card.experiences::before{
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 2rem;
+    height: 2rem;
+    background: #fff;
+}
+
+.quality_card.leadership::before{
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 2rem;
+    height: 2rem;
+    background: #fff;
+} */
+
+.quality_card .title{
+    font-size: 2rem;
+}
+
+.quality_card .toggle_messages{
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+}
+
+
+.toggle_messages .swipe_message{
+    position: relative;
+    bottom: 0%;
+    right: 0%;
+    font-size: 1.5rem;
+}
+
+.toggle_messages .back_to_first_message{
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    font-size: 1.5rem;
+}

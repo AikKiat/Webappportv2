@@ -7,7 +7,7 @@ interface glowingTextProps{
     text : string;
 }
 
-const GlowingText = ({text} : glowingTextProps, ref: React.Ref<HTMLDivElement> | undefined) =>{
+export default function GlowingText({text} : glowingTextProps){
     const lines = text.split('\n'); 
 
     const colours : string[] = ["#eb77607c","#6095eb7f", "#60eb757f", "#db60eb85"];
@@ -20,14 +20,13 @@ const GlowingText = ({text} : glowingTextProps, ref: React.Ref<HTMLDivElement> |
     }
 
     return (
-        <div className="intro_desc" ref={ref}>
+        <div className="intro_desc">
             {lines.map((line, lineIndex) => {
 
                 const words = line.trim().split(" ");
                 return (
                     <div key={lineIndex}>
                         {words.map((textWord, wordIndex) => {
-
                             if(textWord.includes("**")){
                                 const specialWordUnderlineStyle: React.CSSProperties = {
                                     backgroundImage: `linear-gradient(to right, ${colours[Math.floor(Math.random() * colours.length)]}, transparent)`,
@@ -66,6 +65,4 @@ const GlowingText = ({text} : glowingTextProps, ref: React.Ref<HTMLDivElement> |
         </div>
     )
 }
-
-export default React.forwardRef(GlowingText)
 
