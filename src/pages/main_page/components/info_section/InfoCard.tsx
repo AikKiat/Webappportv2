@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import {type certInfo, type personal } from "../../../../enums/word_paragraphs"
 import GlowingText from "./GlowingText";
 
-import {motion, MotionValue, useMotionValue, useTransform} from "motion/react";
+import {motion, MotionValue, transform, useMotionValue, useTransform} from "motion/react";
 
 
 interface PersonalCardProps {
@@ -19,6 +19,25 @@ const PersonalCard = ({ personalQuality, onSwipeOut, onReset, firstIndex, caterg
     const x = useMotionValue(0);
     const translateMorph = useTransform(x, [-150, 150], [-18, 18]);
 
+    const innerCardBackRef = useRef<HTMLDivElement>(null);
+    const innerCardFrontRef = useRef<HTMLDivElement>(null);
+    const showLessButton = useRef<HTMLDivElement>(null);
+
+    function flipCard(frontOrBack : number){
+        if(!innerCardBackRef.current || !innerCardFrontRef.current || !showLessButton.current){
+            return;
+        }
+        if(frontOrBack === 0){
+            innerCardBackRef.current.style.transform = "rotateY(180deg)" //show back face.
+            innerCardFrontRef.current.style.transform = "rotateY(0deg)" //show back face.
+            showLessButton.current.style.opacity = "0";
+        }
+        else{
+            innerCardBackRef.current.style.transform = "rotateY(0deg)" //flip to show front face
+            innerCardFrontRef.current.style.transform = "rotateY(180deg)" //show back face.
+            showLessButton.current.style.opacity = "1";
+        }
+    }
 
     let opacityMorph = null;
     if(firstIndex === personalQuality.index){
@@ -30,7 +49,7 @@ const PersonalCard = ({ personalQuality, onSwipeOut, onReset, firstIndex, caterg
     
 
     return (
-        <motion.div
+            <motion.div
             key={personalQuality.index}
             className={`quality_card ${catergory}`}
             style={{
@@ -46,33 +65,43 @@ const PersonalCard = ({ personalQuality, onSwipeOut, onReset, firstIndex, caterg
             onDragEnd={() => onSwipeOut(personalQuality.index, x)}
             id={`personal_card_${personalQuality.index}`}
         >
-            <div className="title">
+            <div className="inner_card_front" ref={innerCardFrontRef}>
+                <div className="title">
                 <span>{`${personalQuality.title}`}</span>
-            </div>
-            <GlowingText text={personalQuality.description}></GlowingText>
-            <div className="toggle_messages">
-                <span className="swipe_message">{"<<"} Swipe Right or Left {">>"}</span>
-                <span className="back_to_first_message" onClick={onReset}>Back to First</span>
-            </div>
-            <div className="cover_layer"></div>
-            <div className="background_image">
-                <img src={`${personalQuality.imageSource}`} id={`${personalQuality.uniqueName}`}></img>
-            </div>
-            {personalQuality.multiDescription && 
-                <div>
-                    {personalQuality.multiDescription.map((oneCert : certInfo, index : number) => {
-                        return (
-                            <div>
-                                <span className="cert_title">{oneCert.title}</span>
-                                <a className="cert_share_link" href={`${oneCert.credentialLink}`}></a>
-                                <span className="cert_image">
-                                    <img src={`${oneCert.imageSource}`}></img>
-                                </span>
-                            </div>
-                        )
-                    })}
                 </div>
-            }
+                <GlowingText text={personalQuality.description}></GlowingText>
+                <div className="toggle_messages">
+                    <span className="swipe_message">{"<<"} Swipe Right or Left {">>"}</span>
+                    <div className="tap_button_messages">
+                        <span className="back_to_first_message" onClick={onReset}>Back to First</span>
+                        <span className="more_info_message" onClick={()=> flipCard(1)}>Tap for More Info</span>
+                    </div>
+                </div>
+                <div className="cover_layer"></div>
+                <div className="background_image">
+                    <img src={`${personalQuality.imageSource}`} id={`${personalQuality.uniqueName}`}></img>
+                </div>
+                {personalQuality.multiDescription && 
+                    <div>
+                        {personalQuality.multiDescription.map((oneCert : certInfo, index : number) => {
+                            return (
+                                <div>
+                                    <span className="cert_title">{oneCert.title}</span>
+                                    <a className="cert_share_link" href={`${oneCert.credentialLink}`}></a>
+                                    <span className="cert_image">
+                                        <img src={`${oneCert.imageSource}`}></img>
+                                    </span>
+                                </div>
+                            )
+                        })}
+                    </div>
+                }   
+            </div>
+            <div className={`inner_card_back`} ref={innerCardBackRef}>
+                <div className={`inner_card_back_contents_holder ${catergory.toLowerCase()}`}>
+                    <span className="less_info_message" onClick={() => flipCard(0)} ref={showLessButton}>Show Less</span>
+                </div>
+            </div>
             
         </motion.div>
     );

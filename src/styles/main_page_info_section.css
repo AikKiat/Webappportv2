@@ -178,6 +178,7 @@
     width: 100%;
     height: 100%;
     transition: all 0.5s ease;
+    perspective: 1000px;
     /* border: 1px solid #e5ff00; */
  }
 
@@ -192,31 +193,27 @@
     left: 5%;
     width: 90%;
     height: 90%;
-    overflow:hidden;
-    display: flex;
-    flex-direction: column;
-    gap:2rem;
     transition: all 0.5s ease;
+    transform-style: preserve-3d;
+    transform-origin: top;
     /* box-shadow: 0rem 0rem 0rem #e5ff00 , 0rem 0rem 3rem #e5ff00 inset; */
 }
 
 
-/* .quality_card::before{
-    z-index: -1;
-    position: absolute;
-    top:0%;
-    left: 0%;
-    content: "";
-    width: 100%;
-    height: 7%;
-    border-radius: 1rem 0rem 0rem 0rem;
-    background: #60eb75;
-    padding: 0rem;
-    margin: 0rem;
-    box-shadow: 0rem 0rem 1rem #b7ffb9 inset, 0rem 0rem 3rem #95ff00;
-} */
+.inner_card_back{
+    transform: rotateY(180deg);
+    transition: all 0.5s ease-in;
+}
 
-.quality_card .intro_desc{
+.inner_card_front{
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+}
+
+
+.quality_card .inner_card_front .intro_desc{
     position: relative;
     top:0%;
     left: 0%;
@@ -239,12 +236,12 @@
 
 .quality_card.experiences{
     /* background: #60eb757f; */
-    box-shadow: 0rem 0rem 3rem #60eb75 inset;
+    box-shadow: 0rem 0rem 3rem #60eb75 inset, 0rem 0rem 1rem #5c5c5c;
 }
 
 .quality_card.leadership{
     /* background: #6095eb3a; */
-    box-shadow: 0rem 0rem 3rem #6095eb inset;
+    box-shadow: 0rem 0rem 3rem #6095eb inset, 0rem 0rem 1rem #5c5c5c;
 }
 
 .quality_card_behind{
@@ -289,9 +286,9 @@
 
 
 
-.quality_card .title{
+.inner_card_front .title{
     position: relative;
-    top: -3%;
+    top: 0%;
     left: 0%;
     width: 100%;
     height: fit-content;
@@ -304,11 +301,11 @@
     box-shadow: 2rem 2rem 3rem #ffffffbf inset, 0rem 0rem 0.1rem 0.2rem #f7f7f785, 0.3rem 0.3rem 1rem #121212;
 }
 
-.quality_card .toggle_messages{
+.inner_card_front .toggle_messages{
     z-index: 1;
     position: absolute;
     right: 0%;
-    bottom: 0%;
+    bottom: 5%;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -328,22 +325,48 @@
     box-shadow: 0rem 0rem 0.5rem #121212;
 }
 
-.toggle_messages .back_to_first_message{
+.toggle_messages .tap_button_messages{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    justify-content: space-around;
+
+}
+
+.tap_button_messages .more_info_message{
     align-self: center;
     margin: 0.5rem 0rem 1rem 0rem;
     padding: 0.5rem 1rem;
     width: fit-content;
-    background: #ff9d006e;
+    background: #9d00ff6e;
     backdrop-filter: blur(1.0rem);
     position: relative;
     bottom: 0%;
     left: 0%;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     border-radius: 0.5rem;
     box-shadow: 0.3rem 0.3rem 1rem #5c5c5c, 0.3rem 0.3rem 1rem #ffffff8b inset;
 }
 
-.quality_card .cover_layer{
+.tap_button_messages .back_to_first_message{
+    align-self: center;
+    margin: 0.5rem 0rem 1rem 0rem;
+    padding: 0.5rem 1rem;
+    width: fit-content;
+    background: #c3ff006e;
+    backdrop-filter: blur(1.0rem);
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0.3rem 0.3rem 1rem #5c5c5c, 0.3rem 0.3rem 1rem #ffffff8b inset;
+}
+
+.quality_card .inner_card_front .cover_layer{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -352,7 +375,7 @@
     opacity: 0;
 }
 
-.quality_card .background_image{
+.quality_card .inner_card_front .background_image{
     z-index: -2;
     position: absolute;
     top: 0%;
@@ -361,7 +384,7 @@
     height: 100%;
 }
 
-.quality_card .background_image img{
+.quality_card .inner_card_front .background_image img{
     position: absolute;
     opacity: 0.2;
     top: 0%;
@@ -387,3 +410,69 @@
     object-fit: contain;
 }
 
+
+.inner_card_back, .inner_card_front{
+    z-index: 1;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: inherit;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+
+.quality_card .inner_card_back{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+    background: var(--background-color);
+}
+
+.inner_card_back_contents_holder{
+    z-index: 1;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.inner_card_back_contents_holder.leadership{
+    background: #6095eb45;
+    box-shadow: 0rem 0rem 3rem #6095eb inset;
+}
+
+.inner_card_back_contents_holder.experiences{
+    background: #60eb7551;
+    box-shadow: 0rem 0rem 3rem #60eb75 inset;
+}
+
+.inner_card_back_contents_holder.education{
+    background: #db60eb4d; 
+    box-shadow: 0rem 0rem 3rem #db60eb inset;
+}
+
+.less_info_message{
+    opacity: 0;
+    align-self: center;
+    margin: 0.5rem 0rem 1rem 0rem;
+    padding: 0.5rem 1rem;
+    width: fit-content;
+    background: #9d00ff6e;
+    backdrop-filter: blur(1.0rem);
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0.3rem 0.3rem 1rem #5c5c5c, 0.3rem 0.3rem 1rem #ffffff8b inset;
+}
