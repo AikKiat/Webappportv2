@@ -1,6 +1,6 @@
 
 import { useEffect, useRef, useState } from "react";
-import { ProjectNames, ProjectDescriptions } from "../../../../enums/word_paragraphs";
+import { projects } from "../../../../constants/constants";
 import {motion} from "motion/react";
 
 
@@ -19,7 +19,12 @@ interface ProjectsDrawerProps{
 
 export default function ProjectsDrawer(props : ProjectsDrawerProps){
 
-    const projectNamesArray = Object.keys(ProjectNames) as Array<keyof typeof ProjectNames>;
+    // const projectNamesArray = Object.keys(ProjectNames) as Array<keyof typeof ProjectNames>;
+
+    let projectNamesArray : string[] = [];
+    projects.map((project, index) => {
+        projectNamesArray = [...projectNamesArray, project.name];
+    })
 
     const nextIndexRef = useRef<number>(-1);
     const projectCardsRef = useRef<HTMLDivElement[]>([]);

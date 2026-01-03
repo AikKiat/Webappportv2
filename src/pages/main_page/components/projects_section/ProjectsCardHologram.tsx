@@ -2,10 +2,9 @@
 
 
 import ProjectInformation from "./ProjectInformation";
-import { ProjectDescriptions, ProjectNames } from "../../../../enums/word_paragraphs";
+import type { project } from "../../../../constants/constants";
+import { projects } from "../../../../constants/constants";
 import { useEffect, useRef, useState } from "react";
-
-import knowingYourselfImage from "../../../../assets/info_img.svg";
 
 
 interface ProjectsCardHologramProps{
@@ -16,10 +15,6 @@ interface ProjectsCardHologramProps{
 }
 
 export function ProjectsCardHologram({closeFromProjectCard, setCloseFromProjectCard, currentIndex} : ProjectsCardHologramProps){
-
-
-    const projectNamesArray = Object.keys(ProjectNames) as Array<keyof typeof ProjectNames>;
-    const projectDescriptionArray = Object.values(ProjectDescriptions);
 
     const emitterPlatformRef = useRef<HTMLDivElement>(null);
     const emitterRef = useRef<HTMLDivElement>(null);
@@ -96,17 +91,22 @@ export function ProjectsCardHologram({closeFromProjectCard, setCloseFromProjectC
     return (
         <div className="projects_card_showcase">
             <div className={`project_information_card_holder`} ref={projectCardRef}>
-            {projectNamesArray.map((projectName : string, index : number) =>{
-                let projectDescription : string = projectDescriptionArray[index];
+            {projects.map((project : project, index : number) =>{
                 if(currentIndex === index){
                         return (
                         <ProjectInformation 
-                            projectDescription={projectDescription} 
-                            projectName={projectName} 
-                            projectImage={knowingYourselfImage} 
+                            projectDescription={project.description} 
+                            projectName={project.name} 
+                            projectLongerDescription={project.longerDescription}
+                            projectImage={project.imageSource} 
+                            videoSource={project.videoSource}
+                            imageCollage={project.imageCollage}
+                            videoCollage={project.videoCollage}
+                            techstack={project.techstack}
                             isPastSelectedProject={currentIndex===index} 
                             sendCloseSignalParent={handleCloseSignalFromChild}
                             closeFromProjectCardCurrentVal={closeFromProjectCard}
+                            uniqueIdName={project.uniqueIdName}
                             >
                         </ProjectInformation>
                     )

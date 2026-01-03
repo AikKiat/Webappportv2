@@ -431,7 +431,7 @@
     left: 0%;
     width: 100%;
     height: 100%;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
     background: var(--background-color);
 }
 
@@ -459,6 +459,15 @@
 .inner_card_back_contents_holder.education{
     background: #db60eb4d; 
     box-shadow: 0rem 0rem 3rem #db60eb inset;
+}
+
+.inner_card_back_contents_holder .more_information{
+    padding: 2rem;
+    font-size: 1.2rem;
+}
+
+.more_information .intro_desc{
+    font-size: 1.3rem;
 }
 
 .less_info_message{

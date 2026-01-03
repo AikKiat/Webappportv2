@@ -1,9 +1,18 @@
+import { image } from "motion/react-client";
+import GlowingText from "../info_section/GlowingText";
+import { useState } from "react";
 
 
 interface projectInformationProps{
+    uniqueIdName : string,
     projectImage : string,
     projectName : string,
     projectDescription : string,
+    projectLongerDescription : string,
+    videoSource : string | null,
+    imageCollage : string[] | null,
+    videoCollage : string[] | null,
+    techstack : string[] | null,
     isPastSelectedProject : boolean,
     closeFromProjectCardCurrentVal : number,
     sendCloseSignalParent : (data : number) => void
@@ -11,6 +20,8 @@ interface projectInformationProps{
 
 
 export default function ProjectInformation(props : projectInformationProps){
+
+    const [currentGraphicElementIndex, setCurrentGraphicElementIndex] = useState<number>(0);
 
     const additionalStyle : React.CSSProperties = {
         animation: `${props.isPastSelectedProject? "spinout_anim 0.05s linear forwards" : "none"}`
@@ -22,19 +33,75 @@ export default function ProjectInformation(props : projectInformationProps){
         }
     }
 
+    let imageVideoCollage : string[] | null = null;
+    if(props.imageCollage && props.videoCollage){
+        imageVideoCollage = props.imageCollage.concat(props.videoCollage);
+    }
+    else if (props.imageCollage){
+        imageVideoCollage = props.imageCollage;
+    }
+    else if(props.videoCollage){
+        imageVideoCollage = props.videoCollage;
+    }
+
+    function handleSelectNext(){
+        if(!imageVideoCollage){
+            return;
+        }
+        setCurrentGraphicElementIndex(prev => (prev+1 > imageVideoCollage.length-1 ? 0 : prev+1))
+    }
+
+    function handleSelectBefore(){
+        if(!imageVideoCollage){
+            return;
+        }
+        setCurrentGraphicElementIndex(prev => (prev-1 < 0 ? imageVideoCollage.length-1 : prev-1))
+    }
+
     return (
-        <div className="project_information_card" style={additionalStyle}>
-            <div className="image_holder">
-                <img src={props.projectImage}></img>
-            </div>
+        <div className={`project_information_card ${props.uniqueIdName}`} style={additionalStyle}>
+                {imageVideoCollage && <div className="image_holder">
+                    <div className="select_next" onClick={()=> handleSelectNext()}>
+                        <span>{">"}</span>
+                    </div>
+                    <div className="select_before"onClick={() => handleSelectBefore()}>
+                        <span>{"<"}</span>
+                    </div>
+                    <div  className={`graphic_element ${props.uniqueIdName}`}>
+                        { (() => {
+                            console.log(imageVideoCollage);
+                            let currentGraphicElement : string = imageVideoCollage[currentGraphicElementIndex];
+                            if(currentGraphicElement.slice(0,3) === "htt"){
+                                return (
+                                    <iframe
+                                    src={`${currentGraphicElement}`} id={`id_${currentGraphicElementIndex}`}>
+                                    </iframe>
+                                )
+                            }  
+                            else{
+                                return (
+                                    <img className={`image`}src={`${currentGraphicElement}`} id={`id_${currentGraphicElementIndex}`}></img>
+                                )
+                            }
+                        })()
+                        }
+                    </div>
+                </div>}
             <div className="text_holder">
-                <span id="title">{props.projectName}</span>
-                <p id="project_description">{props.projectDescription}</p>
+                <span className="title">{props.projectName}</span>
+                <GlowingText text={props.projectDescription}></GlowingText>
             </div>
             <div className="close_button" onClick={() => {handleCloseFromProjectCardState()}}>
                 <span id="close_left_bar"></span>
                 <span id="close_right_bar"></span>
             </div>
+            {props.techstack && <div className="techstack">
+                {props.techstack.map((technology : string, index : number) => {
+                    return (
+                        <img src={`${technology}`}></img>
+                    )
+                })}
+            </div>}
         </div>
     )
 }

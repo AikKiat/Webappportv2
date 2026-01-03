@@ -1,7 +1,7 @@
 
 
 import React, { useEffect, useRef, useState } from "react";
-import {type certInfo, type personal } from "../../../../enums/word_paragraphs"
+import {type certInfo, type personal } from "../../../../constants/constants"
 import GlowingText from "./GlowingText";
 
 import {motion, MotionValue, transform, useMotionValue, useTransform} from "motion/react";
@@ -73,8 +73,8 @@ const PersonalCard = ({ personalQuality, onSwipeOut, onReset, firstIndex, caterg
                 <div className="toggle_messages">
                     <span className="swipe_message">{"<<"} Swipe Right or Left {">>"}</span>
                     <div className="tap_button_messages">
-                        <span className="back_to_first_message" onClick={onReset}>Back to First</span>
-                        <span className="more_info_message" onClick={()=> flipCard(1)}>Tap for More Info</span>
+                        {personalQuality.index !== 0 && <span className="back_to_first_message" onClick={onReset}>Back to First</span>}
+                        {personalQuality.longerDescription && <span className="more_info_message" onClick={()=> flipCard(1)}>Tap for More Info</span>}
                     </div>
                 </div>
                 <div className="cover_layer"></div>
@@ -99,6 +99,9 @@ const PersonalCard = ({ personalQuality, onSwipeOut, onReset, firstIndex, caterg
             </div>
             <div className={`inner_card_back`} ref={innerCardBackRef}>
                 <div className={`inner_card_back_contents_holder ${catergory.toLowerCase()}`}>
+                    {personalQuality.longerDescription && <div className="more_information">
+                        <GlowingText text={personalQuality.longerDescription}></GlowingText>  
+                    </div>}
                     <span className="less_info_message" onClick={() => flipCard(0)} ref={showLessButton}>Show Less</span>
                 </div>
             </div>
@@ -145,7 +148,7 @@ export default function InfoCard({cardsRef, cardsFrontBehindRef, infoDescription
                     return;
                 }
                 setcurrentList(originalList.current);
-            }, 250);
+            }, 150);
         }
     }, [currentList]);
 

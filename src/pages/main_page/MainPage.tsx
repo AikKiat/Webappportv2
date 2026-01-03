@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef, useCallback, type JSX } from "react";
-import {IntroTexts} from "../../enums/word_paragraphs";
+import {IntroTexts} from "../../constants/constants";
 
 
 
-import { personalQualities, type personal } from "../../enums/word_paragraphs";
+import { personalQualities, type personal } from "../../constants/constants";
 
 import "../../styles/main_page_projects_section.css";
 import "../../styles/main_page_intro_section.css";
@@ -15,14 +15,14 @@ import {useAnimateOnScroll} from "../../hooks/useAnimateOnScroll";
 
 
 //Assets
-import knowingYourselfImage from "../../assets/info_img.svg";
+import knowingYourselfImage from "../../assets/icons/info_img.svg";
 
 //Components for Info section
 import InfoCard from "./components/info_section/InfoCard";
 import GlowingText from "./components/info_section/GlowingText";
 
-import {skills} from "../../enums/word_paragraphs";
-import type { skill } from "../../enums/word_paragraphs";
+import {skills} from "../../constants/constants";
+import type { skill } from "../../constants/constants";
 
 
 

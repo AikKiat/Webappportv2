@@ -132,7 +132,7 @@
     align-items: center;
     position: absolute;
     top: 30%;
-    left: 30%;
+    left: 25%;
     width: 30rem;
     height: 30rem;
     transform: preserve-3d;
@@ -148,9 +148,9 @@
 .projects_card_showcase{
     position: absolute;
     top: 10%;
-    right: 20%;
-    width: 40rem;
-    height: 50rem;
+    right: 10%;
+    width: 60rem;
+    height: 60rem;
     perspective: 2500px;
     transform: preserve-3d;
     display: flex;
@@ -202,7 +202,7 @@
     width: 30rem;
     height: 10rem;
     bottom: 15%;
-    left: 11%;
+    left: 22%;
     opacity: 0.8;
     clip-path: polygon(0 0, 100% 0, 50% 100%, 50% 100%);
     animation: hologram_wave 0.05s ease-in-out infinite;
@@ -306,23 +306,154 @@
     }
 }
 
+
+
 .project_information_card .image_holder{
     position: relative;
+    top: 0%;
+    left: 0%;
     width: 90%;
+    height: 90%;
     flex: 2;
     overflow: hidden;
 }
 
-.image_holder img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.project_information_card.smarthealth{
+    display: flex;
+    flex-direction: row;
 }
 
+.project_information_card.aidrm{
+    display: flex;
+    flex-direction: row;
+}
+
+.project_information_card.tall{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.graphic_element{
+    position: absolute;
+    top:0%;
+    left:0%;
+    width: 100%;
+    height: 100%;
+    /* background: #de1b1b; */
+}
+
+.image_holder .graphic_element img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+
+/*math massacre Graphics*/
+.graphic_element.mm{
+
+}
+
+/*Smarthealth graphics*/
+.graphic_element.smarthealth{
+
+}
+
+/*Tall graphics*/
+.graphic_element.tall{
+
+}
+
+.image_holder:hover .select_next{
+    right: 0%;
+}
+.image_holder:hover .select_before{
+    left: 0%;
+}
+
+
+.select_next, .select_before{
+    position: absolute;
+    z-index: 1;
+    right: -20%;
+    top: 45%;
+    width: 4rem;
+    height: 4rem;
+    background: #fbffb878;
+    backdrop-filter: blur(0.3rem);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0rem 0rem 1rem #ffffff inset, 0rem 0rem 1rem #131313 inset, 0rem 0rem 1rem #131313;
+    transition: all 0.5s ease;
+}
+
+.select_before{
+    left: -20%;
+}
+
+.select_next span, .select_before span{
+    z-index: -1;
+    text-align: center;
+    padding-bottom: 0.5rem;
+}
+
+
+
+
+
+
 .project_information_card .text_holder{
+    margin-bottom: 10%;
+    position: relative;
+    top: 0%;
+    left: 0%;
     width: 100%;
     flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     /* background: #428eff; */
+}
+
+.text_holder .title{
+    font-size: 1.5rem;
+    font-weight: 1000;
+}
+
+.text_holder .intro_desc{
+    font-size: 1.3rem;
+}
+
+
+.project_information_card .techstack{
+    padding: 1rem;
+    margin: 3%;
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    width: fit-content;
+    max-width: 45%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    background: #e4e41039;
+    border-radius: 2rem;
+    backdrop-filter: blur(1.0rem);
+    gap: 1rem;
+    flex-wrap: wrap;
+    box-shadow: 0rem 0rem 0.1rem 1rem #e4e41039, 0rem 0rem 0.1rem 0.2rem #1313135a;
+}
+
+.techstack img{
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
 }
 
 .project_information_card .close_button{
