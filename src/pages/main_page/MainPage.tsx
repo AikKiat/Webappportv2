@@ -38,10 +38,6 @@ export default function MainPage(){
     const cardsFrontBehindRef = useRef<HTMLDivElement[]>([]);
     const cardsRef = useRef<HTMLDivElement[]>([]);
 
-    const personalCardsRefLeadershipDeck = useRef<HTMLDivElement[]>([]);
-    const personalCardsRefExperienceDeck = useRef<HTMLDivElement[]>([]);
-    const personalCardsRefEducationDeck = useRef<HTMLDivElement[]>([]);
-
 
     //Projects Section
     const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -110,7 +106,7 @@ export default function MainPage(){
         useBetterScroll();
     },[])
 
-    const reinitAnimations = useAnimateOnScroll({
+    useAnimateOnScroll({
         cardContainer: cardContainerRef,
         cardsFrontBehind: cardsFrontBehindRef,
         cards: cardsRef,

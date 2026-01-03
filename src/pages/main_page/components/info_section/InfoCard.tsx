@@ -1,7 +1,7 @@
 
 
 import React, { useEffect, useRef, useState } from "react";
-import {type personal } from "../../../../enums/word_paragraphs"
+import {type certInfo, type personal } from "../../../../enums/word_paragraphs"
 import GlowingText from "./GlowingText";
 
 import {motion, MotionValue, useMotionValue, useTransform} from "motion/react";
@@ -15,14 +15,14 @@ interface PersonalCardProps {
     catergory : string
 }
 
-const PersonalCard = ({ personalQuality, onSwipeOut, onReset, firstIndex, catergory }: PersonalCardProps) => {
+const PersonalCard = ({ personalQuality, onSwipeOut, onReset, firstIndex, catergory}: PersonalCardProps) => {
     const x = useMotionValue(0);
     const translateMorph = useTransform(x, [-150, 150], [-18, 18]);
 
 
     let opacityMorph = null;
     if(firstIndex === personalQuality.index){
-        opacityMorph = useTransform(x, [-150, 0, 150], [0, 1, 0]);
+        opacityMorph = useTransform(x, [-350, 0, 350], [0, 1, 0]);
     }
     else{
         opacityMorph = useTransform(x, [-150, 0, 150], [0, 0, 0]);
@@ -46,12 +46,34 @@ const PersonalCard = ({ personalQuality, onSwipeOut, onReset, firstIndex, caterg
             onDragEnd={() => onSwipeOut(personalQuality.index, x)}
             id={`personal_card_${personalQuality.index}`}
         >
-            <span className="title">{`- ${personalQuality.title}`}</span>
+            <div className="title">
+                <span>{`${personalQuality.title}`}</span>
+            </div>
             <GlowingText text={personalQuality.description}></GlowingText>
             <div className="toggle_messages">
                 <span className="swipe_message">{"<<"} Swipe Right or Left {">>"}</span>
                 <span className="back_to_first_message" onClick={onReset}>Back to First</span>
             </div>
+            <div className="cover_layer"></div>
+            <div className="background_image">
+                <img src={`${personalQuality.imageSource}`} id={`${personalQuality.uniqueName}`}></img>
+            </div>
+            {personalQuality.multiDescription && 
+                <div>
+                    {personalQuality.multiDescription.map((oneCert : certInfo, index : number) => {
+                        return (
+                            <div>
+                                <span className="cert_title">{oneCert.title}</span>
+                                <a className="cert_share_link" href={`${oneCert.credentialLink}`}></a>
+                                <span className="cert_image">
+                                    <img src={`${oneCert.imageSource}`}></img>
+                                </span>
+                            </div>
+                        )
+                    })}
+                </div>
+            }
+            
         </motion.div>
     );
 }
@@ -87,6 +109,15 @@ export default function InfoCard({cardsRef, cardsFrontBehindRef, infoDescription
         if(currentList && currentList.length > 0){
             setFirstIndex(currentList[0].index);
         }
+
+        if(currentList && currentList.length == 0){
+            setTimeout(() => {
+                    if(!originalList.current){
+                    return;
+                }
+                setcurrentList(originalList.current);
+            }, 250);
+        }
     }, [currentList]);
 
 
@@ -118,18 +149,24 @@ export default function InfoCard({cardsRef, cardsFrontBehindRef, infoDescription
             </div>
             <div className="card_front_behind" id={`behind_${index}`} ref={(el) => { if (el) cardsFrontBehindRef.current[index] = el; }}></div>
             <div className="card_back">
-                <span className="card_back_desc">{infoDescription}</span>
+                <div className="card_back_desc">
+                    <span>{infoDescription}</span>
+                </div>
                 <div className="qualities_list">
                     {currentList && [...currentList].reverse().map((personalQuality: personal) => {
                         return (
-                        <PersonalCard
-                            key={personalQuality.index}
-                            personalQuality={personalQuality}
-                            onSwipeOut={handleCardSwipedOut}
-                            onReset={resetCardList}
-                            firstIndex={firstIndex}
-                            catergory={infoDescription.toLowerCase()}
-                        />
+                        <>
+                            <PersonalCard
+                                key={personalQuality.index}
+                                personalQuality={personalQuality}
+                                onSwipeOut={handleCardSwipedOut}
+                                onReset={resetCardList}
+                                firstIndex={firstIndex}
+                                catergory={infoDescription.toLowerCase()}
+                            />
+                            <div className={`quality_card_behind ${infoDescription.toLowerCase()}`}></div>
+                        </>
+                        
                     )})}
                 </div>
             </div>

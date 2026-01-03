@@ -132,22 +132,48 @@ export const skills : skill[] = [
     }
 ]
 
+import React from "../assets/images/dell_inno_1.png"
+
 export interface personal{
+    uniqueName : string,
     index : number,
     title : string,
-    description : string
+    description : string,
+    imageSource : string | null,
+    multiDescription : certInfo[] | null
+}
+
+export interface certInfo{
+    title : string,
+    credentialLink : string,
+    imageSource : string
 }
 
 const leadership : personal[] = [
     {
         index : 0,
         title : "President, Unreal Enthusiasts Interest Group",
-        description : "-Led workshops on 3D Digital Art, VR and Animation.\n-Hosted Projects during key events such as Open House."
+        description : "Led workshops on 3D Digital Art, VR and Animation.\n-Hosted Projects during key events such as Open House.",
+        imageSource : "src/assets/images/ue.png",
+        multiDescription : null,
+        uniqueName : "ueig"
     },
     {
         index : 1,
         title : "University Ambassador",
-        description: "- Conducted School tours for visitors during Open House.\n- Consultant for candidates' enquiries during SUTD Admissions Interview.\n- Welcomed potential students during for Offer Receptions."
+        description: "Conducted School tours for visitors during Open House.\n- Consultant for candidates' enquiries during SUTD Admissions Interview.\n- Welcomed potential students during for Offer Receptions.",
+        imageSource : "src/assets/images/sutd_logo.png",
+        multiDescription : null,
+        uniqueName : "ua"
+    },
+    {
+        index : 2,
+        title : "Teaching Assistant, at SUTD-SST Big D Camp 2025",
+        description : "Created technical lesson manuals, mentored a team of 4 secondary school students from School of Science and Technology, building an Arduino robot controllable via Bluetooth.",
+        // description : "Created technical lesson manuals, mentored a team of 4 secondary school students from School of Science and Technology, building an Arduino robot for mass object retrieval simulating a disaster aftermath, controllable via Bluetooth. Helped various teams diagnose errors, and produced lesson content and material for setting up the HC05 Bluetooth module. Personally mentored team won Best Team Spirit Award.",
+        imageSource : "src/assets/images/sutd_bigd.png",
+        multiDescription : null,
+        uniqueName : "sutdbigd"
     }
 ]
 
@@ -155,32 +181,56 @@ const experiences : personal[] = [
     {
         index : 0,
         title : "Product Engineering Intern, Asset Development, Next Open Innovation (NCS)",
-        description: "- Created a fullstack AI-Driven Resource Monitoring System to Streamline Baggage Handling at Airports via Robotics Autonomous Systems."
-        
-        // \n- Picked key concepts of both Product and Software Engineering, such as identifying from the broad perspective how a software solution could be applied, defining the key attributes and then delving into System Design by creating a modular, cleanly layered Solution, scalable and expandable.\n- For more info, look into the Projects Section."
+        // description: "Created a fullstack AI-Driven Resource Monitoring System to Streamline Baggage Handling at Airports via Robotics Autonomous Systems. Key concepts of both Product & Software Engineering such as problem definition and user focused solutioning, followed by creating the actual fullstack system with a modular, cleanly layered software architecture. For more info, look into the Projects Section.",
+        description : "Created a fullstack AI-Driven Resource Monitoring System to Streamline Baggage Handling at Airports via Robotics Autonomous Systems. Designed backend system and improved scalability with measured performance metrics.",
+        imageSource : "src/assets/images/ncs.png",
+        multiDescription : null,
+        uniqueName : "ncs"
     },
     {
         index : 1,
-        title : "DellInnovateFest 2025 Hackathon",
-        description: "- A memorable, and truly meaningful 1-month long hackathon focusing on developing a software solution to alleviate the mental health situation amongst teenagers in Singapore."
-        
-        
-        // \n- Worked with key organisations such as Singapore Association of Mental Health (SAMH) to hone in on the key problem areas and fine-tune our target audience as well as their needs.\n - Emerged as one of the finalist teams, fruitful experience in highighting how a meticulous and sincere dendeavour to aid a demographic is truly possible with our technical expertise in Software Engineering."
+        title : "DellInnovateFest 2025",
+        description: "A memorable 1-month long hackathon hosted by Dell Technologies, representing SUTD as a finalist team, and built a software solution after weeks of heartfelt solutioning, to alleviate the mental health situation amongst teenagers in Singapore.",
+        // description: "A memorable 1-month long hackathon hosted by Dell Technologies, representing SUTD as a finalist team, and built a software solution after weeks of heartfelt solutioning, to alleviate the mental health situation amongst teenagers in Singapore. Worked with Singapore Association of Mental Health (SAMH) for problem definition & emotional journey of teenagers. Truly fruitful in building software products for the good of society, through meticulous, heartfelt solutioning.",
+        imageSource : "src/assets/images/dell_inno_1.png",
+        multiDescription : null,
+        uniqueName : "dellhackathon"
     }
 ]
+
+const certs : certInfo[] = [
+    {
+        title : "Kubernetes Fundamentals by Dell Technologies",
+        credentialLink : "https://www.credential.net/20183594-eae5-4c8a-8efb-43bd9e39d1d1#acc.QXurKeZ5",
+        imageSource : "src/assets/images/kubernetes_cert.png"
+    },
+    {
+        title : "Docker Fundamentals by Dell Technologies",
+        credentialLink : "https://www.credential.net/502de10a-26ac-4bdc-94b5-9f8f09262616#acc.Gf60axNS",
+        imageSource : "src/assets/images/docker_cert.png"
+    }
+]
+
 
 const education : personal[] = [
     {
         index : 0,
         title : "Year 3 Computer Science @SUTD",
-        description : "Currently pursuing a BEngg in Computer Science, Singapore University of Technology and Design. Taking on a minor in AI, and also currently taking more courses in Security (Network and System Security) to further expand my knowledge."
+        description : "Currently pursuing a BEngg in Computer Science, Singapore University of Technology and Design. Taking on a minor in AI, and also currently taking more courses in Security (Network and System Security) to further expand my knowledge.",
+        imageSource : "src/assets/images/sutd_logo.png",
+        multiDescription : null,
+        uniqueName : "cssutd"
     },
     {
         index : 1,
         title : "Certifications",
-        description: "View my Certifications here."
+        description: "My Various Certifications",
+        imageSource: null,
+        multiDescription : certs,
+        uniqueName : "certs"
     }
 ]
+
 
 export const personalQualities = {
     leadership : leadership,

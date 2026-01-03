@@ -96,7 +96,6 @@ export const useAnimateOnScroll = (elements: AnimationElements) => {
             gsap.to(".info_card", {
                 rotationY: 180,
                 duration: 0.85,
-                border : "solid 0.1rem #2d2d2dff",
                 boxShadow: "none",
                 borderRadius : "1rem",
                 ease: "power3.out",
