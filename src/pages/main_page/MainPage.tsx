@@ -50,38 +50,6 @@ export default function MainPage(){
     const childRefButtonleft = useRef<HTMLDivElement>(null);
     const childRefButtonRight = useRef<HTMLDivElement>(null);
 
-    const skillIndexFocusedRef = useRef(-1);
-
-    //Skills Section
-    const glowingTextRef = useRef<HTMLDivElement>(null);
-    const [currentSkillDesc, setCurrentSkillDesc] = useState<string>("");
-    
-    function handleSkillFocused(index : number){
-        skillIndexFocusedRef.current = index
-        showSkillDescription();
-    }
-
-    function showSkillDescription(){
-        let left : number = 0;
-        let right : number = skills.length;
-        while (left < right){
-            console.log("running!");
-            let middle : number = Math.floor((left + right) / 2);
-            if (skillIndexFocusedRef.current > middle){
-                left = middle;
-            }
-            else if (skillIndexFocusedRef.current < middle){
-                right = middle;
-            }
-            else{
-                //we found it
-                console.log(middle);
-                setCurrentSkillDesc(skills[middle].description);
-                return;
-            }
-        }
-    }
-
 
     function setDrawerFrontRef(data : HTMLDivElement){
         childRefDrawerFront.current = data;
@@ -103,6 +71,7 @@ export default function MainPage(){
     }
 
     useEffect(()=>{
+        setCurrentIndex(1);
         useBetterScroll();
     },[])
 
@@ -166,6 +135,8 @@ export default function MainPage(){
                             personalQualities={personalQualities.education}
                             >
                         </InfoCard>
+                        <div className="cover_box_1"></div>
+                        <div className="cover_box_2"></div>
                 </div>
             </div>
 
@@ -190,17 +161,13 @@ export default function MainPage(){
                     <span>Skills</span>
                 </div>
                 <div className="skills_icons_desc_holder">
-                    <div className={`skill_brief_desc ${currentSkillDesc === "" ? "hidden" : "shown"}`}>
-                        <GlowingText text={currentSkillDesc}></GlowingText>
-                    </div>
                     <div className="skills_grid">
                     {skills.map((skill : skill, index : number) => {
                         const style : React.CSSProperties = {
                             background: skill.color
                         }
                         return (
-                            <div className="skill_item_holder" onMouseEnter={() =>handleSkillFocused(index)} onMouseLeave={() => setCurrentSkillDesc("")
-                                }>
+                            <div className="skill_item_holder">
                                  <div className={`skill_item`}>
                                     <span className={`description`}>{skill.name}</span>
                                     <div className={`skill_image`}>

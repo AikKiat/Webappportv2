@@ -82,7 +82,6 @@ export interface skill {
     logo : string
     name : string
     color : string
-    description : string
 }
 
 export const skills : skill[] = [
@@ -90,98 +89,118 @@ export const skills : skill[] = [
         logo: "src/assets/icons/react_black.png",
         name: "React",
         color: "#2eb6ffff",
-        description: "Have been using React as the core frontend framework for my fullstack projects, such as the latest **Hotel Booking System**, **AI-Driven Resource Monitor** and this **Portfolio Website**. Learning Typescript in conjunction with how it works."
     },
     {
         logo: "src/assets/icons/ts_black.png",
         name: "TypeScript",
         color: "#3090fdff",
-        description : "Used Typescript as the frontend language for my recent fullstack **AI-Driven Resource Monitor**, as part of my **internship project**. Currently using it as the core language coupled with React, to muster coding it effectively."
     },
     {
         logo: "src/assets/icons/js_black.png",
         name: "JavaScript",
         color: "#fff75bff",
-        description : "**First** frontend language that was picked up alongside HTML and CSS fundamentals, and used it for the first **Portfolio Website** as well as the recent **Hotel Booking System** (Come Fly with me)."
     },
     {
         logo: "src/assets/icons/python_black.png",
         name: "Python",
         color: "#edff95ff",
-        description : "First coding language that I learnt, and used extensively in many projects big and small. Recently used it as the entire base for the **AI-Driven Resource Monitor**ing System during my internship, via FastAPI framework and Uvicorn. My familiarity with the syntax allowed me create and iterate quickly, following my own Sprint Timeline to ensure that quick updates were given to the team."
     },
     {
         logo: "src/assets/icons/java_black.png",
         name: "Java",
         color:"#ff9a48ff",
-        description: "Used Java in a number of projects ranging from **SmartHealth** to my own personal SpringBoot projects. Currently learning it as part of my Microservices course and SpringBoot project to create a Netflix lookalike."
+    },
+    {
+        logo: "src/assets/icons/kt_black.png",
+        name: "Kotlin",
+        color:"#c130ffff",
     },
     {
         logo: "src/assets/icons/html5_black.png",
         name: "HTML5",
         color:"#ff5622ff",
-        description : "Learnt HTML5 start of this year to create my first web portfolio. Since then, have been using it alongside CSS in all of my fullstack projects be it personal, internship or school."
     },
     {
         logo: "src/assets/icons/html5_black.png",
         name: "CSS",
         color: "#3654ffff",
-        description : "Have used this alongside HTML5 as the key to displaying graphics on-screen. Always fascinated by the sheer variety of splendid imagery that can be created with just a stylesheet, and I enjoy exploring interesting designs in my own free time."
     },
     {
         logo: "src/assets/icons/spring_black.png",
         name: "Spring Boot",
         color:"#00b561ff",
-        description: "Used Java Spring Ecosystem as the main core of **SmartHealth**'s backend server, and am currently learning more using Spring in my personal project to create a Netflix lookalike and Microservices course."
     },
     {
         logo: "src/assets/icons/docker_black.png",
         name: "Docker",
         color:"#488bffff",
-        description : "Used Docker in a number of my recent projects, from the **Hotel Booking System**, containering the respective system components during my internship."
+    },
+    {
+        logo: "src/assets/icons/k8s_black.png",
+        name: "Kubernetes",
+        color:"#488bffff",
     },
     {
         logo: "src/assets/icons/psql_black.png",
         name: "PostgreSQL",
         color: "#0195ffff",
-        description : "Relational Database used in many projects from **SmartHealth**, to my recent Internship as well as my own personal projects."
     },
     {
         logo: "src/assets/icons/mysql_black.png",
         name: "MySQL",
         color:"#0080ffff",
-        description : "Relational Database used for my recent **Hotel Booking System** school project, and other assignments in school."
     },
     {
         logo: "src/assets/icons/mongodb_black.png",
         name: "MongoDB",
         color:"#26bb70ff",
-        description: "Document database used both in my personal projects, and school assignments."
     },
     {
         logo: "src/assets/icons/redis_black.png",
         name: "Redis",
         color:"#ff1616ff",
-        description : "Used Redis as the caching strategy for the **AI-Driven Resource Monitor** system during my recent internship, and tabulated the improvements of API response times using Prometheus and Grafana."
-    },
-    {
-        logo: "src/assets/icons/langchain_black.png",
-        name: "LangChain",
-        color:"#009b17ff",
-        description : "Used **Langchain** to create the various functional, LLM nodes for the **AI-Driven Resource Monitor**, and it was very interesting to learn how to invoke the LLM with System Prompts and Human Messages."
-    },
-    {
-        logo: "src/assets/icons/langgraph_black.png",
-        name: "LangGraph",
-        color: "#009b17ff",
-        description : "Used this coupled with Langchain to create the entire **thinking workflow(s)** of the **AI-Driven Resource Monitor** for my recent internship."
     },
     {
         logo: "src/assets/icons/tigerdata_black.png",
         name: "TigerData",
         color:"#ffb71dff",
-        description : "Delved into exploring this database hosting service, to create a **Time-series database** and store time-series data for the **AI-Driven Resource Monitor**, tracking the information from the simulated entities for configurable time intervals. Data was catergorised, organised and sent to the Langchain/Langgraph-powered AI Module to generate analyses."
-    }
+    },
+    {
+        logo: "src/assets/icons/openshift_black.png",
+        name: "Openshift",
+        color:"#ff1d34ff",
+    },
+    {
+        logo: "src/assets/icons/aws_black.png",
+        name: "AWS (S3)",
+        color:"#ffae0dff",
+    },
+    {
+        logo: "src/assets/icons/prometheus_black.png",
+        name: "Prometheus",
+        color:"#ff450dff",
+    },
+    {
+        logo: "src/assets/icons/grafana_black.png",
+        name: "Grafana",
+        color:"#ff9900ff",
+    },
+    {
+        logo: "src/assets/icons/langchain_black.png",
+        name: "LangChain",
+        color:"#009b17ff",
+    },
+    {
+        logo: "src/assets/icons/langgraph_black.png",
+        name: "LangGraph",
+        color: "#009b17ff",
+    },
+    {
+        logo: "src/assets/icons/pandas_black.png",
+        name: "Pandas",
+        color: "#131afeff",
+    },
+
 ]
 
 

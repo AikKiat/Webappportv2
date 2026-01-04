@@ -1,0 +1,563 @@
+
+
+
+@media all and (max-width:1600px){
+
+
+    /* Info Section*/
+
+    .card_container{
+        left: 0%;
+        width: 100%;
+        padding: 0rem 0rem 20rem 5rem;
+    }
+
+    .info_card{
+        width: 40rem;
+        aspect-ratio: 5/8;
+    }
+
+    .card_back .card_back_desc{
+        font-size: 1.2rem;
+        width: fit-content;
+        height: fit-content;
+        padding: 0.5rem;
+    }
+
+    .inner_card_front .title{
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .quality_card .inner_card_front .intro_desc{
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .toggle_messages .swipe_message{
+        font-size: 0.8rem;
+    }
+
+
+    .inner_card_front{
+        gap: 1rem;
+    }
+
+
+    .tap_button_messages .more_info_message{
+        margin: 0rem 0rem 0rem 0rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .tap_button_messages .back_to_first_message{
+        margin: 0.5rem 0rem 1rem 0rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .inner_card_back_contents_holder .more_information .intro_desc{
+        font-size: 1.0rem;
+    }
+
+    .inner_card_back_contents_holder .more_information{
+        padding: 1rem;
+    }
+
+    .less_info_message{
+        font-size: 0.8rem;
+    }
+
+    .background_image #dellhackathon{
+        opacity: 0.3;
+    }
+
+    .background_image #ncs{
+        opacity: 0.5;
+        transform: scale(1.2) translateY(2.0rem);
+        object-fit: cover;
+    }
+
+    /* END Info Section*/
+
+}
+
+@media all and (max-width:1300px){
+
+    /* Info Section*/
+
+    .card_container{
+        left: 0%;
+        width: 100%;
+        padding: 0rem 0.5rem 10rem 5rem;
+    }
+
+    .info_card{
+        width: 100%;
+        aspect-ratio: 5/8;
+    }
+
+    .card_back .card_back_desc{
+        width: fit-content;
+        padding: 0.5rem;
+        height: fit-content;
+        font-size: 1.2rem;
+    }
+
+    .inner_card_front .title{
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .quality_card .inner_card_front .intro_desc{
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .toggle_messages .swipe_message{
+        font-size: 0.8rem;
+    }
+
+    .inner_card_back_contents_holder .more_information .intro_desc{
+        font-size: 0.8rem;
+    }
+}
+
+@media all and (max-width:1000px){
+    .card_container{
+        left: 0%;
+        width: 100%;
+        padding: 0rem 0rem 20rem 5rem;
+    }
+
+    .info_card{
+        aspect-ratio: 5/9;
+    }
+
+    .card_back .card_back_desc{
+        width: fit-content;
+        padding: 0.3rem;
+        height: fit-content;
+        font-size: 1.0rem;
+    }
+
+    .qualities_list .quality_card{
+        top: 3%;
+        left: 3%;
+        width: 93%;
+        height: 93%;
+        /* box-shadow: 0rem 0rem 0rem #e5ff00 , 0rem 0rem 3rem #e5ff00 inset; */
+    }
+
+      .tap_button_messages .more_info_message{
+        align-self: center;
+        text-align: center;
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .tap_button_messages .back_to_first_message{
+        margin: 0.5rem;
+        text-align: center;
+        padding: 0.5rem;
+    }
+
+    /* END Info Section*/
+
+}
+
+@media all and (max-width:900px){
+
+    /* Info Section*/
+
+    .info_card{
+        width: 20rem;
+        aspect-ratio: 5/7;
+        opacity: 1;
+    }
+
+    .card_container{
+        top: 0%;
+        padding-bottom: 20rem;
+        padding-right: 5rem;
+        padding-top: 0rem;
+        justify-content: space-around;
+        transform-style: preserve-3d;
+    }
+
+    .card_container #card_3{
+        opacity: 1;
+        z-index: -1;
+        position: absolute;
+        top: 30%;
+    }
+
+    .card_container #card_3:hover{
+        z-index: 3;
+    }
+
+    .card_container #card_3 .card_back::before{
+        z-index: 2;
+        content: "";
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        transform: scale(1);
+        opacity: 1;
+        border-radius: 1.0rem;
+        backdrop-filter: blur(0.2rem);
+        background:  #fcf5da86;
+        box-shadow: 0rem 0rem 3rem var(--background-color)inset, 0rem 0rem 1rem #9f9f9f;
+        transition: all 0.3s ease;
+    }
+
+    .card_container:has(#card_2:hover, #card_1:hover) #card_3{
+        transform: translateZ(-1.0);
+    }
+
+    .card_container #card_3 .card_back:hover:before{
+        transform: translateZ(-1);
+        position: absolute;
+        opacity: 0;
+        background: var(--background-color);
+        box-shadow:  0rem 1rem #9f9f9f;
+        pointer-events: none;
+    }
+
+    .card_container #card_2 .card_back::before{
+        z-index: 2;
+        transform: translateZ(0);
+        content: "";
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        transform: scale(1);
+        opacity: 1;
+        border-radius: 1.0rem;
+        backdrop-filter: blur(0.2rem);
+        background: #fcf5da86;
+        transition: all 0.3s ease;
+        
+    }
+
+    #card_2 .card_back:hover:before{
+        transform: translateZ(-1);
+        background: transparent;
+        pointer-events: none;
+        backdrop-filter: none;
+    }
+
+
+    .card_container:has(#card_3:hover, #card_1:hover) #card_2 .card_back::before{
+        backdrop-filter: blur(0.2rem);
+        transform: translateZ(1);
+        box-shadow: 0rem 0rem 3rem var(--background-color)inset, 0rem 0rem 1rem #9f9f9f;
+    }
+
+    .card_container:has(#card_3:hover, #card_1:hover) #card_2{
+        transform: translateZ(0);
+    }
+
+    .card_container #card_1 .card_back::before{
+        transform: translateZ(0);
+        z-index: 2;
+        content: "";
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        transform: scale(1.0);
+        opacity: 1;
+        border-radius: 1.0rem;
+        backdrop-filter: blur(0.2rem);
+        background:  #fcf5da86;
+        transition: all 0.3s ease;
+    }
+
+    #card_1 .card_back:hover::before{
+        transform: translateZ(-1);
+        background: transparent;
+        pointer-events: none;
+        backdrop-filter: none;
+    }
+
+    .card_container:has(#card_3:hover, #card_2:hover) #card_1 .card_back::before{
+        backdrop-filter: blur(0.2rem);
+        transform: translateZ(1);
+        box-shadow: 0rem 0rem 3rem var(--background-color)inset, 0rem 0rem 1rem #9f9f9f;
+    }
+
+    .card_container:has(#card_3:hover, #card_2:hover) #card_1{
+        transform: translateZ(-1);
+    }
+
+    .cover_box_1, .cover_box_2{
+        z-index: 1;
+        position: absolute;
+        width: 25%;
+        height: 44%;
+        top: 20%;
+        left : 20%;
+        background: var(--background-color);
+        filter: blur(1.0rem);
+        box-shadow: 0rem 0rem 3rem var(--background-color);
+        /* transition: all 0.7s ease; */
+    }
+
+    .cover_box_2{
+        left: 53%;
+        /* border: 1px solid #f30606; */
+    }
+
+    .cover_box_1{
+
+    }
+
+    .card_container:has(#card_2:hover, #card_3:hover) .cover_box_1{
+        opacity: 0;
+    }
+
+    .card_container:has(#card_1:hover, #card_3:hover) .cover_box_2{
+        opacity: 0;
+    }
+
+    /* END Info Section*/
+
+}
+
+@media all and ((min-width:500px) and (max-width: 750px)){
+
+    /* Info Section*/
+
+    .card_container{
+        top: 0%;
+        padding-bottom: 20rem;
+        padding-top: 0rem;
+        height: 100%;
+        transform-style: preserve-3d;
+        flex: none;
+    }
+
+    .card_container #card_1{
+        opacity: 1;
+        position: absolute;
+        top: 5%;
+        left: 10%;
+    }
+
+
+    .card_container #card_3{
+        opacity: 1;
+        position: absolute;
+        top: 40%;
+    }
+
+    .card_container #card_2{
+        opacity: 1;
+        position: absolute;
+        top: 20%;
+        right: 10%
+    }
+
+    .card_container #card_2::before{
+        transform: translateZ(3);
+    }
+
+    .card_container #card_3::before{
+        transform: translateZ(1);
+    }
+
+    #card_2:hover{
+        z-index: 10;
+    }
+
+    #card_1:hover{
+
+    }
+
+    .card_container:has(#card_3:hover, #card_2:hover) #card_1{
+        z-index: -3;
+    }
+
+    .card_container:has(#card_2:hover, #card_1:hover) #card_3{
+        z-index: -3;
+    }
+
+    .card_container:has(#card_1:hover, #card_3:hover) #card_2{
+        z-index: -3;
+    }
+
+ 
+    .inner_card_front{
+        gap:1rem;
+    }
+
+    .quality_card .inner_card_front .intro_desc{
+        font-size: 0.8rem;
+    }
+
+    .inner_card_front .title{
+        font-size: 0.8rem;
+    }
+
+    .less_info_message{
+        margin: -0.5rem 0rem 0rem 0rem;
+    }
+
+
+    .cover_box_1, .cover_box_2{
+        opacity: 0;
+    }
+
+    .cover_box_2{
+        left: 53%;
+        /* border: 1px solid #f30606; */
+    }
+
+    .cover_box_1{
+
+    }
+
+    /* END Info Section*/
+}
+
+@media all and ((min-width:320px) and (max-width: 500px)){
+
+    /* Info Section*/
+
+    .info_card{
+        width: 15rem;
+        aspect-ratio: 5/8;
+        opacity: 1;
+    }
+
+
+    .card_container{
+        top: 0%;
+        padding: 0rem;
+        height: 100%;
+        transform-style: preserve-3d;
+        flex: none;
+    }
+
+
+    .card_container #card_1{
+        opacity: 1;
+        position: absolute;
+        top: 2%;
+        left: 5%;
+    }
+
+
+    .card_container #card_3{
+        opacity: 1;
+        position: absolute;
+        top: 40%;
+    }
+
+    .card_container #card_2{
+        opacity: 1;
+        position: absolute;
+        top: 25%;
+        right: 5%
+    }
+
+    .card_container:has(#card_3:hover, #card_2:hover) #card_1{
+        z-index: -3;
+    }
+
+    .card_container:has(#card_2:hover, #card_1:hover) #card_3{
+        z-index: -3;
+    }
+
+    .card_container:has(#card_1:hover, #card_3:hover) #card_2{
+        z-index: -3;
+    }
+
+
+    .inner_card_front{
+        gap:1rem;
+    }
+
+    .quality_card .inner_card_front .intro_desc{
+        font-size: 0.7rem;
+    }
+
+    .inner_card_front .title{
+        font-size: 0.7rem;
+    }
+
+    .less_info_message{
+        margin: 0.5rem 0rem 0.5rem 0rem;
+    }
+
+    .inner_card_back_contents_holder .more_information{
+        padding: 1rem;
+        font-size: 1rem;
+        overflow-y: scroll;
+        /* scrollbar-color: red orange;
+        scrollbar-width: thin; */
+    }
+
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, .5);
+        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+    }
+
+
+    .tap_button_messages .more_info_message{
+        align-self: center;
+        width: fit-content;
+        text-align: center;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        font-size: 0.8rem;
+        border-radius: 0.5rem;
+        box-shadow: 0.3rem 0.3rem 1rem #5c5c5c, 0.3rem 0.3rem 1rem #ffffff8b inset;
+    }
+
+    .tap_button_messages .back_to_first_message{
+        align-self: center;
+        margin: 0.5rem;
+        text-align: center;
+        padding: 0.5rem;
+        width: fit-content;
+        background: #c3ff006e;
+        backdrop-filter: blur(1.0rem);
+        position: relative;
+        bottom: 0%;
+        left: 0%;
+        font-size: 0.8rem;
+        border-radius: 0.5rem;
+        box-shadow: 0.3rem 0.3rem 1rem #5c5c5c, 0.3rem 0.3rem 1rem #ffffff8b inset;
+    }
+
+    .cover_box_1, .cover_box_2{
+        opacity: 1;
+        height: 30%;
+        width: 30%;
+    }
+
+    .cover_box_2{
+        left: 53%;
+        /* border: 1px solid #f30606; */
+    }
+
+    .cover_box_1{
+
+    }
+
+    /* END Info Section*/
+
+}

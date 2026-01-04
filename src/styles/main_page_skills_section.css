@@ -27,7 +27,7 @@
     font-weight: 500;
 }
 
-.skills_icons_desc_holder{
+/* .skills_icons_desc_holder{
     position: relative;
     display: flex;
     flex-direction: row;
@@ -50,7 +50,7 @@
     height: fit-content;
     border-radius: 2rem;
     transition: all 0.5s ease;
-}
+} */
 
 .skill_brief_desc.hidden{
     transform: scaleX(0);
@@ -58,6 +58,8 @@
 }
 
 .skill_brief_desc.shown{
+    width: fit-content;
+    height: fit-content;
     transform: scaleX(1.0);
     opacity: 1;
     box-shadow: .3rem 0.3rem 1rem #1e1e1e inset, -0.5rem -0.5rem 1rem #fffbeb inset;
@@ -68,16 +70,14 @@
     position: relative;
     top: 0%;
     left: 0%;
-    justify-self: flex-end;
+    justify-self: center;
     width: fit-content;
     height: fit-content;
     display: grid;
     gap: 1rem;
-    align-items: center;
-    justify-content: right;
     background: var(--background-color);
     border-radius: 1rem;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
 }
 
 .skill_item_holder{

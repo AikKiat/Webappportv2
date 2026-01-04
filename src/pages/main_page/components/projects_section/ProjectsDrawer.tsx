@@ -67,6 +67,10 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
 
     }, [props.closeFromProjectCard])
 
+    useEffect(()=>{
+        selectNext(1);
+    },[])
+
     function selectSpecificCard(index : number){
 
         if(props.closeFromProjectCard % 2 == 0){
@@ -123,8 +127,8 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
             <div className="project_cards_container">
                 {projectNamesArray.map((projectName, index) =>{
                     
-                    let zPos : number = index * -80;
-                    let yPos : number = index * -20;
+                    let zPos : number = index * -50;
+                    let yPos : number = index * -0;
 
                     const cardStyle : React.CSSProperties = {
                         transform: `translateZ(${zPos}px) translateY(${yPos}px) `,
@@ -147,7 +151,8 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                     )
                 })}
             </div>
-            <div className="drawer_side" ref={refDrawerSide}></div>
+            <div className="drawer_side" ref={refDrawerSide}>
+            </div>
             <div className="drawer_front" ref={refDrawerFront}>
                 <div className="drawer_label">
                     <span className="drawer_label_wording" ref={refDrawerLabel}></span>

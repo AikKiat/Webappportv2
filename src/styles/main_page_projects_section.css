@@ -155,7 +155,7 @@
     transform: preserve-3d;
     display: flex;
     flex-direction: column;
-    /* border: 1px solid #ff2600; */
+    border: 1px solid #ff2600;
 }
 
 .emitter_platform_holder{

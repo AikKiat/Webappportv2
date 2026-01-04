@@ -21,6 +21,7 @@ interface AnimationElements {
 export const useAnimateOnScroll = (elements: AnimationElements) => {
     //useRef persists the state of this boolean across updates.
     const isProjectBounceComplete = useRef<boolean>(false);
+    const isInfoCardAnimationComplete = useRef<boolean>(false);
 
     const colours : string[] = ["#eb77607c","#6095eb7f", "#60eb757f", "#db60eb85"];
 
@@ -32,6 +33,7 @@ export const useAnimateOnScroll = (elements: AnimationElements) => {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         
         isProjectBounceComplete.current = false;
+        isInfoCardAnimationComplete.current = false;
 
         const container = elements.cardContainer.current;
         const cardElements = elements.cards.current;
@@ -44,12 +46,19 @@ export const useAnimateOnScroll = (elements: AnimationElements) => {
         const projectDrawerButtonLeft = elements.projectDrawerButtonLeft.current;
         const projectDrawerButtonRight = elements.projectDrawerButtonRight.current;
 
+        let mm = gsap.matchMedia();
 
 
         function infoCardStep1(){
+            let gapValue = "3rem"; 
+            if (window.matchMedia("(min-width:1000px) and (max-width:1100px)").matches) {
+                gapValue = "1.5rem";
+            } else if (window.matchMedia("(max-width:1000px)").matches) {
+                gapValue = "1.5rem";
+            }
 
             gsap.to(container, {
-                gap: "5rem",
+                gap: gapValue,
                 duration: 0.5,
                 ease: "power3.out"
                 });
@@ -128,14 +137,11 @@ export const useAnimateOnScroll = (elements: AnimationElements) => {
             ScrollTrigger.create({
                 trigger: ".info_section",
                 start: "top top",
-                scrub: 1,
                 pin: true,
                 pinSpacing: true,
                 markers: false, // Set to true for debugging
-                onUpdate: (self) =>{
-                    const progress = self.progress;
-
-                    if(progress < 0.2){
+                onEnter: () => {
+                    if (!isInfoCardAnimationComplete.current) {
                         infoCardStep1();
                         setTimeout(() => {
                             infoCardStep2();
@@ -144,8 +150,9 @@ export const useAnimateOnScroll = (elements: AnimationElements) => {
                         setTimeout(() => {
                             infoCardStep3();
                         }, 1500);
+                        
+                        isInfoCardAnimationComplete.current = true;
                     }
-
                 }
             });
             
