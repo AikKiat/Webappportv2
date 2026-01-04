@@ -1,4 +1,5 @@
-import { image } from "motion/react-client";
+
+import { tr } from "motion/react-client";
 import GlowingText from "../info_section/GlowingText";
 import { useState } from "react";
 
@@ -22,6 +23,9 @@ interface projectInformationProps{
 export default function ProjectInformation(props : projectInformationProps){
 
     const [currentGraphicElementIndex, setCurrentGraphicElementIndex] = useState<number>(0);
+
+    const [selectNextClicked, setSelectNextClicked] = useState<boolean>(false);
+    const [selectBeforeClicked, setSelectBeforeClicked] = useState<boolean>(false);
 
     const additionalStyle : React.CSSProperties = {
         animation: `${props.isPastSelectedProject? "spinout_anim 0.05s linear forwards" : "none"}`
@@ -48,23 +52,31 @@ export default function ProjectInformation(props : projectInformationProps){
         if(!imageVideoCollage){
             return;
         }
-        setCurrentGraphicElementIndex(prev => (prev+1 > imageVideoCollage.length-1 ? 0 : prev+1))
+        setCurrentGraphicElementIndex(prev => (prev+1 > imageVideoCollage.length-1 ? 0 : prev+1));
+        setSelectNextClicked(true);
+        setTimeout(() => {
+            setSelectNextClicked(false);
+        }, 100);
     }
 
     function handleSelectBefore(){
         if(!imageVideoCollage){
             return;
         }
-        setCurrentGraphicElementIndex(prev => (prev-1 < 0 ? imageVideoCollage.length-1 : prev-1))
+        setCurrentGraphicElementIndex(prev => (prev-1 < 0 ? imageVideoCollage.length-1 : prev-1));
+        setSelectBeforeClicked(true);
+        setTimeout(() => {
+            setSelectBeforeClicked(false);
+        }, 100);
     }
 
     return (
         <div className={`project_information_card ${props.uniqueIdName}`} style={additionalStyle}>
                 {imageVideoCollage && <div className="image_holder">
-                    <div className="select_next" onClick={()=> handleSelectNext()}>
+                    <div className={`select_next ${selectNextClicked? "selected" : "unselected"}`} onClick={()=> handleSelectNext()}>
                         <span>{">"}</span>
                     </div>
-                    <div className="select_before"onClick={() => handleSelectBefore()}>
+                    <div className={`select_before ${selectBeforeClicked? "selected" : "unselected"}`}onClick={() => handleSelectBefore()}>
                         <span>{"<"}</span>
                     </div>
                     <div  className={`graphic_element ${props.uniqueIdName}`}>
@@ -90,6 +102,7 @@ export default function ProjectInformation(props : projectInformationProps){
             <div className="text_holder">
                 <span className="title">{props.projectName}</span>
                 <GlowingText text={props.projectDescription}></GlowingText>
+                {props.uniqueIdName === "pv1" &&  <a href="https://aikkiat.github.io/webappport/">Check it out here!</a>}
             </div>
             <div className="close_button" onClick={() => {handleCloseFromProjectCardState()}}>
                 <span id="close_left_bar"></span>

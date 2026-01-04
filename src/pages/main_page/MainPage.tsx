@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useRef, useCallback, type JSX } from "react";
-import {IntroTexts} from "../../constants/constants";
+import React, { useEffect, useState, useRef} from "react";
+
+import { introTexts } from "../../constants/constants";
 
 
 
-import { personalQualities, type personal } from "../../constants/constants";
+import {personalQualities, type personal } from "../../constants/constants";
 
 import "../../styles/main_page_projects_section.css";
 import "../../styles/main_page_intro_section.css";
@@ -16,6 +17,7 @@ import {useAnimateOnScroll} from "../../hooks/useAnimateOnScroll";
 
 //Assets
 import knowingYourselfImage from "../../assets/icons/info_img.svg";
+import profileImage from "../../assets/images/ncs.png";
 
 //Components for Info section
 import InfoCard from "./components/info_section/InfoCard";
@@ -31,6 +33,9 @@ import ProjectsDrawer from "./components/projects_section/ProjectsDrawer";
 import { ProjectsCardHologram } from "./components/projects_section/ProjectsCardHologram";
 
 export default function MainPage(){
+
+    //Intro Section
+    const [seeingBrief, setSeeingBrief] = useState<boolean>(true);
 
 
     //Info Section
@@ -92,13 +97,50 @@ export default function MainPage(){
     return (
         <div className="main_page_holder">
             <div className="intro_section">
-                <div className="intro_header">{IntroTexts.IntroHeading}</div>
-
-                <div className="intro_desc_holder">
-                    <GlowingText text={IntroTexts.BodyParagraph}></GlowingText>
-                    <span className="intro_desc_after"></span>
-                </div>
-                
+                    <div className="screen_1_holder">
+                        <div className={`screen_1 ${seeingBrief ? "hidden" : "visible"}`}>
+                            <span className="see_brief_note_button" onClick={()=>setSeeingBrief(true)}>Back to Previous</span>
+                            <div className="personal_image">
+                            <img src={profileImage}></img>
+                            </div>
+                            <div className="intro_desc_holder">
+                                <GlowingText text={introTexts.bodyParagraph}></GlowingText>
+                                <span className="intro_desc_after"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="screen_2_holder">
+                        <div className={`screen_2 ${seeingBrief ? "visible" : "hidden"}`}>
+                        <span className="see_personal_note_button" onClick={()=>setSeeingBrief(false)}>See More {">"}</span>
+                        <span className="intro_header">{introTexts.heading}</span>
+                        <div className="specialisations">
+                            {introTexts.specialisations.map((specialisation : string, index : number)=>{
+                                return (
+                                    <div>
+                                        <span>{specialisation}</span>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        <div className="know_more_buttons">
+                            {introTexts.github && (
+                                <a href={introTexts.github} target="_blank" rel="noopener noreferrer" className="github">
+                                    <img src={`${introTexts.githubIcon}`}></img>
+                                </a>
+                            )}
+                            {introTexts.linkedin && (
+                                <a href={introTexts.linkedin} target="_blank" rel="noopener noreferrer" className="linkedin">
+                                    <img src={`${introTexts.linkedinIcon}`}></img>
+                                </a>
+                            )}
+                            {introTexts.resume && (
+                                <a href={introTexts.resume} target="_blank" rel="noopener noreferrer" className="resume">
+                                    <span>Resume</span>
+                                </a>
+                            )}
+                            </div>
+                        </div>
+                    </div>
             </div>
 
             <div className="info_section">
@@ -109,8 +151,8 @@ export default function MainPage(){
                             infoDescription={"Leadership"}
                             index={1}
                             assetImage={null}
-                            splashText="Knowing Yourself is"
-                            splashText2="of all Wisdom"
+                            splashText="Knowing Yourself is the"
+                            splashText2="Beginning of all Wisdom"
                             personalQualities={personalQualities.leadership}
                             >
                         </InfoCard>
@@ -120,7 +162,7 @@ export default function MainPage(){
                             infoDescription={"Experiences"}
                             index={2}
                             assetImage={knowingYourselfImage}
-                            splashText={"the Beginning"}
+                            splashText={null}
                             splashText2={null}
                             personalQualities={personalQualities.experiences}>
                         </InfoCard>

@@ -9,13 +9,13 @@
     justify-content: center;
     align-items: center;
     perspective: 2500px;
-    border: 1px solid #ff2600;
+    /* border: 1px solid #ff2600; */
 }
 
 
 .skills_section_header{
     position: relative;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     top: 0%;
     left: 0%;
     width: 100%;
@@ -132,6 +132,7 @@
     width: 100%;
     height: fit-content;
     text-align: center;
+    font-size: 1rem;
     border-radius: 1rem;
     background: transparent;
     text-shadow: 0rem 0rem 1rem #7676f4;

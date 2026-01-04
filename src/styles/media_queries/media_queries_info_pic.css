@@ -1,0 +1,178 @@
+
+
+@media all and (max-width:1600px){
+
+    #card_2_computer_image{
+        left: -4%;
+    }
+
+    #card_3_computer_image{
+        top: 6%;
+        right: 39%;
+}
+}
+
+
+
+@media all and (max-width:1500px){
+
+    #card_2_computer_image{
+        left: -10%;
+    }
+
+    #card_3_computer_image{
+        right: 39%;
+}
+}
+
+@media all and (max-width:1450px){
+
+    #card_2_computer_image{
+        left: -15%;
+    }
+
+    #card_3_computer_image{
+        right: 40%;
+    }
+}
+
+@media all and (max-width:1400px){
+
+    #card_2_computer_image{
+        left: -20%;
+    }
+
+    #card_3_computer_image{
+        right: 35%;
+}
+}
+
+@media all and (max-width:1330px){
+
+    #card_2_computer_image{
+        left: -25%;
+    }
+
+    #card_3_computer_image{
+        right: 30%;
+}
+}
+
+@media all and (max-width:1300px){
+
+    #card_2_computer_image{
+        transform: scale(1.0);
+        left: -70%;
+    }
+
+    #card_3_computer_image{
+        transform: scale(1.0);
+        top: 4.5%;
+        right: 0%;
+    }
+}
+
+@media all and (max-width:1200px){
+
+    #card_3_computer_image{
+        top: 5%;
+    }
+}
+
+@media all and (max-width:1000px){
+    #card_2_computer_image{
+        transform: scale(1.0);
+        left: -60%;
+    }
+
+    #card_3_computer_image{
+        transform: scale(1.0);
+        top: 6%;
+        right: -5%;
+    }
+}
+
+@media all and (max-width:970px){
+    #card_2_computer_image{
+        left: -68%;
+    }
+
+    #card_3_computer_image{
+        right: -10%;
+    }
+}
+
+@media all and (max-width:930px){
+    #card_2_computer_image{
+        left: -75%;
+    }
+
+    #card_3_computer_image{
+        right: -10%;
+    }
+}
+
+@media all and (max-width:900px){
+    
+    #card_2_computer_image{
+        transform: scale(0.8);
+    }
+
+    #card_3_computer_image{
+        right: 100%;
+    }
+}
+
+@media all and (max-width:500px){
+
+    #card_1 #splash_text{
+        font-size: 1.5rem;
+        top: 50%;
+    }
+
+    #card_1 #splash_text_2{
+        font-size: 1.5rem;
+        top: 50%;
+    }
+
+    #card_1_splash_text{
+        left: -90%;
+        transform: scale(0.6);
+    }
+    
+    #card_2_computer_image{
+        left: -90%;
+        transform: scale(0.6);
+    }
+
+    #card_3_computer_image{
+        right: 100%;
+    }
+}
+
+@media all and (max-width:430px){
+
+    #card_1 #splash_text{
+        font-size: 1.5rem;
+        top: 40%;
+    }
+
+    #card_1 #splash_text_2{
+        font-size: 1.5rem;
+        top: 40%;
+    }
+
+    #card_1_splash_text{
+        left: -90%;
+        transform: scale(0.6);
+    }
+    
+    #card_2_computer_image{
+        left: -90%;
+        transform: scale(0.6);
+    }
+
+    #card_3_computer_image{
+        right: 100%;
+    }
+}

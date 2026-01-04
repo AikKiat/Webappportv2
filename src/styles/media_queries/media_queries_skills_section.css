@@ -1,0 +1,54 @@
+@media all and (max-width:1600px) {
+   
+}
+
+@media all and (max-width:760px){
+
+    .skills_section_header{
+        margin-top: 2rem;
+        font-size: 2.5rem;
+        margin-bottom: 0rem;
+    }
+
+    .skill_item_holder{
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .skill_image{
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .skill_image_behind{
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .skill_item .description{
+        font-size: 0.8rem;
+    }
+}
+
+@media all and (max-width:450px){
+
+
+    .skills_section_header{
+        margin-top: 2rem;
+        font-size: 2rem;
+        margin-bottom: 0rem;
+    }
+
+
+    .skills_grid{
+        grid-template-columns: auto auto auto auto;
+    }
+}
+
+@media all and (max-width:360px){
+
+
+    .skills_grid{
+        grid-template-columns: auto auto auto;
+    }
+}

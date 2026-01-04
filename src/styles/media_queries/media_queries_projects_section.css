@@ -12,35 +12,82 @@
     .projects_card_showcase{
         position: absolute;
         top: 10%;
-        left: 0%;
+        left: 20%;
         width: 50%;
         height: 100%;
-        perspective: 2500px;
-        transform: preserve-3d;
-        display: flex;
-        flex-direction: column;
         /* border: 1px solid #ff2600; */
     }
 
     .project_information_card_holder{
-        z-index: 1;
-        position: relative;
         top: -10%;
-        left: 10%;
-        width: 80%;
-        /* border: 1px solid #006eff; */
-        height: 80%;
-        transition: all 0.2s ease;
-        backdrop-filter: blur(0.3rem);
+        left: 0%;
+        width: 100%;
+        height: 30%;
     }
 
+    .project_information_card .close_button{
+        top: 10%;
+        width: 3rem;
+        height: 3rem;
+    }
+    
+    .project_information_card .techstack{
+        border-radius: 1rem;
+        padding: 0.5rem;
+        max-width: 100%;
+    }
+
+    .techstack img{
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .select_next, .select_before{
+        width: 3rem;
+        height: 3rem;
+    }
+
+
+    
     .drawer_front .drawer_label{
         font-size: 2rem;
     }
    
 }
 
-@media all and (min-width:1200px) {
+@media all and (max-width:1400px) {
+
+    .projects_card_showcase{
+        top: 10%;
+        left: 0%;
+        width: 70%;
+        pointer-events: none;
+        /* border: 1px solid #ff2600; */
+    }
+
+
+    .project_information_card .text_holder{
+        flex:2;
+        gap: 1rem;
+        /* background: #428eff; */
+    }
+
+    .text_holder .title{
+        font-size: 1.1rem;
+        font-weight: 1000;
+    }
+
+    .text_holder .intro_desc{
+        font-size: 1.1rem;
+    }
+    .project_information_card.smarthealth{
+        flex-direction: column;
+    }
+
+}
+
+
+@media all and (max-width:1200px) {
     .projects_drawer{
         top:50%;
         left: 60%;
@@ -48,7 +95,6 @@
         height: 20rem;
     }
 }
-
 
 @media all and (min-width:1000px) and (max-width:1200px){
     .projects_drawer{
@@ -56,6 +102,9 @@
         left: 60%;
         width: 20rem;
         height: 20rem;
+    }
+    .project_information_card.smarthealth{
+        flex-direction: column;
     }
 }
 
@@ -66,13 +115,48 @@
         width: 20rem;
         height: 20rem;
     }
+
+    .project_information_card.smarthealth{
+        flex-direction: column;
+    }
 }
 
 
 @media all and (max-width:900px) {
+
+    .project_information_card .close_button{
+        top: 0%;
+        width: 3rem;
+        height: 3rem;
+    }
+
+
+    .projects_card_showcase{
+        top: 15%;
+        left: 0%;
+        width: 70%;
+        /* height: 60rem; */
+        pointer-events: none;
+        /* border: 1px solid #ff2600; */
+    }
+
+    .project_information_card.smarthealth{
+        flex-direction: column;
+    }
+
+    .text_holder .title{
+        font-size: 1rem;
+        font-weight: 1000;
+    }
+
+    .text_holder .intro_desc{
+        font-size: 1rem;
+    }
+
+
     .projects_drawer{
-        top: 5%;
-        left: 30%;
+        top: 45%;
+        left: 60%;
         width: 17rem;
         height: 17rem;
     }
@@ -100,9 +184,82 @@
 
 }
 
-@media all and (max-width:700px) {
+@media all and (max-width:810px) {
     .projects_drawer{
+        top: 60%;
+        left: 60%;
+        width: 15rem;
+        height: 15rem;
+    }
+
+    .drawer_front .drawer_label{
+        font-size: 1.5rem;
+    }
+
+    .drawer_label .toggle_button{
+        margin: 1rem 2rem;
+    }
+}
+
+@media all and ((min-width:400px) and (max-width:720px)){
+
+
+    .projects_card_showcase{
+        top: 15%;
+        left: 0%;
+        width: 100%;
+        height: 90%;
+        pointer-events: none;
+        /* border: 1px solid #ff2600; */
+    }
+
+    .project_information_card_holder{
+        top: -10%;
+        left: 0%;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .project_information_card{
+        padding: 0.5rem;
+        gap: 0rem;
+    }
+
+    .project_information_card.tall, .project_information_card.aidrm, .project_information_card.smarthealth{
+        display: flex;
+        flex-direction: column;
+        gap: 0rem;
+        padding: 2rem;
+    }
+
+    .project_information_card.tall .image_holder{
+        position: absolute;
         top: 20%;
+        left: 0%;
+        width: 50%;
+        height: 60%;
+        /* flex: 1; */
+        overflow: hidden;
+    }
+
+    .project_information_card.tall .text_holder{
+        padding: 1rem;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        width: 50%;
+        height: 60%;
+        /* flex: 1; */
+        overflow: hidden;
+    }
+
+    .project_information_card.tall .text_holder .intro_desc{
+        overflow-y: scroll;
+    }
+
+
+    .projects_drawer{
+        top: 60%;
         left: 50%;
         width: 15rem;
         height: 15rem;
@@ -117,10 +274,38 @@
     }
 }
 
-@media all and ((min-width:400px) and (max-width:700px)){
+@media all and (max-width:650px){
+
+
+    .project_information_card .close_button{
+        top: 0%;
+        width: 3rem;
+        height: 3rem;
+    }
+
+
+    .projects_card_showcase{
+        top: 15%;
+        left: 0%;
+        width: 100%;
+        /* height: 60rem; */
+        pointer-events: none;
+        /* border: 1px solid #ff2600; */
+    }
+
+    .project_information_card{
+        padding: 2rem;
+        gap: 0rem;
+    }
+
+    .project_information_card.aidrm .text_holder{
+        padding: 0 0.5rem 0 0.5rem;
+    }
+
+
     .projects_drawer{
-        top: 10%;
-        left: 20%;
+        top: 65%;
+        left: 35%;
         width: 15rem;
         height: 15rem;
     }
@@ -134,10 +319,163 @@
     }
 }
 
+@media all and (max-width:460px){
+    .project_information_card .close_button{
+        top: 0%;
+        width: 3rem;
+        height: 3rem;
+    }
 
-@media all and ((min-width:320px) and (max-width:400px)) {
+
+    .projects_card_showcase{
+        top: 15%;
+        left: 0%;
+        width: 100%;
+        /* height: 60rem; */
+        pointer-events: none;
+        /* border: 1px solid #ff2600; */
+    }
+
+    .project_information_card{
+        padding: 2rem;
+        gap: 0rem;
+    }
+
+    .project_information_card.tall, .project_information_card.aidrm, .project_information_card.smarthealth{
+        display: flex;
+        flex-direction: column;
+        gap: 0rem;
+        padding: 0rem;
+    }
+
+    .project_information_card.tall .text_holder .intro_desc{
+        overflow-y: scroll;
+    }
+
+
+
     .projects_drawer{
-        top: 10%;
+        top: 65%;
+        left: 25%;
+        width: 15rem;
+        height: 15rem;
+    }
+
+    .project_cards_container{
+        top: 0%;
+        left: 20%;
+    }
+
+    .drawer_front .drawer_label{
+        font-size: 1.5rem;
+    }
+
+    .drawer_label .toggle_button{
+        margin: 1rem 2rem;
+    }
+}
+
+
+
+
+@media all and ((min-width:360px) and (max-width:400px)) {
+
+
+    .project_information_card .close_button{
+        top: 0%;
+        width: 3rem;
+        height: 3rem;
+    }
+
+
+    .projects_card_showcase{
+        top: 15%;
+        left: 0%;
+        width: 100%;
+        height: 90%;
+        pointer-events: none;
+        /* border: 1px solid #ff2600; */
+    }
+
+    .project_information_card{
+        left: 0%;
+        padding: 1rem;
+        gap: 0rem;
+    }
+
+    .project_information_card.tall .image_holder{
+        position: absolute;
+        top: 20%;
+        left: 0%;
+        width: 50%;
+        height: 60%;
+        /* flex: 1; */
+        overflow: hidden;
+    }
+
+    .project_information_card.tall .text_holder{
+        padding: 1rem;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        width: 50%;
+        height: 60%;
+        /* flex: 1; */
+        overflow: hidden;
+    }
+
+    .project_information_card.tall .text_holder .intro_desc{
+        overflow-y: scroll;
+    }
+
+
+
+
+
+
+    .project_information_card .text_holder{
+        margin-bottom: 0%;
+    }
+
+    .project_information_card.aidrm .text_holder{
+        top: 20%;
+        margin-bottom: 0%;
+    }
+
+    .project_information_card.tall .text_holder{
+        padding: 0 0.5rem 0 0.5rem;
+    }
+
+
+    .project_information_card.tall, .project_information_card.aidrm, .project_information_card.smarthealth{
+        display: flex;
+        flex-direction: column;
+        gap: 0rem;
+        padding: 2rem;
+    }
+
+    .project_information_card.aidrm .techstack{
+        bottom: -5%;
+    }
+
+    .project_information_card.aidrm .techstack img{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+
+    .project_information_card.tall .text_holder .intro_desc{
+        font-size: 1.0rem;
+    }
+
+    .project_information_card.aidrm .text_holder .intro_desc{
+        font-size: 0.8rem;
+    }
+
+
+
+    .projects_drawer{
+        top: 70%;
         left: 30%;
         width: 12rem;
         height: 12rem;
@@ -179,6 +517,143 @@
         margin: 0.5rem 1.5rem;
     }
 
+}
+
+@media all and (max-width:360px) {
+    .project_information_card .close_button{
+        top: 0%;
+        width: 3rem;
+        height: 3rem;
+    }
+
+
+    .projects_card_showcase{
+        top: 15%;
+        left: 0%;
+        width: 100%;
+        height: 90%;
+        pointer-events: none;
+        border: 1px solid #ff2600;
+    }
+
+    .project_information_card .text_holder{
+        margin-bottom: 0%;
+    }
+
+    .project_information_card{
+        padding: 2rem;
+    }
+
+    .project_information_card.tall, .project_information_card.aidrm, .project_information_card.smarthealth{
+        display: flex;
+        flex-direction: column;
+        gap: 0rem;
+    }
+
+
+    .project_information_card.tall .image_holder{
+        position: absolute;
+        top: 20%;
+        left: 0%;
+        width: 50%;
+        height: 60%;
+        /* flex: 1; */
+        overflow: hidden;
+    }
+
+    .project_information_card.tall .text_holder{
+        padding: 1rem;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        width: 50%;
+        height: 60%;
+        /* flex: 1; */
+        overflow: hidden;
+    }
+
+
+    .project_information_card.aidrm .text_holder{
+        top: 10%;
+        margin-bottom: 0%;
+        height: 0rem;
+        overflow-y: scroll;
+    }
+
+    .project_information_card.aidrm .text_holder .title{
+        font-size: 0.9rem;
+    }
+
+    .project_information_card.aidrm .text_holder .intro_desc{
+        font-size: 0.8rem;
+    }
+
+    .text_holder .title{
+        font-size: 1.0rem;
+        font-weight: 1000;
+    }
+
+    .text_holder .intro_desc{
+        font-size: 0.9rem;
+        overflow-y: scroll;
+    }
+
+    .project_information_card .techstack{
+        border-radius: 1rem;
+        padding: 0.5rem;
+        max-width: 100%;
+    }
+
+    .techstack img{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+
+
+
+    .projects_drawer{
+        top: 70%;
+        left: 25%;
+        width: 12rem;
+        height: 12rem;
+    }
+
+    .drawer_front .drawer_label{
+        font-size: 1.5rem;
+    }
+
+    .drawer_label .toggle_button{
+        margin: 1rem 2rem;
+    }
+
+    .project_card .card_tab{
+        position: absolute;
+        top: -20%;
+        left: 0%;
+        height: 1rem;
+        width: 7rem;
+    }
+
+
+    .project_card{
+        font-size: 1.5rem;
+        box-shadow: -0.1rem 0.3rem 0.1rem 0.2rem #131313;
+    }
+
+
+    .project_cards_container{
+        top: 0%;
+        left: 20%;
+    }
+
+    .drawer_front .drawer_label{
+        font-size: 1rem;
+    }
+
+    .drawer_label .toggle_button{
+        margin: 0.5rem 1.5rem;
+    }
 }
 
 

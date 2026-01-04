@@ -36,6 +36,9 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
     const refButtonleft = useRef<HTMLDivElement>(null);
     const refButtonRight = useRef<HTMLDivElement>(null);
 
+    const [nextButtonClicked, setNextButtonClicked] = useState<boolean>(false);
+    const [beforeButtonClicked, setBeforeButtonClicked] = useState<boolean>(false);
+
     useEffect(() =>{
         if(refDrawerFront.current){
             props.setRefDrawerFront(refDrawerFront.current);
@@ -84,6 +87,22 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
     }
 
     function selectNext(direction : number){
+
+        if(direction === 1){
+            setNextButtonClicked(true);
+
+            setTimeout(() => {
+                setNextButtonClicked(false);
+            }, 500);
+        }
+        else if (direction === -1){
+            setBeforeButtonClicked(true);
+
+            setTimeout(() => {
+                setBeforeButtonClicked(false);
+            }, 500);
+        }
+        
         
         if(props.closeFromProjectCard % 2 == 0){
             props.setCloseFromProjectCard(prev => prev + 1)
@@ -156,8 +175,8 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
             <div className="drawer_front" ref={refDrawerFront}>
                 <div className="drawer_label">
                     <span className="drawer_label_wording" ref={refDrawerLabel}></span>
-                    <span className="toggle_button" id="select_right" onClick={() => {selectNext(1);}} ref={refButtonRight}></span>
-                    <span className="toggle_button" id="select_left" onClick={() => {selectNext(-1);}} ref={refButtonleft}></span>
+                    <span className={`toggle_button ${nextButtonClicked ? "selected_right" : "unselected"}`} id="select_right" onClick={() => {selectNext(1);}} ref={refButtonRight}></span>
+                    <span className={`toggle_button ${beforeButtonClicked ? "selected_left" : "unselected"}`} id="select_left" onClick={() => {selectNext(-1);}} ref={refButtonleft}></span>
                 </div>
             </div>
         </div>

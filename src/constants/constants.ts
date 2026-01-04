@@ -1,10 +1,34 @@
 
-export enum IntroTexts{
-    IntroHeading = "Hello! I am Thng Aik Kiat",
-    BodyParagraph = `I am an Aspiring Fullstack Developer
+
+
+interface introtext{
+    heading : string,
+    specialisations : string[],
+    bodyParagraph : string,
+    github : string,
+    resume : string,
+    linkedin : string,
+    githubIcon : string,
+    linkedinIcon : string
+}
+
+export const introTexts : introtext ={
+    heading : "Hello! I am Thng Aik Kiat",
+    bodyParagraph : `I am an Aspiring Fullstack Developer
                     Interested in building **modular**, **scalable**, **purposeful** systems with the **right_technologies** in mind.
-                    I wish to architect the design of solutions, and involve myself within the **various_stages** that span Software Development.
-                    `
+                    I have always been interested in programming not just from the laptop, but in its innate concepts which teach us to build our lives and aspirations better.
+                    For instance, the innovator in all of us will achieve greater milestones and replicate the same results with abstraction.
+                    Then, by understand responsibility we can deeply define clean roles and boundaries between as well as within each addition we bring, deriving our cogs and gears.
+                    It is these rudimentary principles of establishing clear demarcations within what you create, that I feel Software Development particularly emphasises on and thus teaches effectively.
+                    Therefore, as an aspiring Fullstack Developer aiming to build impactful products, I have had memorable experiences applying these skills with my work.
+                    I ever wish to learn more, and involve myself within the **various_stages** that span Software Development.
+                    `,
+    specialisations : ["Fullstack Developer", "Computer Science@SUTD", "Minor in AI"],
+    github : "https://github.com/AikKiat",
+    resume : "https://drive.google.com/file/d/164xuWTaenDnp6rjFlRiM8_Vhad2plAUH/view?usp=drive_link",
+    linkedin : "https://www.linkedin.com/in/thng-aik-kiat-535a2732a/",
+    githubIcon : "src/assets/icons/github.png",
+    linkedinIcon : "src/assets/icons/linkedin.png"
 }
 
 export interface project{
@@ -65,15 +89,15 @@ export const projects : project[] = [
         techstack : ["src/assets/icons/java.png", "src/assets/icons/spring.png", "src/assets/icons/aws.png","src/assets/icons/androidstudio.png"]
     },
     {
-        name : "The Mathematician's Massacre",
-        description : "Fun game for learning mathematics, made using Python standard libraries and Tkinter. Focused on creating sound effects, figure and blood spatter animations, kill streak system.",
+        name : "Portfolio V1",
+        description : "My first web portfolio from Mar 2025, built using vanilla HTML, CSS and a Javascript file for logic",
         imageSource : "",
         videoSource : "",
-        imageCollage : null,
+        imageCollage : ["src/assets/images/portfoliov1_1.png", "src/assets/images/portfoliov1_2.png","src/assets/images/portfoliov1_3.png" ],
         videoCollage : null,
-        longerDescription : "Simple and fun game created during our first term at SUTD, using Python Standard Libraries and Tkinter. Project done as part of our Computational Thinking for Design course, an introduction to simple programming in Python.",
-        uniqueIdName : "mm",
-        techstack : ["src/assets/icons/python.png"]
+        longerDescription : "My first web portfolio, and also my first project using HTML, CSS and Javascript. Made in Feb 2025.",
+        uniqueIdName : "pv1",
+        techstack : ["src/assets/icons/HTML.png", "src/assets/icons/CSS.png", "src/assets/icons/js.png" ]
     }
 ]
 

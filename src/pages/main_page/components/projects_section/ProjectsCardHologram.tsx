@@ -30,6 +30,7 @@ export function ProjectsCardHologram({closeFromProjectCard, setCloseFromProjectC
             if (projectCardRef.current) {
                 projectCardRef.current.style.height = "0%";
                 projectCardRef.current.style.opacity = '0';
+                projectCardRef.current.style.pointerEvents = "none";
             }
             setTimeout(() => {
                 if(emitterRayRef.current){
@@ -75,6 +76,7 @@ export function ProjectsCardHologram({closeFromProjectCard, setCloseFromProjectC
                 if(projectCardRef.current){
                     projectCardRef.current.style.height = "80%";
                     projectCardRef.current.style.opacity = '1';
+                    projectCardRef.current.style.pointerEvents = "auto";
                 }
             }, 500);
         }
@@ -119,12 +121,13 @@ export function ProjectsCardHologram({closeFromProjectCard, setCloseFromProjectC
             })}
             <div className="project_information_card_behind"></div>
             </div>
-            <div className="emitter_platform_holder">
+            {/* <div className="emitter_platform_holder">
                 <div className={`emitter_platform`} ref={emitterPlatformRef}>
-                <div className={`emitter`} ref={emitterRef}></div>
+                    <div className={`emitter`} ref={emitterRef}>
+                        <span className={`emitter_ray`} ref={emitterRayRef}></span>
+                    </div>
                 </div>
-                <span className={`emitter_ray`} ref={emitterRayRef}></span>
-            </div>
+            </div> */}
         </div>
     )
 }
