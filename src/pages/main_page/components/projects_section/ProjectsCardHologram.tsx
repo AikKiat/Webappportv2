@@ -12,10 +12,9 @@ interface ProjectsCardHologramProps{
     setCloseFromProjectCard : React.Dispatch<React.SetStateAction<number>>;
     currentIndex : number;
     sendCloseFromProjectCard : (data: number) => void;
-
 }
 
-export function ProjectsCardHologram({closeFromProjectCard, setCloseFromProjectCard, currentIndex, sendCloseFromProjectCard} : ProjectsCardHologramProps){
+export function ProjectsCardHologram({closeFromProjectCard, currentIndex, sendCloseFromProjectCard} : ProjectsCardHologramProps){
 
     const projectCardRef = useRef<HTMLDivElement>(null);
 
@@ -42,13 +41,6 @@ export function ProjectsCardHologram({closeFromProjectCard, setCloseFromProjectC
             }, 200);
         }
     },[closeFromProjectCard])
-
-
-    function handleCloseSignalFromChild(data : number){
-        // console.log("closing!!!");
-        console.log("close_from card",closeFromProjectCard);
-        setCloseFromProjectCard(data);
-    }
 
     function handleClose(){
         sendCloseFromProjectCard(closeFromProjectCard + 1);
