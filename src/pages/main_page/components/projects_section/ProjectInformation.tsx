@@ -104,7 +104,7 @@ export default function ProjectInformation(props : projectInformationProps){
             <div className="text_holder">
                 <span className="title">{props.projectName}</span>
                 <GlowingText text={props.projectDescription}></GlowingText>
-                {props.uniqueIdName === "pv1" &&  <a href="https://aikkiat.github.io/webappport/">Check it out here!</a>}
+                {props.uniqueIdName === "pv1" &&  <a href="https://aikkiat.github.io/webappport/" className="check_it_out_here">Check it out here!</a>}
             </div>
             {props.githubLink && <div className="github_link">
                 <a href={props.githubLink}>Github Link</a>

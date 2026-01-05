@@ -97,7 +97,7 @@
     left: 0%;
     width: 100%;
     aspect-ratio: 7/2;
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
     /* pointer-events: none; */
 }
@@ -142,6 +142,8 @@
     right: 0%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding-bottom: 0.5rem;
 }
 
 #select_left{
@@ -149,6 +151,8 @@
     left: 5%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding-bottom: 0.5rem;
 
 }
 
@@ -160,8 +164,8 @@
     position: absolute;
     top: 30%;
     left: 25%;
-    width: 30rem;
-    height: 30rem;
+    width: 25rem;
+    height: 25rem;
     transform: preserve-3d;
 }
 
@@ -175,13 +179,14 @@
 .projects_card_showcase{
     position: absolute;
     top: 10%;
-    right: 10%;
-    width: 60rem;
-    height: 60rem;
+    right: 5%;
+    width: 50rem;
+    height: 50rem;
     perspective: 2500px;
     transform: preserve-3d;
     display: flex;
     flex-direction: column;
+    pointer-events: none;
     /* border: 1px solid #ff2600; */
 }
 /* 
@@ -454,6 +459,7 @@
 }
 
 .select_next span, .select_before span{
+    display: flex;
     z-index: -1;
     text-align: center;
     padding-bottom: 0.5rem;
@@ -484,6 +490,28 @@
 .text_holder .intro_desc{
     font-size: 1.2rem;
     overflow-y: hidden;
+}
+
+.text_holder .check_it_out_here{
+    color: #080808;
+    font-size: 1.2rem;
+    background: transparent;
+    width: fit-content;
+    box-shadow: 0rem 0rem 1rem #1f49f1 inset;
+    padding: 0 1rem 0 1rem;
+    animation: glow_anim 7s linear infinite;
+}
+
+@keyframes glow_anim{
+    0%{
+        box-shadow: 0rem 0rem 1rem #1f49f1 inset;
+    }
+    50%{
+        box-shadow: 0rem 0rem 0.2rem #1f49f1 inset, 0rem 0rem 1rem #428eff;
+    }
+    100%{
+        box-shadow: 0rem 0rem 1rem #1f49f1 inset;
+    }
 }
 
 
@@ -538,15 +566,15 @@
 .github_link a{
     display: flex;
     align-items: center;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 .github_link_image{
     position: relative;
     top: 0%;
     left: 0%;
-    width: 4rem;
-    height: 4rem;
+    width: 2rem;
+    height: 2rem;
     overflow: hidden;
 }
 

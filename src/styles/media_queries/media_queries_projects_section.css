@@ -98,6 +98,10 @@
         flex-direction: column;
     }
 
+    .text_holder .check_it_out_here{
+        font-size: 1.0rem;
+    }
+
 }
 
 
@@ -201,6 +205,10 @@
         font-size: 2rem;
     }
 
+    .text_holder .check_it_out_here{
+        font-size: 1.0rem;
+    }
+
 }
 
 @media all and (max-width:810px) {
@@ -300,6 +308,10 @@
     .drawer_label .toggle_button{
         margin: 1rem 2rem;
     }
+
+    .text_holder .check_it_out_here{
+        font-size: 1.0rem;
+    }
 }
 
 @media all and (max-width:650px){
@@ -344,6 +356,10 @@
 
     .drawer_label .toggle_button{
         margin: 1rem 2rem;
+    }
+
+    .text_holder .check_it_out_here{
+        font-size: 1.0rem;
     }
 }
 
@@ -414,6 +430,10 @@
 
     .drawer_label .toggle_button{
         margin: 1rem 2rem;
+    }
+
+    .text_holder .check_it_out_here{
+        font-size: 1.0rem;
     }
 }
 
@@ -587,6 +607,10 @@
 
     .drawer_label .toggle_button{
         margin: 0.5rem 1.5rem;
+    }
+
+    .text_holder .check_it_out_here{
+        font-size: 1.0rem;
     }
 
 }
@@ -796,6 +820,10 @@
     .project_information_card.smarthealth .techstack{
         left: 43%;
         bottom: -3%;
+    }
+
+    .text_holder .check_it_out_here{
+        font-size: 1.0rem;
     }
 }
 

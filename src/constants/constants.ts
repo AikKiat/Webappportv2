@@ -17,7 +17,7 @@ export const introTexts : introtext ={
     bodyParagraph : `**Hello**! 
                     **I** **am** **Thng** **Aik** **Kiat**, **a** **Fullstack** **Developer**.
                     I enjoy **architecting **modular**, **scalable**, and **purposeful** solutions with the **right_technologies**.
-                    Having done **Digital Art**, I revel learning to create **neat**, **original** and **expandable UI**, with **CSS & frontend frameworks.
+                    Having done **Digital Art**, I revel learning to create **original**, **expandable UI**, with **CSS & frontend frameworks like **React**.
                     On top of that, exploring **Generative** **AI** **applications** to **supercharge** my projects is also a core interest of mine.
                     Aside from work, I spend my time **building **model kits**, **Warhammer 40000**, and exercising.
                     `,
@@ -100,7 +100,7 @@ export const projects : project[] = [
         videoCollage : null,
         longerDescription : "My first web portfolio, and also my first project using HTML, CSS and Javascript. Made in Feb 2025.",
         uniqueIdName : "pv1",
-        techstack : ["/icons/HTML.png", "/icons/CSS.png", "/icons/js.png" ],
+        techstack : ["/icons/html.png", "/icons/css.png", "/icons/js.png" ],
         githubLink : "https://github.com/AikKiat/webappport"
     }
 ]
