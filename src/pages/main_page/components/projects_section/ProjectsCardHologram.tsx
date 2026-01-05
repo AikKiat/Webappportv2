@@ -23,8 +23,8 @@ export function ProjectsCardHologram({closeFromProjectCard, setCloseFromProjectC
 
 
     useEffect(() => {
+        console.log("close", closeFromProjectCard);
         console.log("check timer running!");
-        console.log("current value",closeFromProjectCard);
         if(closeFromProjectCard % 2 == 0){
             console.log("closing");
             if (projectCardRef.current) {
@@ -52,7 +52,7 @@ export function ProjectsCardHologram({closeFromProjectCard, setCloseFromProjectC
                 }
             }, 500);
         }
-        else{
+        else if(closeFromProjectCard !== -3){
             console.log("opening");
             if(emitterPlatformRef.current){
                 emitterPlatformRef.current.style.boxShadow = "-0.7rem 2rem 1rem 3.5rem var(--background-color), 1rem 4rem 1rem 2rem #1e1e1e";
@@ -76,6 +76,7 @@ export function ProjectsCardHologram({closeFromProjectCard, setCloseFromProjectC
                 if(projectCardRef.current){
                     projectCardRef.current.style.height = "80%";
                     projectCardRef.current.style.opacity = '1';
+                    projectCardRef.current.style.visibility = 'visible';
                     projectCardRef.current.style.pointerEvents = "auto";
                 }
             }, 500);

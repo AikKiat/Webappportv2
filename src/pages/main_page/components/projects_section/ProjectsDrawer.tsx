@@ -69,10 +69,6 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
 
     }, [props.closeFromProjectCard])
 
-    useEffect(()=>{
-        selectNext(1);
-    },[])
-
     function selectSpecificCard(index : number){
 
         if(props.closeFromProjectCard % 2 == 0){

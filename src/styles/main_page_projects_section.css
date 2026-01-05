@@ -276,6 +276,8 @@
     height: 70%;
     transition: all 0.2s ease;
     backdrop-filter: blur(0.2rem);
+    opacity: 0;
+    visibility: hidden;
 }
 
 .project_information_card{
@@ -294,6 +296,7 @@
     padding: 1rem;
     gap: 1rem;
     transition: all 0.5s ease;
+    opacity: 1;
 }
 
 .project_information_card_behind{

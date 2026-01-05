@@ -42,8 +42,8 @@ export default function MainPage(){
 
 
     //Projects Section
-    const [currentIndex, setCurrentIndex] = useState<number>(0);
-    const [closeFromProjectCard, setCloseFromProjectCard] = useState<number>(2); //even means open, odd means close
+    const [currentIndex, setCurrentIndex] = useState<number>(-1);
+    const [closeFromProjectCard, setCloseFromProjectCard] = useState<number>(-3); //even means open, odd means close
 
     const childRefDrawerSide = useRef<HTMLDivElement>(null);
     const childRefDrawerFront = useRef<HTMLDivElement>(null);
@@ -73,7 +73,6 @@ export default function MainPage(){
     }
 
     useEffect(()=>{
-        setCurrentIndex(1);
         useBetterScroll();
     },[])
 
