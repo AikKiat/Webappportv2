@@ -3,6 +3,8 @@ import { tr } from "motion/react-client";
 import GlowingText from "../info_section/GlowingText";
 import { useState } from "react";
 
+import github_icon from "../../../../assets/icons/github.png";
+
 
 interface projectInformationProps{
     uniqueIdName : string,
@@ -14,6 +16,7 @@ interface projectInformationProps{
     imageCollage : string[] | null,
     videoCollage : string[] | null,
     techstack : string[] | null,
+    githubLink : string | null,
     isPastSelectedProject : boolean,
     closeFromProjectCardCurrentVal : number,
     sendCloseSignalParent : (data : number) => void
@@ -104,6 +107,12 @@ export default function ProjectInformation(props : projectInformationProps){
                 <GlowingText text={props.projectDescription}></GlowingText>
                 {props.uniqueIdName === "pv1" &&  <a href="https://aikkiat.github.io/webappport/">Check it out here!</a>}
             </div>
+            {props.githubLink && <div className="github_link">
+                <a href={props.githubLink}>Github Link</a>
+                <div className="github_link_image">
+                    <img src={github_icon}></img>
+                </div>
+            </div>}
             <div className="close_button" onClick={() => {handleCloseFromProjectCardState()}}>
                 <span id="close_left_bar"></span>
                 <span id="close_right_bar"></span>

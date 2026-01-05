@@ -1,100 +1,130 @@
-@media all and (max-width:1600px){
 
-    .screen_2 .intro_header{
-        font-size: 2rem;
+@media all and (min-width: 1600px){
+    
+}
+
+
+@media all and (max-width:1600px){
+    .intro_desc_holder .intro_desc{
+        font-size: 1rem;
+        line-height: 2rem;
     }
 
-    .specialisations{
-        gap: 2rem;
-        font-size: 1.2rem;
+    .personal_image img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        transform: scale(2.5) translateX(-4rem) translateY(0rem);
     }
 
     .github, .linkedin{
+        padding: 0.5rem;
         width: 3rem;
         width: 3rem;
+        overflow: hidden;
     }
 
     .resume{
-        font-size: 1rem;
-    }
-
-    .screen_1{
-        z-index: 1;
         padding: 1rem;
-        background: transparent;
-        opacity: 1;
-        position: absolute;
-        top: 0%;
-        left: 0%;
-        margin: 10rem;
-    }
-}
-
-@media all and (max-width:800px){
-    .screen_2 .intro_header{
-        font-size: 1.2rem;
-    }
-
-    .specialisations{
-        gap: 1rem;
+        width: fit-content;
+        height: fit-content;
         font-size: 1rem;
+        color: #000000;
+    }
+
+}
+
+@media all and (max-width: 900px){
+
+    .personal_image img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        transform: scale(2.5) translateX(-4rem) translateY(0rem);
+    }
+
+    .screen_1_holder{
+        margin-top: 2rem;
+    }
+
+    
+    .screen_1_holder .intro_desc_holder{
+        top: 10%;
+        width: 90%;
+    }
+
+}
+
+@media all and (max-width: 500px){
+
+    .personal_image{
+        width: 18rem;
+        height: 18rem;
+    }
+
+    .personal_image img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        transform: scale(2.5) translateX(-4rem) translateY(0rem);
+    }
+
+    .screen_1_holder{
+        margin-top: 2rem;
+    }
+
+    
+    .screen_1_holder .intro_desc_holder{
+        top: 10%;
+        width: 90%;
+        font-size: 0.5rem;
+    }
+
+    .intro_desc_holder .intro_desc{
+        font-size: 1rem;
+        padding: 0.5rem;
+        line-height: 1.5rem;
     }
 }
 
-@media all and (min-width:330px) and (max-width:440px){
 
+@media all and (min-width: 320px) and (max-width:400px){
 
-    .specialisations{
-        gap: 2rem;
+    .screen_1_holder{
+        margin-top: 3rem;
+    }
+
+    .screen_1_holder .intro_desc_holder{
+        top: 0%;
+        width: 90%;
+        font-size: 0.5rem;
+    }
+
+    .intro_desc_holder .intro_desc{
         font-size: 0.8rem;
-    }
-
-    .specialisations div{
-        padding: 0.5rem 1rem;
-        background: #2a4ce038;
-        backdrop-filter: blur(1.0rem);
-        border-radius: 1rem;
-        box-shadow: 0rem 0rem 0.5rem #2a4ce0 inset, 0rem 0rem 0.5rem #000000;
-    }
-
-    .screen_2_holder .screen_2{
-        padding: 3rem;
-        background: transparent;
-        opacity: 1;
-        position: relative;
-        top:0%;
-        left: 0%;
-        width: 50%;
-        height: 50%; 
-        box-shadow: 0rem 0rem 3rem #a78732 inset, 0rem 0rem 1rem #131313; 
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+        padding: 0.5rem;
+        line-height: 1.5rem;
     }
 
     .know_more_buttons{
-        height: 100%;
-        width: 100%;
-    }
-    
-    .know_more_buttons .resume{
-        position: absolute !important;
-        top: 50%;
-        left: 12%;
-        font-size: 1rem;
+        position: relative;
+        top: 0%;
+        margin-top: 2rem;
     }
 
-    .know_more_buttons .github{
-        position: absolute;
-        top: 0%;
-        left: 65%;
+    .personal_image{
+        width: 15rem;
+        height: 15rem;
     }
-    
-    .know_more_buttons .linkedin{
-        position: absolute;
-        top: 0%;
-        left: -5%;
+
+    .personal_image img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        transform: scale(2.5) translateX(-4rem) translateY(0rem);
     }
 }
-
-

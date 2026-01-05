@@ -510,6 +510,49 @@
     object-fit: contain;
 }
 
+.github_link{
+    margin: 2rem;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: fit-content;
+    height: fit-content;
+    background: transparent;
+    display: flex;
+    flex-direction: row;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-shadow: 0rem 0rem 2rem #2a4ce0 inset, 0rem 0rem 1rem #131313;
+    backdrop-filter: blur(1.0rem);
+}
+
+.github_link.selected{
+
+}
+
+.github_link a{
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.github_link_image{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    width: 4rem;
+    height: 4rem;
+    overflow: hidden;
+}
+
+.github_link img{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
 .project_information_card .close_button{
     position: absolute;
     top: 0%;

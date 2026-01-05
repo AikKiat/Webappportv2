@@ -52,7 +52,21 @@
     .drawer_front .drawer_label{
         font-size: 2rem;
     }
-   
+
+    .github_link{
+        margin: 1.5rem;
+    }
+
+    .github_link a{
+        font-size: 1rem;
+    }
+
+    .github_link_image{
+        width: 2rem;
+        height: 2rem;
+    }
+
+
 }
 
 @media all and (max-width:1400px) {
@@ -123,6 +137,11 @@
 
 
 @media all and (max-width:900px) {
+
+    .github_link{
+        margin: 1rem;
+    }
+
 
     .project_information_card .close_button{
         top: 0%;
@@ -202,6 +221,15 @@
 }
 
 @media all and ((min-width:400px) and (max-width:720px)){
+
+    .github_link{
+        bottom: -5%;
+        margin: 1rem;
+    }
+
+    .project_information_card .techstack{
+        bottom: -5%;
+    }
 
 
     .projects_card_showcase{
@@ -320,6 +348,20 @@
 }
 
 @media all and (max-width:460px){
+
+
+    .project_information_card .techstack{
+        bottom: -5%;
+    }
+
+    .project_information_card.hotelapp .techstack{
+        left: 0%;
+        bottom: 8%;
+        box-shadow: 0rem 0rem 0.1rem 0.5rem #e4e41039, 0rem 0rem 0.1rem 0.2rem #1313135a;
+    }
+
+
+
     .project_information_card .close_button{
         top: 0%;
         width: 3rem;
@@ -379,6 +421,36 @@
 
 
 @media all and ((min-width:360px) and (max-width:400px)) {
+
+    .github_link{
+        bottom: -5%;
+    }
+
+    .github_link a{
+        font-size: 0.8rem;
+    }
+
+    .project_information_card .techstack{
+        bottom: -5%;
+        box-shadow: 0rem 0rem 0.1rem 0.5rem #e4e41039, 0rem 0rem 0.1rem 0.2rem #1313135a;
+    }
+
+    .project_information_card.hotelapp .techstack{
+        left: 0%;
+        bottom: 8%;
+    }
+
+
+    .project_information_card.pv1 .github_link{
+        left: 60%;
+        bottom: 31%;
+
+    }
+
+    .project_information_card.pv1 .techstack{
+        left: 0%;
+        bottom: 32%;
+    }
 
 
     .project_information_card .close_button{
@@ -520,6 +592,56 @@
 }
 
 @media all and (max-width:360px) {
+
+    .project_information_card.smarthealth .github_link{
+        width: 40%;
+        left: 5%;
+        bottom: -5%;
+
+    }
+
+    .project_information_card.smarthealth .techstack{
+        left: 6%;
+        bottom: -13%;
+    }
+
+
+
+    .project_information_card.pv1 .github_link{
+        left: 60%;
+        bottom: 38%;
+    }
+
+    .github_link a{
+        font-size: 0.8rem;
+    }
+
+    .project_information_card.pv1 .techstack{
+        left: 0%;
+        bottom: 40%;
+    }
+
+
+    .github_link{
+        left: 3%;
+        bottom: -5%;
+
+    }
+
+    .project_information_card .techstack{
+        bottom: -5%;
+        box-shadow: 0rem 0rem 0.1rem 0.5rem #e4e41039, 0rem 0rem 0.1rem 0.2rem #1313135a;
+    }
+
+    .project_information_card.hotelapp .techstack{
+        left: 5%;
+        bottom: 8%;
+        box-shadow: 0rem 0rem 0.1rem 0.5rem #e4e41039, 0rem 0rem 0.1rem 0.2rem #1313135a;
+    }
+
+
+
+
     .project_information_card .close_button{
         top: 0%;
         width: 3rem;
@@ -545,6 +667,7 @@
     }
 
     .project_information_card.tall, .project_information_card.aidrm, .project_information_card.smarthealth{
+        padding: 2rem;
         display: flex;
         flex-direction: column;
         gap: 0rem;
@@ -653,6 +776,26 @@
 
     .drawer_label .toggle_button{
         margin: 0.5rem 1.5rem;
+    }
+}
+
+
+@media all and (max-width:340px) {
+
+    .project_information_card.smarthealth .github_link{
+        width: 40%;
+        left: -3%;
+        bottom: -5%;
+
+    }
+
+    .github_link a{
+        font-size: 0.7rem;
+    }
+
+    .project_information_card.smarthealth .techstack{
+        left: 43%;
+        bottom: -3%;
     }
 }
 

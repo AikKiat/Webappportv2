@@ -98,29 +98,14 @@ export default function MainPage(){
         <div className="main_page_holder">
             <div className="intro_section">
                     <div className="screen_1_holder">
-                        <div className={`screen_1 ${seeingBrief ? "hidden" : "visible"}`}>
-                            <span className="see_brief_note_button" onClick={()=>setSeeingBrief(true)}>Back to Previous</span>
+                        <div className="image_holder">
                             <div className="personal_image">
-                            <img src={profileImage}></img>
-                            </div>
-                            <div className="intro_desc_holder">
-                                <GlowingText text={introTexts.bodyParagraph}></GlowingText>
-                                <span className="intro_desc_after"></span>
+                                <img src={profileImage}></img>
                             </div>
                         </div>
-                    </div>
-                    <div className="screen_2_holder">
-                        <div className={`screen_2 ${seeingBrief ? "visible" : "hidden"}`}>
-                        <span className="see_personal_note_button" onClick={()=>setSeeingBrief(false)}>See More {">"}</span>
-                        <span className="intro_header">{introTexts.heading}</span>
-                        <div className="specialisations">
-                            {introTexts.specialisations.map((specialisation : string, index : number)=>{
-                                return (
-                                    <div>
-                                        <span>{specialisation}</span>
-                                    </div>
-                                )
-                            })}
+                        <div className="intro_desc_holder">
+                            <GlowingText text={introTexts.bodyParagraph}></GlowingText>
+                            <span className="intro_desc_after"></span>
                         </div>
                         <div className="know_more_buttons">
                             {introTexts.github && (
@@ -138,13 +123,12 @@ export default function MainPage(){
                                     <span>Resume</span>
                                 </a>
                             )}
-                            </div>
                         </div>
                     </div>
             </div>
 
             <div className="info_section">
-                <div className="card_container" ref={cardContainerRef}>
+                    <div className="card_container" ref={cardContainerRef}>
                         <InfoCard
                             cardsRef={cardsRef}
                             cardsFrontBehindRef={cardsFrontBehindRef}

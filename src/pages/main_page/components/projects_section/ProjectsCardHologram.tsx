@@ -105,6 +105,7 @@ export function ProjectsCardHologram({closeFromProjectCard, setCloseFromProjectC
                             imageCollage={project.imageCollage}
                             videoCollage={project.videoCollage}
                             techstack={project.techstack}
+                            githubLink={project.githubLink}
                             isPastSelectedProject={currentIndex===index} 
                             sendCloseSignalParent={handleCloseSignalFromChild}
                             closeFromProjectCardCurrentVal={closeFromProjectCard}

@@ -1,5 +1,10 @@
 
 
+@media all and (min-width:1600px){
+
+}
+
+
 
 @media all and (max-width:1600px){
 
@@ -65,6 +70,7 @@
     }
 
     .less_info_message{
+        margin: -1rem 0rem 0rem 0rem;
         font-size: 0.8rem;
     }
 
@@ -80,6 +86,12 @@
 
     /* END Info Section*/
 
+}
+
+@media all and (max-width:1400px){
+    .inner_card_back_contents_holder .more_information .intro_desc{
+        font-size: 0.9rem;
+    }
 }
 
 @media all and (max-width:1300px){
@@ -119,6 +131,23 @@
     }
 
     .inner_card_back_contents_holder .more_information .intro_desc{
+        font-size: 0.8rem;
+    }
+
+    .less_info_message{
+        margin: -1.5rem 0rem 0rem 0rem;
+        font-size: 0.8rem;
+    }
+
+    .tap_button_messages .more_info_message{
+        margin: 0rem;
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .tap_button_messages .back_to_first_message{
+        margin: 0rem;
+        padding: 0.5rem;
         font-size: 0.8rem;
     }
 }
@@ -365,19 +394,11 @@
     }
 
     .card_container #card_2::before{
-        transform: translateZ(3);
+        transform: translateZ(0);
     }
 
     .card_container #card_3::before{
         transform: translateZ(1);
-    }
-
-    #card_2:hover{
-        z-index: 10;
-    }
-
-    #card_1:hover{
-
     }
 
     .card_container:has(#card_3:hover, #card_2:hover) #card_1{
@@ -411,16 +432,56 @@
 
 
     .cover_box_1, .cover_box_2{
+        opacity: 1;
+    }
+
+    .cover_box_1, .cover_box_2{
+        pointer-events: none;
+        opacity: 0;
+        z-index: 1;
+        position: absolute;
+        width: 40%;
+        height: 44%;
+        top: 20%;
+        left : 20%;
+        background: var(--background-color);
+        filter: blur(1.0rem);
+        box-shadow: 0rem 0rem 3rem var(--background-color);
+        /* transition: all 0.7s ease; */
+    }
+
+    .card_container:has(#card_2:hover, #card_3:hover) .cover_box_2{
+        z-index: 0;
         opacity: 0;
     }
 
+    .card_container:has(#card_1:hover) .cover_box_1{
+        z-index: 0;
+        opacity: 1;
+    }
+
+    .card_container:has(#card_3:hover) .cover_box_1{
+        z-index: 0;
+        opacity: 1;
+        top:40%;
+    }
+
+
+
     .cover_box_2{
-        left: 53%;
-        /* border: 1px solid #f30606; */
+        z-index: 0;
+        width: 0rem;
+        left: 30%;
+        border: 1rem solid #f30606;
     }
 
     .cover_box_1{
-
+        width: 30%;
+        height: 30%;
+        z-index: 999;
+        left: 30%;
+        top: 30%;
+        /* border: 1rem solid #06f31a; */
     }
 
     /* END Info Section*/

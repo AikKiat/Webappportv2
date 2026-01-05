@@ -14,14 +14,12 @@ interface introtext{
 
 export const introTexts : introtext ={
     heading : "Hello! I am Thng Aik Kiat",
-    bodyParagraph : `I am an Aspiring Fullstack Developer
-                    Interested in building **modular**, **scalable**, **purposeful** systems with the **right_technologies** in mind.
-                    I have always been interested in programming not just from the laptop, but in its innate concepts which teach us to build our lives and aspirations better.
-                    For instance, the innovator in all of us will achieve greater milestones and replicate the same results with abstraction.
-                    Then, by understand responsibility we can deeply define clean roles and boundaries between as well as within each addition we bring, deriving our cogs and gears.
-                    It is these rudimentary principles of establishing clear demarcations within what you create, that I feel Software Development particularly emphasises on and thus teaches effectively.
-                    Therefore, as an aspiring Fullstack Developer aiming to build impactful products, I have had memorable experiences applying these skills with my work.
-                    I ever wish to learn more, and involve myself within the **various_stages** that span Software Development.
+    bodyParagraph : `**Hello**! 
+                    **I** **am** **Thng** **Aik** **Kiat**, **a** **Fullstack** **Developer**.
+                    I enjoy **architecting **modular**, **scalable**, and **purposeful** solutions with the **right_technologies**.
+                    Having done **Digital Art**, I revel learning to create **neat**, **original** and **expandable UI**, with **CSS & frontend frameworks.
+                    On top of that, exploring **Generative** **AI** **applications** to **supercharge** my projects is also a core interest of mine.
+                    Aside from work, I spend my time **building **model kits**, **Warhammer 40000**, and exercising.
                     `,
     specialisations : ["Fullstack Developer", "Computer Science@SUTD", "Minor in AI"],
     github : "https://github.com/AikKiat",
@@ -40,7 +38,8 @@ export interface project{
     videoCollage : string[] | null,
     longerDescription : string,
     uniqueIdName : string,
-    techstack : string[] | null
+    techstack : string[] | null,
+    githubLink : string | null
 }
 
 export const projects : project[] = [
@@ -53,7 +52,8 @@ export const projects : project[] = [
         videoCollage :null,
         longerDescription : "Longer DESC HERE",
         uniqueIdName : "aidrm",
-        techstack : ["src/assets/icons/redis.png", "src/assets/icons/docker.png", "src/assets/icons/python.png", "src/assets/icons/ts.png", "src/assets/icons/react.png","src/assets/icons/psql.png", "src/assets/icons/tigerdata.png", "src/assets/icons/prometheus.png", "src/assets/icons/grafana.png", "src/assets/icons/langchain.png", "src/assets/icons/langgraph.png"]
+        techstack : ["src/assets/icons/redis.png", "src/assets/icons/docker.png", "src/assets/icons/python.png", "src/assets/icons/ts.png", "src/assets/icons/react.png","src/assets/icons/psql.png", "src/assets/icons/tigerdata.png", "src/assets/icons/prometheus.png", "src/assets/icons/grafana.png", "src/assets/icons/langchain.png", "src/assets/icons/langgraph.png"],
+        githubLink : null
     },
     {
         name : "T.A.L.L",
@@ -64,7 +64,8 @@ export const projects : project[] = [
         videoCollage : null,
         longerDescription : " Made using Kotlin, running on a modular monolithic Node.js backend server connected to a PostgreSQL database, with an-inbuilt Python Webscraper and using an AI LLM to generate unique profile images tailored towards the details of user's personal entries, constructing and visualising the unique lifestory they can build.",
         uniqueIdName : "tall",
-        techstack : ["src/assets/icons/js.png", "src/assets/icons/python.png", "src/assets/icons/kt.png", "src/assets/icons/openshift.png", "src/assets/icons/androidstudio.png"]
+        techstack : ["src/assets/icons/js.png", "src/assets/icons/python.png", "src/assets/icons/kt.png", "src/assets/icons/openshift.png", "src/assets/icons/androidstudio.png"],
+        githubLink : null
     },
     {
         name : "Come Fly with Me",
@@ -75,7 +76,8 @@ export const projects : project[] = [
         videoCollage : null,
         longerDescription : "",
         uniqueIdName : "hotelapp",
-        techstack : ["src/assets/icons/docker.png", "src/assets/icons/js.png", "src/assets/icons/react.png", "src/assets/icons/mysql.png", "src/assets/icons/cypress.png"]
+        techstack : ["src/assets/icons/docker.png", "src/assets/icons/js.png", "src/assets/icons/react.png", "src/assets/icons/mysql.png", "src/assets/icons/cypress.png"],
+        githubLink : "https://github.com/AndrewLJY/ESCWebApp"
     },
     {
         name : "SmartHealth",
@@ -86,7 +88,8 @@ export const projects : project[] = [
         videoCollage : null,
         longerDescription : "Android App created as Part of 50.001 Informations Systems and Programming Course. Created using Java in Android Studio, and used Java Spring as the backend framework. User data stored in a PostGreSQL database, hosted on AWS. REST APIs for standardised clear communication standard between the client and backend, and RESTful APIs include Google Places, Routes API, Open AI GPT4.0 Api. We also hosted this backend on a free server space platform called Render, allowing the backend service of our app to be running 24/7. A step towards increased efficacy in deployment, and allowing our backend service to scale to larger platforms in the future.",
         uniqueIdName : "smarthealth",
-        techstack : ["src/assets/icons/java.png", "src/assets/icons/spring.png", "src/assets/icons/aws.png","src/assets/icons/androidstudio.png"]
+        techstack : ["src/assets/icons/java.png", "src/assets/icons/spring.png", "src/assets/icons/aws.png","src/assets/icons/androidstudio.png"],
+        githubLink : "https://github.com/ItsMeOX/SmartHealth"
     },
     {
         name : "Portfolio V1",
@@ -97,7 +100,8 @@ export const projects : project[] = [
         videoCollage : null,
         longerDescription : "My first web portfolio, and also my first project using HTML, CSS and Javascript. Made in Feb 2025.",
         uniqueIdName : "pv1",
-        techstack : ["src/assets/icons/HTML.png", "src/assets/icons/CSS.png", "src/assets/icons/js.png" ]
+        techstack : ["src/assets/icons/HTML.png", "src/assets/icons/CSS.png", "src/assets/icons/js.png" ],
+        githubLink : "https://github.com/AikKiat/webappport"
     }
 ]
 

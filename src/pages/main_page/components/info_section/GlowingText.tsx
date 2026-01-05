@@ -59,6 +59,7 @@ export default function GlowingText({text} : glowingTextProps){
                             }
                             //use .reduce to combine the spans to be together as once, with spaces.
                         }).reduce((prev, curr) => <>{prev} {curr}</>)} 
+                    <span className="line_divider"></span>
                     </div>
                 )
             })}
