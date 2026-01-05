@@ -3,7 +3,7 @@
 .skills_section{
     background: var(--background-color);
     width: 100%;
-    height: 100svh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
