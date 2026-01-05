@@ -1,7 +1,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { delay } from "motion";
-import React, { useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 interface AnimationElements {
     cardContainer: React.RefObject<HTMLDivElement | null>;
