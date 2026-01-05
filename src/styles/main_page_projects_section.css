@@ -181,7 +181,7 @@
     top: 10%;
     right: 5%;
     width: 50rem;
-    height: fit-content;
+    height: 90%;
     perspective: 2500px;
     transform: preserve-3d;
     display: flex;

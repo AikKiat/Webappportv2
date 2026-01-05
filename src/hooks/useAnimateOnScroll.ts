@@ -131,11 +131,12 @@ export const useAnimateOnScroll = (elements: AnimationElements) => {
 
         
         if (container && cardElements.length > 0 && cardsFrontBehind.length > 0) {
-            ScrollTrigger.create({
+            const infoTrigger= ScrollTrigger.create({
                 trigger: ".info_section",
                 start: "top top",
-                pin: true,
+                pin: false,
                 pinSpacing: true,
+                once : true,
                 markers: false, // Set to true for debugging
                 onEnter: () => {
                     if (!isInfoCardAnimationComplete.current) {
@@ -146,6 +147,7 @@ export const useAnimateOnScroll = (elements: AnimationElements) => {
 
                         setTimeout(() => {
                             infoCardStep3();
+                            infoTrigger.kill(); 
                         }, 1500);
                         
                         isInfoCardAnimationComplete.current = true;
@@ -160,10 +162,12 @@ export const useAnimateOnScroll = (elements: AnimationElements) => {
             return;
         }
 
-        ScrollTrigger.create({
+        const infoTrigger = ScrollTrigger.create({
             trigger: ".projects_section",
             start: "top top",
-            onUpdate: (self) =>{
+            pin: false,
+            once: true,
+            onEnter: (self) =>{
                 const progress = self.progress
                 if(progress <=0.4 && !isProjectBounceComplete.current){
 
@@ -260,6 +264,7 @@ export const useAnimateOnScroll = (elements: AnimationElements) => {
                     
                     isProjectBounceComplete.current = true;            
                 }
+                infoTrigger.kill();
             }
         })
     }
