@@ -295,6 +295,7 @@
     .project-card {
         padding: 0.5rem;
     }
+
     .media-display {
         max-height: 15rem;
     }
@@ -328,16 +329,39 @@
         margin-right: 1rem;
     }
 
+    .projects_card_showcase.opened{
+        width: 80%;
+        height: fit-content;
+        min-height: 30rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        transition: all 0.5s ease;
+        box-shadow: 0rem 0rem 1rem #080808;
+        backdrop-filter: blur(1.0rem);
+        border-radius: 1rem;
+        transition: all 0.5s ease;
+    }
+
     .project-card{
         overflow-y: auto;
+        min-height: 25rem;
     }
 
 
     .text-container {
-        height: 15rem;
+        min-height: 5rem;
         font-size: 0.8rem;
         overflow-y: auto;
+        max-height: 20rem;
     }
+
+    .project-card.pv1 .text-container{
+        height: fit-content;
+        /* background: #080808; */
+    }
+
 
     .title {
         font-size: 1rem;

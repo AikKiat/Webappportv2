@@ -216,6 +216,10 @@
 .projects_card_showcase.opened{
     width: 80%;
     height: fit-content;
+    min-height: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 1rem;
     transition: all 0.5s ease;
     box-shadow: 0rem 0rem 1rem #080808;
@@ -243,7 +247,8 @@
     position: relative;
     pointer-events: auto; 
     transition: all 0.5s ease;
-    height: 100%;
+    height: fit-content;
+    min-height: 15rem;
 }
 
 
@@ -256,7 +261,7 @@
 
 .media-display {
     max-width: 100%;
-    max-height: 20rem;
+    max-height: 30rem;
     overflow: hidden;
     border-radius: 0.5rem;
 }
@@ -289,6 +294,8 @@
     text-align: center;
     margin-bottom: 1rem;
     overflow-y: auto;
+    height: fit-content;
+    max-height: 10rem;
 }
 
 .title {
@@ -336,12 +343,15 @@
     position: absolute;
     top: 0%;
     right: 0%;
-    margin: 1rem 0 0 1rem;
+    width: 3rem;
+    height: 3rem;
     background: none;
     border: none;
+    border-radius: 50%;
     color: #ec290f;
     font-size: 1.5rem;
     cursor: pointer;
+    box-shadow: 0rem 0rem 1rem #ec290f inset;
 }
 
 

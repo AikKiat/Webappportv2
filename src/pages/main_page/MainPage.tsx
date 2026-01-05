@@ -175,7 +175,7 @@ export default function MainPage(){
                     setRefButtonRight={setButtonRightRef}
                     >
                 </ProjectsDrawer>
-                <ProjectsCardHologram setCloseFromProjectCard={setCloseFromProjectCard} closeFromProjectCard={closeFromProjectCard} currentIndex={currentIndex}></ProjectsCardHologram>
+                <ProjectsCardHologram setCloseFromProjectCard={setCloseFromProjectCard} closeFromProjectCard={closeFromProjectCard} currentIndex={currentIndex} sendCloseFromProjectCard={setCloseFromProjectCard}></ProjectsCardHologram>
             </div>
 
             <div className="skills_section">

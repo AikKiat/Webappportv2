@@ -85,7 +85,7 @@ export const projects : project[] = [
         imageSource : "/images/smarthealth_2d_poster.png",
         videoSource : "",
         imageCollage : ["/images/smarthealth_2d_poster.png", "/images/smarthealth_award.png", "/images/smarthealth_physicalposter.png"],
-        videoCollage : null,
+        videoCollage : ["https://www.youtube.com/embed/L9Ba1HxGkM4?si=afmOv2GFCXTzzZPx"],
         longerDescription : "Android App created as Part of 50.001 Informations Systems and Programming Course. Created using Java in Android Studio, and used Java Spring as the backend framework. User data stored in a PostGreSQL database, hosted on AWS. REST APIs for standardised clear communication standard between the client and backend, and RESTful APIs include Google Places, Routes API, Open AI GPT4.0 Api. We also hosted this backend on a free server space platform called Render, allowing the backend service of our app to be running 24/7. A step towards increased efficacy in deployment, and allowing our backend service to scale to larger platforms in the future.",
         uniqueIdName : "smarthealth",
         techstack : ["/icons/java.png", "/icons/spring.png", "/icons/aws.png"],

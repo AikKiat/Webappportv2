@@ -15,7 +15,6 @@ interface ProjectInformationProps {
   githubLink: string | null;
   isPastSelectedProject: boolean;
   closeFromProjectCardCurrentVal: number;
-  sendCloseSignalParent: (data: number) => void;
 }
 
 export default function ProjectInformation(props: ProjectInformationProps) {
@@ -38,11 +37,11 @@ export default function ProjectInformation(props: ProjectInformationProps) {
     );
   };
 
-  const handleClose = () => {
-    if (props.closeFromProjectCardCurrentVal % 2 === 1) {
-      props.sendCloseSignalParent(props.closeFromProjectCardCurrentVal + 1);
-    }
-  };
+//   const handleClose = () => {
+//     if (props.closeFromProjectCardCurrentVal % 2 === 1) {
+//       props.sendCloseSignalParent(props.closeFromProjectCardCurrentVal + 1);
+//     }
+//   };
 
   const currentMedia = mediaItems[currentMediaIndex];
 
@@ -97,10 +96,6 @@ export default function ProjectInformation(props: ProjectInformationProps) {
           ))}
         </div>
       )}
-
-      <button className="close-btn" onClick={handleClose}>
-        ✕
-      </button>
     </div>
   );
 }
