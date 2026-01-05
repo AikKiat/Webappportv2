@@ -571,6 +571,7 @@
         left: 30%;
         width: 12rem;
         height: 12rem;
+        /* border: 1px solid #131313; */
     }
 
     .drawer_front .drawer_label{
@@ -674,7 +675,7 @@
 
 
     .projects_card_showcase{
-        top: 15%;
+        top: 0%;
         left: 0%;
         width: 100%;
         height: 90%;
@@ -760,7 +761,7 @@
 
 
     .projects_drawer{
-        top: 70%;
+        top: 60%;
         left: 25%;
         width: 12rem;
         height: 12rem;
