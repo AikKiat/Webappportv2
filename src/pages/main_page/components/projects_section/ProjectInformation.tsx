@@ -49,9 +49,9 @@ export default function ProjectInformation(props: ProjectInformationProps) {
     <div className={`project-card ${props.uniqueIdName}`}>
       {mediaItems.length > 0 && (
         <div className="media-container">
-          <button className="prev-btn" onClick={handlePrev}>
+          {mediaItems.length > 1 && <button className="prev-btn" onClick={handlePrev}>
             {"<"}
-          </button>
+          </button>}
           <div className="media-display">
             {currentMedia.startsWith("htt") ? (
               <iframe src={currentMedia} title="project-video" />
@@ -59,9 +59,9 @@ export default function ProjectInformation(props: ProjectInformationProps) {
               <img src={currentMedia} alt="project-media" />
             )}
           </div>
-          <button className="next-btn" onClick={handleNext}>
+          {mediaItems.length > 1 && <button className="next-btn" onClick={handleNext}>
             {">"}
-          </button>
+          </button>}
         </div>
       )}
 
