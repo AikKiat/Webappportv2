@@ -312,6 +312,9 @@
     .text_holder .check_it_out_here{
         font-size: 1.0rem;
     }
+    .project_information_card.tall .techstack{
+        top: 80%;
+    }
 }
 
 @media all and (max-width:650px){
@@ -361,6 +364,10 @@
     .text_holder .check_it_out_here{
         font-size: 1.0rem;
     }
+
+    .project_information_card.tall .techstack{
+        top: 80%;
+    }
 }
 
 @media all and (max-width:460px){
@@ -368,12 +375,12 @@
 
     .project_information_card .techstack{
         bottom: -5%;
+        box-shadow: 0rem 0rem 0.1rem 0.5rem #e4e41039, 0rem 0rem 0.1rem 0.2rem #1313135a;
     }
 
     .project_information_card.hotelapp .techstack{
         left: 0%;
         bottom: 8%;
-        box-shadow: 0rem 0rem 0.1rem 0.5rem #e4e41039, 0rem 0rem 0.1rem 0.2rem #1313135a;
     }
 
 
@@ -408,6 +415,10 @@
 
     .project_information_card.tall .text_holder .intro_desc{
         overflow-y: scroll;
+    }
+
+    .project_information_card.tall .techstack{
+        top: 80%;
     }
 
 
@@ -638,7 +649,7 @@
     }
 
     .github_link a{
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 
     .project_information_card.pv1 .techstack{
@@ -675,10 +686,11 @@
 
 
     .projects_card_showcase{
-        top: 0%;
+        margin-top: 0rem;
+        top: 5%;
         left: 0%;
         width: 100%;
-        height: 90%;
+        height: 70%;
         pointer-events: none;
         /* border: 1px solid #ff2600; */
     }
@@ -736,6 +748,14 @@
         font-size: 0.8rem;
     }
 
+    .project_information_card.tall .text_holder .title{
+        font-size: 0.9rem;
+    }
+
+    .project_information_card.tall .text_holder .intro_desc{
+        font-size: 0.7rem;
+    }
+
     .text_holder .title{
         font-size: 1.0rem;
         font-weight: 1000;
@@ -752,6 +772,39 @@
         max-width: 100%;
     }
 
+    .project_information_card.aidrm .techstack{
+        top: 90%;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        max-width: 100%;
+    }
+
+    .project_information_card.smarthealth .techstack{
+        left: 55%;
+        top: 91%;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        max-width: 100%;
+    }
+
+    .project_information_card.smarthealth .github_link{
+        left: 3%;
+        top: 90%;
+        border-radius: 1rem;
+        padding: 0.3rem;
+        justify-content: space-around;
+        max-width: 100%;
+    }
+
+    .project_information_card.tall .techstack{
+        left: 3%;
+        top: 80%;
+        border-radius: 1rem;
+        padding: 0.3rem;
+        justify-content: space-around;
+        max-width: 100%;
+    }
+
     .techstack img{
         width: 1.5rem;
         height: 1.5rem;
@@ -761,7 +814,7 @@
 
 
     .projects_drawer{
-        top: 60%;
+        top: 50%;
         left: 25%;
         width: 12rem;
         height: 12rem;
