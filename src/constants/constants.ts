@@ -72,7 +72,7 @@ export const projects : project[] = [
         description : "Fullstack Hotel Booking app as part of school project using Express and ReactJS. Data of more than 1000 hotel destinations pulled from Ascenda's API, clean layered architecture - Entities for hotel data persistence, services for business logic. Wrote more than 600 test cases for robustness. Containerised frontend and backend codes to separate Docker containers.",
         imageSource : "/images/ascenda_5.png",
         videoSource : "",
-        imageCollage : ["/images/ascenda_1.png", "/images/ascenda_2.png", "/images/ascenda_3.png", "/images/ascenda_4.png", "/images/ascenda_5.png"],
+        imageCollage : ["/images/ascenda_5.png"],
         videoCollage : null,
         longerDescription : "",
         uniqueIdName : "hotelapp",

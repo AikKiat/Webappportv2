@@ -7,5 +7,7 @@
 
 :root {
     --background-color: #fcf5da ;
-    --text-color: black;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --accent-color: #f4d35e;
+    --text-color: #333;
 }

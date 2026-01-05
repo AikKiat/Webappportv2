@@ -171,271 +171,6 @@
 
 
 
-
-
-/*Project Information*/
-
-
-.projects_card_showcase{
-    position: absolute;
-    top: 10%;
-    right: 5%;
-    width: 50rem;
-    height: 90%;
-    perspective: 2500px;
-    transform: preserve-3d;
-    display: flex;
-    flex-direction: column;
-    pointer-events: none;
-    /* border: 1px solid #ff2600; */
-}
-/* 
-.emitter_platform_holder{
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    flex: 1;
-}
-
-.emitter_platform{
-    position: absolute;
-    bottom: 0%;
-    left: 30%;
-    background: transparent;
-    border-radius: 1rem;
-    width: 40%;
-    height: 30%;
-    transform: skew(-40deg) rotateX(70deg);
-    box-shadow: -0.5rem 1.5rem 3rem 3rem var(--background-color), 1rem 4rem 0.3rem 2rem #1e1e1e;
-    transition: all 0.5s ease;
-}
-
-
-.emitter_platform .emitter{
-    position: relative;
-    top: 30%;
-    left: 30%;
-    width: 90%;
-    height: 90%;
-    border-radius: 20%;
-    display: flex;
-    flex-direction: row;
-    perspective: 2500px;
-    transform: preserve-3d;
-}
-
-
-.emitter_ray{
-    position: absolute;
-    background: linear-gradient(to top, #0569ff33 20%, var(--background-color) 60%);
-    width: 100%;
-    height: 100%;
-    bottom: -6%;
-    left:9%;
-    opacity: 0.8;
-    clip-path: polygon(0 0, 100% 0, 50% 100%, 50% 100%);
-    animation: hologram_wave 0.05s ease-in-out infinite;
-    transition: all 0.5s ease;
-}
-
-.emitter_ray.hidden{
-    opacity: 0;
-}
-
-.emitter_ray.expanded{
-    opacity: 1;
-} */
-
-@keyframes hologram_wave{
-    0%{
-        background: linear-gradient(to top, #0569ff33 20%, var(--background-color) 60%);
-    }
-    100%{
-        background: linear-gradient(to top, #0569ff33 30%, var(--background-color) 60%);
-    }
-}
-
-
-
-
-
-
-/*Project Information Card*/
-
-@keyframes spinout_anim {
-    50%{
-        transform: skew(180deg);
-    }
-}
-
-
-.project_information_card_holder{
-    z-index: 1;
-    position: relative;
-    top:  0%;
-    left: 0%;
-    width: 100%;
-    /* border: 1px solid #006eff; */
-    height: fit-content;;
-    transition: all 0.2s ease;
-    backdrop-filter: blur(0.2rem);
-    opacity: 0;
-    visibility: hidden;
-}
-
-.project_information_card{
-    z-index: 1;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background: transparent;
-    border-radius: 5%;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    gap: 1rem;
-    transition: all 0.5s ease;
-    opacity: 1;
-}
-
-.project_information_card_behind{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background:#9034f2;
-    border-radius: 50%;
-    transform: scale(1.2);
-    opacity: 0.5;
-    filter: blur(15.0rem);
-
-}
-
-.project_information_card::before{
-    z-index:-1;
-    content: "";
-    background: repeating-linear-gradient(
-    #2a4ce0 24%,
-    var(--background-color) 25%);
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 5%;
-    filter: blur(0.1rem);
-    opacity: 0.5;
-    animation: terminal_effect 0.05s linear infinite;
-    box-shadow: 0rem 0rem 10rem 3rem var(--background-color) inset;
-}
-
-@keyframes terminal_effect{
-    0%{
-        background: repeating-linear-gradient(#2a4ce0 24%,transparent 25%);
-    }
-    100%{
-        background: repeating-linear-gradient(#2a4ce0 24.5%,transparent 25%);
-    }
-}
-
-
-
-.project_information_card .image_holder{
-    position: relative;
-    top: 0%;
-    left: 0%;
-    width: 90%;
-    height: 90%;
-    /* flex: 1; */
-    overflow: hidden;
-}
-
-.project_information_card.hotelapp .image_holder{
-    position: relative;
-    top: 0%;
-    left: 0%;
-    width: 90%;
-    height: 30%;
-    /* flex: 1; */
-    overflow: hidden;
-}
-
-.project_information_card.smarthealth{
-    display: flex;
-    flex-direction: row;
-}
-
-.project_information_card.aidrm{
-    display: flex;
-    flex-direction: row;
-}
-
-.project_information_card.tall{
-    display: flex;
-    flex-direction: column;
-}
-
-.project_infromation_card.hotelapp .image_holder{
-    height: 30%;
-}
-
-
-.graphic_element{
-    position: absolute;
-    top:0%;
-    left:0%;
-    width: 100%;
-    height: 100%;
-    /* background: #de1b1b; */
-}
-
-.image_holder .graphic_element img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-
-
-/*math massacre Graphics*/
-.graphic_element.mm{
-
-}
-
-/*Smarthealth graphics*/
-.graphic_element.smarthealth{
-
-}
-
-/*Tall graphics*/
-.graphic_element.tall{
-
-}
-
-.image_holder:hover .select_next{
-    box-shadow: 0rem 0rem 1rem #d2d2d2;
-}
-.image_holder:hover .select_before{
-    left: 0%;
-}
-
-.select_next.selected, .select_before.selected{
-    animation: clicked_animation 0.1s linear infinite;
-}
-
-.select_next.unselected, .select_next.unselected{
-}
-
-
-@keyframes clicked_animation {
-    100%{
-        transform: scale(0.8); 
-    }
-}
-
 .select_next, .select_before{
     position: absolute;
     z-index: 1;
@@ -468,8 +203,172 @@
 
 
 
+/*The New Projects Card Showcase Section. Much simpler than the earlier hologram. Easier to scale, and conveys clearer message.*/
+
+.projects_card_showcase{
+    position: relative;
+    top:-10%;
+    right: 0%;
+    height: 100%;
+    transition: all 0.5s ease;
+}
+
+.projects_card_showcase.opened{
+    width: 80%;
+    height: fit-content;
+    padding: 1rem;
+    transition: all 0.5s ease;
+    box-shadow: 0rem 0rem 1rem #080808;
+    backdrop-filter: blur(1.0rem);
+    border-radius: 1rem;
+    transition: all 0.5s ease;
+}
+
+.projects_card_showcase.hidden{
+    opacity: 0;
+    visibility: none;
+    pointer-events: none;
+    height: 0rem;
+}
+
+.project-card {
+    top: 0%;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border-radius: 1rem;
+    box-shadow: 0 0 2rem var(--card-shadow);
+    color: var(--text-color);
+    position: relative;
+    pointer-events: auto; 
+    transition: all 0.5s ease;
+    height: 100%;
+}
 
 
+.media-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.media-display {
+    max-width: 100%;
+    max-height: 20rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.media-display img, .media-display iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.prev-btn, .next-btn {
+    background: #f3e7434b;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    margin: 0 0.5rem;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background: #e7be1c88;
+}
+
+
+.text-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+    overflow-y: auto;
+}
+
+.title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #5a4638;
+}
+
+.check-it-out {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #f4d35e;
+    text-decoration: underline;
+}
+
+
+.github-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.github-container img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+
+.techstack-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.techstack-container img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    margin: 1rem 0 0 1rem;
+    background: none;
+    border: none;
+    color: #ec290f;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+/*OLD*/
+/* 
+.projects_card_showcase{
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 50rem;
+    height: 90%;
+    perspective: 2500px;
+    transform: preserve-3d;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+}
+ */
+
+
+/* 
 .project_information_card .text_holder{
     margin-bottom: 10%;
     position: relative;
@@ -479,7 +378,6 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    /* background: #428eff; */
 }
 
 .text_holder .title{
@@ -646,4 +544,250 @@
     100%{
         filter: blur(1.0rem);
     }
+} */
+
+
+
+/*Project Information Card*/
+
+/* @keyframes spinout_anim {
+    50%{
+        transform: skew(180deg);
+    }
 }
+
+
+.project_information_card_holder{
+    z-index: 1;
+    position: relative;
+    top:  0%;
+    left: 0%;
+    width: 100%;
+    height: fit-content;;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(0.2rem);
+    opacity: 0;
+    visibility: hidden;
+} */
+/* 
+.project_information_card{
+    z-index: 1;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    border-radius: 5%;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    transition: all 0.5s ease;
+    opacity: 1;
+}
+
+.project_information_card_behind{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:#9034f2;
+    border-radius: 50%;
+    transform: scale(1.2);
+    opacity: 0.5;
+    filter: blur(15.0rem);
+
+}
+
+.project_information_card::before{
+    z-index:-1;
+    content: "";
+    background: repeating-linear-gradient(
+    #2a4ce0 24%,
+    var(--background-color) 25%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5%;
+    filter: blur(0.1rem);
+    opacity: 0.5;
+    animation: terminal_effect 0.05s linear infinite;
+    box-shadow: 0rem 0rem 10rem 3rem var(--background-color) inset;
+}
+
+@keyframes terminal_effect{
+    0%{
+        background: repeating-linear-gradient(#2a4ce0 24%,transparent 25%);
+    }
+    100%{
+        background: repeating-linear-gradient(#2a4ce0 24.5%,transparent 25%);
+    }
+}
+
+
+
+.project_information_card .image_holder{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    width: 90%;
+    height: 90%;
+    overflow: hidden;
+}
+
+.project_information_card.hotelapp .image_holder{
+    position: relative;
+    top: 0%;
+    left: 0%;
+    width: 90%;
+    height: 30%;
+    overflow: hidden;
+}
+
+.project_information_card.smarthealth{
+    display: flex;
+    flex-direction: row;
+}
+
+.project_information_card.aidrm{
+    display: flex;
+    flex-direction: row;
+}
+
+.project_information_card.tall{
+    display: flex;
+    flex-direction: column;
+}
+
+.project_infromation_card.hotelapp .image_holder{
+    height: 30%;
+}
+
+
+.graphic_element{
+    position: absolute;
+    top:0%;
+    left:0%;
+    width: 100%;
+    height: 100%;
+} */
+
+/* .image_holder .graphic_element img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+} */
+
+
+
+/*math massacre Graphics*/
+/* .graphic_element.mm{
+
+} */
+
+/*Smarthealth graphics*/
+/* .graphic_element.smarthealth{
+
+} */
+
+/*Tall graphics*/
+/* .graphic_element.tall{
+
+}
+
+.image_holder:hover .select_next{
+    box-shadow: 0rem 0rem 1rem #d2d2d2;
+}
+.image_holder:hover .select_before{
+    left: 0%;
+}
+
+.select_next.selected, .select_before.selected{
+    animation: clicked_animation 0.1s linear infinite;
+}
+
+.select_next.unselected, .select_next.unselected{
+}
+
+
+@keyframes clicked_animation {
+    100%{
+        transform: scale(0.8); 
+    }
+} */
+
+
+
+
+/*Project Information*/
+
+
+/* 
+.emitter_platform_holder{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    flex: 1;
+}
+
+.emitter_platform{
+    position: absolute;
+    bottom: 0%;
+    left: 30%;
+    background: transparent;
+    border-radius: 1rem;
+    width: 40%;
+    height: 30%;
+    transform: skew(-40deg) rotateX(70deg);
+    box-shadow: -0.5rem 1.5rem 3rem 3rem var(--background-color), 1rem 4rem 0.3rem 2rem #1e1e1e;
+    transition: all 0.5s ease;
+}
+
+
+.emitter_platform .emitter{
+    position: relative;
+    top: 30%;
+    left: 30%;
+    width: 90%;
+    height: 90%;
+    border-radius: 20%;
+    display: flex;
+    flex-direction: row;
+    perspective: 2500px;
+    transform: preserve-3d;
+}
+
+
+.emitter_ray{
+    position: absolute;
+    background: linear-gradient(to top, #0569ff33 20%, var(--background-color) 60%);
+    width: 100%;
+    height: 100%;
+    bottom: -6%;
+    left:9%;
+    opacity: 0.8;
+    clip-path: polygon(0 0, 100% 0, 50% 100%, 50% 100%);
+    animation: hologram_wave 0.05s ease-in-out infinite;
+    transition: all 0.5s ease;
+}
+
+.emitter_ray.hidden{
+    opacity: 0;
+}
+
+.emitter_ray.expanded{
+    opacity: 1;
+} */
+
+/* @keyframes hologram_wave{
+    0%{
+        background: linear-gradient(to top, #0569ff33 20%, var(--background-color) 60%);
+    }
+    100%{
+        background: linear-gradient(to top, #0569ff33 30%, var(--background-color) 60%);
+    }
+} */

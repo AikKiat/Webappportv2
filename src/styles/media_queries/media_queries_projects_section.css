@@ -8,40 +8,6 @@
         height: 20rem;
     }
 
-
-    .projects_card_showcase{
-        position: absolute;
-        top: 10%;
-        left: 20%;
-        width: 50%;
-        height: 100%;
-        /* border: 1px solid #ff2600; */
-    }
-
-    .project_information_card_holder{
-        top: -10%;
-        left: 0%;
-        width: 100%;
-        height: 30%;
-    }
-
-    .project_information_card .close_button{
-        top: 10%;
-        width: 3rem;
-        height: 3rem;
-    }
-    
-    .project_information_card .techstack{
-        border-radius: 1rem;
-        padding: 0.5rem;
-        max-width: 100%;
-    }
-
-    .techstack img{
-        width: 2rem;
-        height: 2rem;
-    }
-
     .select_next, .select_before{
         width: 3rem;
         height: 3rem;
@@ -53,54 +19,6 @@
         font-size: 2rem;
     }
 
-    .github_link{
-        margin: 1.5rem;
-    }
-
-    .github_link a{
-        font-size: 1rem;
-    }
-
-    .github_link_image{
-        width: 2rem;
-        height: 2rem;
-    }
-
-
-}
-
-@media all and (max-width:1400px) {
-
-    .projects_card_showcase{
-        top: 10%;
-        left: 0%;
-        width: 70%;
-        pointer-events: none;
-        /* border: 1px solid #ff2600; */
-    }
-
-
-    .project_information_card .text_holder{
-        flex:2;
-        gap: 1rem;
-        /* background: #428eff; */
-    }
-
-    .text_holder .title{
-        font-size: 1.1rem;
-        font-weight: 1000;
-    }
-
-    .text_holder .intro_desc{
-        font-size: 1.1rem;
-    }
-    .project_information_card.smarthealth{
-        flex-direction: column;
-    }
-
-    .text_holder .check_it_out_here{
-        font-size: 1.0rem;
-    }
 
 }
 
@@ -121,9 +39,6 @@
         width: 20rem;
         height: 20rem;
     }
-    .project_information_card.smarthealth{
-        flex-direction: column;
-    }
 }
 
 @media all and (min-width:900px) and (max-width:1000px){
@@ -133,39 +48,10 @@
         width: 20rem;
         height: 20rem;
     }
-
-    .project_information_card.smarthealth{
-        flex-direction: column;
-    }
 }
 
 
 @media all and (max-width:900px) {
-
-    .github_link{
-        margin: 1rem;
-    }
-
-
-    .project_information_card .close_button{
-        top: 0%;
-        width: 3rem;
-        height: 3rem;
-    }
-
-
-    .projects_card_showcase{
-        top: 15%;
-        left: 0%;
-        width: 70%;
-        /* height: 60rem; */
-        pointer-events: none;
-        /* border: 1px solid #ff2600; */
-    }
-
-    .project_information_card.smarthealth{
-        flex-direction: column;
-    }
 
     .text_holder .title{
         font-size: 1rem;
@@ -204,11 +90,6 @@
     .project_card{
         font-size: 2rem;
     }
-
-    .text_holder .check_it_out_here{
-        font-size: 1.0rem;
-    }
-
 }
 
 @media all and (max-width:810px) {
@@ -230,69 +111,6 @@
 
 @media all and ((min-width:400px) and (max-width:720px)){
 
-    .github_link{
-        bottom: -5%;
-        margin: 1rem;
-    }
-
-    .project_information_card .techstack{
-        bottom: -5%;
-    }
-
-
-    .projects_card_showcase{
-        top: 15%;
-        left: 0%;
-        width: 100%;
-        height: 90%;
-        pointer-events: none;
-        /* border: 1px solid #ff2600; */
-    }
-
-    .project_information_card_holder{
-        top: -10%;
-        left: 0%;
-        width: 100%;
-        height: fit-content;
-    }
-
-    .project_information_card{
-        padding: 0.5rem;
-        gap: 0rem;
-    }
-
-    .project_information_card.tall, .project_information_card.aidrm, .project_information_card.smarthealth{
-        display: flex;
-        flex-direction: column;
-        gap: 0rem;
-        padding: 2rem;
-    }
-
-    .project_information_card.tall .image_holder{
-        position: absolute;
-        top: 20%;
-        left: 0%;
-        width: 50%;
-        height: 60%;
-        /* flex: 1; */
-        overflow: hidden;
-    }
-
-    .project_information_card.tall .text_holder{
-        padding: 1rem;
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        width: 50%;
-        height: 60%;
-        /* flex: 1; */
-        overflow: hidden;
-    }
-
-    .project_information_card.tall .text_holder .intro_desc{
-        overflow-y: scroll;
-    }
-
 
     .projects_drawer{
         top: 60%;
@@ -309,41 +127,9 @@
         margin: 1rem 2rem;
     }
 
-    .text_holder .check_it_out_here{
-        font-size: 1.0rem;
-    }
-    .project_information_card.tall .techstack{
-        top: 80%;
-    }
 }
 
 @media all and (max-width:650px){
-
-
-    .project_information_card .close_button{
-        top: 0%;
-        width: 3rem;
-        height: 3rem;
-    }
-
-
-    .projects_card_showcase{
-        top: 15%;
-        left: 0%;
-        width: 100%;
-        /* height: 60rem; */
-        pointer-events: none;
-        /* border: 1px solid #ff2600; */
-    }
-
-    .project_information_card{
-        padding: 2rem;
-        gap: 0rem;
-    }
-
-    .project_information_card.aidrm .text_holder{
-        padding: 0 0.5rem 0 0.5rem;
-    }
 
 
     .projects_drawer{
@@ -361,67 +147,9 @@
         margin: 1rem 2rem;
     }
 
-    .text_holder .check_it_out_here{
-        font-size: 1.0rem;
-    }
-
-    .project_information_card.tall .techstack{
-        top: 80%;
-    }
 }
 
 @media all and (max-width:460px){
-
-
-    .project_information_card .techstack{
-        bottom: -5%;
-        box-shadow: 0rem 0rem 0.1rem 0.5rem #e4e41039, 0rem 0rem 0.1rem 0.2rem #1313135a;
-    }
-
-    .project_information_card.hotelapp .techstack{
-        left: 0%;
-        bottom: 8%;
-    }
-
-
-
-    .project_information_card .close_button{
-        top: 0%;
-        width: 3rem;
-        height: 3rem;
-    }
-
-
-    .projects_card_showcase{
-        top: 15%;
-        left: 0%;
-        width: 100%;
-        /* height: 60rem; */
-        pointer-events: none;
-        /* border: 1px solid #ff2600; */
-    }
-
-    .project_information_card{
-        padding: 2rem;
-        gap: 0rem;
-    }
-
-    .project_information_card.tall, .project_information_card.aidrm, .project_information_card.smarthealth{
-        display: flex;
-        flex-direction: column;
-        gap: 0rem;
-        padding: 2rem;
-    }
-
-    .project_information_card.tall .text_holder .intro_desc{
-        overflow-y: scroll;
-    }
-
-    .project_information_card.tall .techstack{
-        top: 80%;
-    }
-
-
 
     .projects_drawer{
         top: 65%;
@@ -443,138 +171,12 @@
         margin: 1rem 2rem;
     }
 
-    .text_holder .check_it_out_here{
-        font-size: 1.0rem;
-    }
 }
 
 
 
 
 @media all and ((min-width:360px) and (max-width:400px)) {
-
-    .github_link{
-        bottom: -5%;
-    }
-
-    .github_link a{
-        font-size: 0.8rem;
-    }
-
-    .project_information_card .techstack{
-        bottom: -5%;
-        box-shadow: 0rem 0rem 0.1rem 0.5rem #e4e41039, 0rem 0rem 0.1rem 0.2rem #1313135a;
-    }
-
-    .project_information_card.hotelapp .techstack{
-        left: 0%;
-        bottom: 8%;
-    }
-
-
-    .project_information_card.pv1 .github_link{
-        left: 60%;
-        bottom: 31%;
-
-    }
-
-    .project_information_card.pv1 .techstack{
-        left: 0%;
-        bottom: 32%;
-    }
-
-
-    .project_information_card .close_button{
-        top: 0%;
-        width: 3rem;
-        height: 3rem;
-    }
-
-
-    .projects_card_showcase{
-        top: 15%;
-        left: 0%;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        /* border: 1px solid #ff2600; */
-    }
-
-    .project_information_card{
-        left: 0%;
-        padding: 1rem;
-        gap: 0rem;
-    }
-
-    .project_information_card.tall .image_holder{
-        position: absolute;
-        top: 20%;
-        left: 0%;
-        width: 50%;
-        height: 60%;
-        /* flex: 1; */
-        overflow: hidden;
-    }
-
-    .project_information_card.tall .text_holder{
-        padding: 1rem;
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        width: 50%;
-        height: 60%;
-        /* flex: 1; */
-        overflow: hidden;
-    }
-
-    .project_information_card.tall .text_holder .intro_desc{
-        overflow-y: scroll;
-    }
-
-
-
-
-
-
-    .project_information_card .text_holder{
-        margin-bottom: 0%;
-    }
-
-    .project_information_card.aidrm .text_holder{
-        top: 20%;
-        margin-bottom: 0%;
-    }
-
-    .project_information_card.tall .text_holder{
-        padding: 0 0.5rem 0 0.5rem;
-    }
-
-
-    .project_information_card.tall, .project_information_card.aidrm, .project_information_card.smarthealth{
-        display: flex;
-        flex-direction: column;
-        gap: 0rem;
-        padding: 2rem;
-    }
-
-    .project_information_card.aidrm .techstack{
-        bottom: -5%;
-    }
-
-    .project_information_card.aidrm .techstack img{
-        width: 1.5rem;
-        height: 1.5rem;
-    }
-
-
-    .project_information_card.tall .text_holder .intro_desc{
-        font-size: 1.0rem;
-    }
-
-    .project_information_card.aidrm .text_holder .intro_desc{
-        font-size: 0.8rem;
-    }
-
 
 
     .projects_drawer{
@@ -621,197 +223,9 @@
         margin: 0.5rem 1.5rem;
     }
 
-    .text_holder .check_it_out_here{
-        font-size: 1.0rem;
-    }
-
 }
 
 @media all and (max-width:360px) {
-
-    .project_information_card.smarthealth .github_link{
-        width: 40%;
-        left: 5%;
-        bottom: -5%;
-
-    }
-
-    .project_information_card.smarthealth .techstack{
-        left: 6%;
-        bottom: -13%;
-    }
-
-
-
-    .project_information_card.pv1 .github_link{
-        left: 60%;
-        bottom: 38%;
-    }
-
-    .github_link a{
-        font-size: 0.7rem;
-    }
-
-    .project_information_card.pv1 .techstack{
-        left: 0%;
-        bottom: 40%;
-    }
-
-
-    .github_link{
-        left: 3%;
-        bottom: -5%;
-
-    }
-
-    .project_information_card .techstack{
-        bottom: -5%;
-        box-shadow: 0rem 0rem 0.1rem 0.5rem #e4e41039, 0rem 0rem 0.1rem 0.2rem #1313135a;
-    }
-
-    .project_information_card.hotelapp .techstack{
-        left: 5%;
-        bottom: 8%;
-        box-shadow: 0rem 0rem 0.1rem 0.5rem #e4e41039, 0rem 0rem 0.1rem 0.2rem #1313135a;
-    }
-
-
-
-
-    .project_information_card .close_button{
-        top: 0%;
-        width: 3rem;
-        height: 3rem;
-    }
-
-
-    .projects_card_showcase{
-        margin-top: 0rem;
-        top: 5%;
-        left: 0%;
-        width: 100%;
-        height: 70%;
-        pointer-events: none;
-        /* border: 1px solid #ff2600; */
-    }
-
-    .project_information_card .text_holder{
-        margin-bottom: 0%;
-    }
-
-    .project_information_card{
-        padding: 2rem;
-    }
-
-    .project_information_card.tall, .project_information_card.aidrm, .project_information_card.smarthealth{
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0rem;
-    }
-
-
-    .project_information_card.tall .image_holder{
-        position: absolute;
-        top: 20%;
-        left: 0%;
-        width: 50%;
-        height: 60%;
-        /* flex: 1; */
-        overflow: hidden;
-    }
-
-    .project_information_card.tall .text_holder{
-        padding: 1rem;
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        width: 50%;
-        height: 60%;
-        /* flex: 1; */
-        overflow: hidden;
-    }
-
-
-    .project_information_card.aidrm .text_holder{
-        top: 10%;
-        margin-bottom: 0%;
-        height: 0rem;
-        overflow-y: scroll;
-    }
-
-    .project_information_card.aidrm .text_holder .title{
-        font-size: 0.9rem;
-    }
-
-    .project_information_card.aidrm .text_holder .intro_desc{
-        font-size: 0.8rem;
-    }
-
-    .project_information_card.tall .text_holder .title{
-        font-size: 0.9rem;
-    }
-
-    .project_information_card.tall .text_holder .intro_desc{
-        font-size: 0.7rem;
-    }
-
-    .text_holder .title{
-        font-size: 1.0rem;
-        font-weight: 1000;
-    }
-
-    .text_holder .intro_desc{
-        font-size: 0.9rem;
-        overflow-y: scroll;
-    }
-
-    .project_information_card .techstack{
-        border-radius: 1rem;
-        padding: 0.5rem;
-        max-width: 100%;
-    }
-
-    .project_information_card.aidrm .techstack{
-        top: 90%;
-        border-radius: 1rem;
-        padding: 0.5rem;
-        max-width: 100%;
-    }
-
-    .project_information_card.smarthealth .techstack{
-        left: 55%;
-        top: 91%;
-        border-radius: 1rem;
-        padding: 0.5rem;
-        max-width: 100%;
-    }
-
-    .project_information_card.smarthealth .github_link{
-        left: 3%;
-        top: 90%;
-        border-radius: 1rem;
-        padding: 0.3rem;
-        justify-content: space-around;
-        max-width: 100%;
-    }
-
-    .project_information_card.tall .techstack{
-        left: 3%;
-        top: 80%;
-        border-radius: 1rem;
-        padding: 0.3rem;
-        justify-content: space-around;
-        max-width: 100%;
-    }
-
-    .techstack img{
-        width: 1.5rem;
-        height: 1.5rem;
-    }
-
-
-
 
     .projects_drawer{
         top: 50%;
@@ -857,27 +271,62 @@
     }
 }
 
+/*The project card showcase itself*/
 
-@media all and (max-width:340px) {
+/* @media all and (max-width:500px) {
+    .projects_card_showcase{
+    position: absolute;
+    top:0%;
+    right: 5%;
+    height: 100%;
+    transition: all 0.5s ease;
+}
+} */
 
-    .project_information_card.smarthealth .github_link{
-        width: 40%;
-        left: -3%;
-        bottom: -5%;
 
+@media all and (max-width: 600px) {
+
+    .projects_card_showcase{
+        position: relative;
+        align-self: center;
+        top: 0%;
     }
 
-    .github_link a{
-        font-size: 0.7rem;
+    .project-card {
+        padding: 0.5rem;
     }
-
-    .project_information_card.smarthealth .techstack{
-        left: 43%;
-        bottom: -3%;
+    .media-display {
+        max-height: 15rem;
     }
+    .title {
+        font-size: 1.2rem;
+    }
+    .prev-btn,
+    .next-btn {
+        font-size: 1.2rem;
+        padding: 0.3rem 0.5rem;
+    }
+    .techstack-container img {
+    width: 1.5rem;
+    height: 1.5rem;
+    }
+}
 
-    .text_holder .check_it_out_here{
-        font-size: 1.0rem;
+@media all and (max-width: 850px) {
+    .projects_card_showcase{
+        top: 0%;
+    }
+}
+
+
+
+
+@media all and (min-width: 320px) and (max-width:420px) {
+
+    .projects_card_showcase{
+        top: -10%;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 }
 
