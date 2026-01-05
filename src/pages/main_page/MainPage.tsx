@@ -4,7 +4,7 @@ import { introTexts } from "../../constants/constants";
 
 
 
-import {personalQualities, type personal } from "../../constants/constants";
+import {personalQualities} from "../../constants/constants";
 
 import "../../styles/main_page_projects_section.css";
 import "../../styles/main_page_intro_section.css";
@@ -16,8 +16,8 @@ import {useAnimateOnScroll} from "../../hooks/useAnimateOnScroll";
 
 
 //Assets
-import knowingYourselfImage from "../../assets/icons/info_img.svg";
-import profileImage from "../../assets/images/ncs.png";
+import knowingYourselfImage from "/icons/info_img.svg";
+import profileImage from "/images/ncs.png";
 
 //Components for Info section
 import InfoCard from "./components/info_section/InfoCard";
@@ -33,9 +33,6 @@ import ProjectsDrawer from "./components/projects_section/ProjectsDrawer";
 import { ProjectsCardHologram } from "./components/projects_section/ProjectsCardHologram";
 
 export default function MainPage(){
-
-    //Intro Section
-    const [seeingBrief, setSeeingBrief] = useState<boolean>(true);
 
 
     //Info Section
@@ -188,7 +185,7 @@ export default function MainPage(){
                 </div>
                 <div className="skills_icons_desc_holder">
                     <div className="skills_grid">
-                    {skills.map((skill : skill, index : number) => {
+                    {skills.map((skill : skill) => {
                         const style : React.CSSProperties = {
                             background: skill.color
                         }

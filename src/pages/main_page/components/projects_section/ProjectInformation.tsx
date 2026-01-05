@@ -3,7 +3,7 @@ import { tr } from "motion/react-client";
 import GlowingText from "../info_section/GlowingText";
 import { useState } from "react";
 
-import github_icon from "../../../../assets/icons/github.png";
+import github_icon from "/icons/github.png";
 
 
 interface projectInformationProps{

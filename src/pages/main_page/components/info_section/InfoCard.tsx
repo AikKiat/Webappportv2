@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import {type certInfo, type personal } from "../../../../constants/constants"
 import GlowingText from "./GlowingText";
 
-import {motion, MotionValue, transform, useMotionValue, useTransform} from "motion/react";
+import {motion, MotionValue, useMotionValue, useTransform} from "motion/react";
 
 
 interface PersonalCardProps {
@@ -83,7 +83,7 @@ const PersonalCard = ({ personalQuality, onSwipeOut, onReset, firstIndex, caterg
                 </div>
                 {personalQuality.multiDescription && 
                     <div>
-                        {personalQuality.multiDescription.map((oneCert : certInfo, index : number) => {
+                        {personalQuality.multiDescription.map((oneCert : certInfo) => {
                             return (
                                 <div>
                                     <span className="cert_title">{oneCert.title}</span>
