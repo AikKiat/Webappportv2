@@ -43,7 +43,7 @@ export default function MainPage(){
 
     //Projects Section
     const [currentIndex, setCurrentIndex] = useState<number>(-1);
-    const [closeFromProjectCard, setCloseFromProjectCard] = useState<number>(-3); //even means open, odd means close
+    const [closeFromProjectCard, setCloseFromProjectCard] = useState<number>(0); //even means open, odd means close
 
     const childRefDrawerSide = useRef<HTMLDivElement>(null);
     const childRefDrawerFront = useRef<HTMLDivElement>(null);

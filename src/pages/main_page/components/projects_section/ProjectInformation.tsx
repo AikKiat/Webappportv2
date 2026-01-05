@@ -34,6 +34,8 @@ export default function ProjectInformation(props : projectInformationProps){
     }
 
     function handleCloseFromProjectCardState(){
+        console.log("running here");
+        console.log(props.closeFromProjectCardCurrentVal);
         if(props.closeFromProjectCardCurrentVal % 2 == 1){ //odd number, means open
             props.sendCloseSignalParent(props.closeFromProjectCardCurrentVal + 1);
         }

@@ -52,7 +52,7 @@ export function ProjectsCardHologram({closeFromProjectCard, setCloseFromProjectC
                 }
             }, 500);
         }
-        else if(closeFromProjectCard !== -3){
+        else{
             console.log("opening");
             if(emitterPlatformRef.current){
                 emitterPlatformRef.current.style.boxShadow = "-0.7rem 2rem 1rem 3.5rem var(--background-color), 1rem 4rem 1rem 2rem #1e1e1e";

@@ -181,7 +181,7 @@
     top: 10%;
     right: 5%;
     width: 50rem;
-    height: 50rem;
+    height: fit-content;
     perspective: 2500px;
     transform: preserve-3d;
     display: flex;
@@ -278,7 +278,7 @@
     left: 0%;
     width: 100%;
     /* border: 1px solid #006eff; */
-    height: 70%;
+    height: fit-content;;
     transition: all 0.2s ease;
     backdrop-filter: blur(0.2rem);
     opacity: 0;
@@ -588,12 +588,17 @@
     position: absolute;
     top: 0%;
     right: 0%;
+    margin: 0rem;
     background: transparent;
     width: 5rem;
     height: 5rem;
     border-radius: 10%;
     box-shadow: 0rem 0rem 1rem #ff0734 inset;
 
+}
+
+.close_button:hover{
+    background: #080808;
 }
 
 .close_button::before{
