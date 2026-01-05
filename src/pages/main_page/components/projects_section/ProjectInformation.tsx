@@ -1,5 +1,4 @@
 
-import { tr } from "motion/react-client";
 import GlowingText from "../info_section/GlowingText";
 import { useState } from "react";
 
@@ -118,7 +117,7 @@ export default function ProjectInformation(props : projectInformationProps){
                 <span id="close_right_bar"></span>
             </div>
             {props.techstack && <div className="techstack">
-                {props.techstack.map((technology : string, index : number) => {
+                {props.techstack.map((technology : string) => {
                     return (
                         <img src={`${technology}`}></img>
                     )

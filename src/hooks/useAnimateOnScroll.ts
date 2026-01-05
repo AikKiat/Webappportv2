@@ -45,8 +45,6 @@ export const useAnimateOnScroll = (elements: AnimationElements) => {
         const projectDrawerButtonLeft = elements.projectDrawerButtonLeft.current;
         const projectDrawerButtonRight = elements.projectDrawerButtonRight.current;
 
-        let mm = gsap.matchMedia();
-
 
         function infoCardStep1(){
             let gapValue = "3rem"; 
@@ -78,7 +76,7 @@ export const useAnimateOnScroll = (elements: AnimationElements) => {
         }
 
         function infoCardStep2(){
-            cardElements.map((card, index) => {
+            cardElements.map((card) => {
             gsap.to(`#${card.id} .card_back `, {
                 opacity: 1.0,
                 duration: 0.5,
@@ -89,7 +87,7 @@ export const useAnimateOnScroll = (elements: AnimationElements) => {
             });
             });
 
-            cardsFrontBehind.map((cardBackElement, index) =>{
+            cardsFrontBehind.map((cardBackElement) =>{
                 gsap.to(`#${cardBackElement.id}`, {
                     opacity: 0,
                     duration: 0.5,

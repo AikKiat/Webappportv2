@@ -4,7 +4,7 @@
 import ProjectInformation from "./ProjectInformation";
 import type { project } from "../../../../constants/constants";
 import { projects } from "../../../../constants/constants";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef} from "react";
 
 
 interface ProjectsCardHologramProps{

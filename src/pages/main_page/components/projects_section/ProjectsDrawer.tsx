@@ -1,7 +1,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { projects } from "../../../../constants/constants";
-import {motion} from "motion/react";
 
 
 interface ProjectsDrawerProps{
@@ -22,7 +21,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
     // const projectNamesArray = Object.keys(ProjectNames) as Array<keyof typeof ProjectNames>;
 
     let projectNamesArray : string[] = [];
-    projects.map((project, index) => {
+    projects.map((project) => {
         projectNamesArray = [...projectNamesArray, project.name];
     })
 
@@ -160,7 +159,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                             ref={(element) => {
                                 if (element) projectCardsRef.current[index] = element;
                             }}
-                            key={index}
+                            key={projectName}
                             id={`drawer_card_${index+1}`}
                             onClick={()=>selectSpecificCard(index)}>
                             
