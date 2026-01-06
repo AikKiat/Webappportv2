@@ -15,8 +15,7 @@ interface introtext{
 export const introTexts : introtext ={
     heading : "Hello! I am Thng Aik Kiat",
     bodyParagraph : `**Hello**! 
-                    **I** **am** **Thng** **Aik** **Kiat**, **a** **Fullstack** **Developer**.
-                    I enjoy **architecting **modular**, **scalable**, and **purposeful** solutions with the **right_technologies**.
+                    **I** **am** **Thng** **Aik** **Kiat**, **a** **Fullstack** **Developer**. I enjoy **architecting **modular**, **scalable**, and **purposeful** solutions with the **right_technologies**.
                     Having done **Digital Art**, I revel learning to create **original**, **expandable UI**, with **CSS & frontend frameworks like **React**.
                     On top of that, exploring **Generative** **AI** **applications** to **supercharge** my projects is also a core interest of mine.
                     Aside from work, I spend my time **building **model kits**, **Warhammer 40000**, and exercising.
@@ -298,30 +297,30 @@ const leadership : personal[] = [
     {
         index : 0,
         title : "President, Unreal Enthusiasts Interest Group",
-        description : "Led workshops on 3D Digital Art, VR and Animation.\n-Hosted Projects during key events such as Open House.",
+        description : "**Led workshops on **3D **Digital_Art, **VR and **Animation. **Created and **hosted **projects during key events such as **Open_House, **XR_Day involving big players such as **Meta.",
         imageSource : "/images/ue.png",
         multiDescription : null,
         uniqueName : "ueig",
-        longerDescription : "President of the Unreal Enthusiasts Interest Group for 2 years, and conducted no less than numerous learning workshops focused on Blender and Unreal Engine for the SUTD community. Eventually I and my Exco also created a Souls-like third person sandbox boss-fight and VR immersion environment depicting various tourist destinations, showcasing these projects both intra-school and in external events."
+        longerDescription : "**President of the **Unreal **Enthusiasts Interest Group for **2_years, and conducted **~10 **learning_workshops focused on **Blender and **Unreal_Engine for the **SUTD_community. Eventually I and my Exco also created a **Souls-like **third_person **sandbox **boss-fight and **VR_immersion **environment depicting **tourist_destinations, showcasing these projects both intra-school and in external events."
     },
     {
         index : 1,
         title : "University Ambassador",
-        description: "Conducted School tours, consultant for candidates' enquiries during SUTD Admissions Interviews, and welcomed potential students during for Offer Receptions.",
+        description: "Conducted **School_tours, consultant for candidates' **enquiries during **SUTD **Admissions_Interviews, and welcomed potential students during for Offer Receptions.",
         imageSource : "/images/sutd_logo.png",
         multiDescription : null,
         uniqueName : "ua",
-        longerDescription : "SUTD University Ambassadors Program in 2023 until August 2025. During my time as an ambassador, I involved myself in more than 20 events for prospective students, parents, and even some overseas professors. I not only learnt how to present various aspects of SUTD's Design and Innovation Philosophy across various demographics, but also value this institution more in terms of the learning opportunities it has given me, to take on my aspiration of being a Computer Science Student imbued with the dynamic, humanistic nature that SUTD requires of its builders."
+        longerDescription : "**SUTD **University_Ambassador from **2023 until **August_2025. During my time as an ambassador, I involved myself in **more_than **20_events for **prospective_students, **parents, and **overseas_professors. I not only learnt how to present various aspects of **SUTD's **Design and **Innovation **philosophy to various **demographics, but also **value **this **institution more in terms of the **learning_opportunities it has given me, to take on my aspiration of being a **Computer_Science student **imbued with the **dynamic, **humanistic_nature that SUTD **requires of its **builders."
 
     },
     {
         index : 2,
         title : "Teaching Assistant, at SUTD-SST Big D Camp 2025",
-        description : "Created technical lesson manuals, mentored a team of 4 secondary school students from School of Science and Technology, building an Arduino robot controllable via Bluetooth.",
+        description : "Created technical **lesson **manuals, **mentored a team of 4 secondary school students from **School **of **Science and **Technology, building an **Arduino **robot controllable via **Bluetooth.",
         imageSource : "/images/sutd_bigd.png",
         multiDescription : null,
         uniqueName : "sutdbigd",
-        longerDescription : "I mentored a team of 4 secondary school students from School of Science and Technology, to build an Arduino rover robot to compete in a mass object retrieval sandbox, populated with various items simulating debris needed to be cleared after a disaster. The robot was controllable via Bluetooth. Helped various teams diagnose errors and also produced lesson content  for setting up the HC05 Bluetooth module. Personally mentored team won Best Team Spirit Award."
+        longerDescription : "I **mentored a team of 4 secondary school students from **School **of **Science **and **Technology, to build an **Arduino_rover **robot to compete in a **mass **object_retrieval **sandbox, **populated with various items **simulating_debris needed to be cleared after a disaster. The robot was **controllable **via **bluetooth. Helped various teams **diagnose **errors and also **produced **lesson_content for setting up the **HC05 **Bluetooth **module. Personally mentored team won **Best **Team **Spirit **Award."
     }
 ]
 
@@ -329,20 +328,20 @@ const experiences : personal[] = [
     {
         index : 0,
         title : "Product Engineering Intern, Asset Development, Next Open Innovation (NCS)",
-        description : "Created a fullstack AI-Driven Resource Monitoring System to Streamline Baggage Handling at Airports via Robotics Autonomous Systems. Designed backend system and improved scalability with measured performance metrics.",
+        description : "Created a **fullstack **AI-Driven **Resource_Monitoring **System to **Streamline **Baggage **Handling at **Airports via **Robotics **Autonomous_Systems. **Designed backend system and **improved **scalability with **measured **performance **metrics.",
         imageSource : "/images/ncs.png",
         multiDescription : null,
         uniqueName : "ncs",
-        longerDescription: "During my 4 months at NCS as a Product Eng Intern (Asset Dev), I built a fullstack AI-Driven Resource Monitoring System that integrates with an existing legacy simulation evironment, to showcase how AI could be implemented to streamline the coordination and selection of robotics systems to handle baggage handling. From first defining the problem and later on creating the actual fullstack system with a modular, cleanly layered software architecture, I indeed learnt a great deal about the entire product development process alongside software development.",
+        longerDescription: "During my 4 months at NCS as a Product Eng Intern (Asset Dev), I built a **fullstack **AI-Driven **Resource **Monitoring **System that **integrates with an existing **simulation_evironment, to showcase how **AI could be implemented to **streamline the **coordination and **selection of **robotics_systems to handle **baggages. From first **defining the **problem and later on **creating the actual fullstack system with a **modular, **cleanly **layered **software_architecture, I indeed **learnt a great deal about the entire **product_development process alongside **developing **software **systems. More in the **Projects_Section",
     },
     {
         index : 1,
         title : "DellInnovateFest 2025",
-        description: "A memorable 1-month long hackathon hosted by Dell Technologies, representing SUTD as a finalist team, and built a software solution after weeks of heartfelt solutioning, to alleviate the mental health situation amongst teenagers in Singapore.",
+        description: "A **memorable **1-month long **hackathon hosted by **Dell_Technologies, representing SUTD ans building an **AI-powered **software_product to **address **teenage **mental **well-being in Singapore.",
         imageSource : "/images/dell_inno_1.png",
         multiDescription : null,
         uniqueName : "dellhackathon",
-        longerDescription : "A memorable 1-month long hackathon hosted by Dell Technologies, representing SUTD as a finalist team, and built a software solution after weeks of heartfelt solutioning, to alleviate the mental health situation amongst teenagers in Singapore. Worked with Singapore Association of Mental Health (SAMH) for problem definition & emotional journey of teenagers. Truly fruitful in building software products for the good of society, through meticulous, heartfelt solutioning."
+        longerDescription : "A memorable 1-month long hackathon hosted by Dell Technologies, **representing_SUTD as a **finalist_team, and built a software solution after weeks of heartfelt solutioning, to **alleviate the **mental_health situation amongst **teenagers in **Singapore. Worked with **Singapore **Association **for **Mental **Health **(SAMH) for **problem_definition & **emotional_journey of teenagers. Truly fruitful in building software products for the **good **of **society, through **meticulous, **heartfelt_solutioning. More in the **Projects_Section."
     }
 ]
 
@@ -364,7 +363,7 @@ const education : personal[] = [
     {
         index : 0,
         title : "Year 3 Computer Science @SUTD",
-        description : "Currently pursuing a BEngg in Computer Science, Singapore University of Technology and Design. Taking on a minor in AI, and also currently taking more courses in Security (Network and System Security) to further expand my knowledge.",
+        description : "Currently pursuing **Computer_Science, **Singapore **University **of **Technology **and **Design. Taking on a **minor in **AI, and also currently taking more courses in **Security **(Network and **System Security) to further **expand **my **knowledge.",
         imageSource : "/images/sutd_logo.png",
         multiDescription : null,
         uniqueName : "cssutd",
