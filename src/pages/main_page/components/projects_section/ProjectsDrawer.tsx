@@ -1,11 +1,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { projects } from "../../../../constants/constants";
+import type { project } from "../../../../constants/constants";
 
 
 interface ProjectsDrawerProps{
     closeFromProjectCard : number;
     setCloseFromProjectCard : React.Dispatch<React.SetStateAction<number>>;
+    setShowFullInformation : React.Dispatch<React.SetStateAction<boolean>>;
     setCurrentIndex : React.Dispatch<React.SetStateAction<number>>;
     setRefDrawerSide : ( data : HTMLDivElement) => void
     setRefDrawerFront : (data : HTMLDivElement) => void
@@ -25,8 +27,16 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
         projectNamesArray = [...projectNamesArray, project.name];
     })
 
+    let projectsArrays : project[] = [];
+    projects.map((project)=> {
+        projectsArrays = [...projectsArrays, project];
+    })
+
     const nextIndexRef = useRef<number>(-1);
     const projectCardsRef = useRef<HTMLDivElement[]>([]);
+    const internalContentsRef = useRef<HTMLDivElement[]>([]);
+
+    const overrideMinimiseAll = useRef<boolean>(false);
 
     const refDrawerSide = useRef<HTMLDivElement>(null);
     const refDrawerFront = useRef<HTMLDivElement>(null);
@@ -37,6 +47,8 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
 
     const [nextButtonClicked, setNextButtonClicked] = useState<boolean>(false);
     const [beforeButtonClicked, setBeforeButtonClicked] = useState<boolean>(false);
+
+    const transformStyles = useRef<Record<number, string>>({});
 
     useEffect(() =>{
         if(refDrawerFront.current){
@@ -70,15 +82,33 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
     }, [props.closeFromProjectCard])
 
     function selectSpecificCard(index : number){
+        if(overrideMinimiseAll.current === false){
+            nextIndexRef.current = index;
+            raiseCard();
+        }
+    }
 
-        if(props.closeFromProjectCard % 2 == 0){
-            props.setCloseFromProjectCard(prev => prev + 1)
+    function toggleProjectCardShowcase(){
+        if(props.closeFromProjectCard % 2 == 0){ //means we want to open over here
+            props.setCloseFromProjectCard(prev => prev + 1);
+            props.setShowFullInformation(true);
         }
         else{
+            //We keep it open
             props.setCloseFromProjectCard(prev => prev + 2)
         }
-        nextIndexRef.current = index;
+    }
+
+    function minimize(){
+        console.log("calling here!!", nextIndexRef.current);
+        nextIndexRef.current = -1;
+        overrideMinimiseAll.current = true;
+        console.log("calling here 2!!", nextIndexRef.current);
         raiseCard();
+
+        setTimeout(() => {
+            overrideMinimiseAll.current = false;
+        }, 100);
     }
 
     function selectNext(direction : number){
@@ -99,12 +129,12 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
         }
         
         
-        if(props.closeFromProjectCard % 2 == 0){
-            props.setCloseFromProjectCard(prev => prev + 1)
-        }
-        else{
-            props.setCloseFromProjectCard(prev => prev + 2)
-        }
+        // if(props.closeFromProjectCard % 2 == 0){
+        //     props.setCloseFromProjectCard(prev => prev + 1)
+        // }
+        // else{
+        //     props.setCloseFromProjectCard(prev => prev + 2)
+        // }
 
         const maxIndex = projectNamesArray.length-1;
 
@@ -126,9 +156,29 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
 
             if(index !== nextIndexRef.current){
                 card.style.top = "0%";
-                return;
+                card.style.zIndex = "0";
+                card.style.transform = `${transformStyles.current[index]} rotateY(0deg)`; 
+
+                let internalContentRef : HTMLDivElement = internalContentsRef.current[index];
+
+                if (internalContentRef)
+                {
+                    internalContentRef.style.opacity = "0";
+                }
             }
-            card.style.top = "-15%";
+
+            else{
+                card.style.top = "-120%";
+                card.style.zIndex = "999";
+                card.style.transform = `${transformStyles.current[index]} rotateY(-40deg)`; 
+                
+                let internalContentRef : HTMLDivElement = internalContentsRef.current[index];
+
+                if (internalContentRef)
+                {
+                    internalContentRef.style.opacity = "1.0";
+                }
+            }
         });
 
         setTimeout(() => {
@@ -139,10 +189,12 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
     return(
         <div className="projects_drawer">
             <div className="project_cards_container">
-                {projectNamesArray.map((projectName, index) =>{
+                {projectsArrays.map((project, index) =>{
                     
                     let zPos : number = index * -50;
                     let yPos : number = index * -0;
+
+                    transformStyles.current[index] = `translateZ(${zPos}px) translateY(${yPos}px) `
 
                     const cardStyle : React.CSSProperties = {
                         transform: `translateZ(${zPos}px) translateY(${yPos}px) `,
@@ -155,12 +207,22 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                             ref={(element) => {
                                 if (element) projectCardsRef.current[index] = element;
                             }}
-                            key={projectName}
+                            key={project.name}
                             id={`drawer_card_${index+1}`}
-                            onClick={()=>selectSpecificCard(index)}>
+                            onClick={() =>selectSpecificCard(index)}>
                             
                             <span>{index}</span> 
-                            <span className="card_tab"></span>
+                            <div className="internal_contents" ref={(element) => {if (element) internalContentsRef.current[index] = element}}>
+                                <span className="title_desc">{project.titleDesc}</span>
+                                {project.titleThumbnail && <div className="title_thumbnail">
+                                    <img src={`${project.titleThumbnail}`}></img>
+                                </div>}
+                                <div className="buttons">
+                                    <button className="expand" onClick={toggleProjectCardShowcase}>{"More >>"}</button>
+                                    <button className="minimize" onClick={minimize}>Minimise</button>
+                                </div>
+                            </div>
+                            {/* <span className="card_tab"></span> */}
                         </div>
                     )
                 })}

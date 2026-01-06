@@ -39,7 +39,9 @@ export interface project{
     longerDescription : string,
     uniqueIdName : string,
     techstack : string[] | null,
-    githubLink : string | null
+    githubLink : string | null,
+    titleDesc : string,
+    titleThumbnail : string | null
 }
 
 export const projects : project[] = [
@@ -53,7 +55,9 @@ export const projects : project[] = [
         longerDescription : "Longer DESC HERE",
         uniqueIdName : "aidrm",
         techstack : ["/icons/redis.png", "/icons/docker.png", "/icons/python.png", "/icons/ts.png", "/icons/react.png","/icons/psql.png", "/icons/tigerdata.png", "/icons/prometheus.png", "/icons/grafana.png", "/icons/langchain.png", "/icons/langgraph.png"],
-        githubLink : null
+        githubLink : null,
+        titleDesc : "AI-Driven Agentic Fullstack App.",
+        titleThumbnail : null
     },
     {
         name : "T.A.L.L",
@@ -65,7 +69,9 @@ export const projects : project[] = [
         longerDescription : " Made using Kotlin, running on a modular monolithic Node.js backend server connected to a PostgreSQL database, with an-inbuilt Python Webscraper and using an AI LLM to generate unique profile images tailored towards the details of user's personal entries, constructing and visualising the unique lifestory they can build.",
         uniqueIdName : "tall",
         techstack : ["/icons/js.png", "/icons/python.png", "/icons/kt.png", "/icons/openshift.png", "/icons/androidstudio.png"],
-        githubLink : null
+        githubLink : null,
+        titleDesc : "AI-Powered Mental Wellness App for Teenagers",
+        titleThumbnail : "images/tall.png"
     },
     {
         name : "Come Fly with Me",
@@ -77,7 +83,9 @@ export const projects : project[] = [
         longerDescription : "",
         uniqueIdName : "hotelapp",
         techstack : ["/icons/docker.png", "/icons/js.png", "/icons/react.png", "/icons/mysql.png", "/icons/cypress.png"],
-        githubLink : "https://github.com/AndrewLJY/ESCWebApp"
+        githubLink : "https://github.com/AndrewLJY/ESCWebApp",
+        titleDesc : "Fullstack (MERN -Mysql) Hotel Booking System",
+        titleThumbnail : "images/ascenda_0.png"
     },
     {
         name : "SmartHealth",
@@ -89,7 +97,9 @@ export const projects : project[] = [
         longerDescription : "Android App created as Part of 50.001 Informations Systems and Programming Course. Created using Java in Android Studio, and used Java Spring as the backend framework. User data stored in a PostGreSQL database, hosted on AWS. REST APIs for standardised clear communication standard between the client and backend, and RESTful APIs include Google Places, Routes API, Open AI GPT4.0 Api. We also hosted this backend on a free server space platform called Render, allowing the backend service of our app to be running 24/7. A step towards increased efficacy in deployment, and allowing our backend service to scale to larger platforms in the future.",
         uniqueIdName : "smarthealth",
         techstack : ["/icons/java.png", "/icons/spring.png", "/icons/aws.png"],
-        githubLink : "https://github.com/ItsMeOX/SmartHealth"
+        githubLink : "https://github.com/ItsMeOX/SmartHealth",
+        titleDesc : "AI-Powered Healthtech App for the Elderly",
+        titleThumbnail : "images/smarthealth_0.png"
     },
     {
         name : "Portfolio V1",
@@ -101,7 +111,9 @@ export const projects : project[] = [
         longerDescription : "My first web portfolio, and also my first project using HTML, CSS and Javascript. Made in Feb 2025.",
         uniqueIdName : "pv1",
         techstack : ["/icons/html.png", "/icons/css.png", "/icons/js.png" ],
-        githubLink : "https://github.com/AikKiat/webappport"
+        githubLink : "https://github.com/AikKiat/webappport",
+        titleDesc : "My First Web Portfolio",
+        titleThumbnail : "images/portfoliov1_1.png"
     }
 ]
 

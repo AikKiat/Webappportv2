@@ -90,6 +90,12 @@
     .project_card{
         font-size: 2rem;
     }
+
+    .internal_contents .buttons{
+        position: absolute;
+        top: -25%;
+        left: 0%;
+    }
 }
 
 @media all and (max-width:810px) {
@@ -310,6 +316,8 @@
         width: 1.5rem;
         height: 1.5rem;
     }
+
+
 }
 
 @media all and (max-width: 850px) {
@@ -367,6 +375,29 @@
         font-size: 1rem;
         margin-bottom: 0.5rem;
         color: #5a4638;
+    }
+
+
+    .internal_contents .buttons{
+        top: -20%;
+        right: 10%;
+        align-items: flex-start;
+        flex-direction: row;
+        width: fit-content;
+    }
+
+    .internal_contents .buttons .expand{
+        top: -10%;
+        order: 1;
+        font-size: 0.8rem;
+
+    }
+
+
+    .internal_contents .buttons .minimize{
+        top: 0%;
+        order: 0;
+        padding: 0.1rem 0.5rem 0.1rem 0.5rem;
     }
 
 

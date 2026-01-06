@@ -37,21 +37,13 @@ export default function ProjectInformation(props: ProjectInformationProps) {
     );
   };
 
-//   const handleClose = () => {
-//     if (props.closeFromProjectCardCurrentVal % 2 === 1) {
-//       props.sendCloseSignalParent(props.closeFromProjectCardCurrentVal + 1);
-//     }
-//   };
-
   const currentMedia = mediaItems[currentMediaIndex];
 
   return (
     <div className={`project-card ${props.uniqueIdName}`}>
       {mediaItems.length > 0 && (
         <div className="media-container">
-          {mediaItems.length > 1 && <button className="prev-btn" onClick={handlePrev}>
-            {"<"}
-          </button>}
+          {mediaItems.length > 1 && <button className="prev-btn" onClick={handlePrev}>{"<"}</button>}
           <div className="media-display">
             {currentMedia.startsWith("htt") ? (
               <iframe src={currentMedia} title="project-video" />
@@ -59,9 +51,7 @@ export default function ProjectInformation(props: ProjectInformationProps) {
               <img src={currentMedia} alt="project-media" />
             )}
           </div>
-          {mediaItems.length > 1 && <button className="next-btn" onClick={handleNext}>
-            {">"}
-          </button>}
+          {mediaItems.length > 1 && <button className="next-btn" onClick={handleNext}>{">"}</button>}
         </div>
       )}
 

@@ -44,6 +44,7 @@ export default function MainPage(){
     //Projects Section
     const [currentIndex, setCurrentIndex] = useState<number>(-1);
     const [closeFromProjectCard, setCloseFromProjectCard] = useState<number>(0); //even means open, odd means close
+    const [showCardShowcaseDetails, setShowCardShowcaseDetails] = useState<boolean>(false);
 
     const childRefDrawerSide = useRef<HTMLDivElement>(null);
     const childRefDrawerFront = useRef<HTMLDivElement>(null);
@@ -165,6 +166,7 @@ export default function MainPage(){
             <div className="projects_section">
                 <ProjectsDrawer 
                     setCloseFromProjectCard={setCloseFromProjectCard} 
+                    setShowFullInformation={setShowCardShowcaseDetails}
                     closeFromProjectCard={closeFromProjectCard} 
                     setCurrentIndex={setCurrentIndex} 
                     setRefDrawerFront={setDrawerFrontRef} 
@@ -175,7 +177,14 @@ export default function MainPage(){
                     setRefButtonRight={setButtonRightRef}
                     >
                 </ProjectsDrawer>
-                <ProjectsCardHologram setCloseFromProjectCard={setCloseFromProjectCard} closeFromProjectCard={closeFromProjectCard} currentIndex={currentIndex} sendCloseFromProjectCard={setCloseFromProjectCard}></ProjectsCardHologram>
+                <ProjectsCardHologram 
+                    setCloseFromProjectCard={setCloseFromProjectCard} 
+                    closeFromProjectCard={closeFromProjectCard} 
+                    currentIndex={currentIndex} 
+                    sendCloseFromProjectCard={setCloseFromProjectCard} 
+                    showFullInfo={showCardShowcaseDetails} 
+                    sendShowCardProjectDetails={setShowCardShowcaseDetails}>
+                </ProjectsCardHologram>
             </div>
 
             <div className="skills_section">
