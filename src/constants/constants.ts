@@ -47,7 +47,18 @@ export interface project{
 export const projects : project[] = [
     {
         name : "AI-Driven Resource Monitor Project (Internship @NCS NEXT)",
-        description: "An AI-Driven Fullstack Web Application built from a modular monolithic Python Fast API backend, with a React TS Frontend client. Created to interface with a greater legacy simulation system, that mimics how fleets of robots could be delegated to handle baggage handling at airports. Agentic capabilities stem from the AI-Driven system being able to actively detect changes purported from the simulation, provide recommendations, and automatically populate the simulation environment with the more optimised environment scenario.",
+        description: 
+        `An AI-driven full-stack web application built on a modular monolithic **FastAPI (Python) backend with a **React + **TypeScript frontend client.
+        The system interfaces with a **simulation environment that models **robotic entities, **movement routes, **operational constraints, and **baggage transfer conditions. 
+        Agentic capabilities are implemented through an AI-driven decision layer actively monitoring the simulation state changes, and either **generates optimization recommendations and documents via the frotnend chatbot or **autonomously **updates the simulation environment with the entire **improved **scenario.
+        Both the **real-time simulated environment data and the AI-recommended version are stored in **separate **Redis **hash **keyspaces for **low-latency access. Thus, I created update logic for the hash objects whenever new data arrived on the simulation, prompting the AI come up with a new optimal resource allocation scenario.
+        For clear and intuitive presentation, I took inspiration from card games like Hearthstone, Solitaire to visualise the reallocation of resources, representing the two state scenarios mentioned.To achieve this, I used **ReactFlow, creating **interactive **cards symbolising each **simulation **entity. This allowed the UI to scale, and support ever **larger **amounts of simulation actors that could be **positioned **freely by the user - without constant calculations to resize DOM elements to fit screen width.
+        Secondly, regarding **backend **performance: 
+        I further created application-level more singleton classes to **collate **metrics, tracking system-wide KPIs such as **cache **hit **rates, **LLM_token usage**, and **API_response** times**. These metrics are exposed via **Prometheus_scraping and visualized through **Grafana_dashboards, enabling real-time observability and performance analysis.
+        Using these insights, I identified bottlenecks, **optimizing the **chatbot_message **storage_layer by introducing **Redis as a **cache-first **data_store ahead of the primary database, enabling rapid retrieval of the **most_recent **N_messages per conversation.
+        This reduced database lazy-loading overhead and improved worst-case API latency from **422 ms to **22 ms.
+        Rounding things off, I **containerised both the **simulation_system and my own **resource_monitor into their separate **Docker_Compose projects. This allowed me to start **no **less **than **6 **containers together with **2 **compose_up **-d commands. Regarding the **initial_setup of the simulation environment on the **local_machine, I liased substantially with the team's overseas Chinese Software Developers for the different configuration settings that needed to be changed.
+        Overall, it was a truly meaningful, fruitful and enlightening experience, and I learnt the importance of **designing_systems that are **modular, have **clear_boundaries between components, and can be **expanded in future to **champion **larger_scale **workloads. `,
         imageSource : "/images/aidrm.png",
         videoSource : null,
         imageCollage : null,
@@ -61,7 +72,18 @@ export const projects : project[] = [
     },
     {
         name : "T.A.L.L",
-        description : "A fullstack android app embodying our research into guided journaling and indentity building, made to empower the lives of teenagers and better their mental wellbeing. Conceptualised for DellInnovateFest 2025, the Hackathon with a Heart by Dell Technologies aimed at utilising technology for social good.",
+        description : 
+        `A fullstack **Cloud **Native App embodying our research into **guided_journaling and **identity_building, made to **empower lives of **teenagers and **better their **mental_wellbeing. 
+        Conceptualised for **DellInnovateFest **2025 by **Dell_Technologies aimed at **utilising_technology for **social_good.
+        **Representing_SUTD as a **finalist_team, my team and I wanted to do our best not just for ourselves and SUTD, but for the **cause of **addressing **teenage **mental_wellbeing in **Singapore.
+        We established an **enduring_partnership with **Singapore **Association **for **Mental Health, seeking the advice from the experts about **Art_Therapy and the **"Think, **Feel, **Act" **framework to **develop **personal **coping_strategies.
+        Through **professional_guidance by our mentors Chia Yi You from Dell Technologies and Chun Hong from AsiaPac, we gradually **developed a solid **solution that **catalogs_teenagers' days events through a **short **guided_journalling activity, transforming these events into a **unique_timeline.
+        This timeline represents the teen's **unique_journey and **lifestory, with the **AI collating **personal_interests, **events to generate both an **entertaining_avatar **backdrop the teenager can call his/her own, as well as **reframe_challenges into **stories **of **resilience.
+        This allows teenagers to **backtrack to view **past_triumphs **over **challenges so that they will be **ever_ready in confronting **similar_obstacles in **future.
+        **Tall, the **Almanac of **Lit **Life, was a month long product of passion and sincere innovation.
+        The backend server was containerised using **Docker, stored within **Harbour's **secure **Container **Registry service, and hosted on **RedHat_Openshift.   
+        Truly a **"Hackathon **with **a **Heart", **Dell_InnovateFest **2025 will forever be cherished within me.
+        `,
         imageSource : "/images/tall.png",
         videoSource : "",
         imageCollage : ["/images/tall.png", "/images/dell_inno_1.png", "/images/dell_inno_2.png"],
@@ -75,7 +97,12 @@ export const projects : project[] = [
     },
     {
         name : "Come Fly with Me",
-        description : "Fullstack Hotel Booking app as part of school project using Express and ReactJS. Data of more than 1000 hotel destinations pulled from Ascenda's API, clean layered architecture - Entities for hotel data persistence, services for business logic. Wrote more than 600 test cases for robustness. Containerised frontend and backend codes to separate Docker containers.",
+        description : 
+        `Fullstack Hotel Booking app for **client_company **Ascenda as part of school project using **ExpressJS, **ReactJS and **Stripe_Payments **API, as part of my **Term **5 **Elements_of **Software_Construction **50.003 **final **course **project.
+        Work was split between the team, and I worked on the **backend **ExpressJS **server with 2 others. Data of **more **than **1000 hotel destinations **pulled from **Ascenda's provided API endpoints were stored in **boundary_actor **entities which could be used for **greater_expandability in terms of the **persistence_layer.
+        Exposed various different REST API route endpoints for the middleware and frontend teams to use including a fuzzy search implementation for qerying syntax specific destinations by search query. 
+        Wrote more than **600** **test_cases for robustness using methods such as **Equivalence_Class **Testing, **Boundary_Value **Analysis (Hotel booking dates), and ran tests using **Jest.
+        The backend and frontend codes were containerised to separate **Docker_containers.`,
         imageSource : "/images/ascenda_5.png",
         videoSource : "",
         imageCollage : ["/images/ascenda_5.png"],
@@ -89,7 +116,14 @@ export const projects : project[] = [
     },
     {
         name : "SmartHealth",
-        description : "All in one HealthTech app for people in their 50s - 60s and caregivers of the elderly. Realtime food nutrient and medicinal package details analysis using Computer Vision, AI chatbot, live medical centre finder. PostgresSQL for user Data, hosted in AWS.",
+        description : `All in one **HealthTech_app for people in their **50s **- **60s and **caregivers of the elderly. **Realtime **food_nutrient and **medicinal_package **analysis, **live **medical_centre **finder & **Google_Maps **UI using **Google_Places **API. **PostgreSQL for **user_Data, hosted in **AWS_RDS with **S3 scalable storage for **image_data.
+        **Smarthealth is an **Android_App created as Part of **50.001 **Informations_Systems **and **Programming **Course. 
+        Created using **Java in **Android_Studio, and used **Java_Spring as the **backend **framework, user data was stored in a **PostgreSQL **AWS_RDS.
+        Me and my team used **Google_Places, **Routes **API, **Open_AI **GPT4.0 for **realtime **geospatial_mapping of **nearest_medical **centres, **Optical **Character **Recognition **(OCR) to **extract and **autofill medication in the **app's_inventory; and **image_detection to calculate meal calories from a single photo. 
+        We also hosted this backend on **Render, allowing the backend service of our app to be running 24/7. 
+        This was a step towards increased efficacy in **deployment, and allowing our **backend_service to scale to **larger platforms in the future.
+        Ultimately, the sound project structure and good programming practices were recognised by Singtel's Software Engineering Team, we our team was awarded the **Singtel **Information_Systems **and **Programming_Award.
+        Currently, we are working with the **Informations_System **Technology_Design **(ISTD) **department to showcase **Smarthealth during **2026's upcoming **SUTD **Open_House.`,
         imageSource : "/images/smarthealth_2d_poster.png",
         videoSource : "",
         imageCollage : ["/images/smarthealth_2d_poster.png", "/images/smarthealth_award.png", "/images/smarthealth_physicalposter.png"],
@@ -103,7 +137,7 @@ export const projects : project[] = [
     },
     {
         name : "Portfolio V1",
-        description : "My first web portfolio from Mar 2025, built using vanilla HTML, CSS and a Javascript file for logic",
+        description : "My first web portfolio from Mar 2025, built using vanilla HTML, CSS and a Javascript file for logic. My first HTML, CSS and Javascript project!",
         imageSource : "",
         videoSource : "",
         imageCollage : ["/images/portfoliov1_1.png", "/images/portfoliov1_2.png","/images/portfoliov1_3.png" ],

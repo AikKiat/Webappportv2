@@ -25,6 +25,7 @@ export default function GlowingText({text} : glowingTextProps){
 
                 const words = line.trim().split(" ");
                 return (
+                    <>
                     <div key={lineIndex}>
                         {words.map((textWord, wordIndex) => {
                             if(textWord.includes("**")){
@@ -61,6 +62,8 @@ export default function GlowingText({text} : glowingTextProps){
                         }).reduce((prev, curr) => <>{prev} {curr}</>)} 
                     <span className="line_divider"></span>
                     </div>
+                    <br></br>
+                    </>
                 )
             })}
         </div>
