@@ -56,7 +56,7 @@ export const projects : project[] = [
         uniqueIdName : "aidrm",
         techstack : ["/icons/redis.png", "/icons/docker.png", "/icons/python.png", "/icons/ts.png", "/icons/react.png","/icons/psql.png", "/icons/tigerdata.png", "/icons/prometheus.png", "/icons/grafana.png", "/icons/langchain.png", "/icons/langgraph.png"],
         githubLink : null,
-        titleDesc : "AI-Driven Agentic Fullstack App.",
+        titleDesc : "AI-Driven Agentic Fullstack App for Smarter Robotics Baggage Handling at Airports",
         titleThumbnail : null
     },
     {
@@ -84,8 +84,8 @@ export const projects : project[] = [
         uniqueIdName : "hotelapp",
         techstack : ["/icons/docker.png", "/icons/js.png", "/icons/react.png", "/icons/mysql.png", "/icons/cypress.png"],
         githubLink : "https://github.com/AndrewLJY/ESCWebApp",
-        titleDesc : "Fullstack (MERN -Mysql) Hotel Booking System",
-        titleThumbnail : "images/ascenda_0.png"
+        titleDesc : "Fullstack (MERN -Mysql) Hotel Booking System for Ascenda",
+        titleThumbnail : null
     },
     {
         name : "SmartHealth",
@@ -98,7 +98,7 @@ export const projects : project[] = [
         uniqueIdName : "smarthealth",
         techstack : ["/icons/java.png", "/icons/spring.png", "/icons/aws.png"],
         githubLink : "https://github.com/ItsMeOX/SmartHealth",
-        titleDesc : "AI-Powered Healthtech App for the Elderly",
+        titleDesc : "AI-Powered Healthtech App for the Elderly with Image Detection for Calorie Management",
         titleThumbnail : "images/smarthealth_0.png"
     },
     {

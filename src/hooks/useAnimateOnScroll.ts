@@ -184,7 +184,7 @@ export const useAnimateOnScroll = (elements: AnimationElements) => {
                     setTimeout(() => {
                         projectCards.forEach((card, index) => {
                         gsap.to(card, {
-                            opacity: 0.5,
+                            opacity: 1.0,
                             top: "0%",
                             duration: 0.01,
                             ease: "power3.out",
@@ -259,7 +259,7 @@ export const useAnimateOnScroll = (elements: AnimationElements) => {
                                 ease: "sine.inOut",
                             }
                         );
-                    }, 100);
+                    }, 500);
                     
                     
                     isProjectBounceComplete.current = true;            

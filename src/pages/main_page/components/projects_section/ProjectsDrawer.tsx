@@ -118,14 +118,14 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
 
             setTimeout(() => {
                 setNextButtonClicked(false);
-            }, 500);
+            }, 100);
         }
         else if (direction === -1){
             setBeforeButtonClicked(true);
 
             setTimeout(() => {
                 setBeforeButtonClicked(false);
-            }, 500);
+            }, 100);
         }
         
         

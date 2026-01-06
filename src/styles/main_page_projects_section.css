@@ -30,8 +30,8 @@
 .project_card{
     position: absolute;
     backface-visibility: hidden;
-    top: 50%;
     opacity: 0;
+    top: 50%;
     transform: translateY(10rem);
     font-size: 3rem;
     color: #000000;
@@ -39,10 +39,10 @@
     aspect-ratio: 7/5;
     transition: all 0.3s ease;
     border-radius: 0.5rem;
-    box-shadow: 0rem 0rem 1rem #4e8cff inset, -0.1rem 0.3rem 0.1rem 0.2rem #131313;
+    /* box-shadow: 0rem 0rem 1rem #4e8cff inset, -0.1rem 0.3rem 0.1rem 0.2rem #131313; */
     border: 0.1rem solid #080808;
     text-shadow: 0rem 0rem 0.1rem #fff;
-    background: #8d8d8d5b;
+    background: #4d4d4d5e;
     /* opacity: 0.5; */
     /* animation: bounce;
     animation-duration: 2s; */
@@ -79,8 +79,8 @@
     color: #fff;
     text-shadow: 0rem 0rem 0.5rem #fff;
     font-size: 1.1rem;
-    background: #2e2e2ecd;
-    backdrop-filter: blur(1rem);
+    background: #2e2e2eb3;
+    backdrop-filter: blur(0.1rem);
 }
 
 .internal_contents .buttons{
@@ -204,18 +204,19 @@
     /* box-shadow:  -0.5rem -0.3rem 0.5rem var(--background-color) , -0.5rem 0rem 1rem #1e1e1e; */
     transition: all 0.2s ease;
     /* border: 1px solid #2a4ce0; */
+    /* animation: selected_animation 0.4s ease infinite; */
 }
 
 .toggle_button:hover{
-    border: 2px solid #131313;
+    /* border: 2px solid #131313; */
 }
 
 .toggle_button.selected_right{
-    animation: selected_animation 0.2s linear infinite;
+    animation: selected_animation 0.5s linear infinite;
 }
 
 .toggle_button.selected_left{
-    animation: selected_animation 0.2s linear infinite;
+    animation: selected_animation 0.5s ease infinite;
 }
 
 .toggle_button.unselected{
@@ -224,8 +225,14 @@
 
 
 @keyframes selected_animation{
+    0%{
+        transform: scale(1.0);
+    }
+    50%{
+        transform: scale(0.98);
+    }
     100%{
-        transform: scale(0.8);
+        transform: scale(1.0);
     }
 }
 

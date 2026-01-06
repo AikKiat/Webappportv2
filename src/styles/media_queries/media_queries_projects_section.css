@@ -78,14 +78,6 @@
         margin: 1rem 2rem;
     }
 
-    .project_card .card_tab{
-        position: absolute;
-        top: -20%;
-        left: 0%;
-        height: 2rem;
-        width: 12rem;
-    }
-
 
     .project_card{
         font-size: 2rem;
@@ -201,14 +193,6 @@
         margin: 1rem 2rem;
     }
 
-    .project_card .card_tab{
-        position: absolute;
-        top: -20%;
-        left: 0%;
-        height: 1rem;
-        width: 7rem;
-    }
-
 
     .project_card{
         font-size: 1.5rem;
@@ -248,14 +232,6 @@
         margin: 1rem 2rem;
     }
 
-    .project_card .card_tab{
-        position: absolute;
-        top: -20%;
-        left: 0%;
-        height: 1rem;
-        width: 7rem;
-    }
-
 
     .project_card{
         font-size: 1.5rem;
@@ -278,17 +254,6 @@
 }
 
 /*The project card showcase itself*/
-
-/* @media all and (max-width:500px) {
-    .projects_card_showcase{
-    position: absolute;
-    top:0%;
-    right: 5%;
-    height: 100%;
-    transition: all 0.5s ease;
-}
-} */
-
 
 @media all and (max-width: 600px) {
 
