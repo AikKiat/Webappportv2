@@ -15,7 +15,7 @@ interface introtext{
 export const introTexts : introtext ={
     heading : "Hello! I am Thng Aik Kiat",
     bodyParagraph : `**Hello**! 
-                    **I** **am** **Thng** **Aik** **Kiat**, **a** **Fullstack** **Developer**. I enjoy **architecting **modular**, **scalable**, and **purposeful** solutions with the **right_technologies**, and am thus delving into designing **loosely_coupled, **interconnected services with **clear **operational_functions.
+                    **I** **am** **Thng** **Aik** **Kiat**, **a** **Fullstack** **Developer**. I enjoy **architecting **modular**, **scalable**, and **purposeful** solutions with the **right_technologies**, constituting **loosely_coupled, **interconnected services each with **clear **operational_functions.
                     Having done **Digital Art**, I revel learning to create **original**, **expandable UI**, with **CSS & frontend frameworks like **React**.
                     On top of that, exploring **Generative** **AI** **applications** to **supercharge** my projects is also a core interest of mine.
                     Aside from work, I spend my time **building **model kits**, **Warhammer 40000**, and exercising.
