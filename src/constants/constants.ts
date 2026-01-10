@@ -184,6 +184,16 @@ export const skills : skill[] = [
         color:"#ff9a48ff",
     },
     {
+        logo: "/icons/cpp_black.png",
+        name: "C++",
+        color:"#0467fcff",
+    },
+    {
+        logo: "/icons/c_black.png",
+        name: "C",
+        color:"#0467fcff",
+    },
+    {
         logo: "/icons/kt_black.png",
         name: "Kotlin",
         color:"#c130ffff",
