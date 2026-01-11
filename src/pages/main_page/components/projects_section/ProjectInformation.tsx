@@ -68,6 +68,17 @@ export default function ProjectInformation(props: ProjectInformationProps) {
             Check it out here!
           </a>
         )}
+        {
+          props.uniqueIdName === "aidrm" && (
+            <a
+              href="https://github.com/AikKiat/learning/blob/main/learning/designing_chat_system.md"
+              className="check-it-out"
+              target="_blank"
+              rel="noopener noreferrer">
+                More info on my personal documentation!
+            </a>
+          )
+        }
       </div>
 
       {props.githubLink && (
