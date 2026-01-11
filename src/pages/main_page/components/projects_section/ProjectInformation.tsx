@@ -75,7 +75,7 @@ export default function ProjectInformation(props: ProjectInformationProps) {
               className="check-it-out"
               target="_blank"
               rel="noopener noreferrer">
-                More info on my personal documentation!
+                More info about how I designed some parts of the system, not related to any key proprietary information of course.
             </a>
           )
         }
