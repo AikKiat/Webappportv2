@@ -22,7 +22,7 @@ export const introTexts : introtext ={
                     `,
     specialisations : ["Fullstack Developer", "Computer Science@SUTD", "Minor in AI"],
     github : "https://github.com/AikKiat",
-    resume : "https://drive.google.com/file/d/197RxmlpbkMN0qoCTFqgVO7JgIPOsYKfz/view?usp=drive_link",
+    resume : "https://drive.google.com/file/d/1kcRX-xT-qelUz_M5fJlimTzZIjQmIgnl/view?usp=drive_link",
     linkedin : "https://www.linkedin.com/in/thng-aik-kiat-535a2732a/",
     githubIcon : "/icons/github.png",
     linkedinIcon : "/icons/linkedin.png"
