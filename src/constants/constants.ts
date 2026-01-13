@@ -90,7 +90,7 @@ export const projects : project[] = [
         longerDescription : " Made using Kotlin, running on a modular monolithic Node.js backend server connected to a PostgreSQL database, with an-inbuilt Python Webscraper and using an AI LLM to generate unique profile images tailored towards the details of user's personal entries, constructing and visualising the unique lifestory they can build.",
         uniqueIdName : "tall",
         techstack : ["/icons/js.png", "/icons/python.png", "/icons/kt.png", "/icons/openshift.png", "/icons/androidstudio.png"],
-        githubLink : null,
+        githubLink : "https://github.com/AikKiat/Dell_InnovateFest-2025",
         titleDesc : "AI-Powered Mental Wellness App for Teenagers",
         titleThumbnail : "images/tall.png"
     },
