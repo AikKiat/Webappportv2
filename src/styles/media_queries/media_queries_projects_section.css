@@ -39,6 +39,7 @@
         width: 20rem;
         height: 20rem;
     }
+
 }
 
 @media all and (min-width:900px) and (max-width:1000px){
@@ -47,6 +48,17 @@
         left: 50%;
         width: 20rem;
         height: 20rem;
+    }
+}
+
+@media all and (max-width:1000px){
+    .project-card.tall .text-container {
+        max-height: 12rem;
+    }
+
+    
+    .project-card.hotelapp .text-container {
+        max-height: 12rem;
     }
 }
 
@@ -105,6 +117,7 @@
     .drawer_label .toggle_button{
         margin: 1rem 2rem;
     }
+
 }
 
 @media all and ((min-width:400px) and (max-width:720px)){
