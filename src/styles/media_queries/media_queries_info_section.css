@@ -521,7 +521,7 @@
     .card_container #card_1{
         opacity: 1;
         position: absolute;
-        top: 12%;
+        top: 10%;
         left: 5%;
     }
 
@@ -529,7 +529,7 @@
     .card_container #card_3{
         opacity: 1;
         position: absolute;
-        top: 50%;
+        top: 45%;
     }
 
     .card_container #card_2{
