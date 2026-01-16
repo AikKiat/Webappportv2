@@ -47,6 +47,12 @@
 
 @media all and (max-width:360px){
 
+    .skills_section_header{
+        margin-bottom: 0rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
 
     .skills_grid{
         grid-template-columns: auto auto auto;

@@ -409,6 +409,10 @@
         padding: 0.1rem 0.5rem 0.1rem 0.5rem;
     }
 
+    .prev-btn, .next-btn {
+        transform: translateY(-1.0rem);
+    }
+
     .expand-btn {
         position: absolute;
         bottom: 0%;
