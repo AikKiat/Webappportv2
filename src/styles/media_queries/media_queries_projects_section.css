@@ -100,6 +100,10 @@
         top: -25%;
         left: 0%;
     }
+
+    .project-card.smarthealth .text-container{
+        height: 12rem; 
+    }
 }
 
 @media all and (max-width:810px) {
@@ -116,6 +120,28 @@
 
     .drawer_label .toggle_button{
         margin: 1rem 2rem;
+    }
+
+    
+    .project-card.mlpipeline{
+        max-height: fit-content;  
+    }
+
+
+    .text-container {
+        height: fit-content;
+    }
+
+    .project-card.mlpipeline .text-container{
+        height: fit-content;
+    }
+
+
+    .text-container {
+        min-height: 5rem;
+        font-size: 0.8rem;
+        overflow-y: auto;
+        max-height: 20rem;
     }
 
 }
@@ -343,8 +369,13 @@
         max-height: 20rem;
     }
 
+    .project-card.pv1 .media-display{
+        height: 20rem;
+    }
+
     .project-card.pv1 .text-container{
         height: fit-content;
+        font-size: 0.8rem;
         /* background: #080808; */
     }
 
@@ -376,6 +407,12 @@
         top: 0%;
         order: 0;
         padding: 0.1rem 0.5rem 0.1rem 0.5rem;
+    }
+
+    .expand-btn {
+        position: absolute;
+        bottom: 0%;
+        transform: scale(0.8);
     }
 
 

@@ -19,6 +19,7 @@ interface ProjectInformationProps {
 
 export default function ProjectInformation(props: ProjectInformationProps) {
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const mediaItems: string[] = [
     ...(props.imageCollage || []),
@@ -41,8 +42,10 @@ export default function ProjectInformation(props: ProjectInformationProps) {
 
   return (
     <div className={`project-card ${props.uniqueIdName}`}>
+      
       {mediaItems.length > 0 && (
         <div className="media-container">
+          <button className="expand-btn" onClick={() => setIsExpanded(true)} title="Expand">⛶</button>
           {mediaItems.length > 1 && <button className="prev-btn" onClick={handlePrev}>{"<"}</button>}
           <div className="media-display">
             {currentMedia.startsWith("htt") ? (
@@ -52,6 +55,19 @@ export default function ProjectInformation(props: ProjectInformationProps) {
             )}
           </div>
           {mediaItems.length > 1 && <button className="next-btn" onClick={handleNext}>{">"}</button>}
+        </div>
+      )}
+
+      {isExpanded && (
+        <div className="media-modal-overlay" onClick={() => setIsExpanded(false)}>
+          <div className="media-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close-btn" onClick={() => setIsExpanded(false)}>✕</button>
+            {currentMedia.startsWith("htt") ? (
+              <iframe src={currentMedia} title="project-video-expanded" />
+            ) : (
+              <img src={currentMedia} alt="project-media-expanded" />
+            )}
+          </div>
         </div>
       )}
 
@@ -68,17 +84,16 @@ export default function ProjectInformation(props: ProjectInformationProps) {
             Check it out here!
           </a>
         )}
-        {
-          props.uniqueIdName === "aidrm" && (
-            <a
-              href="https://github.com/AikKiat/learning/blob/main/learning/designing_chat_system.md"
-              className="check-it-out"
-              target="_blank"
-              rel="noopener noreferrer">
-                More info about how I designed some parts of the system, not related to any key proprietary information of course.
-            </a>
-          )
-        }
+        {props.uniqueIdName === "aidrm" && (
+          <a
+            href="https://github.com/AikKiat/learning/blob/main/learning/designing_chat_system.md"
+            className="check-it-out"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            More info about how I designed some parts of the system, not related to any key proprietary information of course.
+          </a>
+        )}
       </div>
 
       {props.githubLink && (

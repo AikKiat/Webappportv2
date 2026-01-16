@@ -9,13 +9,14 @@ import {motion, MotionValue, useMotionValue, useTransform} from "motion/react";
 
 interface PersonalCardProps {
     personalQuality: personal;
+    personalQualities : personal[];
     onSwipeOut: (index: number, x: MotionValue<number>) => void;
     onReset: () => void;
     firstIndex : number;
     catergory : string
 }
 
-const PersonalCard = ({ personalQuality, onSwipeOut, onReset, firstIndex, catergory}: PersonalCardProps) => {
+const PersonalCard = ({ personalQuality, personalQualities, onSwipeOut, onReset, firstIndex, catergory}: PersonalCardProps) => {
     const x = useMotionValue(0);
     const translateMorph = useTransform(x, [-150, 150], [-18, 18]);
 
@@ -71,7 +72,7 @@ const PersonalCard = ({ personalQuality, onSwipeOut, onReset, firstIndex, caterg
                 </div>
                 <GlowingText text={personalQuality.description}></GlowingText>
                 <div className="toggle_messages">
-                    <span className="swipe_message">{"<<"} Swipe Right or Left {">>"}</span>
+                    {personalQualities.length > 1 && <span className="swipe_message">{"<<"} Swipe Right or Left {">>"}</span>}
                     <div className="tap_button_messages">
                         {personalQuality.index !== 0 && <span className="back_to_first_message" onClick={onReset}>Back to First</span>}
                         {personalQuality.longerDescription && <span className="more_info_message" onClick={()=> flipCard(1)}>Tap for More Info</span>}
@@ -191,6 +192,7 @@ export default function InfoCard({cardsRef, cardsFrontBehindRef, infoDescription
                             <PersonalCard
                                 key={personalQuality.index}
                                 personalQuality={personalQuality}
+                                personalQualities={personalQualities}
                                 onSwipeOut={handleCardSwipedOut}
                                 onReset={resetCardList}
                                 firstIndex={firstIndex}

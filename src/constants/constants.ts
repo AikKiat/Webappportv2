@@ -111,7 +111,7 @@ export const projects : project[] = [
         techstack : ["/icons/docker.png", "/icons/js.png", "/icons/react.png", "/icons/mysql.png", "/icons/cypress.png"],
         githubLink : "https://github.com/AndrewLJY/ESCWebApp",
         titleDesc : "Fullstack (MERN -Mysql) Hotel Booking System for Ascenda",
-        titleThumbnail : null
+        titleThumbnail : "/images/ascenda_5.png"
     },
     {
         name : "SmartHealth",
@@ -135,13 +135,27 @@ export const projects : project[] = [
         titleThumbnail : "images/smarthealth_0.png"
     },
     {
+        name : "End-End ML Pipeline for Customer Loyalty Prediction",
+        description : "An End-End ML pipeline I did last year, which focuses on customer loyalty prediction for a particular fictional company. Contains **Exploratory_Data **Analysis, as well as actual **End-End **ML_pipeline and **bash_file to run it. More information about my investigative analysis in the Github repo.",
+        imageSource : "",
+        videoSource : "",
+        imageCollage : ["/images/pipeline_graph.png", "/images/results.png"],
+        videoCollage : null,
+        longerDescription : "",
+        uniqueIdName : "mlpipeline",
+        techstack : ["/icons/scikitlearn.png", "/icons/python.png", "/icons/SQLite.png"],
+        githubLink : "https://github.com/AikKiat/End-End-ML-Pipeline-for-Customer-Loyalty-Prediction/",
+        titleDesc : "End-End EDA and ML Pipeline for Customer Loyal Prediction",
+        titleThumbnail : "/images/pipeline_graph.png"
+    },
+    {
         name : "Portfolio V1",
-        description : "My first web portfolio from Mar 2025, built using vanilla HTML, CSS and a Javascript file for logic. My first HTML, CSS and Javascript project!",
+        description : "My first web portfolio, and also my first project using HTML, CSS and Javascript. Made in Feb 2025. View it here, together with my **older_projects from **2023-_2024**",
         imageSource : "",
         videoSource : "",
         imageCollage : ["/images/portfoliov1_1.png", "/images/portfoliov1_2.png","/images/portfoliov1_3.png" ],
         videoCollage : null,
-        longerDescription : "My first web portfolio, and also my first project using HTML, CSS and Javascript. Made in Feb 2025.",
+        longerDescription : "My first web portfolio, and also my first project using HTML, CSS and Javascript. Made in Feb 2025. View it here, together with my **older_projects from **2023-_2024**.",
         uniqueIdName : "pv1",
         techstack : ["/icons/html.png", "/icons/css.png", "/icons/js.png" ],
         githubLink : "https://github.com/AikKiat/webappport",
@@ -234,6 +248,11 @@ export const skills : skill[] = [
         color:"#0080ffff",
     },
     {
+        logo: "/icons/sqlite_black.png",
+        name: "SQLite",
+        color:"#0080ffff",
+    },
+    {
         logo: "/icons/mongodb_black.png",
         name: "MongoDB",
         color:"#26bb70ff",
@@ -283,6 +302,16 @@ export const skills : skill[] = [
         name: "Pandas",
         color: "#131afeff",
     },
+    {
+        logo: "/icons/scikitlearn_black.png",
+        name : "Scikit Learn",
+        color : "#fbcf5f"
+    },
+    {
+        logo : "/icons/tensorflow_black.png",
+        name : "Tensorflow",
+        color : "#ff7f1d"
+    }
 
 ]
 

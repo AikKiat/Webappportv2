@@ -191,7 +191,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
             <div className="project_cards_container">
                 {projectsArrays.map((project, index) =>{
                     
-                    let zPos : number = index * -50;
+                    let zPos : number = index * -40;
                     let yPos : number = index * -0;
 
                     transformStyles.current[index] = `translateZ(${zPos}px) translateY(${yPos}px) `
