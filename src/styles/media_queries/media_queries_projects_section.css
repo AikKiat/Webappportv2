@@ -335,6 +335,15 @@
 
 @media all and (min-width: 320px) and (max-width:420px) {
 
+
+    .projects_drawer{
+        top: 45%;
+        left: 30%;
+        width: 12rem;
+        height: 12rem;
+        /* border: 1px solid #131313; */
+    }
+
     .projects_card_showcase{
         top: -20%;
         margin-left: 1rem;
