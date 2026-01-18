@@ -15,6 +15,8 @@ interface ProjectInformationProps {
   githubLink: string | null;
   isPastSelectedProject: boolean;
   closeFromProjectCardCurrentVal: number;
+  checkItOutLinks : string[] | null;
+  checkItOutMsgs : string[] | null;
 }
 
 export default function ProjectInformation(props: ProjectInformationProps) {
@@ -74,25 +76,22 @@ export default function ProjectInformation(props: ProjectInformationProps) {
       <div className="text-container">
         <h2 className="title">{props.projectName}</h2>
         <GlowingText text={props.projectDescription} />
-        {props.uniqueIdName === "pv1" && (
-          <a
-            href="https://aikkiat.github.io/webappport/"
-            className="check-it-out"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Check it out here!
-          </a>
-        )}
-        {props.uniqueIdName === "aidrm" && (
-          <a
-            href="https://github.com/AikKiat/learning/blob/main/learning/designing_chat_system.md"
-            className="check-it-out"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            More info about how I designed some parts of the system, not related to any key proprietary information of course.
-          </a>
+        {props.checkItOutLinks && props.checkItOutMsgs && (
+          <div>
+            {
+              props.checkItOutLinks.map((link : string, index : number) =>{
+                return (
+                  <a
+                    href={`${link}`}
+                    className="check-it-out"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                      {`${props.checkItOutMsgs![index]}`}
+                  </a>
+                )
+              })
+            }
+          </div>
         )}
       </div>
 

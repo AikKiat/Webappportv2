@@ -30,6 +30,7 @@ export const introTexts : introtext ={
 
 export interface project{
     name : string,
+    timeFrame : string,
     description : string,
     imageSource : string,
     videoSource : string | null,
@@ -39,6 +40,8 @@ export interface project{
     uniqueIdName : string,
     techstack : string[] | null,
     githubLink : string | null,
+    checkItOutLinks : string[] | null,
+    checkItOutMsgs : string[] | null,
     titleDesc : string,
     titleThumbnail : string | null
 }
@@ -46,6 +49,7 @@ export interface project{
 export const projects : project[] = [
     {
         name : "AI-Driven Resource Monitor Project (Internship @NCS NEXT)",
+        timeFrame : "Sep-Dec 25",
         description: 
         `An AI-driven full-stack web application built on a modular monolithic **FastAPI (Python) backend with a **React + **TypeScript frontend client.
         The system interfaces with a **simulation environment that models **robotic entities, **movement routes, **operational constraints, and **baggage transfer conditions. 
@@ -66,11 +70,14 @@ export const projects : project[] = [
         uniqueIdName : "aidrm",
         techstack : ["/icons/redis.png", "/icons/docker.png", "/icons/python.png", "/icons/ts.png", "/icons/react.png","/icons/psql.png", "/icons/tigerdata.png", "/icons/prometheus.png", "/icons/grafana.png", "/icons/langchain.png", "/icons/langgraph.png"],
         githubLink : null,
+        checkItOutLinks : ["https://github.com/AikKiat/learning/blob/main/learning/designing_chat_system.md"],
+        checkItOutMsgs : ["More info about how I designed some parts of the system, not related to any key proprietary information of course."],
         titleDesc : "AI-Driven Agentic Fullstack App for Smarter Robotics Baggage Handling at Airports",
         titleThumbnail : null
     },
     {
         name : "T.A.L.L",
+        timeFrame : "Aug-Sep 25",
         description : 
         `A fullstack **Cloud **Native App embodying our research into **guided_journaling and **identity_building, made to **empower lives of **teenagers and **better their **mental_wellbeing. 
         Conceptualised for **DellInnovateFest **2025 by **Dell_Technologies aimed at **utilising_technology for **social_good.
@@ -92,10 +99,13 @@ export const projects : project[] = [
         techstack : ["/icons/js.png", "/icons/python.png", "/icons/kt.png", "/icons/openshift.png", "/icons/androidstudio.png"],
         githubLink : "https://github.com/AikKiat/Dell_InnovateFest-2025",
         titleDesc : "AI-Powered Mental Wellness App for Teenagers",
+        checkItOutLinks : null,
+        checkItOutMsgs : null,
         titleThumbnail : "images/tall.png"
     },
     {
         name : "Come Fly with Me",
+        timeFrame : "Mar-May 25",
         description : 
         `Fullstack Hotel Booking app for **client_company **Ascenda as part of school project using **ExpressJS, **ReactJS and **Stripe_Payments **API, as part of my **Term **5 **Elements_of **Software_Construction **50.003 **final **course **project.
         Work was split between the team, and I worked on the **backend **ExpressJS **server with 2 others. Data of **more **than **1000 hotel destinations **pulled from **Ascenda's provided API endpoints were stored in **boundary_actor **entities which could be used for **greater_expandability in terms of the **persistence_layer.
@@ -111,10 +121,13 @@ export const projects : project[] = [
         techstack : ["/icons/docker.png", "/icons/js.png", "/icons/react.png", "/icons/mysql.png", "/icons/cypress.png"],
         githubLink : "https://github.com/AndrewLJY/ESCWebApp",
         titleDesc : "Fullstack (MERN -Mysql) Hotel Booking System for Ascenda",
+        checkItOutLinks : null,
+        checkItOutMsgs : null,
         titleThumbnail : "/images/ascenda_5.png"
     },
     {
         name : "SmartHealth",
+        timeFrame : "Feb-Apr 2025",
         description : `All in one **HealthTech_app for people in their **50s **- **60s and **caregivers of the elderly. **Realtime **food_nutrient and **medicinal_package **analysis, **live **medical_centre **finder & **Google_Maps **UI using **Google_Places **API. **PostgreSQL for **user_Data, hosted in **AWS_RDS with **S3 scalable storage for **image_data.
         **Smarthealth is an **Android_App created as Part of **50.001 **Informations_Systems **and **Programming **Course. 
         Created using **Java in **Android_Studio, and used **Java_Spring as the **backend **framework, user data was stored in a **PostgreSQL **AWS_RDS.
@@ -132,10 +145,13 @@ export const projects : project[] = [
         techstack : ["/icons/java.png", "/icons/spring.png", "/icons/aws.png"],
         githubLink : "https://github.com/ItsMeOX/SmartHealth",
         titleDesc : "AI-Powered Healthtech App for the Elderly with Image Detection for Calorie Management",
+        checkItOutLinks : null,
+        checkItOutMsgs : null,
         titleThumbnail : "images/smarthealth_0.png"
     },
     {
         name : "End-End ML Pipeline for Customer Loyalty Prediction",
+        timeFrame : "May 25",
         description : "An End-End ML pipeline I did last year, which focuses on customer loyalty prediction for a particular fictional company. Contains **Exploratory_Data **Analysis, as well as actual **End-End **ML_pipeline and **bash_file to run it. More information about my investigative analysis in the Github repo.",
         imageSource : "",
         videoSource : "",
@@ -146,10 +162,13 @@ export const projects : project[] = [
         techstack : ["/icons/scikitlearn.png", "/icons/python.png", "/icons/SQLite.png"],
         githubLink : "https://github.com/AikKiat/End-End-ML-Pipeline-for-Customer-Loyalty-Prediction/",
         titleDesc : "End-End EDA and ML Pipeline for Customer Loyal Prediction",
+        checkItOutLinks : null,
+        checkItOutMsgs : null,
         titleThumbnail : "/images/pipeline_graph.png"
     },
     {
         name : "Portfolio V1",
+        timeFrame : "Mar 25",
         description : "My first web portfolio, and also my first project using HTML, CSS and Javascript. Made in Feb 2025. View it here, together with my **older_projects from **2023-_2024**",
         imageSource : "",
         videoSource : "",
@@ -160,7 +179,26 @@ export const projects : project[] = [
         techstack : ["/icons/html.png", "/icons/css.png", "/icons/js.png" ],
         githubLink : "https://github.com/AikKiat/webappport",
         titleDesc : "My First Web Portfolio",
+        checkItOutLinks : ["https://aikkiat.github.io/webappport/"],
+        checkItOutMsgs : ["Check it out here!"],
         titleThumbnail : "images/portfoliov1_1.png"
+    },
+    {
+        name : "Current Ongoing Projects",
+        timeFrame : "Current Ongoing",
+        description : "Learning more about key technologies for **distributed_systems. Building a **Redis_clone using **Java.",
+        imageSource : "",
+        videoSource : "",
+        imageCollage : null,
+        videoCollage : null,
+        longerDescription : "My first web portfolio, and also my first project using HTML, CSS and Javascript. Made in Feb 2025. View it here, together with my **older_projects from **2023-_2024**.",
+        uniqueIdName : "current",
+        techstack : ["/icons/java.png"],
+        githubLink : null,
+        titleDesc : "My First Web Portfolio",
+        checkItOutLinks : ["https://github.com/AikKiat/codecrafters-redis-java"],
+        checkItOutMsgs : ["Building Redis Clone, currently finished GET, SET, PING commands with per-client buffer."],
+        titleThumbnail : ""
     }
 ]
 

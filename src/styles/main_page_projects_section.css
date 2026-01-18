@@ -45,6 +45,8 @@
     text-shadow: 0rem 0rem 0.1rem #fff;
     background: #4d4d4d5e;
     pointer-events: auto;
+    transform-style: preserve-3d;
+    backdrop-filter: blur(0.3rem);
     /* opacity: 0.5; */
     /* animation: bounce;
     animation-duration: 2s; */
@@ -86,6 +88,7 @@
 }
 
 .internal_contents .buttons{
+    z-index: 1;
     position: absolute;
     top: -15%;
     left: 0%;
@@ -107,10 +110,9 @@
     width: 3rem;
     height: 3rem;
     font-size: 1rem;
-    background: #ff07ffb3;
+    background: #ff07ff;
     pointer-events: auto;
     text-shadow: 0rem 0rem 0.1rem #ffffff;
-    backdrop-filter: blur(0.5rem);
     box-shadow: 0rem 0rem 0.1rem 0.1rem #000000;
 }
 
@@ -147,16 +149,51 @@
     height: 100%;
 }
 
-/* .project_card .card_tab{
+
+.project_card .card_tab{
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    top: -7%;
-    left: 0%;
+    top: -10%;
+    right: 0%;
+    transform: translateZ(-1.0rem);
     height: 2rem;
-    width: 15rem;
-    background: #4e8cff;
+    width: 10rem;
+    font-size: 1.0rem;
+    /* color: #00000092; */
+    background: #ff924e;
     border-radius: 1rem 1rem 1rem 0;
-    box-shadow: -0.3rem 0rem 0.1rem 0.1rem #131313, -0.2rem 0rem 1rem 0.4rem  #428eff;;
-} */
+    box-shadow: -0.3rem 0.05rem 0.1rem 0.15rem #131313, -0.2rem 0rem 1rem 0.4rem  #ffb907e8;
+    transition: all 0.5s ease;
+}
+
+.project_card:hover .card_tab{
+    opacity: 1.0;
+}
+
+.project_card .line_holder{
+    z-index: -1;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: 10rem;
+    height: 4rem;
+    /* border: 1px solid #ec290f; */
+    overflow: hidden;
+}
+
+.project_card .line{
+    z-index: -1;
+    opacity: 0.5;
+    background: #000000;
+    height: 0.2rem;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    border-radius: 80%;
+}
 
 
 .drawer_side{

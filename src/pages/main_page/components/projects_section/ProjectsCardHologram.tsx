@@ -56,6 +56,8 @@ export function ProjectsCardHologram({closeFromProjectCard, currentIndex, sendCl
         <div className={`projects_card_showcase ${closeFromProjectCard % 2 == 0 ? "hidden" : "opened"}`}>
             <div className={`project_information_card_holder`} ref={projectCardRef}>
             {projects.map((project : project, index : number) =>{
+                console.log(showFullInfo);
+                console.log(currentIndex, index);
                 if(currentIndex === index && showFullInfo){
                         return (
                         <ProjectInformation 
@@ -68,6 +70,8 @@ export function ProjectsCardHologram({closeFromProjectCard, currentIndex, sendCl
                             videoCollage={project.videoCollage}
                             techstack={project.techstack}
                             githubLink={project.githubLink}
+                            checkItOutLinks={project.checkItOutLinks}
+                            checkItOutMsgs={project.checkItOutMsgs}
                             isPastSelectedProject={currentIndex===index} 
                             closeFromProjectCardCurrentVal={closeFromProjectCard}
                             uniqueIdName={project.uniqueIdName}

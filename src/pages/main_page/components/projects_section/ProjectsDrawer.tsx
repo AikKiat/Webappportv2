@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { projects } from "../../../../constants/constants";
 import type { project } from "../../../../constants/constants";
+import { useMediaQuery } from "../../../../hooks/useMediaQuery";
 
 
 interface ProjectsDrawerProps{
@@ -9,16 +10,19 @@ interface ProjectsDrawerProps{
     setCloseFromProjectCard : React.Dispatch<React.SetStateAction<number>>;
     setShowFullInformation : React.Dispatch<React.SetStateAction<boolean>>;
     setCurrentIndex : React.Dispatch<React.SetStateAction<number>>;
-    setRefDrawerSide : ( data : HTMLDivElement) => void
-    setRefDrawerFront : (data : HTMLDivElement) => void
-    setRefProjectCards : (data : HTMLDivElement[]) => void
-    setRefDrawerLabel : (data : HTMLDivElement) => void
-    setRefButtonLeft : (data : HTMLDivElement) => void
-    setRefButtonRight : (data : HTMLDivElement) => void
+    setRefDrawerSide : ( data : HTMLDivElement) => void;
+    setRefDrawerFront : (data : HTMLDivElement) => void;
+    setRefProjectCards : (data : HTMLDivElement[]) => void;
+    setRefDrawerLabel : (data : HTMLDivElement) => void;
+    setRefButtonLeft : (data : HTMLDivElement) => void;
+    setRefButtonRight : (data : HTMLDivElement) => void;
 }
 
 
 export default function ProjectsDrawer(props : ProjectsDrawerProps){
+
+    const isMobile = useMediaQuery(`(min-width: 320px) and (max-width:450px)`);
+    // const isMobile = false;
 
     // const projectNamesArray = Object.keys(ProjectNames) as Array<keyof typeof ProjectNames>;
 
@@ -34,6 +38,8 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
 
     const nextIndexRef = useRef<number>(-1);
     const projectCardsRef = useRef<HTMLDivElement[]>([]);
+    const cardTabsRef = useRef<HTMLSpanElement[]>([]);
+    const cardLineHoldersRef = useRef<HTMLDivElement[]>([]);
     const internalContentsRef = useRef<HTMLDivElement[]>([]);
 
     const overrideMinimiseAll = useRef<boolean>(false);
@@ -165,6 +171,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                 {
                     internalContentRef.style.opacity = "0";
                 }
+                cardTabsRef.current[index].style.opacity = "0.5";
             }
 
             else{
@@ -178,12 +185,16 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                 {
                     internalContentRef.style.opacity = "1.0";
                 }
+                cardTabsRef.current[index].style.opacity = "1.0";
             }
+
+            cardTabsRef.current[index].style.pointerEvents = "none";
+            cardLineHoldersRef.current[index].style.pointerEvents = "none";
         });
 
         setTimeout(() => {
             props.setCurrentIndex(nextIndexRef.current);
-        }, 500);
+        }, 500);    
     }
 
     return(
@@ -192,12 +203,28 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                 {projectsArrays.map((project, index) =>{
                     
                     let zPos : number = index * -40;
-                    let yPos : number = index * -0;
+                    let yPos : number = index * -1;
+
+                    let yPos2 : number = isMobile? (index * -0.5 - 3) : (index * -0.5 - 1.0) ;
+                    let yPos3 : number = isMobile? (index * -0.45 - 2) : (index * -0.5 - 5);
 
                     transformStyles.current[index] = `translateZ(${zPos}px) translateY(${yPos}px) `
 
                     const cardStyle : React.CSSProperties = {
                         transform: `translateZ(${zPos}px) translateY(${yPos}px) `,
+                    }
+                    const cardTabStyle : React.CSSProperties = {
+                        transform: `translateX(${isMobile? "0" :"11.7"}rem) translateY(${yPos2}rem) `,
+                        // left : `${index % 2 == 0? "0%" : "100%"}`
+                    }
+                    const lineHolderStyle : React.CSSProperties = {
+                        transform: `translateY(${yPos3}rem) translateZ(-1rem) translateX(${isMobile? `${-2.0 - (2-index * 0.5)}`: "1.5"}rem)`,
+                        height : `${isMobile? (2 + index * 0.45) : (5 + index * 0.5)}rem`
+                        // left : `${index % 2 == 0? "0%" : "100%"}`
+                    }
+                    const lineStyle : React.CSSProperties = {
+                        width : `${isMobile? (index * 1.0 + 10) : (index * 1.2 + 7)}rem`,
+                        transform : `translateY(${isMobile? (0) : (6.0 + index * 0.2)}rem) rotate(${isMobile? "-70": "-30"}deg) translateX(2rem)`
                     }
 
                     return (
@@ -222,7 +249,19 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                                     <button className="minimize" onClick={minimize}>Minimise</button>
                                 </div>
                             </div>
-                            {/* <span className="card_tab"></span> */}
+                                <span 
+                                    className="card_tab" 
+                                    style={cardTabStyle} 
+                                    ref={(element) => {if (element) cardTabsRef.current[index] = element;}}
+                                    >{`${project.timeFrame}`}
+                                </span>
+                                <div 
+                                    className="line_holder" 
+                                    style={lineHolderStyle}
+                                    ref={(element) => {if (element) cardLineHoldersRef.current[index] = element;}}
+                                    >
+                                    <span className="line" style={lineStyle}></span>
+                                </div>
                         </div>
                     )
                 })}
