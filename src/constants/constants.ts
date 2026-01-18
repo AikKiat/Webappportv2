@@ -191,13 +191,13 @@ export const projects : project[] = [
         videoSource : "",
         imageCollage : null,
         videoCollage : null,
-        longerDescription : "My first web portfolio, and also my first project using HTML, CSS and Javascript. Made in Feb 2025. View it here, together with my **older_projects from **2023-_2024**.",
+        longerDescription : "",
         uniqueIdName : "current",
         techstack : ["/icons/java.png"],
         githubLink : null,
-        titleDesc : "My First Web Portfolio",
+        titleDesc : "Current Ongoing Projects",
         checkItOutLinks : ["https://github.com/AikKiat/codecrafters-redis-java"],
-        checkItOutMsgs : ["Building Redis Clone, currently finished GET, SET, PING commands with per-client buffer."],
+        checkItOutMsgs : ["Building Redis Clone, currently finished GET, SET, PING, INCR commands via per-client buffer set up for RESP, RESP2 data."],
         titleThumbnail : ""
     }
 ]
