@@ -171,7 +171,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                 {
                     internalContentRef.style.opacity = "0";
                 }
-                cardTabsRef.current[index].style.opacity = "0.5";
+                // cardTabsRef.current[index].style.opacity = "0.5";
             }
 
             else{
@@ -185,7 +185,8 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                 {
                     internalContentRef.style.opacity = "1.0";
                 }
-                cardTabsRef.current[index].style.opacity = "1.0";
+                // cardTabsRef.current[index].style.opacity = "1.0";
+
             }
 
             cardTabsRef.current[index].style.pointerEvents = "none";
@@ -215,12 +216,12 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                     }
                     const cardTabStyle : React.CSSProperties = {
                         transform: `translateX(${isMobile? "0" :"11.7"}rem) translateY(${yPos2}rem) `,
-                        // left : `${index % 2 == 0? "0%" : "100%"}`
+                
                     }
                     const lineHolderStyle : React.CSSProperties = {
-                        transform: `translateY(${yPos3}rem) translateZ(-1rem) translateX(${isMobile? `${-2.0 - (2-index * 0.5)}`: "1.5"}rem)`,
+                        transform: `translateY(${yPos3}rem) translateZ(-1rem) translateX(${isMobile? `${-2.0 - (2-index * 0.5)}`: "1.4"}rem)`,
                         height : `${isMobile? (2 + index * 0.45) : (5 + index * 0.5)}rem`
-                        // left : `${index % 2 == 0? "0%" : "100%"}`
+                    
                     }
                     const lineStyle : React.CSSProperties = {
                         width : `${isMobile? (index * 1.0 + 10) : (index * 1.2 + 7)}rem`,

@@ -157,6 +157,7 @@
     align-items: center;
     position: absolute;
     top: -10%;
+    opacity: 0.5;
     right: 0%;
     transform: translateZ(-1.0rem);
     height: 2rem;
@@ -187,12 +188,17 @@
 .project_card .line{
     z-index: -1;
     opacity: 0.5;
-    background: #000000;
+    background: #474646;
     height: 0.2rem;
     position: absolute;
     right: 0%;
     top: 0%;
-    border-radius: 80%;
+    border-radius: 50%;
+    /* box-shadow: 0rem 0rem 0.1rem 0.05rem var(--background-color) inset; */
+}
+
+.project_card:hover .line{
+    opacity: 1.0;
 }
 
 
