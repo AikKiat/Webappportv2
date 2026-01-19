@@ -219,7 +219,7 @@ export const projects : project[] = [
         githubLink : null,
         titleDesc : "Current Ongoing Projects",
         checkItOutLinks : ["https://github.com/AikKiat/codecrafters-redis-java"],
-        checkItOutMsgs : ["Building Redis Clone, currently finished GET, SET, PING, INCR commands via per-client buffer set up for RESP, RESP2 data."],
+        checkItOutMsgs : ["Building Redis Clone. Current work: GET, SET, PING, INCR commands via per-client buffers, set up to parse RESP and RESP2 data."],
         titleThumbnail : ""
     }
 ]
