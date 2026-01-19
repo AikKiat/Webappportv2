@@ -163,6 +163,8 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
         for (let i = 0; i < projectCardsRef.current.length; i ++){
             cardLineHoldersRef.current[i].style.opacity = "0.5";
             cardTabsRef.current[i].style.opacity = "0.5"
+            cardTabsRef.current[i].style.pointerEvents = "auto";
+            cardLineHoldersRef.current[i].style.pointerEvents = "auto";
         }
     }
 
