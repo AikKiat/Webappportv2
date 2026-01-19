@@ -79,10 +79,12 @@ export const projects : project[] = [
         name : "TikTok Tech Jam 2025: Secure Multi-Model LLM Chat Messaging Platform",
         timeFrame : "Aug 25",
         description: 
-        `A secure multi-modal LLM chat messaging platform developed with a team of 5 for TikTok's Tech Jam 2025 hackathon. 
-        The backend server uses **Express.js (TypeScript)** and **PostgreSQL (Prisma ORM)** with **multi-LLM provider support** (OpenAI, Anthropic, Google).
-        We also created an intermediate service that can run alongside this backend server as a separate container, from which key REST API endpoints are exposed to mask, replace sensitive user input data before they are sent over to the LLM for parsing.
-        It was truly an enlightening experience in terms of understanding the security risks associated with GenerativeAI especially regarding exposure of key private data.
+        `A secure **multi-modal **LLM **chat_messaging platform developed with a team of five for **TikTok’s **Tech_Jam **2025_hackathon. 
+        The **backend_server was built using **Express.js **(TypeScript) and **PostgreSQL **(Prisma ORM) with **multi-LLM **provider_support (OpenAI, Anthropic, and Google). 
+        We also developed an **intermediate_service, deployed as a **separate_container, providing **PII_masking and **redaction via exposed REST API endpoints using **Microsoft_Presidio, supporting both **text and **image_de-identification. 
+        For the main backend service, **Prisma_ORM was used to provide type-safe database access and abstraction over relational data models, with schema versioning and controlled evolution managed through **Prisma_migrations.
+        Zod was also used alonside as a validation libraty to enforce schema-based validation at the application layer. This ensured that incoming request payloads were correctly structured, type-safe before reaching into business logic, database writes.
+        It was truly an **enlightening_experience in terms of understanding the **security_risks associated with GenerativeAI, especially regarding exposure of key private data.
   `,
         imageSource : "/images/suttd_gaurds.png",
         videoSource : null,
@@ -90,7 +92,7 @@ export const projects : project[] = [
         videoCollage :null,
         longerDescription : "Longer DESC HERE",
         uniqueIdName : "sutdg",
-        techstack : ["/icons/python.png", "/icons/ts.png", "/icons/react.png","/icons/psql.png","/icons/docker.png",],
+        techstack : ["/icons/python.png", "/icons/ts.png", "/icons/react.png","/icons/psql.png","/icons/docker.png","/icons/prisma.png","/icons/zod.png","/icons/presidio.png"],
         githubLink : null,
         checkItOutLinks : null,
         checkItOutMsgs : null,
