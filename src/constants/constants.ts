@@ -76,6 +76,28 @@ export const projects : project[] = [
         titleThumbnail : null
     },
     {
+        name : "TikTok Tech Jam 2025: Secure Multi-Model LLM Chat Messaging Platform",
+        timeFrame : "Aug 25",
+        description: 
+        `A secure multi-modal LLM chat messaging platform developed with a team of 5 for TikTok's Tech Jam 2025 hackathon. 
+        The backend server uses **Express.js (TypeScript)** and **PostgreSQL (Prisma ORM)** with **multi-LLM provider support** (OpenAI, Anthropic, Google).
+        We also created an intermediate service that can run alongside this backend server as a separate container, from which key REST API endpoints are exposed to mask, replace sensitive user input data before they are sent over to the LLM for parsing.
+        It was truly an enlightening experience in terms of understanding the security risks associated with GenerativeAI especially regarding exposure of key private data.
+  `,
+        imageSource : "/images/suttd_gaurds.png",
+        videoSource : null,
+        imageCollage : ["/images/suttd_gaurds.png"],
+        videoCollage :null,
+        longerDescription : "Longer DESC HERE",
+        uniqueIdName : "sutdg",
+        techstack : ["/icons/python.png", "/icons/ts.png", "/icons/react.png","/icons/psql.png","/icons/docker.png",],
+        githubLink : null,
+        checkItOutLinks : null,
+        checkItOutMsgs : null,
+        titleDesc : "Secure Multi-Model LLM Chat Messaging Platform",
+        titleThumbnail : "/images/suttd_gaurds.png"
+    },
+    {
         name : "T.A.L.L",
         timeFrame : "Aug-Sep 25",
         description : 
