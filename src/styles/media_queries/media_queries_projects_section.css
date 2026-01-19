@@ -172,7 +172,7 @@
 
     .projects_drawer{
         top: 65%;
-        left: 30%;
+        left: 40%;
         width: 15rem;
         height: 15rem;
     }
@@ -185,6 +185,14 @@
         margin: 1rem 2rem;
     }
 
+}
+@media all and (max-width:550px){
+    .projects_drawer{
+        top: 65%;
+        left: 35%;
+        width: 15rem;
+        height: 15rem;
+    }
 }
 
 @media all and (max-width:460px){
@@ -339,9 +347,9 @@
 
     .projects_drawer{
         top: 45%;
-        left: 30%;
-        width: 12rem;
-        height: 12rem;
+        left: 40%;
+        width: 11rem;
+        height: 11rem;
         /* border: 1px solid #131313; */
     }
 
