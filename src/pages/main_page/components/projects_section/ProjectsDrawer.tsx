@@ -183,6 +183,8 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                 }
                 cardLineHoldersRef.current[index].style.opacity = "0";
                 cardTabsRef.current[index].style.opacity = "0";
+                cardTabsRef.current[index].style.pointerEvents = "none";
+                cardLineHoldersRef.current[index].style.pointerEvents = "none";
             }
 
             else{
@@ -201,9 +203,6 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                 cardTabsRef.current[index].style.opacity = "1";
 
             }
-
-            // cardTabsRef.current[index].style.pointerEvents = "none";
-            // cardLineHoldersRef.current[index].style.pointerEvents = "none";
         });
 
         setTimeout(() => {
