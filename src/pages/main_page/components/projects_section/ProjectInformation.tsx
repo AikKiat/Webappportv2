@@ -81,6 +81,7 @@ export default function ProjectInformation(props: ProjectInformationProps) {
             {
               props.checkItOutLinks.map((link : string, index : number) =>{
                 return (
+                  <>
                   <a
                     href={`${link}`}
                     className="check-it-out"
@@ -88,6 +89,8 @@ export default function ProjectInformation(props: ProjectInformationProps) {
                     rel="noopener noreferrer">
                       {`${props.checkItOutMsgs![index]}`}
                   </a>
+                  <br></br>
+                  </>
                 )
               })
             }

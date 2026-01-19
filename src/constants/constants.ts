@@ -71,7 +71,7 @@ export const projects : project[] = [
         techstack : ["/icons/redis.png", "/icons/docker.png", "/icons/python.png", "/icons/ts.png", "/icons/react.png","/icons/psql.png", "/icons/tigerdata.png", "/icons/prometheus.png", "/icons/grafana.png", "/icons/langchain.png", "/icons/langgraph.png"],
         githubLink : null,
         checkItOutLinks : ["https://github.com/AikKiat/learning/blob/main/learning/designing_chat_system.md"],
-        checkItOutMsgs : ["More info about how I designed some parts of the system, not related to any key proprietary information of course."],
+        checkItOutMsgs : ["(Github Repo) More info about how I designed some parts of the system, open source design concepts."],
         titleDesc : "AI-Driven Agentic Fullstack App for Smarter Robotics Baggage Handling at Airports",
         titleThumbnail : null
     },
@@ -94,8 +94,8 @@ export const projects : project[] = [
         uniqueIdName : "sutdg",
         techstack : ["/icons/python.png", "/icons/ts.png", "/icons/react.png","/icons/psql.png","icons/redis.png","/icons/docker.png","/icons/prisma.png","/icons/zod.png","/icons/presidio.png"],
         githubLink : null,
-        checkItOutLinks : null,
-        checkItOutMsgs : null,
+        checkItOutLinks : ["https://github.com/AikKiat/SUTTD_Guards_BackendServer","https://github.com/AikKiat/SUTTDGuards_De-Identification"],
+        checkItOutMsgs : ["(Github Repo) Backend Server", "(Github Repo) PII De-Identification Service"],
         titleDesc : "Secure Multi-Model LLM Chat Messaging Platform",
         titleThumbnail : "/images/suttd_gaurds.png"
     },
@@ -204,7 +204,7 @@ export const projects : project[] = [
         githubLink : "https://github.com/AikKiat/webappport",
         titleDesc : "My First Web Portfolio",
         checkItOutLinks : ["https://aikkiat.github.io/webappport/"],
-        checkItOutMsgs : ["Check it out here!"],
+        checkItOutMsgs : ["(Github Repo) Check it out here!"],
         titleThumbnail : "images/portfoliov1_1.png"
     },
     {
@@ -222,7 +222,7 @@ export const projects : project[] = [
         githubLink : null,
         titleDesc : "Current Ongoing Projects",
         checkItOutLinks : ["https://github.com/AikKiat/codecrafters-redis-java"],
-        checkItOutMsgs : ["Mock Redis repo (in progress)"],
+        checkItOutMsgs : [" (Github Repo) Mock Redis (in progress)"],
         titleThumbnail : ""
     }
 ]
