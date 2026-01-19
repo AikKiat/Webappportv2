@@ -161,6 +161,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
 
     function enableAllTabs(){
         projectCardsRef.current.forEach((card, index) => {
+            console.log(card);
             cardLineHoldersRef.current[index].style.opacity = "1";
             cardTabsRef.current[index].style.opacity = "1";
         });
