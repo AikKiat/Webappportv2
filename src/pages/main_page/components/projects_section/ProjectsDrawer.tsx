@@ -160,11 +160,10 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
     }
 
     function enableAllTabs(){
-        projectCardsRef.current.forEach((card, index) => {
-            console.log(card);
-            cardLineHoldersRef.current[index].style.opacity = "1";
-            cardTabsRef.current[index].style.opacity = "1";
-        });
+        for (let i = 0; i < projectCardsRef.current.length; i ++){
+            cardLineHoldersRef.current[i].style.opacity = "1";
+            cardTabsRef.current[i].style.opacity = "1"
+        }
     }
 
     function raiseCard(){
