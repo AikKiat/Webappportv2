@@ -149,7 +149,7 @@ export const projects : project[] = [
     },
     {
         name : "SmartHealth",
-        timeFrame : "Feb-Apr 2025",
+        timeFrame : "Feb-Apr 25",
         description : `All in one **HealthTech_app for people in their **50s **- **60s and **caregivers of the elderly. **Realtime **food_nutrient and **medicinal_package **analysis, **live **medical_centre **finder & **Google_Maps **UI using **Google_Places **API. **PostgreSQL for **user_Data, hosted in **AWS_RDS with **S3 scalable storage for **image_data.
         **Smarthealth is an **Android_App created as Part of **50.001 **Informations_Systems **and **Programming **Course. 
         Created using **Java in **Android_Studio, and used **Java_Spring as the **backend **framework, user data was stored in a **PostgreSQL **AWS_RDS.
