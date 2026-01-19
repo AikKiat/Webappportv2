@@ -208,7 +208,8 @@ export const projects : project[] = [
     {
         name : "Current Ongoing Projects",
         timeFrame : "Current Ongoing",
-        description : "Learning more about key technologies for **distributed_systems. Building a **Redis_clone using **Java.",
+        description : `Learning more about key technologies for **distributed_systems. Building a **Redis_clone using **Java.
+                       Current work: GET, SET, PING, INCR commands via per-client buffers, set up to parse RESP and RESP2 data.`,
         imageSource : "",
         videoSource : "",
         imageCollage : null,
@@ -219,7 +220,7 @@ export const projects : project[] = [
         githubLink : null,
         titleDesc : "Current Ongoing Projects",
         checkItOutLinks : ["https://github.com/AikKiat/codecrafters-redis-java"],
-        checkItOutMsgs : ["Building Redis Clone. Current work: GET, SET, PING, INCR commands via per-client buffers, set up to parse RESP and RESP2 data."],
+        checkItOutMsgs : ["Mock Redis repo (in progress)"],
         titleThumbnail : ""
     }
 ]
