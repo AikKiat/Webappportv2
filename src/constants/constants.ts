@@ -92,7 +92,7 @@ export const projects : project[] = [
         videoCollage :null,
         longerDescription : "Longer DESC HERE",
         uniqueIdName : "sutdg",
-        techstack : ["/icons/python.png", "/icons/ts.png", "/icons/react.png","/icons/psql.png","/icons/docker.png","/icons/prisma.png","/icons/zod.png","/icons/presidio.png"],
+        techstack : ["/icons/python.png", "/icons/ts.png", "/icons/react.png","/icons/psql.png","icons/redis.png","/icons/docker.png","/icons/prisma.png","/icons/zod.png","/icons/presidio.png"],
         githubLink : null,
         checkItOutLinks : null,
         checkItOutMsgs : null,
