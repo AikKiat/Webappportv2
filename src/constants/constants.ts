@@ -76,34 +76,6 @@ export const projects : project[] = [
         titleThumbnail : null
     },
     {
-        name : "TikTok Tech Jam 2025: Secure Multi-Model LLM Chat Messaging Platform",
-        timeFrame : "Aug 25",
-        description: 
-        `A secure **multi-modal **LLM **chat_messaging platform developed with a team of five for **TikTok’s **Tech_Jam **2025_hackathon. 
-        The **backend_server was built using **Express.js **(TypeScript) and **PostgreSQL **(Prisma ORM) with **multi-LLM **provider_support (OpenAI, Anthropic, and Google). 
-        We also developed an **intermediate_service, deployed as a **separate_container, providing **PII_masking and **redaction via exposed REST API endpoints using **Microsoft_Presidio, supporting both **text and **image_de-identification. 
-        For the main backend service, **Prisma_ORM was used to provide type-safe database access and abstraction over relational data models, with schema versioning and controlled evolution managed through **Prisma_migrations.
-        Zod was also used alonside as a validation libraty to enforce schema-based validation at the application layer. This ensured that incoming request payloads were correctly structured, type-safe before reaching into business logic, database writes.
-        It was truly an **enlightening_experience in terms of understanding the **security_risks associated with GenerativeAI, especially regarding exposure of key private data.
-
-        With Generative AI being used **ubiquitously everyday, this topic was indeed a **topic of **today, and the **future. 
-        A **serious, **necessary and **important topic that I and my team are **glad to have **tackled with our **solution.
-        Thus, although we did not make it to the finals, **TikTok **Tech **Jam **2025 was indeed a **fruitful and **substantial learning experience, giving us the opportunity for developing our skills not just **outwards, but **outwards in the **right_direction as **responsible_technologists in the age of **AI.
-  `,
-        imageSource : "/images/suttd_gaurds.png",
-        videoSource : null,
-        imageCollage : ["/images/suttd_gaurds.png"],
-        videoCollage :null,
-        longerDescription : "Longer DESC HERE",
-        uniqueIdName : "sutdg",
-        techstack : ["/icons/python.png", "/icons/ts.png", "/icons/react.png","/icons/psql.png","icons/redis.png","/icons/docker.png","/icons/prisma.png","/icons/zod.png","/icons/presidio.png"],
-        githubLink : null,
-        checkItOutLinks : ["https://github.com/AikKiat/SUTTD_Guards_BackendServer","https://github.com/AikKiat/SUTTDGuards_De-Identification"],
-        checkItOutMsgs : ["(Github Repo) Backend Server", "(Github Repo) PII De-Identification Service"],
-        titleDesc : "TikTok Tech Jam 2025: Secure Multi-Model LLM Chat Messaging Platform",
-        titleThumbnail : "/images/suttd_gaurds.png"
-    },
-    {
         name : "T.A.L.L",
         timeFrame : "Aug-Sep 25",
         description : 
@@ -132,6 +104,34 @@ export const projects : project[] = [
         titleThumbnail : "images/tall.png"
     },
     {
+        name : "TikTok Tech Jam 2025: Secure Multi-Model LLM Chat Messaging Platform",
+        timeFrame : "Aug 25",
+        description: 
+        `A secure **multi-modal **LLM **chat_messaging platform developed with a team of five for **TikTok’s **Tech_Jam **2025_hackathon. 
+        The **backend_server was built using **Express.js **(TypeScript) and **PostgreSQL **(Prisma ORM) with **multi-LLM **provider_support (OpenAI, Anthropic, and Google). 
+        We also developed an **intermediate_service, deployed as a **separate_container, providing **PII_masking and **redaction via exposed REST API endpoints using **Microsoft_Presidio, supporting both **text and **image_de-identification. 
+        For the main backend service, **Prisma_ORM was used to provide type-safe database access and abstraction over relational data models, with schema versioning and controlled evolution managed through **Prisma_migrations.
+        Zod was also used alonside as a validation libraty to enforce schema-based validation at the application layer. This ensured that incoming request payloads were correctly structured, type-safe before reaching into business logic, database writes.
+        It was truly an **enlightening_experience in terms of understanding the **security_risks associated with GenerativeAI, especially regarding exposure of key private data.
+
+        With Generative AI being used **ubiquitously everyday, this topic was indeed a **topic of **today, and the **future. 
+        A **serious, **necessary and **important topic that I and my team are **glad to have **tackled with our **solution.
+        Thus, although we did not make it to the finals, **TikTok **Tech **Jam **2025 was indeed a **fruitful and **substantial learning experience, giving us the opportunity for developing our skills not just **outwards, but **outwards in the **right_direction as **responsible_technologists in the age of **AI.
+  `,
+        imageSource : "/images/suttd_gaurds.png",
+        videoSource : null,
+        imageCollage : ["/images/suttd_gaurds.png"],
+        videoCollage :null,
+        longerDescription : "Longer DESC HERE",
+        uniqueIdName : "sutdg",
+        techstack : ["/icons/python.png", "/icons/ts.png", "/icons/react.png","/icons/psql.png","icons/redis.png","/icons/docker.png","/icons/prisma.png","/icons/zod.png","/icons/presidio.png"],
+        githubLink : null,
+        checkItOutLinks : ["https://github.com/AikKiat/SUTTD_Guards_BackendServer","https://github.com/AikKiat/SUTTDGuards_De-Identification"],
+        checkItOutMsgs : ["(Github Repo) Backend Server", "(Github Repo) PII De-Identification Service"],
+        titleDesc : "TikTok Tech Jam 2025: Secure Multi-Model LLM Chat Messaging Platform",
+        titleThumbnail : "/images/suttd_gaurds.png"
+    },
+    {
         name : "Come Fly with Me",
         timeFrame : "Mar-May 25",
         description : 
@@ -152,6 +152,23 @@ export const projects : project[] = [
         checkItOutLinks : null,
         checkItOutMsgs : null,
         titleThumbnail : "/images/ascenda_5.png"
+    },
+    {
+        name : "End-End ML Pipeline for Customer Loyalty Prediction",
+        timeFrame : "May 25",
+        description : "An End-End ML pipeline I did last year, which focuses on customer loyalty prediction for a particular fictional company. Contains **Exploratory_Data **Analysis, as well as actual **End-End **ML_pipeline and **bash_file to run it. More information about my investigative analysis in the Github repo.",
+        imageSource : "",
+        videoSource : "",
+        imageCollage : ["/images/pipeline_graph.png", "/images/results.png"],
+        videoCollage : null,
+        longerDescription : "",
+        uniqueIdName : "mlpipeline",
+        techstack : ["/icons/scikitlearn.png", "/icons/python.png", "/icons/SQLite.png"],
+        githubLink : "https://github.com/AikKiat/End-End-ML-Pipeline-for-Customer-Loyalty-Prediction/",
+        titleDesc : "End-End EDA and ML Pipeline for Customer Loyal Prediction",
+        checkItOutLinks : null,
+        checkItOutMsgs : null,
+        titleThumbnail : "/images/pipeline_graph.png"
     },
     {
         name : "SmartHealth",
@@ -176,23 +193,6 @@ export const projects : project[] = [
         checkItOutLinks : null,
         checkItOutMsgs : null,
         titleThumbnail : "images/smarthealth_0.png"
-    },
-    {
-        name : "End-End ML Pipeline for Customer Loyalty Prediction",
-        timeFrame : "May 25",
-        description : "An End-End ML pipeline I did last year, which focuses on customer loyalty prediction for a particular fictional company. Contains **Exploratory_Data **Analysis, as well as actual **End-End **ML_pipeline and **bash_file to run it. More information about my investigative analysis in the Github repo.",
-        imageSource : "",
-        videoSource : "",
-        imageCollage : ["/images/pipeline_graph.png", "/images/results.png"],
-        videoCollage : null,
-        longerDescription : "",
-        uniqueIdName : "mlpipeline",
-        techstack : ["/icons/scikitlearn.png", "/icons/python.png", "/icons/SQLite.png"],
-        githubLink : "https://github.com/AikKiat/End-End-ML-Pipeline-for-Customer-Loyalty-Prediction/",
-        titleDesc : "End-End EDA and ML Pipeline for Customer Loyal Prediction",
-        checkItOutLinks : null,
-        checkItOutMsgs : null,
-        titleThumbnail : "/images/pipeline_graph.png"
     },
     {
         name : "Portfolio V1",

@@ -202,8 +202,8 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
 
             }
 
-            cardTabsRef.current[index].style.pointerEvents = "none";
-            cardLineHoldersRef.current[index].style.pointerEvents = "none";
+            // cardTabsRef.current[index].style.pointerEvents = "none";
+            // cardLineHoldersRef.current[index].style.pointerEvents = "none";
         });
 
         setTimeout(() => {
@@ -267,6 +267,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                                     className="card_tab" 
                                     style={cardTabStyle} 
                                     ref={(element) => {if (element) cardTabsRef.current[index] = element;}}
+                                    onClick={raiseCard}
                                     >{`${project.timeFrame}`}
                                 </span>
                                 <div 
