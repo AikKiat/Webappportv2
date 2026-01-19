@@ -85,6 +85,10 @@ export const projects : project[] = [
         For the main backend service, **Prisma_ORM was used to provide type-safe database access and abstraction over relational data models, with schema versioning and controlled evolution managed through **Prisma_migrations.
         Zod was also used alonside as a validation libraty to enforce schema-based validation at the application layer. This ensured that incoming request payloads were correctly structured, type-safe before reaching into business logic, database writes.
         It was truly an **enlightening_experience in terms of understanding the **security_risks associated with GenerativeAI, especially regarding exposure of key private data.
+
+        With Generative AI being used **ubiquitously everyday, this topic was indeed a **topic of **today, and the **future. 
+        A **serious, **necessary and **important topic that I and my team are **glad to have **tackled with our **solution.
+        Thus, although we did not make it to the finals, **TikTok **Tech **Jam **2025 was indeed a **fruitful and **substantial learning experience, giving us the opportunity for developing our skills not just **outwards, but **outwards in the **right_direction as **responsible_technologists in the age of **AI.
   `,
         imageSource : "/images/suttd_gaurds.png",
         videoSource : null,
@@ -96,7 +100,7 @@ export const projects : project[] = [
         githubLink : null,
         checkItOutLinks : ["https://github.com/AikKiat/SUTTD_Guards_BackendServer","https://github.com/AikKiat/SUTTDGuards_De-Identification"],
         checkItOutMsgs : ["(Github Repo) Backend Server", "(Github Repo) PII De-Identification Service"],
-        titleDesc : "Secure Multi-Model LLM Chat Messaging Platform",
+        titleDesc : "TikTok Tech Jam 2025: Secure Multi-Model LLM Chat Messaging Platform",
         titleThumbnail : "/images/suttd_gaurds.png"
     },
     {
