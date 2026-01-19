@@ -126,7 +126,7 @@ export const projects : project[] = [
         uniqueIdName : "tall",
         techstack : ["/icons/js.png", "/icons/python.png", "/icons/kt.png", "/icons/openshift.png", "/icons/androidstudio.png"],
         githubLink : "https://github.com/AikKiat/Dell_InnovateFest-2025",
-        titleDesc : "AI-Powered Mental Wellness App for Teenagers",
+        titleDesc : "Dell InnovateFest 2025: AI-Powered Mental Wellness App for Teenagers",
         checkItOutLinks : null,
         checkItOutMsgs : null,
         titleThumbnail : "images/tall.png"
@@ -412,7 +412,7 @@ const leadership : personal[] = [
     {
         index : 1,
         title : "University Ambassador",
-        description: "Conducted **School_tours, consultant for candidates' **enquiries during **SUTD **Admissions_Interviews, and welcomed potential students during for Offer Receptions.",
+        description: "Conducted **>20 **School_tours for students, parents, overseas professors, consultant for candidates' **enquiries during **SUTD **Admissions_Interviews, and welcomed potential students during for Offer Receptions.",
         imageSource : "/images/sutd_logo.png",
         multiDescription : null,
         uniqueName : "ua",
