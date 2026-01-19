@@ -85,6 +85,8 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
             raiseCard();
         }
 
+        enableAllTabs();
+
     }, [props.closeFromProjectCard])
 
     function selectSpecificCard(index : number){
@@ -114,6 +116,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
 
         setTimeout(() => {
             overrideMinimiseAll.current = false;
+            enableAllTabs();
         }, 100);
     }
 
@@ -156,6 +159,13 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
         raiseCard();
     }
 
+    function enableAllTabs(){
+        projectCardsRef.current.forEach((card, index) => {
+            cardLineHoldersRef.current[index].style.opacity = "1";
+            cardTabsRef.current[index].style.opacity = "1";
+        });
+    }
+
     function raiseCard(){
         projectCardsRef.current.forEach((card, index) => {
             if (!card) return;
@@ -171,11 +181,12 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                 {
                     internalContentRef.style.opacity = "0";
                 }
-                // cardTabsRef.current[index].style.opacity = "0.5";
+                cardLineHoldersRef.current[index].style.opacity = "0";
+                cardTabsRef.current[index].style.opacity = "0";
             }
 
             else{
-                card.style.top = "-120%";
+                card.style.top = "-140%";
                 card.style.zIndex = "999";
                 card.style.transform = `${transformStyles.current[index]} rotateY(-40deg)`; 
                 
@@ -186,6 +197,8 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                     internalContentRef.style.opacity = "1.0";
                 }
                 // cardTabsRef.current[index].style.opacity = "1.0";
+                cardLineHoldersRef.current[index].style.opacity = "1";
+                cardTabsRef.current[index].style.opacity = "1";
 
             }
 
@@ -195,7 +208,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
 
         setTimeout(() => {
             props.setCurrentIndex(nextIndexRef.current);
-        }, 500);    
+        }, 500);  
     }
 
     return(
