@@ -215,7 +215,9 @@ export const projects : project[] = [
         name : "Current Ongoing Projects",
         timeFrame : "Current Ongoing",
         description : `Learning more about key technologies for **distributed_systems. Building a **Redis_clone using **Java.
-                       Current work: GET, SET, PING, INCR commands via per-client buffers, set up to parse RESP and RESP2 data.`,
+                       Current work: GET, SET, PING, INCR, MULTI commands.
+                       Per-client buffers set up to parse RESP and RESP2 data, as well as command queue using ArrayDeque to manage queued commands after MULTI.
+                       Key expiry through additional PX argument that arrives with SET.`,
         imageSource : "",
         videoSource : "",
         imageCollage : null,
