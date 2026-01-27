@@ -52,8 +52,9 @@ export const projects : project[] = [
         timeFrame : "Sep-Dec 25",
         description: 
         `An AI-driven full-stack web application built on a modular monolithic **FastAPI (Python) backend with a **React + **TypeScript frontend client.
-        The system interfaces with a **simulation environment that models **robotic entities, **movement routes, **operational constraints, and **baggage transfer conditions. 
+        The system interfaces via MQTT Pub/Sub with a **simulation environment that models **robotic entities, **movement routes, **operational constraints, and **baggage transfer conditions. 
         Agentic capabilities are implemented through an AI-driven decision layer actively monitoring the simulation state changes, and either **generates optimization recommendations and documents via the frotnend chatbot or **autonomously **updates the simulation environment with the entire **improved **scenario.
+        These changes in the external simulation environment are thus reflected back as data into the system through the same MQTT Pub/Sub topics, serving as a means for further evaluation to fine-tune the AI's decisions in future.
         Both the **real-time simulated environment data and the AI-recommended version are stored in **separate **Redis **hash **keyspaces for **low-latency access. Thus, I created update logic for the hash objects whenever new data arrived on the simulation, prompting the AI come up with a new optimal resource allocation scenario.
         For clear and intuitive presentation, I took inspiration from card games like Hearthstone, Solitaire to visualise the reallocation of resources, representing the two state scenarios mentioned.To achieve this, I used **ReactFlow, creating **interactive **cards symbolising each **simulation **entity. This allowed the UI to scale, and support ever **larger **amounts of simulation actors that could be **positioned **freely by the user - without constant calculations to resize DOM elements to fit screen width.
         Secondly, regarding **backend **performance: 

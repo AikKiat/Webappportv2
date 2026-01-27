@@ -1,0 +1,28 @@
+
+
+MQTT Data --> Listener component
+                    |
+              -----------------------------------------------
+                Routes                |    |Service Modules (Interface with external services (database triggers, redis caching service)|  
+                Controllers/Services  |    |Utility Modules (Provide addtional tools and functions to link up system components)|
+                Repository            |    | AI Agent Module |
+                Persistence           |           ^
+                                                  |
+                Entity classes   ------> StateModel Singleton
+                 
+              -----------------------------------------------
+
+AI Agent (One of the workflows)
+ START 
+  |
+ Accept user input (loops) --------> Summariser node
+  |...
+ Fault analysis ------------------>  Summariser node
+  |
+ Proximity analysis  ------------->  Summariser node
+  |
+ Total evaluation and selection -->  Summariser node
+  |
+ Call task rearrangement ---> utilities class, rearrange number of tasks allocated between involved simulation entities.
+  | 
+ END
