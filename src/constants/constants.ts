@@ -15,7 +15,11 @@ interface introtext{
 export const introTexts : introtext ={
     heading : "Hello! I am Thng Aik Kiat",
     bodyParagraph : `**Hello**! 
-                    **I** **am** **Thng** **Aik** **Kiat**, **a** **Fullstack** **Developer**. I enjoy **architecting **modular**, **scalable**, and **purposeful** solutions with the **right_technologies**, constituting **loosely_coupled, **interconnected services each with **clear **operational_functions.
+                    **I** **am** **Thng** **Aik** **Kiat**, **a** **Fullstack** **Developer**. I enjoy **architecting solutions **modular**, **scalable** and lean.
+                    Throughout my experiences in **translating** **business** **concepts** to **software** **systems**, I have enjoyed creating digital creations purposeful and seen.
+                    In today's age of AI and agentic development, coding moves faster than ever anticipated.
+                    However, I believe that writing **robust**, **secure** and **impactful** solutions, belong to those that **code** with their **hearts**, and **guide** **the** **uninitiated**.
+                    
                     Having done **Digital Art**, I revel learning to create **original**, **expandable UI**, with **CSS & frontend frameworks like **React**.
                     On top of that, exploring **Generative** **AI** **applications** to **supercharge** my projects is also a core interest of mine.
                     Aside from work, I spend my time **building **model kits**, **Warhammer 40000**, and exercising.
