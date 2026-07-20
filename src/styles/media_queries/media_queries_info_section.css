@@ -1,11 +1,5 @@
 
 
-@media all and (min-width:1600px){
-
-}
-
-
-
 @media all and (max-width:1600px){
 
 
@@ -572,21 +566,7 @@
         padding: 1rem;
         font-size: 1rem;
         overflow-y: scroll;
-        /* scrollbar-color: red orange;
-        scrollbar-width: thin; */
     }
-
-    ::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 7px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        border-radius: 4px;
-        background-color: rgba(0, 0, 0, .5);
-        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-    }
-
 
     .tap_button_messages .more_info_message{
         align-self: center;

@@ -1,6 +1,6 @@
 
 
-@media all and (max-width:1600px) {
+@media (max-width: 1600px) {
     .projects_drawer{
         top: 30%;
         left: 70%;
@@ -12,69 +12,40 @@
         width: 3rem;
         height: 3rem;
     }
-
-
-    
-    .drawer_front .drawer_label{
-        font-size: 2rem;
-    }
-
-
 }
 
-
-@media all and (max-width:1200px) {
+@media (max-width:1400px){
     .projects_drawer{
-        top:50%;
+        left: 65%;
+        width: 20rem;
+        height: 20rem;
+    } 
+}
+
+@media (max-width: 1200px) {
+    .projects_drawer{
+        top: 50%;
         left: 60%;
         width: 20rem;
         height: 20rem;
     }
 }
 
-@media all and (min-width:1000px) and (max-width:1200px){
+@media (max-width: 1000px) {
     .projects_drawer{
-        top:50%;
-        left: 60%;
-        width: 20rem;
-        height: 20rem;
-    }
-
-}
-
-@media all and (min-width:900px) and (max-width:1000px){
-    .projects_drawer{
-        top:50%;
+        top: 50%;
         left: 50%;
         width: 20rem;
         height: 20rem;
     }
-}
 
-@media all and (max-width:1000px){
-    .project-card.tall .text-container {
-        max-height: 12rem;
-    }
-
-    
-    .project-card.hotelapp .text-container {
+    .project-card.tall .text-container,
+    .project-card.hotelapp .text-container{
         max-height: 12rem;
     }
 }
 
-
-@media all and (max-width:900px) {
-
-    .text_holder .title{
-        font-size: 1rem;
-        font-weight: 1000;
-    }
-
-    .text_holder .intro_desc{
-        font-size: 1rem;
-    }
-
-
+@media (max-width: 900px) {
     .projects_drawer{
         top: 45%;
         left: 50%;
@@ -90,26 +61,25 @@
         margin: 1rem 2rem;
     }
 
-
     .project_card{
         font-size: 2rem;
     }
 
     .internal_contents .buttons{
-        position: absolute;
         top: -25%;
         left: 0%;
     }
 
     .project-card.smarthealth .text-container{
-        height: 12rem; 
+        height: 12rem;
     }
+
     .project-card.sutdg .text-container{
         height: 15rem;
     }
 }
 
-@media all and (max-width:810px) {
+@media (max-width: 810px) {
     .projects_drawer{
         top: 60%;
         left: 50%;
@@ -117,76 +87,57 @@
         height: 15rem;
     }
 
-    .drawer_front .drawer_label{
-        font-size: 1.5rem;
-    }
-
-    .drawer_label .toggle_button{
-        margin: 1rem 2rem;
-    }
-
-    
     .project-card.mlpipeline{
-        max-height: fit-content;  
-    }
-
-
-    .text-container {
-        height: fit-content;
+        max-height: fit-content;
     }
 
     .project-card.mlpipeline .text-container{
         height: fit-content;
     }
 
-    .project-card.sutdg .text-container{
-        height: 15rem;
-    }
-
-
-    .text-container {
+    .text-container{
+        height: fit-content;
         min-height: 5rem;
         font-size: 0.8rem;
         overflow-y: auto;
         max-height: 20rem;
     }
-
-
-
 }
 
-@media all and ((min-width:400px) and (max-width:720px)){
-
-    .drawer_front .drawer_label{
-        font-size: 1.5rem;
-    }
-
-    .drawer_label .toggle_button{
-        margin: 1rem 2rem;
-    }
-
-}
-
-@media all and (max-width:650px){
-
-
+@media (max-width: 650px) {
     .projects_drawer{
         top: 65%;
         left: 40%;
         width: 15rem;
         height: 15rem;
     }
-
-    .drawer_front .drawer_label{
-        font-size: 1.5rem;
-    }
-
-    .drawer_label .toggle_button{
-        margin: 1rem 2rem;
-    }
-
 }
-@media all and (max-width:550px){
+
+@media (max-width: 600px) {
+    .project-card{
+        width: 92%;
+        padding: 0.5rem;
+    }
+
+    .media-display{
+        max-height: 15rem;
+    }
+
+    .title{
+        font-size: 1.2rem;
+    }
+
+    .prev-btn, .next-btn{
+        padding: 0.3rem 0.5rem;
+    }
+
+    .techstack-container img{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
+
+@media (max-width: 550px) {
     .projects_drawer{
         top: 65%;
         left: 35%;
@@ -195,8 +146,7 @@
     }
 }
 
-@media all and (max-width:460px){
-
+@media (max-width: 460px) {
     .projects_drawer{
         top: 65%;
         left: 25%;
@@ -204,187 +154,37 @@
         height: 15rem;
     }
 
-    .project_cards_container{
-        top: 0%;
-        left: 20%;
-    }
-
     .drawer_front .drawer_label{
         font-size: 1rem;
     }
-
-    .drawer_label .toggle_button{
-        margin: 1rem 2rem;
-    }
-
-}
-
-
-
-
-@media all and ((min-width:360px) and (max-width:400px)) {
-
-
-    .projects_drawer{
-        top: 70%;
-        left: 30%;
-        width: 12rem;
-        height: 12rem;
-        /* border: 1px solid #131313; */
-    }
-
-    .drawer_front .drawer_label{
-        font-size: 1.5rem;
-    }
-
-    .drawer_label .toggle_button{
-        margin: 1rem 2rem;
-    }
-
-
-    .project_card{
-        font-size: 1.5rem;
-        box-shadow: -0.1rem 0.3rem 0.1rem 0.2rem #131313;
-    }
-
 
     .project_cards_container{
         top: 0%;
         left: 20%;
     }
+}
 
-    .drawer_front .drawer_label{
+@media (max-width: 420px) {
+    .title{
         font-size: 1rem;
     }
 
-    .drawer_label .toggle_button{
-        margin: 0.5rem 1.5rem;
+    .internal_contents .buttons{
+        top: -18%;
+        left: auto;
+        right: 10%;
     }
 
-}
-
-@media all and (max-width:360px) {
-
-    .projects_drawer{
-        top: 50%;
-        left: 25%;
-        width: 12rem;
-        height: 12rem;
-    }
-
-    .drawer_front .drawer_label{
-        font-size: 1.5rem;
-    }
-
-    .drawer_label .toggle_button{
-        margin: 1rem 2rem;
-    }
-
-
-    .project_card{
-        font-size: 1.5rem;
-        box-shadow: -0.1rem 0.3rem 0.1rem 0.2rem #131313;
-    }
-
-
-    .project_cards_container{
-        top: 0%;
-        left: 20%;
-    }
-
-    .drawer_front .drawer_label{
-        font-size: 1rem;
-    }
-
-    .drawer_label .toggle_button{
-        margin: 0.5rem 1.5rem;
-    }
-}
-
-/*The project card showcase itself*/
-
-@media all and (max-width: 600px) {
-
-    .projects_card_showcase{
-        position: relative;
-        align-self: center;
-        top: 0%;
-    }
-
-    .project-card {
-        padding: 0.5rem;
-    }
-
-    .media-display {
-        max-height: 15rem;
-    }
-    .title {
-        font-size: 1.2rem;
-    }
-    .prev-btn, .next-btn {
-        font-size: 1.2rem;
-        padding: 0.3rem 0.5rem;
-    }
-    .techstack-container img {
-        width: 1.5rem;
-        height: 1.5rem;
-    }
-
-
-}
-
-@media all and (max-width: 850px) {
-    .projects_card_showcase{
-        top: 0%;
-    }
-}
-
-
-
-
-@media all and (min-width: 320px) and (max-width:420px) {
-
-
-    .projects_drawer{
-        top: 45%;
-        left: 40%;
-        width: 11rem;
-        height: 11rem;
-        /* border: 1px solid #131313; */
-    }
-
-    .projects_card_showcase{
-        top: -20%;
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-
-    .projects_card_showcase.opened{
-        width: 80%;
-        height: fit-content;
-        min-height: 30rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 1rem;
-        transition: all 0.5s ease;
-        box-shadow: 0rem 0rem 1rem #080808;
-        backdrop-filter: blur(1.0rem);
-        border-radius: 1rem;
-        transition: all 0.5s ease;
-    }
-
-    .project-card{
-        overflow-y: auto;
-        min-height: 25rem;
-    }
-
-
-    .text-container {
-        min-height: 5rem;
+    .internal_contents .buttons .expand{
+        top: -10%;
+        order: 1;
         font-size: 0.8rem;
-        overflow-y: auto;
-        max-height: 20rem;
+    }
+
+    .internal_contents .buttons .minimize{
+        top: 0%;
+        order: 0;
+        padding: 0.1rem 0.5rem;
     }
 
     .project-card.pv1 .media-display{
@@ -394,50 +194,42 @@
     .project-card.pv1 .text-container{
         height: fit-content;
         font-size: 0.8rem;
-        /* background: #080808; */
     }
 
-
-    .title {
-        font-size: 1rem;
-        margin-bottom: 0.5rem;
-        color: #5a4638;
-    }
-
-
-    .internal_contents .buttons{
-        top: -18%;
-        right: 10%;
-        align-items: flex-start;
-        flex-direction: row;
-        width: fit-content;
-    }
-
-    .internal_contents .buttons .expand{
-        top: -10%;
-        order: 1;
-        font-size: 0.8rem;
-
-    }
-
-
-    .internal_contents .buttons .minimize{
-        top: 0%;
-        order: 0;
-        padding: 0.1rem 0.5rem 0.1rem 0.5rem;
-    }
-
-    .prev-btn, .next-btn {
+    .prev-btn, .next-btn{
         transform: translateY(-1.0rem);
     }
 
-    .expand-btn {
+    .expand-btn{
         position: absolute;
         bottom: 0%;
         transform: scale(0.8);
     }
-
-
 }
 
+@media (max-width: 400px) {
+    .projects_drawer{
+        top: 60%;
+        left: 35%;
+        width: 12rem;
+        height: 12rem;
+    }
 
+    .drawer_label .toggle_button{
+        margin: 0.5rem 1.5rem;
+    }
+
+    .project_card{
+        font-size: 1.5rem;
+        box-shadow: -0.1rem 0.3rem 0.1rem 0.2rem #131313;
+    }
+}
+
+@media (max-width: 360px) {
+    .projects_drawer{
+        top: 50%;
+        left: 35%;
+        width: 12rem;
+        height: 12rem;
+    }
+}

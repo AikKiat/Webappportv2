@@ -16,6 +16,7 @@
     display: flex;
     width: 100%;
     height: 100vh;
+    color: var(--text-color-intro-section);
 }
 
 .screen_1_holder{
@@ -69,7 +70,6 @@
     left: 0%;
     width: 80%;
     height: fit-content;
-    /* border: 1px solid #ff2f00; */
 }
 
 .intro_desc_holder .intro_desc{
@@ -161,10 +161,22 @@
     position: relative;
     top: 0%;
     left: 0%;
-    background: transparent;
+    background: var(--background-color);
     border-radius: 1rem;
-    box-shadow: 0rem 0rem 1rem #a78732 inset, 0rem 0rem 1rem #131313;
+    box-shadow: 0rem 0rem 1rem #a78732 inset, -0.2rem -0.2rem 0.4rem var(--neu-light), 0.2rem 0.2rem 0.4rem var(--neu-dark);
     overflow: hidden;
+    color: var(--text-color-intro-section);
+    transition: all 0.25s ease;
+}
+
+.know_more_buttons .github:hover, .know_more_buttons .linkedin:hover, .know_more_buttons .resume:hover{
+    transform: translateY(-0.15rem);
+    box-shadow: 0rem 0rem 1rem #a78732 inset, -0.25rem -0.25rem 0.5rem var(--neu-light), 0.25rem 0.25rem 0.5rem var(--neu-dark);
+}
+
+.know_more_buttons .github:active, .know_more_buttons .linkedin:active, .know_more_buttons .resume:active{
+    transform: translateY(0);
+    box-shadow: 0rem 0rem 1rem #a78732 inset, inset -0.15rem -0.15rem 0.3rem var(--neu-light), inset 0.15rem 0.15rem 0.3rem var(--neu-dark);
 }
 
 .know_more_buttons a::after{
@@ -189,7 +201,6 @@ a:hover::after{
 .github, .linkedin{
     padding: 0.5rem;
     width: 3rem;
-    width: 3rem;
     overflow: hidden;
 }
 
@@ -198,7 +209,7 @@ a:hover::after{
     width: fit-content;
     height: fit-content;
     font-size: 1rem;
-    color: #000000;
+    color: var(--text-color);
 }
 
 a {
@@ -209,6 +220,11 @@ a {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    transition: filter 0.25s ease;
+}
+
+:root[data-theme="dark"] .github img{
+    filter: brightness(0) invert(1);
 }
 
 

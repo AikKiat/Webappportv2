@@ -17,6 +17,7 @@ interface ProjectInformationProps {
   closeFromProjectCardCurrentVal: number;
   checkItOutLinks : string[] | null;
   checkItOutMsgs : string[] | null;
+  handleClose : () => void;
 }
 
 export default function ProjectInformation(props: ProjectInformationProps) {
@@ -44,6 +45,8 @@ export default function ProjectInformation(props: ProjectInformationProps) {
 
   return (
     <div className={`project-card ${props.uniqueIdName}`}>
+
+      <button className="close-btn" onClick={props.handleClose}>✕</button>
       
       {mediaItems.length > 0 && (
         <div className="media-container">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef} from "react";
+import React, { useEffect, useRef} from "react";
 
 import { introTexts } from "../../constants/constants";
 
@@ -10,9 +10,14 @@ import "../../styles/main_page_projects_section.css";
 import "../../styles/main_page_intro_section.css";
 import "../../styles/main_page_info_section.css";
 import "../../styles/main_page_skills_section.css";
+import "../../styles/theme_toggle.css";
+
+import ThemeToggle from "../../components/ThemeToggle";
 
 import {useBetterScroll} from "../../hooks/useBetterScroll";
 import {useAnimateOnScroll} from "../../hooks/useAnimateOnScroll";
+import {useProjectTransitionConductor} from "../../hooks/useProjectTransitionConductor";
+import {registerSection} from "../../store/transitionStore";
 
 
 //Assets
@@ -42,9 +47,7 @@ export default function MainPage(){
 
 
     //Projects Section
-    const [currentIndex, setCurrentIndex] = useState<number>(-1);
-    const [closeFromProjectCard, setCloseFromProjectCard] = useState<number>(0); //even means open, odd means close
-    const [showCardShowcaseDetails, setShowCardShowcaseDetails] = useState<boolean>(false);
+    const skillsSectionRef = useRef<HTMLDivElement>(null);
 
     const childRefDrawerSide = useRef<HTMLDivElement>(null);
     const childRefDrawerFront = useRef<HTMLDivElement>(null);
@@ -77,6 +80,15 @@ export default function MainPage(){
         useBetterScroll();
     },[])
 
+    useEffect(() => {
+        if(skillsSectionRef.current){
+            registerSection("skillsSection", skillsSectionRef.current);
+        }
+        return () => registerSection("skillsSection", null);
+    },[])
+
+    useProjectTransitionConductor();
+
     useAnimateOnScroll({
         cardContainer: cardContainerRef,
         cardsFrontBehind: cardsFrontBehindRef,
@@ -93,6 +105,7 @@ export default function MainPage(){
 
     return (
         <div className="main_page_holder">
+            <ThemeToggle />
             <div className="intro_section">
                     <div className="screen_1_holder">
                         <div className="image_holder">
@@ -164,12 +177,8 @@ export default function MainPage(){
             </div>
 
             <div className="projects_section">
-                <ProjectsDrawer 
-                    setCloseFromProjectCard={setCloseFromProjectCard} 
-                    setShowFullInformation={setShowCardShowcaseDetails}
-                    closeFromProjectCard={closeFromProjectCard} 
-                    setCurrentIndex={setCurrentIndex} 
-                    setRefDrawerFront={setDrawerFrontRef} 
+                <ProjectsDrawer
+                    setRefDrawerFront={setDrawerFrontRef}
                     setRefDrawerSide={setDrawerSideRef}
                     setRefDrawerLabel={setDrawerLabelRef}
                     setRefProjectCards={setProjectCardsRef}
@@ -177,17 +186,10 @@ export default function MainPage(){
                     setRefButtonRight={setButtonRightRef}
                     >
                 </ProjectsDrawer>
-                <ProjectsCardHologram 
-                    setCloseFromProjectCard={setCloseFromProjectCard} 
-                    closeFromProjectCard={closeFromProjectCard} 
-                    currentIndex={currentIndex} 
-                    sendCloseFromProjectCard={setCloseFromProjectCard} 
-                    showFullInfo={showCardShowcaseDetails} 
-                    sendShowCardProjectDetails={setShowCardShowcaseDetails}>
-                </ProjectsCardHologram>
+                <ProjectsCardHologram />
             </div>
 
-            <div className="skills_section">
+            <div className="skills_section" ref={skillsSectionRef}>
                 <div className="skills_section_header">
                     <span>Skills</span>
                 </div>

@@ -255,12 +255,13 @@ export const skills : skill[] = [
     {
         logo: "/icons/js_black.png",
         name: "JavaScript",
-        color: "#fff75bff",
+        // color: "#fff75bff",
+        color:"#c49206"
     },
     {
         logo: "/icons/python_black.png",
         name: "Python",
-        color: "#edff95ff",
+        color: "#ACBA68",
     },
     {
         logo: "/icons/java_black.png",
@@ -454,19 +455,6 @@ const experiences : personal[] = [
     }
 ]
 
-// const certs : certInfo[] = [
-//     {
-//         title : "Kubernetes Fundamentals by Dell Technologies",
-//         credentialLink : "https://www.credential.net/20183594-eae5-4c8a-8efb-43bd9e39d1d1#acc.QXurKeZ5",
-//         imageSource : "/images/kubernetes_cert.png"
-//     },
-//     {
-//         title : "Docker Fundamentals by Dell Technologies",
-//         credentialLink : "https://www.credential.net/502de10a-26ac-4bdc-94b5-9f8f09262616#acc.Gf60axNS",
-//         imageSource : "/images/docker_cert.png"
-//     }
-// ]
-
 
 const education : personal[] = [
     {
@@ -478,15 +466,6 @@ const education : personal[] = [
         uniqueName : "cssutd",
         longerDescription: null
     },
-    // {
-    //     index : 1,
-    //     title : "Certifications",
-    //     description: "My Various Certifications",
-    //     imageSource: null,
-    //     multiDescription : certs,
-    //     uniqueName : "certs",
-    //     longerDescription : null
-    // }
 ]
 
 

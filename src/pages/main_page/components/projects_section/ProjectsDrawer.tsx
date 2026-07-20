@@ -3,13 +3,10 @@ import { useEffect, useRef, useState } from "react";
 import { projects } from "../../../../constants/constants";
 import type { project } from "../../../../constants/constants";
 import { useMediaQuery } from "../../../../hooks/useMediaQuery";
+import { useTransitionStore, registerSection } from "../../../../store/transitionStore";
 
 
 interface ProjectsDrawerProps{
-    closeFromProjectCard : number;
-    setCloseFromProjectCard : React.Dispatch<React.SetStateAction<number>>;
-    setShowFullInformation : React.Dispatch<React.SetStateAction<boolean>>;
-    setCurrentIndex : React.Dispatch<React.SetStateAction<number>>;
     setRefDrawerSide : ( data : HTMLDivElement) => void;
     setRefDrawerFront : (data : HTMLDivElement) => void;
     setRefProjectCards : (data : HTMLDivElement[]) => void;
@@ -21,10 +18,12 @@ interface ProjectsDrawerProps{
 
 export default function ProjectsDrawer(props : ProjectsDrawerProps){
 
-    const isMobile = useMediaQuery(`(min-width: 320px) and (max-width:450px)`);
-    // const isMobile = false;
+    const isMobile = useMediaQuery(`(min-width: 320px) and (max-width:700px)`);
 
-    // const projectNamesArray = Object.keys(ProjectNames) as Array<keyof typeof ProjectNames>;
+    const phase = useTransitionStore((state) => state.phase);
+    const openProject = useTransitionStore((state) => state.openProject);
+
+    const drawerRootRef = useRef<HTMLDivElement>(null);
 
     let projectNamesArray : string[] = [];
     projects.map((project) => {
@@ -41,6 +40,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
     const cardTabsRef = useRef<HTMLSpanElement[]>([]);
     const cardLineHoldersRef = useRef<HTMLDivElement[]>([]);
     const internalContentsRef = useRef<HTMLDivElement[]>([]);
+    const cardNumbersRef = useRef<HTMLSpanElement[]>([]);
 
     const overrideMinimiseAll = useRef<boolean>(false);
 
@@ -75,19 +75,25 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
         if(refButtonleft.current){
             props.setRefButtonLeft(refButtonleft.current);
         }
+        if(drawerRootRef.current){
+            registerSection("projectsDrawer", drawerRootRef.current);
+        }
+        return () => registerSection("projectsDrawer", null);
     },[])
 
 
     useEffect(() => {
-        
-        if(props.closeFromProjectCard % 2 == 0){ //means close
+        // Once the fullscreen project view has fully closed, drop the raised
+        // card back down. Fires on every phase change (harmless - enableAllTabs
+        // is idempotent) so it also covers the initial mount.
+        if(phase === "closed"){
             nextIndexRef.current = -1;
             raiseCard();
         }
 
         enableAllTabs();
 
-    }, [props.closeFromProjectCard])
+    }, [phase])
 
     function selectSpecificCard(index : number){
         if(overrideMinimiseAll.current === false){
@@ -96,22 +102,13 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
         }
     }
 
-    function toggleProjectCardShowcase(){
-        if(props.closeFromProjectCard % 2 == 0){ //means we want to open over here
-            props.setCloseFromProjectCard(prev => prev + 1);
-            props.setShowFullInformation(true);
-        }
-        else{
-            //We keep it open
-            props.setCloseFromProjectCard(prev => prev + 2)
-        }
+    function toggleProjectCardShowcase(projectId : string){
+        openProject(projectId);
     }
 
     function minimize(){
-        console.log("calling here!!", nextIndexRef.current);
         nextIndexRef.current = -1;
         overrideMinimiseAll.current = true;
-        console.log("calling here 2!!", nextIndexRef.current);
         raiseCard();
 
         setTimeout(() => {
@@ -136,14 +133,6 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                 setBeforeButtonClicked(false);
             }, 100);
         }
-        
-        
-        // if(props.closeFromProjectCard % 2 == 0){
-        //     props.setCloseFromProjectCard(prev => prev + 1)
-        // }
-        // else{
-        //     props.setCloseFromProjectCard(prev => prev + 2)
-        // }
 
         const maxIndex = projectNamesArray.length-1;
 
@@ -175,7 +164,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
             if(index !== nextIndexRef.current){
                 card.style.top = "0%";
                 card.style.zIndex = "0";
-                card.style.transform = `${transformStyles.current[index]} rotateY(0deg)`; 
+                card.style.transform = `${transformStyles.current[index]} rotateY(0deg)`;
 
                 let internalContentRef : HTMLDivElement = internalContentsRef.current[index];
 
@@ -187,33 +176,35 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                 cardTabsRef.current[index].style.opacity = "0";
                 cardTabsRef.current[index].style.pointerEvents = "none";
                 cardLineHoldersRef.current[index].style.pointerEvents = "none";
+
+                if (cardNumbersRef.current[index]){
+                    cardNumbersRef.current[index].style.opacity = "1";
+                }
             }
 
             else{
                 card.style.top = "-140%";
                 card.style.zIndex = "999";
-                card.style.transform = `${transformStyles.current[index]} rotateY(-40deg)`; 
-                
+                card.style.transform = `${transformStyles.current[index]} rotateY(-40deg)`;
+
                 let internalContentRef : HTMLDivElement = internalContentsRef.current[index];
 
                 if (internalContentRef)
                 {
                     internalContentRef.style.opacity = "1.0";
                 }
-                // cardTabsRef.current[index].style.opacity = "1.0";
                 cardLineHoldersRef.current[index].style.opacity = "1";
                 cardTabsRef.current[index].style.opacity = "1";
 
+                if (cardNumbersRef.current[index]){
+                    cardNumbersRef.current[index].style.opacity = "0";
+                }
             }
         });
-
-        setTimeout(() => {
-            props.setCurrentIndex(nextIndexRef.current);
-        }, 500);  
     }
 
     return(
-        <div className="projects_drawer">
+        <div className="projects_drawer" ref={drawerRootRef}>
             <div className="project_cards_container">
                 {projectsArrays.map((project, index) =>{
                     
@@ -253,14 +244,17 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                             id={`drawer_card_${index+1}`}
                             onClick={() =>selectSpecificCard(index)}>
                             
-                            <span>{index}</span> 
+                            <span
+                                className="card_number"
+                                ref={(element) => {if (element) cardNumbersRef.current[index] = element;}}
+                                >{index}</span>
                             <div className="internal_contents" ref={(element) => {if (element) internalContentsRef.current[index] = element}}>
                                 <span className="title_desc">{project.titleDesc}</span>
                                 {project.titleThumbnail && <div className="title_thumbnail">
                                     <img src={`${project.titleThumbnail}`}></img>
                                 </div>}
                                 <div className="buttons">
-                                    <button className="expand" onClick={toggleProjectCardShowcase}>{"More >>"}</button>
+                                    <button className="expand" onClick={() => toggleProjectCardShowcase(project.uniqueIdName)}>{"More >>"}</button>
                                     <button className="minimize" onClick={minimize}>Minimise</button>
                                 </div>
                             </div>

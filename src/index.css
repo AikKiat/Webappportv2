@@ -5,9 +5,73 @@
   box-sizing: border-box;
 }
 
+
+
+
 :root {
     --background-color: #fcf5da ;
     --card-shadow: rgba(0, 0, 0, 0.1);
     --accent-color: #f4d35e;
     --text-color: #333;
+    --text-color-intro-section: #252525c1;
+    --card-line-color-hovered: #171616;
+    --card-line-color-main:#474646;
+    --text-color-secondary:#333;
+    --text-color-tertiary: #333;
+    --neu-light: #fff8e6;
+    --neu-dark: #c9bd93;
+    --neu-box-shadow-main: #1f1f1fff;
+    --neu-box-shadow-glow: #fef8e2ff;
+    --intro-header-title-main: #fcf5daad;
+    --intro-header-title-backdrop:#fcf5da50;
+    --text-shadow-glow: rgb(189, 183, 183);
+    --text-shadow-glow-2: rgba(31, 31, 31, 0.318);
+    --info-card-more-info-box-shadow: 0.3rem 0.3rem 1rem #5c5c5c, 0.3rem 0.3rem 1rem #ffffff8b inset;
+    --info-card-back-bg: #fcf5da;
+    --info-card-front-bg: #ffffff00;
+    --skill-element-shown-glow:#fff4ce;
+    --skill-element-shown-glow-2:#424141;;
+    --skill-element-shown-glow-inset: #fffbeb;
+  } 
+
+
+:root[data-theme="dark"] {
+    --background-color: #1c1712;
+    --card-shadow: rgba(0, 0, 0, 0.4);
+    --accent-color: #ffdb70;
+    --card-line-color-hovered: #ca521f;
+    --card-line-color-main:#ff4d00;
+    --text-color: #41352d;
+    --text-color-intro-section: #ffffffd4;
+    --text-color-secondary: #ca521f;
+    --text-color-tertiary: #290e02;
+    --neu-light: #1c1712;
+    --neu-dark: #1c1712;
+    --neu-box-shadow-main: #1f1f1fff;
+    --neu-box-shadow-glow: rgb(77, 76, 73);
+    --intro-header-title-main: #f6d87fb7;
+    --intro-header-title-main-2: #f8ac8e;
+    --intro-header-title-backdrop:#6b6b4050;
+    --text-shadow-glow: rgb(253, 226, 176);
+    --text-shadow-glow-2: #ff5a5a;
+    --info-card-more-info-box-shadow: 0.1rem 0.1rem 0.5rem #f5b876, 0rem 0rem 2.8rem #f3ccab inset;
+    --info-card-back-bg: #fcf5da;
+    --info-card-front-bg: #ffffff85;
+    --skill-element-shown-glow:#450101;
+    --skill-element-shown-glow-2:#ae0000;;
+    --skill-element-shown-glow-inset: #000000;
+}
+
+/* Was previously scoped inside a single narrow media query, so the custom
+   scrollbar only applied on 320-500px screens and fell back to the browser
+   default everywhere else. Global and unconditional now. */
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }

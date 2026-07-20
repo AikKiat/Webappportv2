@@ -8,15 +8,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* border: 1px solid #f30606; */
-    /* border: 1px solid #ff0000; */
 }
-
-/* .card_container_holder{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-} */
 
 
 
@@ -42,12 +34,14 @@
     z-index: 3;
     position: relative;
     top: 10%;
-    /* flex-basis: auto;
-    flex: 0 0 auto; */
     width: 30rem;
     aspect-ratio: 5/7;
     transform-style: preserve-3d;
     transform-origin: top;
+}
+
+.card_front{
+    color: var(--text-color-intro-section);
 }
 
 .card_front, .card_back{
@@ -106,8 +100,9 @@
     text-align: center;
     transform: rotateY(180deg);
     padding: 2rem;
-    box-shadow : 0.5rem 0.5rem 1rem #1f1f1fff inset, -0.5rem -0.5rem #fef8e2ff inset;
+    box-shadow : 0.5rem 0.5rem 1rem var(--neu-box-shadow-main) inset, -0.5rem -0.5rem var(--neu-box-shadow-glow) inset;
 }
+
 
 #card_1{
     text-align: right;
@@ -161,15 +156,14 @@
     text-align: center;
     padding: 1rem;
     z-index: 1;
-    background: #fcf5daad ;
+    background: var(--intro-header-title-main);
     backdrop-filter: blur(0.1rem);
     position: absolute;
     top: 0%;
     left: 0%;
     font-size: 2rem;  
     border-radius: 1rem 0 1rem 0;
-    /* box-shadow: 0rem 0rem 0.1rem 0.5rem #f7f7f785, 0rem 0rem 2rem #121212; */
-    box-shadow: 0rem 0rem 0.1rem 0.5rem #fcf5da50 , 0rem 0rem 2rem #121212;
+    box-shadow: 0rem 0rem 0.1rem 0.5rem var(--intro-header-title-backdrop) , 0rem 0rem 2rem var(--intro-header-title-main-2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -188,7 +182,6 @@
     height: 100%;
     transition: all 0.1s ease;
     perspective: 1000px;
-    /* border: 1px solid #e5ff00; */
  }
 
 .qualities_list .quality_card{
@@ -205,8 +198,8 @@
     transition: all 0.5s ease;
     transform-style: preserve-3d;
     transform-origin: top;
-    /* background: #f7f3bc; */
-    /* box-shadow: 0rem 0rem 0rem #e5ff00 , 0rem 0rem 3rem #e5ff00 inset; */
+    background: var(--info-card-front-bg);
+    color: var(--text-color)
 }
 
 
@@ -238,7 +231,6 @@
 }
 
 
-/* "#6095eb7f", "#60eb757f", "#db60eb85" */
 .quality_card.education{
     /* background: #db60eb85;   */
     box-shadow: 0rem 0rem 3rem #db60eb inset, 0rem 0rem 1rem #5c5c5c;
@@ -271,11 +263,11 @@
 @keyframes blur_grow{
     0%{
         transform: scale(0.7); 
-        /* filter: blur(8.0rem); */
+        filter: blur(8.0rem);
     }
     50%{
         transform: scale(1.0);
-        /* filter: blur(10.0rem); */
+        filter: blur(10.0rem);
     }
     100%{
         transform: scale(0.7);
@@ -309,6 +301,8 @@
     font-weight: 1000;
     border-radius: 1rem;
     box-shadow: 2rem 2rem 3rem #ffffffbf inset, 0rem 0rem 0.1rem 0.2rem #f7f7f785, 0.3rem 0.3rem 1rem #121212;
+    color: var(--text-color);
+    text-shadow: 0.1rem 0.1rem 0.8rem var(--text-shadow-glow);
 }
 
 .inner_card_front .toggle_messages{
@@ -351,14 +345,15 @@
     margin: 0.5rem 0rem 1rem 0rem;
     padding: 0.5rem 1rem;
     width: fit-content;
-    background: #9d00ff6e;
+    background: #f039156e;
     backdrop-filter: blur(1.0rem);
     position: relative;
     bottom: 0%;
     left: 0%;
+    color: var(--text-color);
     font-size: 1.2rem;
     border-radius: 0.5rem;
-    box-shadow: 0.3rem 0.3rem 1rem #5c5c5c, 0.3rem 0.3rem 1rem #ffffff8b inset;
+    box-shadow: var(--info-card-more-info-box-shadow)
 }
 
 .tap_button_messages .back_to_first_message{
@@ -442,7 +437,7 @@
     width: 100%;
     height: 100%;
     transition: all 0.3s ease;
-    background: var(--background-color);
+    background: var(--info-card-back-bg);
 }
 
 .inner_card_back_contents_holder{

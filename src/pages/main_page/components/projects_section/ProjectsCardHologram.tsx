@@ -1,70 +1,45 @@
-
-
-
 import ProjectInformation from "./ProjectInformation";
 import type { project } from "../../../../constants/constants";
 import { projects } from "../../../../constants/constants";
-import { useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
+import { useTransitionStore, registerSection } from "../../../../store/transitionStore";
 
+export function ProjectsCardHologram(){
 
-interface ProjectsCardHologramProps{
-    closeFromProjectCard : number;
-    setCloseFromProjectCard : React.Dispatch<React.SetStateAction<number>>;
-    currentIndex : number;
-    sendCloseFromProjectCard : (data: number) => void;
-    showFullInfo : boolean;
-    sendShowCardProjectDetails : React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-export function ProjectsCardHologram({closeFromProjectCard, currentIndex, sendCloseFromProjectCard, showFullInfo, sendShowCardProjectDetails} : ProjectsCardHologramProps){
+    const phase = useTransitionStore((state) => state.phase);
+    const activeProjectId = useTransitionStore((state) => state.activeProjectId);
+    const closeProject = useTransitionStore((state) => state.closeProject);
 
     const projectCardRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        console.log("close", closeFromProjectCard);
-        console.log("check timer running!");
-        if(closeFromProjectCard % 2 == 0){
-            console.log("closing");
-            if (projectCardRef.current) {
-                projectCardRef.current.style.height = "0%";
-                projectCardRef.current.style.opacity = '0';
-                projectCardRef.current.style.zIndex = "0";
-                projectCardRef.current.style.pointerEvents = "none";
-            }
+        if(projectCardRef.current){
+            registerSection("projectFullInformation", projectCardRef.current);
         }
-        else{
-            setTimeout(() => {
-                if(projectCardRef.current){
-                    projectCardRef.current.style.height = "80%";
-                    projectCardRef.current.style.opacity = '1';
-                    projectCardRef.current.style.zIndex = "1";
-                    projectCardRef.current.style.visibility = 'visible';
-                    projectCardRef.current.style.pointerEvents = "auto";
-                }
-            }, 200);
-        }
-    },[closeFromProjectCard])
+        return () => registerSection("projectFullInformation", null);
+    }, [])
 
     function handleClose(){
-        console.log("Closing from hologram!!");
-        sendCloseFromProjectCard(closeFromProjectCard + 1);
-        sendShowCardProjectDetails(false);
+        closeProject();
     }
 
-
-    return (
-        <div className={`projects_card_showcase ${closeFromProjectCard % 2 == 0 ? "hidden" : "opened"}`}>
-            <div className={`project_information_card_holder`} ref={projectCardRef}>
-            {projects.map((project : project, index : number) =>{
-                console.log(showFullInfo);
-                console.log(currentIndex, index);
-                if(currentIndex === index && showFullInfo){
+    // Portalled to <body>: .projects_section sets `perspective` for the
+    // drawer's 3D tilt, which makes any `position: fixed` descendant contain
+    // itself to that section's box instead of the viewport. Rendering outside
+    // that subtree is what lets this actually cover the full screen.
+    return createPortal(
+        <div className={`projects_card_showcase ${phase === "closed" ? "hidden" : "opened"}`} ref={projectCardRef}>
+            <div className={`project_information_card_holder`}>
+            {projects.map((project : project) =>{
+                if(project.uniqueIdName === activeProjectId){
                         return (
-                        <ProjectInformation 
-                            projectDescription={project.description} 
-                            projectName={project.name} 
+                        <ProjectInformation
+                            key={project.uniqueIdName}
+                            projectDescription={project.description}
+                            projectName={project.name}
                             projectLongerDescription={project.longerDescription}
-                            projectImage={project.imageSource} 
+                            projectImage={project.imageSource}
                             videoSource={project.videoSource}
                             imageCollage={project.imageCollage}
                             videoCollage={project.videoCollage}
@@ -72,21 +47,20 @@ export function ProjectsCardHologram({closeFromProjectCard, currentIndex, sendCl
                             githubLink={project.githubLink}
                             checkItOutLinks={project.checkItOutLinks}
                             checkItOutMsgs={project.checkItOutMsgs}
-                            isPastSelectedProject={currentIndex===index} 
-                            closeFromProjectCardCurrentVal={closeFromProjectCard}
+                            isPastSelectedProject={true}
+                            closeFromProjectCardCurrentVal={0}
                             uniqueIdName={project.uniqueIdName}
+                            handleClose={handleClose}
                             >
                         </ProjectInformation>
                     )
                 }
                 else{
-                    return (
-                        <></>
-                    )
+                    return null;
                 }
             })}
             </div>
-            <button className="close-btn" onClick={handleClose}>✕</button>
-        </div>
+        </div>,
+        document.body
     )
 }
