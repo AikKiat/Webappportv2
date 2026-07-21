@@ -204,9 +204,14 @@
 
     /* Info Section*/
 
+    .info_section{
+        height: auto;
+        min-height: 100svh;
+    }
+
     .info_card{
         width: 20rem;
-        aspect-ratio: 5/7;
+        aspect-ratio: 5/9;
         opacity: 1;
     }
 
@@ -496,9 +501,14 @@
 
     /* Info Section*/
 
+    .info_section{
+        height: auto;
+        min-height: 100svh;
+    }
+
     .info_card{
         width: 15rem;
-        aspect-ratio: 5/8;
+        aspect-ratio: 5/11;
         opacity: 1;
     }
 
@@ -506,7 +516,8 @@
     .card_container{
         top: 0%;
         padding: 0rem;
-        height: 100%;
+        height: auto;
+        min-height: 100svh;
         transform-style: preserve-3d;
         flex: none;
     }

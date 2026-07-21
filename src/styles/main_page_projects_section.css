@@ -403,6 +403,7 @@
     align-items: safe center;
     padding: 2rem;
     overflow-y: auto;
+    overscroll-behavior: contain;
     transition: none;
     background: var(--background-color);
     backdrop-filter: blur(1.0rem);
@@ -613,6 +614,8 @@
     text-align: start;
     margin-bottom: 1rem;
     overflow-y: auto;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
     height: 30rem;
     max-height: 17rem;
 }

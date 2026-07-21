@@ -36,8 +36,18 @@
 
 @media all and (max-width: 900px){
 
+    .intro_section{
+        height: auto;
+        min-height: 100svh;
+    }
+
     .screen_1_holder{
+        position: relative;
+        top: auto;
+        height: auto;
+        min-height: 100svh;
         margin-top: 2rem;
+        padding-bottom: 3rem;
     }
 
 

@@ -256,7 +256,7 @@
     transform: scale(0.7);
     border-radius: 50%;
     filter: blur(8.0rem);
-    animation: blur_grow 3s linear infinite;
+    animation: blur_grow 3s linear;
     transition: all 0.5s ease;
 }
 
