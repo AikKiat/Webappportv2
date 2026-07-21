@@ -47,8 +47,15 @@
     }
 
     .personal_image{
-        width: 15rem;
-        height: 15rem;
+        margin-top: 3rem;
+        width: 18rem;
+        height: 18rem;
+    }
+
+    .intro_desc_holder .intro_desc{
+        font-size: 1.0rem;
+        padding: 0.5rem;
+        line-height: 1rem;
     }
 
 }
@@ -65,9 +72,9 @@
     }
 
     .intro_desc_holder .intro_desc{
-        font-size: 1rem;
+        font-size: 0.9rem;
         padding: 0.5rem;
-        line-height: 1.5rem;
+        line-height: 1rem;
     }
 }
 
