@@ -50,9 +50,12 @@
         padding-bottom: 3rem;
     }
 
+    .screen_1_holder .image_holder{
+        position: relative;
+    }
 
     .screen_1_holder .intro_desc_holder{
-        top: 10%;
+        top: 0%;
         width: 90%;
     }
 
