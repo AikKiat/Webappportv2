@@ -23,7 +23,7 @@ export default function ThemeToggle() {
     }
 
     return (
-        <button className="theme_toggle" onClick={toggleTheme} title="Toggle light/dark theme">
+        <button type="submit" className="theme_toggle" onClick={toggleTheme} title="Toggle light/dark theme">
             {theme === "light" ? "☀" : "☾"}
         </button>
     );
