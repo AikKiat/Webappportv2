@@ -614,7 +614,7 @@
     text-align: start;
     margin-bottom: 1rem;
     overflow-y: scroll;
-    overscroll-behavior: contain;
+    /* overscroll-behavior: contain; */
     touch-action: pan-y;
     height: 30rem;
     max-height: 17rem;
@@ -626,9 +626,9 @@
 
 
 
-.text-container::-webkit-scrollbar-track {
+/* .text-container::-webkit-scrollbar-track {
   background-color: #f5831f;
-}
+} */
 
 .title {
     font-size: 1.5rem;

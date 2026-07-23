@@ -99,7 +99,7 @@
         height: fit-content;
         min-height: 5rem;
         font-size: 0.8rem;
-        overflow-y: auto;
+        overflow-y: scroll;
         max-height: 20rem;
     }
 }
