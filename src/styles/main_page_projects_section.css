@@ -620,6 +620,10 @@
     max-height: 17rem;
 }
 
+.text-container .intro_desc{
+    overflow-y: scroll;
+}
+
 .project-card.aidrm .text-container{
     max-height: 30rem;
 }
