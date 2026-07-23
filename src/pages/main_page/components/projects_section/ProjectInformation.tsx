@@ -1,12 +1,11 @@
 import { useState } from "react";
-import GlowingText from "../info_section/GlowingText";
+import ProjectMarkdownViewer from "./ProjectMarkdownViewer";
 import github_icon from "/icons/github.png";
 
 interface ProjectInformationProps {
   uniqueIdName: string;
   projectImage: string;
   projectName: string;
-  projectDescription: string;
   projectLongerDescription: string;
   videoSource: string | null;
   imageCollage: string[] | null;
@@ -78,7 +77,7 @@ export default function ProjectInformation(props: ProjectInformationProps) {
 
       <div className="text-container">
         <h2 className="title">{props.projectName}</h2>
-        <GlowingText text={props.projectDescription} />
+        <ProjectMarkdownViewer uniqueIdName={props.uniqueIdName} />
         {props.checkItOutLinks && props.checkItOutMsgs && (
           <div>
             {

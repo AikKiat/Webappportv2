@@ -614,18 +614,47 @@
     text-align: start;
     margin-bottom: 1rem;
     overflow-y: scroll;
-    /* overscroll-behavior: contain; */
+    overscroll-behavior: contain;
     touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
     height: 30rem;
     max-height: 17rem;
 }
 
-.text-container .intro_desc{
-    overflow-y: scroll;
-}
 
 .project-card.aidrm .text-container{
     max-height: 30rem;
+}
+
+.text-container .intro_desc p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.text-container .intro_desc p:last-child {
+    margin-bottom: 0;
+}
+
+.text-container .intro_desc strong {
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+.text-container .intro_desc a {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.text-container .intro_desc ul,
+.text-container .intro_desc ol {
+    margin: 0 0 1rem 1.25rem;
+}
+
+.text-container .intro_desc code {
+    font-family: monospace;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.25rem;
 }
 
 

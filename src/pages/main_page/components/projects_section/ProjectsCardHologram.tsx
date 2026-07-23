@@ -36,7 +36,6 @@ export function ProjectsCardHologram(){
                         return (
                         <ProjectInformation
                             key={project.uniqueIdName}
-                            projectDescription={project.description}
                             projectName={project.name}
                             projectLongerDescription={project.longerDescription}
                             projectImage={project.imageSource}

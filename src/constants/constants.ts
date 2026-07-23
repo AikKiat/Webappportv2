@@ -36,7 +36,6 @@ export const introTexts : introtext ={
 export interface project{
     name : string,
     timeFrame : string,
-    description : string,
     imageSource : string,
     videoSource : string | null,
     imageCollage : string[] | null,
@@ -55,19 +54,6 @@ export const projects : project[] = [
     {
         name : "AI-Driven Resource Monitor Project (Internship @NCS NEXT)",
         timeFrame : "Sep-Dec 25",
-        description: 
-        `An AI-driven full-stack web application built on a modular monolithic **FastAPI (Python) backend with a **React + **TypeScript frontend client.
-        The system interfaces via MQTT Pub/Sub with a **simulation environment that models **robotic entities, **movement routes, **operational constraints, and **baggage transfer conditions. 
-        Agentic capabilities are implemented through an AI-driven decision layer actively monitoring the simulation state changes, and either **generates optimization recommendations and documents via the frotnend chatbot or **autonomously **updates the simulation environment with the entire **improved **scenario.
-        These changes in the external simulation environment are thus reflected back as data into the system through the same MQTT Pub/Sub topics, serving as a means for further evaluation to fine-tune the AI's decisions in future.
-        Both the **real-time simulated environment data and the AI-recommended version are stored in **separate **Redis **hash **keyspaces for **low-latency access. Thus, I created update logic for the hash objects whenever new data arrived on the simulation, prompting the AI come up with a new optimal resource allocation scenario.
-        For clear and intuitive presentation, I took inspiration from card games like Hearthstone, Solitaire to visualise the reallocation of resources, representing the two state scenarios mentioned.To achieve this, I used **ReactFlow, creating **interactive **cards symbolising each **simulation **entity. This allowed the UI to scale, and support ever **larger **amounts of simulation actors that could be **positioned **freely by the user - without constant calculations to resize DOM elements to fit screen width.
-        Secondly, regarding **backend **performance: 
-        I further created application-level singleton classes to **collate **metrics, track system-wide KPIs such as **cache **hit **rates, **LLM_token usage**, and **API_response** times**. These metrics were exposed via **Prometheus_scraping and visualized through **Grafana_dashboards, enabling real-time observability and performance analysis.
-        Using these insights, I identified bottlenecks, **optimizing the **chatbot_message **storage_layer by introducing **Redis as a **cache-first **data_store ahead of the primary database via **write-through** caching, enabling rapid retrieval of the **most_recent **N_messages per conversation.
-        This reduced overhead from having to repeatedly fetch chat data from the database (only doing so on cache-miss) and improved worst-case API latency from **422 ms to **22 ms.
-        Rounding things off, I **containerised both the **simulation_system and my own **resource_monitor into their separate **Docker_Compose projects. Regarding the **initial_setup of the simulation environment on the **local_machine, I liased substantially with the team's overseas Chinese Software Developers for the different configuration settings that needed to be applied, and eventually **presented** my entire solution to them.
-        Overall, it was a truly meaningful, fruitful and enlightening experience, and I learnt the importance of **designing_systems that are **modular, have **clear_boundaries between components, and can be **expanded in future to **champion **larger_scale **workloads. `,
         imageSource : "/images/aidrm.png",
         videoSource : null,
         imageCollage : null,
@@ -84,18 +70,6 @@ export const projects : project[] = [
     {
         name : "T.A.L.L",
         timeFrame : "Aug-Sep 25",
-        description : 
-        `A fullstack **Cloud **Native App embodying our research into **guided_journaling and **identity_building, made to **empower lives of **teenagers and **better their **mental_wellbeing. 
-        Conceptualised for **DellInnovateFest **2025 by **Dell_Technologies aimed at **utilising_technology for **social_good.
-        **Representing_SUTD as a **finalist_team, my team and I wanted to do our best not just for ourselves and SUTD, but for the **cause of **addressing **teenage **mental_wellbeing in **Singapore.
-        We established an **enduring_partnership with **Singapore **Association **for **Mental Health, seeking the advice from the experts about **Art_Therapy and the **"Think, **Feel, **Act" **framework to **develop **personal **coping_strategies.
-        Through **professional_guidance by our mentors Chia Yi You from Dell Technologies and Chun Hong from AsiaPac, we gradually **developed a solid **solution that **catalogs_teenagers' days events through a **short **guided_journalling activity, transforming these events into a **unique_timeline.
-        This timeline represents the teen's **unique_journey and **lifestory, with the **AI collating **personal_interests, **events to generate both an **entertaining_avatar **backdrop the teenager can call his/her own, as well as **reframe_challenges into **stories **of **resilience.
-        This allows teenagers to **backtrack to view **past_triumphs **over **challenges so that they will be **ever_ready in confronting **similar_obstacles in **future.
-        **Tall, the **Almanac of **Lit **Life, was a month long product of passion and sincere innovation.
-        The backend server was containerised using **Docker, stored within **Harbour's **secure **Container **Registry service, and hosted on **RedHat_Openshift.   
-        Truly a **"Hackathon **with **a **Heart", **Dell_InnovateFest **2025 will forever be cherished within me.
-        `,
         imageSource : "/images/tall.png",
         videoSource : "",
         imageCollage : ["/images/tall.png", "/images/dell_inno_1.png", "/images/dell_inno_2.png"],
@@ -112,18 +86,6 @@ export const projects : project[] = [
     {
         name : "TikTok Tech Jam 2025: Secure Multi-Model LLM Chat Messaging Platform",
         timeFrame : "Aug 25",
-        description: 
-        `A secure **multi-modal **LLM **chat_messaging platform developed with a team of five for **TikTok’s **Tech_Jam **2025_hackathon. 
-        The **backend_server was built using **Express.js **(TypeScript) and **PostgreSQL **(Prisma ORM) with **multi-LLM **provider_support (OpenAI, Anthropic, and Google). 
-        We also developed an **intermediate_service, deployed as a **separate_container, providing **PII_masking and **redaction via exposed REST API endpoints using **Microsoft_Presidio, supporting both **text and **image_de-identification. 
-        For the main backend service, **Prisma_ORM was used to provide type-safe database access and abstraction over relational data models, with schema versioning and controlled evolution managed through **Prisma_migrations.
-        Zod was also used alonside as a validation libraty to enforce schema-based validation at the application layer. This ensured that incoming request payloads were correctly structured, type-safe before reaching into business logic, database writes.
-        It was truly an **enlightening_experience in terms of understanding the **security_risks associated with GenerativeAI, especially regarding exposure of key private data.
-
-        With Generative AI being used **ubiquitously everyday, this topic was indeed a **topic of **today, and the **future. 
-        A **serious, **necessary and **important topic that I and my team are **glad to have **tackled with our **solution.
-        Thus, although we did not make it to the finals, **TikTok **Tech **Jam **2025 was indeed a **fruitful and **substantial learning experience, giving us the opportunity for developing our skills not just **outwards, but **outwards in the **right_direction as **responsible_technologists in the age of **AI.
-  `,
         imageSource : "/images/suttd_gaurds.png",
         videoSource : null,
         imageCollage : ["/images/suttd_gaurds.png"],
@@ -140,12 +102,6 @@ export const projects : project[] = [
     {
         name : "Come Fly with Me",
         timeFrame : "Mar-May 25",
-        description : 
-        `Fullstack Hotel Booking app for **client_company **Ascenda as part of school project using **ExpressJS, **ReactJS and **Stripe_Payments **API, as part of my **Term **5 **Elements_of **Software_Construction **50.003 **final **course **project.
-        Work was split between the team, and I worked on the **backend **ExpressJS **server with 2 others. Data of **more **than **1000 hotel destinations **pulled from **Ascenda's provided API endpoints were stored in **boundary_actor **entities which could be used for **greater_expandability in terms of the **persistence_layer.
-        Exposed various different REST API route endpoints for the middleware and frontend teams to use including a fuzzy search implementation for qerying syntax specific destinations by search query. 
-        Wrote more than **600** **test_cases for robustness using methods such as **Equivalence_Class **Testing, **Boundary_Value **Analysis (Hotel booking dates), and ran tests using **Jest.
-        The backend and frontend codes were containerised to separate **Docker_containers.`,
         imageSource : "/images/ascenda_5.png",
         videoSource : "",
         imageCollage : ["/images/ascenda_5.png"],
@@ -162,7 +118,6 @@ export const projects : project[] = [
     {
         name : "End-End ML Pipeline for Customer Loyalty Prediction",
         timeFrame : "May 25",
-        description : "An End-End ML pipeline I did last year, which focuses on customer loyalty prediction for a particular fictional company. Contains **Exploratory_Data **Analysis, as well as actual **End-End **ML_pipeline and **bash_file to run it. More information about my investigative analysis in the Github repo.",
         imageSource : "",
         videoSource : "",
         imageCollage : ["/images/pipeline_graph.png", "/images/results.png"],
@@ -179,14 +134,6 @@ export const projects : project[] = [
     {
         name : "SmartHealth",
         timeFrame : "Feb-Apr 25",
-        description : `All in one **HealthTech_app for people in their **50s **- **60s and **caregivers of the elderly. **Realtime **food_nutrient and **medicinal_package **analysis, **live **medical_centre **finder & **Google_Maps **UI using **Google_Places **API. **PostgreSQL for **user_Data, hosted in **AWS_RDS with **S3 scalable storage for **image_data.
-        **Smarthealth is an **Android_App created as Part of **50.001 **Informations_Systems **and **Programming **Course. 
-        Created using **Java in **Android_Studio, and used **Java_Spring as the **backend **framework, user data was stored in a **PostgreSQL **AWS_RDS.
-        Me and my team used **Google_Places, **Routes **API, **Open_AI **GPT4.0 for **realtime **geospatial_mapping of **nearest_medical **centres, **Optical **Character **Recognition **(OCR) to **extract and **autofill medication in the **app's_inventory; and **image_detection to calculate meal calories from a single photo. 
-        We also hosted this backend on **Render, allowing the backend service of our app to be running 24/7. 
-        This was a step towards increased efficacy in **deployment, and allowing our **backend_service to scale to **larger platforms in the future.
-        Ultimately, the sound project structure and good programming practices were recognised by Singtel's Software Engineering Team, we our team was awarded the **Singtel **Information_Systems **and **Programming_Award.
-        Currently, we are working with the **Informations_System **Technology_Design **(ISTD) **department to showcase **Smarthealth during **2026's upcoming **SUTD **Open_House.`,
         imageSource : "/images/smarthealth_2d_poster.png",
         videoSource : "",
         imageCollage : ["/images/smarthealth_2d_poster.png", "/images/smarthealth_award.png", "/images/smarthealth_physicalposter.png"],
@@ -203,7 +150,6 @@ export const projects : project[] = [
     {
         name : "Portfolio V1",
         timeFrame : "Mar 25",
-        description : "My first web portfolio, and also my first project using HTML, CSS and Javascript. Made in Feb 2025. View it here, together with my **older_projects from **2023-_2024**",
         imageSource : "",
         videoSource : "",
         imageCollage : ["/images/portfoliov1_1.png", "/images/portfoliov1_2.png","/images/portfoliov1_3.png" ],
@@ -220,10 +166,6 @@ export const projects : project[] = [
     {
         name : "Current Ongoing Projects",
         timeFrame : "Current Ongoing",
-        description : `Learning more about key technologies for **distributed_systems. Building a **Redis_clone using **Java.
-                       Current work: GET, SET, PING, INCR, MULTI commands.
-                       Per-client buffers set up to parse RESP and RESP2 data, as well as command queue using ArrayDeque to manage queued commands after MULTI.
-                       Key expiry through additional PX argument that arrives with SET.`,
         imageSource : "",
         videoSource : "",
         imageCollage : null,

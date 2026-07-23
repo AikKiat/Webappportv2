@@ -1,0 +1,1 @@
+An End-End ML pipeline I did last year, which focuses on customer loyalty prediction for a particular fictional company. Contains **Exploratory Data** **Analysis,** as well as actual **End-End** **ML pipeline** and **bash file** to run it. More information about my investigative analysis in the Github repo.
