@@ -251,7 +251,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                             <div className="internal_contents" ref={(element) => {if (element) internalContentsRef.current[index] = element}}>
                                 <span className="title_desc">{project.titleDesc}</span>
                                 {project.titleThumbnail && <div className="title_thumbnail">
-                                    <img src={`${project.titleThumbnail}`}></img>
+                                    <img src={`${project.titleThumbnail}`} loading="lazy" decoding="async"></img>
                                 </div>}
                                 <div className="buttons">
                                     <button className="expand" onClick={() => toggleProjectCardShowcase(project.uniqueIdName)}>{"More >>"}</button>

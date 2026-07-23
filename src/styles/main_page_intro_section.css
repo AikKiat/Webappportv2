@@ -137,6 +137,11 @@
     height: 2rem;
 }
 
+/* Hover-expand is pure CSS now; GlowingText no longer re-renders on hover. */
+.special_word_holder:hover .special_word_underline.hidden{
+    width: 100%;
+}
+
 .intro_desc .normal_word{
     background: transparent;
 }

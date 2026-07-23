@@ -1,6 +1,9 @@
-import { useState } from "react";
-import ProjectMarkdownViewer from "./ProjectMarkdownViewer";
+import { lazy, Suspense, useState } from "react";
 import github_icon from "/icons/github.png";
+
+// Lazy so react-markdown and the .md content ship in their own chunk instead
+// of the initial bundle - this only renders once a project modal is opened.
+const ProjectMarkdownViewer = lazy(() => import("./ProjectMarkdownViewer"));
 
 interface ProjectInformationProps {
   uniqueIdName: string;
@@ -55,7 +58,7 @@ export default function ProjectInformation(props: ProjectInformationProps) {
             {currentMedia.startsWith("htt") ? (
               <iframe src={currentMedia} title="project-video" />
             ) : (
-              <img src={currentMedia} alt="project-media" />
+              <img src={currentMedia} alt="project-media" loading="lazy" decoding="async" />
             )}
           </div>
           {mediaItems.length > 1 && <button className="next-btn" onClick={handleNext}>{">"}</button>}
@@ -77,7 +80,9 @@ export default function ProjectInformation(props: ProjectInformationProps) {
 
       <div className="text-container">
         <h2 className="title">{props.projectName}</h2>
-        <ProjectMarkdownViewer uniqueIdName={props.uniqueIdName} />
+        <Suspense fallback={null}>
+          <ProjectMarkdownViewer uniqueIdName={props.uniqueIdName} />
+        </Suspense>
         {props.checkItOutLinks && props.checkItOutMsgs && (
           <div>
             {
@@ -112,7 +117,7 @@ export default function ProjectInformation(props: ProjectInformationProps) {
       {props.techstack && (
         <div className="techstack-container">
           {props.techstack.map((tech, index) => (
-            <img src={tech} alt={`tech-${index}`} key={index} />
+            <img src={tech} alt={`tech-${index}`} key={index} loading="lazy" decoding="async" />
           ))}
         </div>
       )}

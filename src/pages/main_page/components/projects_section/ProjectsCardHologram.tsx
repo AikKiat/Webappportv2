@@ -29,7 +29,11 @@ export function ProjectsCardHologram(){
     // itself to that section's box instead of the viewport. Rendering outside
     // that subtree is what lets this actually cover the full screen.
     return createPortal(
-        <div className={`projects_card_showcase ${phase === "closed" ? "hidden" : "opened"}`} ref={projectCardRef}>
+        // data-lenis-prevent: the conductor stops Lenis while this overlay is
+        // open, and a stopped Lenis preventDefaults every wheel/touch scroll
+        // on the page. This attribute tells Lenis to leave events inside the
+        // overlay alone so it can scroll natively.
+        <div className={`projects_card_showcase ${phase === "closed" ? "hidden" : "opened"}`} ref={projectCardRef} data-lenis-prevent>
             <div className={`project_information_card_holder`}>
             {projects.map((project : project) =>{
                 if(project.uniqueIdName === activeProjectId){

@@ -54,7 +54,7 @@ export const projects : project[] = [
     {
         name : "AI-Driven Resource Monitor Project (Internship @NCS NEXT)",
         timeFrame : "Sep-Dec 25",
-        imageSource : "/images/aidrm.png",
+        imageSource : "/images/aidrm.webp",
         videoSource : null,
         imageCollage : null,
         videoCollage :null,
@@ -70,9 +70,9 @@ export const projects : project[] = [
     {
         name : "T.A.L.L",
         timeFrame : "Aug-Sep 25",
-        imageSource : "/images/tall.png",
+        imageSource : "/images/tall.webp",
         videoSource : "",
-        imageCollage : ["/images/tall.png", "/images/dell_inno_1.png", "/images/dell_inno_2.png"],
+        imageCollage : ["/images/tall.webp", "/images/dell_inno_1.webp", "/images/dell_inno_2.webp"],
         videoCollage : null,
         longerDescription : " Made using Kotlin, running on a modular monolithic Node.js backend server connected to a PostgreSQL database, with an-inbuilt Python Webscraper and using an AI LLM to generate unique profile images tailored towards the details of user's personal entries, constructing and visualising the unique lifestory they can build.",
         uniqueIdName : "tall",
@@ -81,14 +81,14 @@ export const projects : project[] = [
         titleDesc : "Dell InnovateFest 2025: AI-Powered Mental Wellness App for Teenagers",
         checkItOutLinks : null,
         checkItOutMsgs : null,
-        titleThumbnail : "images/tall.png"
+        titleThumbnail : "images/tall.webp"
     },
     {
         name : "TikTok Tech Jam 2025: Secure Multi-Model LLM Chat Messaging Platform",
         timeFrame : "Aug 25",
-        imageSource : "/images/suttd_gaurds.png",
+        imageSource : "/images/suttd_gaurds.webp",
         videoSource : null,
-        imageCollage : ["/images/suttd_gaurds.png"],
+        imageCollage : ["/images/suttd_gaurds.webp"],
         videoCollage :null,
         longerDescription : "Longer DESC HERE",
         uniqueIdName : "sutdg",
@@ -97,14 +97,14 @@ export const projects : project[] = [
         checkItOutLinks : ["https://github.com/AikKiat/SUTTD_Guards_BackendServer","https://github.com/AikKiat/SUTTDGuards_De-Identification"],
         checkItOutMsgs : ["(Github Repo) Backend Server", "(Github Repo) PII De-Identification Service"],
         titleDesc : "TikTok Tech Jam 2025: Secure Multi-Model LLM Chat Messaging Platform",
-        titleThumbnail : "/images/suttd_gaurds.png"
+        titleThumbnail : "/images/suttd_gaurds.webp"
     },
     {
         name : "Come Fly with Me",
         timeFrame : "Mar-May 25",
-        imageSource : "/images/ascenda_5.png",
+        imageSource : "/images/ascenda_5.webp",
         videoSource : "",
-        imageCollage : ["/images/ascenda_5.png"],
+        imageCollage : ["/images/ascenda_5.webp"],
         videoCollage : null,
         longerDescription : "",
         uniqueIdName : "hotelapp",
@@ -113,14 +113,14 @@ export const projects : project[] = [
         titleDesc : "Fullstack (MERN -Mysql) Hotel Booking System for Ascenda",
         checkItOutLinks : null,
         checkItOutMsgs : null,
-        titleThumbnail : "/images/ascenda_5.png"
+        titleThumbnail : "/images/ascenda_5.webp"
     },
     {
         name : "End-End ML Pipeline for Customer Loyalty Prediction",
         timeFrame : "May 25",
         imageSource : "",
         videoSource : "",
-        imageCollage : ["/images/pipeline_graph.png", "/images/results.png"],
+        imageCollage : ["/images/pipeline_graph.webp", "/images/results.webp"],
         videoCollage : null,
         longerDescription : "",
         uniqueIdName : "mlpipeline",
@@ -129,14 +129,14 @@ export const projects : project[] = [
         titleDesc : "End-End EDA and ML Pipeline for Customer Loyal Prediction",
         checkItOutLinks : null,
         checkItOutMsgs : null,
-        titleThumbnail : "/images/pipeline_graph.png"
+        titleThumbnail : "/images/pipeline_graph.webp"
     },
     {
         name : "SmartHealth",
         timeFrame : "Feb-Apr 25",
-        imageSource : "/images/smarthealth_2d_poster.png",
+        imageSource : "/images/smarthealth_2d_poster.webp",
         videoSource : "",
-        imageCollage : ["/images/smarthealth_2d_poster.png", "/images/smarthealth_award.png", "/images/smarthealth_physicalposter.png"],
+        imageCollage : ["/images/smarthealth_2d_poster.webp", "/images/smarthealth_award.webp", "/images/smarthealth_physicalposter.webp"],
         videoCollage : ["https://www.youtube.com/embed/L9Ba1HxGkM4?si=afmOv2GFCXTzzZPx"],
         longerDescription : "Android App created as Part of 50.001 Informations Systems and Programming Course. Created using Java in Android Studio, and used Java Spring as the backend framework. User data stored in a PostGreSQL database, hosted on AWS. REST APIs for standardised clear communication standard between the client and backend, and RESTful APIs include Google Places, Routes API, Open AI GPT4.0 Api. We also hosted this backend on a free server space platform called Render, allowing the backend service of our app to be running 24/7. A step towards increased efficacy in deployment, and allowing our backend service to scale to larger platforms in the future.",
         uniqueIdName : "smarthealth",
@@ -145,14 +145,14 @@ export const projects : project[] = [
         titleDesc : "AI-Powered Healthtech App for the Elderly with Image Detection for Calorie Management",
         checkItOutLinks : null,
         checkItOutMsgs : null,
-        titleThumbnail : "images/smarthealth_0.png"
+        titleThumbnail : "images/smarthealth_0.webp"
     },
     {
         name : "Portfolio V1",
         timeFrame : "Mar 25",
         imageSource : "",
         videoSource : "",
-        imageCollage : ["/images/portfoliov1_1.png", "/images/portfoliov1_2.png","/images/portfoliov1_3.png" ],
+        imageCollage : ["/images/portfoliov1_1.webp", "/images/portfoliov1_2.webp","/images/portfoliov1_3.webp" ],
         videoCollage : null,
         longerDescription : "My first web portfolio, and also my first project using HTML, CSS and Javascript. Made in Feb 2025. View it here, together with my **older_projects from **2023-_2024**.",
         uniqueIdName : "pv1",
@@ -161,7 +161,7 @@ export const projects : project[] = [
         titleDesc : "My First Web Portfolio",
         checkItOutLinks : ["https://aikkiat.github.io/webappport/"],
         checkItOutMsgs : ["(Github Repo) Check it out here!"],
-        titleThumbnail : "images/portfoliov1_1.png"
+        titleThumbnail : "images/portfoliov1_1.webp"
     },
     {
         name : "Current Ongoing Projects",
@@ -355,7 +355,7 @@ const leadership : personal[] = [
         index : 0,
         title : "President, Unreal Enthusiasts Interest Group",
         description : "**Led workshops on **3D **Digital_Art, **VR and **Animation. **Created and **hosted **projects during key events such as **Open_House, **XR_Day involving big players such as **Meta.",
-        imageSource : "/images/ue.png",
+        imageSource : "/images/ue.webp",
         multiDescription : null,
         uniqueName : "ueig",
         longerDescription : "**President of the **Unreal **Enthusiasts Interest Group for **2_years, and conducted **~10 **learning_workshops focused on **Blender and **Unreal_Engine for the **SUTD_community. Eventually I and my Exco also created a **Souls-like **third_person **sandbox **boss-fight and **VR_immersion **environment depicting **tourist_destinations, showcasing these projects both intra-school and in external events."
@@ -364,7 +364,7 @@ const leadership : personal[] = [
         index : 1,
         title : "University Ambassador",
         description: "Conducted **>20 **School_tours for students, parents, overseas professors, consultant for candidates' **enquiries during **SUTD **Admissions_Interviews, and welcomed potential students during for Offer Receptions.",
-        imageSource : "/images/sutd_logo.png",
+        imageSource : "/images/sutd_logo.webp",
         multiDescription : null,
         uniqueName : "ua",
         longerDescription : "**SUTD **University_Ambassador from **2023 until **August_2025. During my time as an ambassador, I involved myself in **more_than **20_events for **prospective_students, **parents, and **overseas_professors. I not only learnt how to present various aspects of **SUTD's **Design and **Innovation **philosophy to various **demographics, but also **value **this **institution more in terms of the **learning_opportunities it has given me, to take on my aspiration of being a **Computer_Science student **imbued with the **dynamic, **humanistic_nature that SUTD **requires of its **builders."
@@ -374,7 +374,7 @@ const leadership : personal[] = [
         index : 2,
         title : "Teaching Assistant, at SUTD-SST Big D Camp 2025",
         description : "Created technical **lesson **manuals, **mentored a team of 4 secondary school students from **School **of **Science and **Technology, building an **Arduino **robot controllable via **Bluetooth.",
-        imageSource : "/images/sutd_bigd.png",
+        imageSource : "/images/sutd_bigd.webp",
         multiDescription : null,
         uniqueName : "sutdbigd",
         longerDescription : "I **mentored a team of 4 secondary school students from **School **of **Science **and **Technology, to build an **Arduino_rover **robot to compete in a **mass **object_retrieval **sandbox, **populated with various items **simulating_debris needed to be cleared after a disaster. The robot was **controllable **via **bluetooth. Helped various teams **diagnose **errors and also **produced **lesson_content for setting up the **HC05 **Bluetooth **module. Personally mentored team won **Best **Team **Spirit **Award."
@@ -386,7 +386,7 @@ const experiences : personal[] = [
         index : 0,
         title : "Product Engineering Intern, Asset Development, Next Open Innovation (NCS)",
         description : "Created a **fullstack **AI-Driven **Resource_Monitoring **System to **Streamline **Baggage **Handling at **Airports via **Robotics **Autonomous_Systems. **Designed backend system and **improved **scalability with **measured **performance **metrics.",
-        imageSource : "/images/ncs.png",
+        imageSource : "/images/ncs.webp",
         multiDescription : null,
         uniqueName : "ncs",
         longerDescription: "During my 4 months at NCS as a Product Eng Intern (Asset Dev), I built a **fullstack **AI-Driven **Resource **Monitoring **System that **integrates with an existing **simulation_evironment, to showcase how **AI could be implemented to **streamline the **coordination and **selection of **robotics_systems to handle **baggages. From first **defining the **problem and later on **creating the actual fullstack system with a **modular, **cleanly **layered **software_architecture, I indeed **learnt a great deal about the entire **product_development process alongside **developing **software **systems. More in the **Projects_Section",
@@ -395,7 +395,7 @@ const experiences : personal[] = [
         index : 1,
         title : "DellInnovateFest 2025",
         description: "A **memorable **1-month long **hackathon hosted by **Dell_Technologies, representing SUTD ans building an **AI-powered **software_product to **address **teenage **mental **well-being in Singapore.",
-        imageSource : "/images/dell_inno_1.png",
+        imageSource : "/images/dell_inno_1.webp",
         multiDescription : null,
         uniqueName : "dellhackathon",
         longerDescription : "A memorable 1-month long hackathon hosted by Dell Technologies, **representing_SUTD as a **finalist_team, and built a software solution after weeks of heartfelt solutioning, to **alleviate the **mental_health situation amongst **teenagers in **Singapore. Worked with **Singapore **Association **for **Mental **Health **(SAMH) for **problem_definition & **emotional_journey of teenagers. Truly fruitful in building software products for the **good **of **society, through **meticulous, **heartfelt_solutioning. More in the **Projects_Section."
@@ -408,7 +408,7 @@ const education : personal[] = [
         index : 0,
         title : "Year 3 Computer Science @SUTD",
         description : "Currently pursuing **Computer_Science, **Singapore **University **of **Technology **and **Design. Taking on a **minor in **AI, and also currently taking more courses in **Security **(Network and **System Security) to further **expand **my **knowledge.",
-        imageSource : "/images/sutd_logo.png",
+        imageSource : "/images/sutd_logo.webp",
         multiDescription : null,
         uniqueName : "cssutd",
         longerDescription: null

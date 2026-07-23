@@ -255,19 +255,21 @@
     aspect-ratio: 1/1;
     transform: scale(0.7);
     border-radius: 50%;
-    filter: blur(8.0rem);
+    /* Blur cost scales with radius squared - 8rem was the single biggest
+       paint cost on mobile. 3rem reads the same for a soft glow blob. */
+    filter: blur(3.0rem);
     animation: blur_grow 3s linear;
     transition: all 0.5s ease;
 }
 
 @keyframes blur_grow{
     0%{
-        transform: scale(0.7); 
-        filter: blur(8.0rem);
+        transform: scale(0.7);
+        filter: blur(3.0rem);
     }
     50%{
         transform: scale(1.0);
-        filter: blur(10.0rem);
+        filter: blur(4.0rem);
     }
     100%{
         transform: scale(0.7);

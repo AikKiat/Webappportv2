@@ -86,7 +86,7 @@ const PersonalCard = ({ personalQuality, personalQualities, onSwipeOut, onReset,
                     <div>
                         {personalQuality.multiDescription.map((oneCert : certInfo) => {
                             return (
-                                <div>
+                                <div key={oneCert.title}>
                                     <span className="cert_title">{oneCert.title}</span>
                                     <a className="cert_share_link" href={`${oneCert.credentialLink}`}></a>
                                     <span className="cert_image">
@@ -188,9 +188,8 @@ export default function InfoCard({cardsRef, cardsFrontBehindRef, infoDescription
                 <div className="qualities_list">
                     {currentList && [...currentList].reverse().map((personalQuality: personal) => {
                         return (
-                        <>
+                        <React.Fragment key={personalQuality.index}>
                             <PersonalCard
-                                key={personalQuality.index}
                                 personalQuality={personalQuality}
                                 personalQualities={personalQualities}
                                 onSwipeOut={handleCardSwipedOut}
@@ -199,8 +198,8 @@ export default function InfoCard({cardsRef, cardsFrontBehindRef, infoDescription
                                 catergory={infoDescription.toLowerCase()}
                             />
                             <div className={`quality_card_behind ${infoDescription.toLowerCase()}`}></div>
-                        </>
-                        
+                        </React.Fragment>
+
                     )})}
                 </div>
             </div>

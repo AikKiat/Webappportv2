@@ -22,7 +22,7 @@ import {registerSection} from "../../store/transitionStore";
 
 //Assets
 import knowingYourselfImage from "/icons/info_img.svg";
-import profileImage from "/images/ncs.png";
+import profileImage from "/images/ncs.webp";
 
 //Components for Info section
 import InfoCard from "./components/info_section/InfoCard";
@@ -77,7 +77,7 @@ export default function MainPage(){
     }
 
     useEffect(()=>{
-        useBetterScroll();
+        return useBetterScroll();
     },[])
 
     useEffect(() => {
@@ -200,11 +200,11 @@ export default function MainPage(){
                             background: skill.color
                         }
                         return (
-                            <div className="skill_item_holder">
+                            <div className="skill_item_holder" key={skill.name}>
                                  <div className={`skill_item`}>
                                     <span className={`description`}>{skill.name}</span>
                                     <div className={`skill_image`}>
-                                        <img src={skill.logo}></img>
+                                        <img src={skill.logo} loading="lazy" decoding="async"></img>
                                     </div>
                                     <div className="skill_image_behind" style={style}></div>
                                 </div>
