@@ -19,7 +19,7 @@
         left: 65%;
         width: 20rem;
         height: 20rem;
-    } 
+    }
 }
 
 @media (max-width: 1200px) {
@@ -63,11 +63,6 @@
 
     .project_card{
         font-size: 2rem;
-    }
-
-    .internal_contents .buttons{
-        top: -25%;
-        left: 0%;
     }
 
     .project-card.smarthealth .text-container{
@@ -158,6 +153,10 @@
         font-size: 1rem;
     }
 
+    .internal_contents .title_desc{
+        font-size: 0.85rem;
+    }
+
     .project_cards_container{
         top: 0%;
         left: 20%;
@@ -169,24 +168,6 @@
         font-size: 1rem;
     }
 
-    .internal_contents .buttons{
-        top: -18%;
-        left: auto;
-        right: 10%;
-    }
-
-    .internal_contents .buttons .expand{
-        top: -10%;
-        order: 1;
-        font-size: 0.8rem;
-    }
-
-    .internal_contents .buttons .minimize{
-        top: 0%;
-        order: 0;
-        padding: 0.1rem 0.5rem;
-    }
-
     .project-card.pv1 .media-display{
         height: 20rem;
     }
@@ -194,16 +175,6 @@
     .project-card.pv1 .text-container{
         height: fit-content;
         font-size: 0.8rem;
-    }
-
-    .prev-btn, .next-btn{
-        transform: translateY(-1.0rem);
-    }
-
-    .expand-btn{
-        position: absolute;
-        bottom: 0%;
-        transform: scale(0.8);
     }
 }
 

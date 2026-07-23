@@ -41,114 +41,109 @@
     aspect-ratio: 7/5;
     transition: all 0.3s ease;
     border-radius: 0.5rem;
-    border: 0.1rem solid #080808;
-    text-shadow: 0rem 0rem 0.1rem #fff;
+    border: 1px solid rgba(255, 219, 112, 0.28);
     background: #4d4d4d5e;
     pointer-events: auto;
     transform-style: preserve-3d;
     backdrop-filter: blur(0.3rem);
     color: var(--text-color-tertiary);
-    text-shadow: -0.3rem -0.3rem 2rem var(--text-shadow-glow), -0.1rem -0.1rem 0.4rem var(--text-shadow-glow-2);
+    box-shadow: 0 0.3rem 0.9rem rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 246, 218, 0.1);
+    text-shadow: -0.1rem -0.1rem 0.8rem var(--text-shadow-glow), -0.05rem -0.05rem 0.3rem var(--text-shadow-glow-2);
 }
 
 .project_card .card_number{
     transition: opacity 0.5s ease;
 }
 
+/* Fills the card so the title plate truly centers and the buttons get
+   their own row at the bottom - they can never overlap the plate. */
 .project_card .internal_contents{
     transition: opacity 0.5s ease;
+    position: absolute;
+    inset: 0;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
 }
 
+/* Brass plate on dark card stock: one gold family, hairline edges,
+   a single soft shadow - no stacked glows. */
 .internal_contents .title_desc{
     position: relative;
     text-align: center;
-    opacity: 1.0;
-    top: 0%;
-    left: 0%;
+    opacity: 0.9;
     width: 100%;
-    height: 100%;
-    color: #010101;
-    text-shadow: 0rem 0rem 0.5rem #fff;
-    font-size: 1.1rem;
-    background: #fff2009e;
-    box-shadow: 0rem 0rem 2rem #ff4d009c inset, 0rem 0rem 1rem #131313;
+    height: fit-content;
+    margin: auto 0;
+    padding: 0.6rem 0.9rem;
+    color: #241a08;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+    background: linear-gradient(120deg, #ffedb3f0, #ffd968e0);
+    border-top: 1px solid #5a3c0a80;
+    border-bottom: 1px solid #5a3c0a80;
+    box-shadow: 0 0.15rem 0.5rem rgba(0, 0, 0, 0.4), inset 0 1px 0 #fff8;
     backdrop-filter: blur(0.5rem);
 }
 
+/* Last flex row of the card - always bottom-center, at every width,
+   with no media query repositioning. */
 .internal_contents .buttons{
     z-index: 1;
-    position: absolute;
-    top: -15%;
-    left: 0%;
-    width: fit-content;
-    gap: 2rem;
+    flex-shrink: 0;
+    width: max-content;
+    gap: 0.6rem;
     height: fit-content;
+    margin: 0 auto 0.6rem;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: row;
     pointer-events: none;
 }
 
-.internal_contents .buttons .expand{
-    z-index: 1;
-    color: #000000;
-    position: relative;
-    top: -5%;
-    order: 0;
-    width: 3rem;
-    height: 3rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 0.75rem;
-    background: linear-gradient(145deg, #ff5cff, #ff07ff);
-    pointer-events: auto;
-    cursor: pointer;
-    text-shadow: 0rem 0rem 0.1rem #ffffff;
-    box-shadow: -0.2rem -0.2rem 0.4rem var(--neu-light), 0.2rem 0.2rem 0.4rem var(--neu-dark);
-    transition: all 0.25s ease;
-}
-
-.internal_contents .buttons .expand:hover{
-    transform: translateY(-0.1rem);
-    box-shadow: -0.25rem -0.25rem 0.5rem var(--neu-light), 0.25rem 0.25rem 0.5rem var(--neu-dark);
-}
-
-.internal_contents .buttons .expand:active{
-    transform: translateY(0);
-    box-shadow: inset -0.15rem -0.15rem 0.3rem var(--neu-light), inset 0.15rem 0.15rem 0.3rem var(--neu-dark);
-}
-
-
+.internal_contents .buttons .expand,
 .internal_contents .buttons .minimize{
-    color: #000000;
-    position: relative;
-    order: 1;
-    top: 0%;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    width: fit-content;
-    height: fit-content;
-    border: 1px solid #ec290f;
-    border-radius: 0.75rem;
-    background: linear-gradient(145deg, #ffe066, #ffc907);
     pointer-events: auto;
     cursor: pointer;
     font-size: 0.8rem;
-    box-shadow: -0.2rem -0.2rem 0.4rem var(--neu-light), 0.2rem 0.2rem 0.4rem var(--neu-dark);
-    transition: all 0.25s ease;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 0.3rem 0.5rem;
+    border-radius: 10rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
 }
 
-.internal_contents .buttons .minimize:hover{
-    transform: translateY(-0.1rem);
-    box-shadow: -0.25rem -0.25rem 0.5rem var(--neu-light), 0.25rem 0.25rem 0.5rem var(--neu-dark);
+.internal_contents .buttons .expand{
+    color: #241a08;
+    border: 1px solid #5a3c0a80;
+    background: linear-gradient(145deg, #ffe08a, #f0b429);
+    box-shadow: 0 0.15rem 0.4rem rgba(0, 0, 0, 0.45), inset 0 1px 0 #fff8;
 }
 
+.internal_contents .buttons .minimize{
+    color: #272624;
+    border: 1px solid #dfad1590;
+    background: rgba(255, 246, 218, 0.985);
+    box-shadow: 0 0.15rem 0.4rem rgba(0, 0, 0, 0.35);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .internal_contents .buttons .expand:hover,
+    .internal_contents .buttons .minimize:hover{
+        transform: translateY(-0.1rem);
+        box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.5), inset 0 1px 0 #fff8;
+    }
+}
+
+.internal_contents .buttons .expand:active,
 .internal_contents .buttons .minimize:active{
-    transform: translateY(0);
-    box-shadow: inset -0.15rem -0.15rem 0.3rem var(--neu-light), inset 0.15rem 0.15rem 0.3rem var(--neu-dark);
+    transform: translateY(0.05rem) scale(0.97);
+    box-shadow: 0 0.05rem 0.2rem rgba(0, 0, 0, 0.4), inset 0 0.1rem 0.3rem rgba(20, 14, 4, 0.3);
 }
 
 .internal_contents .title_thumbnail{
@@ -181,10 +176,15 @@
     transform: translateZ(-1.0rem);
     height: 2rem;
     width: 10rem;
-    font-size: 1.0rem;
-    background: #ff924e;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: #241a08;
+    background: linear-gradient(145deg, #ffd97a, #f5a623);
+    border: 1px solid #5a3c0a80;
+    border-bottom: none;
     border-radius: 1rem 1rem 1rem 0;
-    box-shadow: -0.3rem 0.05rem 0.1rem 0.15rem #131313, -0.2rem 0rem 1rem 0.4rem  #ffb907e8;
+    box-shadow: 0 0.15rem 0.5rem rgba(19, 19, 19, 0.55), inset 0 1px 0 #fff8;
     transition: all 0.5s ease;
 }
 
@@ -455,10 +455,15 @@
     border-radius: 0.5rem;
 }
 
+/* max-height on the img itself, not just the wrapper: height:100% of an
+   auto-height parent resolves to auto, so the img box grows to its intrinsic
+   size and the wrapper's overflow:hidden crops it - object-fit only fits
+   within the img's own box, so that box must be the thing that's bounded. */
 .media-display img, .media-display iframe {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    max-height: 20rem;
+    object-fit: contain;
     border-radius: 0.5rem;
 }
 /* 
@@ -469,51 +474,59 @@
 .prev-btn, .next-btn {
     position: relative;
     background: linear-gradient(145deg, #fdf0b8, #f3e743cc);
-    border: none;
+    border: 1px solid #b3902fb0;
     color: var(--text-color);
     font-size: 1.2rem;
     padding: 0.5rem 1rem;
     cursor: pointer;
     border-radius: 0.6rem;
     margin: 0 0.5rem;
-    box-shadow: -0.2rem -0.2rem 0.4rem var(--neu-light), 0.2rem 0.2rem 0.4rem var(--neu-dark);
-    transition: all 0.25s ease;
-}
-
-.prev-btn:hover, .next-btn:hover {
-    transform: translateY(-0.1rem);
-    box-shadow: -0.25rem -0.25rem 0.5rem var(--neu-light), 0.25rem 0.25rem 0.5rem var(--neu-dark);
-}
-
-.prev-btn:active, .next-btn:active {
-    transform: translateY(0);
-    box-shadow: inset -0.15rem -0.15rem 0.3rem var(--neu-light), inset 0.15rem 0.15rem 0.3rem var(--neu-dark);
+    box-shadow: 0 0.15rem 0.4rem rgba(20, 14, 4, 0.35), inset 0 1px 0 #fff8;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
 }
 
 .expand-btn {
     position: absolute;
+    width: fit-content;
+    aspect-ratio: 1/1;
     bottom: 0%;
     right: 0%;
-    background: linear-gradient(145deg, #ffc266, #ffa203cc);
-    border: none;
+    background: linear-gradient(145deg, #ffd98a, #f0b429);
+    border: 1px solid #b3902fb0;
     color: var(--text-color);
     font-size: 1.2rem;
-    padding: 0.5rem 0.8rem;
+    padding: 0.5rem 0.5rem;
     cursor: pointer;
-    border-radius: 0.6rem;
+    border-radius: 0.3rem;
     margin-left: 0.5rem;
-    box-shadow: -0.2rem -0.2rem 0.4rem var(--neu-light), 0.2rem 0.2rem 0.4rem var(--neu-dark);
-    transition: all 0.25s ease;
+    box-shadow: 0 0.15rem 0.4rem rgba(20, 14, 4, 0.35), inset 0 1px 0 #fff8;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
 }
 
-.expand-btn:hover {
-    transform: translateY(-0.1rem) scale(1.05);
-    box-shadow: -0.25rem -0.25rem 0.5rem var(--neu-light), 0.25rem 0.25rem 0.5rem var(--neu-dark);
+/* Hover lift only on devices that actually hover - on touch, emulated
+   hover sticks after a tap and buttons look stuck mid-press. */
+@media (hover: hover) and (pointer: fine) {
+    .prev-btn:hover, .next-btn:hover {
+        transform: translateY(-0.1rem);
+        box-shadow: 0 0.3rem 0.6rem rgba(20, 14, 4, 0.4), inset 0 1px 0 #fff8;
+    }
+
+    .expand-btn:hover {
+        transform: translateY(-0.1rem) scale(1.05);
+        box-shadow: 0 0.3rem 0.6rem rgba(20, 14, 4, 0.4), inset 0 1px 0 #fff8;
+    }
 }
 
+.prev-btn:active, .next-btn:active,
 .expand-btn:active {
-    transform: translateY(0) scale(0.97);
-    box-shadow: inset -0.15rem -0.15rem 0.3rem var(--neu-light), inset 0.15rem 0.15rem 0.3rem var(--neu-dark);
+    transform: translateY(0.05rem) scale(0.97);
+    box-shadow: 0 0.05rem 0.2rem rgba(20, 14, 4, 0.35), inset 0 0.1rem 0.3rem rgba(20, 14, 4, 0.25);
 }
 
 .media-modal-overlay {
@@ -583,11 +596,13 @@
     z-index: 1001;
 }
 
-.modal-close-btn:hover {
-    background: linear-gradient(145deg, #ff7a7a, #ff5050);
-    color: #fff;
-    transform: scale(1.08);
-    box-shadow: -0.25rem -0.25rem 0.5rem var(--neu-light), 0.25rem 0.25rem 0.5rem var(--neu-dark);
+@media (hover: hover) and (pointer: fine) {
+    .modal-close-btn:hover {
+        background: linear-gradient(145deg, #ff7a7a, #ff5050);
+        color: #fff;
+        transform: scale(1.08);
+        box-shadow: -0.25rem -0.25rem 0.5rem var(--neu-light), 0.25rem 0.25rem 0.5rem var(--neu-dark);
+    }
 }
 
 .modal-close-btn:active {
@@ -737,12 +752,14 @@
     transition: all 0.25s ease;
 }
 
-.close-btn:hover{
-    transform: translateY(-0.1rem);
-    box-shadow: -0.25rem -0.25rem 0.5rem var(--neu-light), 0.25rem 0.25rem 0.5rem var(--neu-dark);
+@media (hover: hover) and (pointer: fine) {
+    .close-btn:hover{
+        transform: translateY(-0.1rem);
+        box-shadow: -0.25rem -0.25rem 0.5rem var(--neu-light), 0.25rem 0.25rem 0.5rem var(--neu-dark);
+    }
 }
 
 .close-btn:active{
-    transform: translateY(0);
+    transform: translateY(0.05rem) scale(0.97);
     box-shadow: inset -0.15rem -0.15rem 0.3rem var(--neu-light), inset 0.15rem 0.15rem 0.3rem var(--neu-dark);
 }

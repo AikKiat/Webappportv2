@@ -254,7 +254,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                                     <img src={`${project.titleThumbnail}`} loading="lazy" decoding="async"></img>
                                 </div>}
                                 <div className="buttons">
-                                    <button className="expand" onClick={() => toggleProjectCardShowcase(project.uniqueIdName)}>{"More >>"}</button>
+                                    <button className="expand" onClick={() => toggleProjectCardShowcase(project.uniqueIdName)}>View More</button>
                                     <button className="minimize" onClick={minimize}>Minimise</button>
                                 </div>
                             </div>
