@@ -112,21 +112,15 @@ function runInfoCardsRevealTimeline() {
 
 
 function runDrawerRevealTimeline() {
-    const projectDrawerSide = document.querySelector<HTMLElement>(".drawer_side");
-    const projectDrawerFront = document.querySelector<HTMLElement>(".drawer_front");
     const projectDrawerLabel = document.querySelector<HTMLElement>(".drawer_label_wording");
     const projectDrawerButtonLeft = document.querySelector<HTMLElement>("#select_left");
     const projectDrawerButtonRight = document.querySelector<HTMLElement>("#select_right");
     const projectCards = Array.from(document.querySelectorAll<HTMLElement>(".project_card"));
 
-    tween(projectDrawerSide, {
-        boxShadow: "0rem 0rem 0.1rem 1rem var(--background-color), 1.5rem -1rem 1rem 0.1rem #363535",
-    });
-
-    tween(projectDrawerFront, {
-        boxShadow: "-1rem 0rem 0.1rem 1rem var(--background-color), 0rem -1rem 1rem 0.1rem #363535",
-        transform: "rotateY(40deg) rotateZ(-10deg) rotateX(-15deg) translate(12%, 33%)",
-    });
+    // Shadows + front tilt live in runDrawerThemeUpdate so a theme change can
+    // re-run them with the new theme's variable values. drawerOpened is
+    // already true by the time this timeline runs, so they paint here too.
+    runDrawerThemeUpdate();
 
     setTimeout(() => {
         projectCards.forEach((card, index) => {
@@ -173,6 +167,18 @@ function runDrawerRevealTimeline() {
 function runDrawerThemeUpdate(){
     const projectDrawerSide = document.querySelector<HTMLElement>(".drawer_side");
     const projectDrawerFront = document.querySelector<HTMLElement>(".drawer_front");
+
+    if (!useIntroSectionTransitionState.getState().drawerOpened) {
+        // The drawer has not been revealed yet, so nothing may be painted
+        // early. Clear any stale inline values (commitStyles bakes resolved
+        // colours into inline style) so the elements fall back to their
+        // hidden stylesheet state; the reveal timeline will paint the
+        // shadows when the sentinel actually fires.
+        projectDrawerSide?.style.removeProperty("box-shadow");
+        projectDrawerFront?.style.removeProperty("box-shadow");
+        projectDrawerFront?.style.removeProperty("transform");
+        return;
+    }
 
     tween(projectDrawerSide, {
         boxShadow: "0rem 0rem 0.1rem 1rem var(--background-color), 1.5rem -1rem 1rem 0.1rem #363535",
