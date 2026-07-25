@@ -2,10 +2,8 @@ import { useEffect } from "react";
 import gsap from "gsap";
 
 import { useTransitionStore, getSection } from "../store/transitionStore";
-import { getLenis } from "./useBetterScroll";
 
-// Tracks whether the skills section actually took part in the current exit,
-// so the return animation only pulls back in what was actually sent away.
+
 let skillsWasSentOut = false;
 
 function isOnScreen(element: HTMLElement): boolean {
@@ -21,7 +19,6 @@ function runExitTimeline() {
     const skills = getSection("skillsSection");
     skillsWasSentOut = Boolean(skills && isOnScreen(skills));
 
-    getLenis()?.stop();
     document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
 
@@ -66,7 +63,6 @@ function runReturnTimeline() {
     const tl = gsap.timeline({
         onComplete: () => {
             useTransitionStore.getState().setPhase("closed");
-            getLenis()?.start();
             document.documentElement.style.overflow = "";
             document.body.style.overflow = "";
         },

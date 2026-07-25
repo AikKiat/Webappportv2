@@ -14,7 +14,6 @@ import "../../styles/theme_toggle.css";
 
 import ThemeToggle from "../../components/ThemeToggle";
 
-import {useBetterScroll} from "../../hooks/useBetterScroll";
 import {useAnimateOnScroll} from "../../hooks/useAnimateOnScroll";
 import {useProjectTransitionConductor} from "../../hooks/useProjectTransitionConductor";
 import {useScrollRevealConductor} from "../../hooks/useScrollRevealConductor";
@@ -101,10 +100,6 @@ export default function MainPage(){
     }
 
     const [theme, setTheme] = useState<Theme>(getInitialTheme);
-
-    useEffect(()=>{
-        return useBetterScroll();
-    },[])
 
     useEffect(() => {
         if(skillsSectionRef.current){
