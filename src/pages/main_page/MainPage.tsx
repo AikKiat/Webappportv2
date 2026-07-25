@@ -153,7 +153,7 @@ export default function MainPage(){
                     </div>
             </div>
 
-            <div className="info_section">
+            {/* <div className="info_section">
                     <div className="card_container" ref={cardContainerRef}>
                         <InfoCard
                             cardsRef={cardsRef}
@@ -191,7 +191,7 @@ export default function MainPage(){
                         <div className="cover_box_2"></div>
                 </div>
                 <div className="reveal_sentinel" ref={infoCardsSentinelRef}></div>
-            </div>
+            </div> */}
             <ThemeContext value={theme}>
                 <div className="projects_section">
                     <ProjectsDrawer
