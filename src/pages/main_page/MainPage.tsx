@@ -4,7 +4,7 @@ import { introTexts } from "../../constants/constants";
 
 
 
-import {personalQualities} from "../../constants/constants";
+// import {personalQualities} from "../../constants/constants";
 
 import "../../styles/main_page_projects_section.css";
 import "../../styles/main_page_intro_section.css";
@@ -21,11 +21,11 @@ import {registerSection} from "../../store/transitionStore";
 
 
 //Assets
-import knowingYourselfImage from "/icons/info_img.svg";
+// import knowingYourselfImage from "/icons/info_img.svg";
 import profileImage from "/images/ncs.webp";
 
 //Components for Info section
-import InfoCard from "./components/info_section/InfoCard";
+// import InfoCard from "./components/info_section/InfoCard";
 import GlowingText from "./components/info_section/GlowingText";
 
 import {skills} from "../../constants/constants";
@@ -46,9 +46,9 @@ export default function MainPage(){
 
 
     //Info Section
-    const cardContainerRef = useRef<HTMLDivElement>(null);
-    const cardsFrontBehindRef = useRef<HTMLDivElement[]>([]);
-    const cardsRef = useRef<HTMLDivElement[]>([]);
+    // const cardContainerRef = useRef<HTMLDivElement>(null);
+    // const cardsFrontBehindRef = useRef<HTMLDivElement[]>([]);
+    // const cardsRef = useRef<HTMLDivElement[]>([]);
 
 
     //Hidden scroll-reveal divs: entering the viewport --> trigger zustand state change (useScrollRevealConductor)
