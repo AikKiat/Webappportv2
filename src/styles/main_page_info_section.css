@@ -492,3 +492,17 @@
     border-radius: 0.5rem;
     box-shadow: 0.3rem 0.3rem 1rem #5c5c5c, 0.3rem 0.3rem 1rem #ffffff8b inset;
 }
+
+
+.reveal_sentinel{
+    flex: none;
+    width: 1px;
+    height: 1px;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.reveal_sentinel_bottom{
+    align-self: flex-end;
+}
+

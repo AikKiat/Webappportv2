@@ -37,3 +37,30 @@ export function registerSection(key: SectionKey, element: HTMLElement | null) {
 export function getSection(key: SectionKey): HTMLElement | undefined {
     return sectionRegistry.get(key);
 }
+
+
+
+//Flip Cards
+
+export type introCardsTransitionPhase = "closed" | "opened";
+
+interface IntroSectionTransitionState{
+    phase: introCardsTransitionPhase;
+    introOpened : boolean;
+    drawerOpened : boolean;
+    flipCards: (toOpen : boolean) => void;
+    revealDrawer: (toOpen : boolean) => void;
+    setPhase: (phase: introCardsTransitionPhase) => void;
+}
+
+export const useIntroSectionTransitionState = create<IntroSectionTransitionState>((set) =>({
+    phase : 'closed',
+    introOpened : false,
+    drawerOpened : false,
+    flipCards : (toOpen) => set({introOpened: toOpen}),
+    revealDrawer : (toOpen) => set({drawerOpened: toOpen}),
+    setPhase : (phase) => set({
+        phase,
+        introOpened : phase === 'closed' ? false : true,
+    }),
+}))

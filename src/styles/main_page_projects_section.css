@@ -247,11 +247,8 @@
     width: 130%;
     aspect-ratio: 7/4;
     background: var(--background-color);
-    /* box-shadow: -1rem 0rem 0.1rem 1rem var(--background-color), 0rem -1rem 1rem 0.1rem #363535; */
     box-shadow: none;
     transform: rotateY(40deg) rotateZ(-10deg) rotateX(-15deg) translate(5%, 33%);
-    /* transform: rotateY(40deg) rotateZ(-10deg) rotateX(-15deg) translate(5%, 33%) ; */
-    /* pointer-events: none; */
 
 }
 
@@ -756,3 +753,4 @@
     transform: translateY(0.05rem) scale(0.97);
     box-shadow: inset -0.15rem -0.15rem 0.3rem var(--neu-light), inset 0.15rem 0.15rem 0.3rem var(--neu-dark);
 }
+

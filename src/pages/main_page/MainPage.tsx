@@ -1,4 +1,4 @@
-import React, { useEffect, useRef} from "react";
+import React, { useEffect, useRef, useContext, createContext, useState} from "react";
 
 import { introTexts } from "../../constants/constants";
 
@@ -15,8 +15,9 @@ import "../../styles/theme_toggle.css";
 import ThemeToggle from "../../components/ThemeToggle";
 
 import {useBetterScroll} from "../../hooks/useBetterScroll";
-// import {useAnimateOnScroll} from "../../hooks/useAnimateOnScroll";
+import {useAnimateOnScroll} from "../../hooks/useAnimateOnScroll";
 import {useProjectTransitionConductor} from "../../hooks/useProjectTransitionConductor";
+import {useScrollRevealConductor} from "../../hooks/useScrollRevealConductor";
 import {registerSection} from "../../store/transitionStore";
 
 
@@ -37,6 +38,11 @@ import type { skill } from "../../constants/constants";
 import ProjectsDrawer from "./components/projects_section/ProjectsDrawer";
 import { ProjectsCardHologram } from "./components/projects_section/ProjectsCardHologram";
 
+
+export type Theme = "light" | "dark";
+
+export const ThemeContext = createContext('dark');
+
 export default function MainPage(){
 
 
@@ -45,6 +51,10 @@ export default function MainPage(){
     const cardsFrontBehindRef = useRef<HTMLDivElement[]>([]);
     const cardsRef = useRef<HTMLDivElement[]>([]);
 
+
+    //Hidden scroll-reveal divs: entering the viewport --> trigger zustand state change (useScrollRevealConductor)
+    const infoCardsSentinelRef = useRef<HTMLDivElement>(null);
+    const projectsDrawerSentinelRef = useRef<HTMLDivElement>(null);
 
     //Projects Section
     const skillsSectionRef = useRef<HTMLDivElement>(null);
@@ -76,6 +86,22 @@ export default function MainPage(){
         childRefButtonRight.current = data;
     }
 
+
+    //Theme
+    function getInitialTheme(): Theme {
+        const stored = localStorage.getItem("theme");
+        if (stored === "light" || stored === "dark") {
+            return stored;
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+
+    function toggleTheme() {
+        setTheme((prev) => prev === "light" ? "dark" : "light");
+    }
+
+    const [theme, setTheme] = useState<Theme>(getInitialTheme);
+
     useEffect(()=>{
         return useBetterScroll();
     },[])
@@ -88,24 +114,19 @@ export default function MainPage(){
     },[])
 
     useProjectTransitionConductor();
+    useScrollRevealConductor(theme);
 
-    // useAnimateOnScroll({
-    //     cardContainer: cardContainerRef,
-    //     cardsFrontBehind: cardsFrontBehindRef,
-    //     cards: cardsRef,
-    //     projectDrawerFront: childRefDrawerFront,
-    //     projectDrawerSide : childRefDrawerSide,
-    //     projectCards : childRefProjectCards,
-    //     projectDrawerLabel : childRefDrawerLabel,
-    //     projectDrawerButtonLeft : childRefButtonleft,
-    //     projectDrawerButtonRight : childRefButtonRight,
-    // });
-
+    useAnimateOnScroll({
+        infoCardsSentinel: infoCardsSentinelRef,
+        projectsDrawerSentinel: projectsDrawerSentinelRef,
+    });
 
 
     return (
         <div className="main_page_holder">
-            <ThemeToggle />
+            <ThemeContext value={theme}>
+                <ThemeToggle toggleTheme={toggleTheme} />
+            </ThemeContext> 
             <div className="intro_section">
                     <div className="screen_1_holder">
                         <div className="image_holder">
@@ -174,20 +195,23 @@ export default function MainPage(){
                         <div className="cover_box_1"></div>
                         <div className="cover_box_2"></div>
                 </div>
+                <div className="reveal_sentinel" ref={infoCardsSentinelRef}></div>
             </div>
-
-            <div className="projects_section">
-                <ProjectsDrawer
-                    setRefDrawerFront={setDrawerFrontRef}
-                    setRefDrawerSide={setDrawerSideRef}
-                    setRefDrawerLabel={setDrawerLabelRef}
-                    setRefProjectCards={setProjectCardsRef}
-                    setRefButtonLeft={setButtonLeftRef}
-                    setRefButtonRight={setButtonRightRef}
-                    >
-                </ProjectsDrawer>
-                <ProjectsCardHologram />
-            </div>
+            <ThemeContext value={theme}>
+                <div className="projects_section">
+                    <ProjectsDrawer
+                        setRefDrawerFront={setDrawerFrontRef}
+                        setRefDrawerSide={setDrawerSideRef}
+                        setRefDrawerLabel={setDrawerLabelRef}
+                        setRefProjectCards={setProjectCardsRef}
+                        setRefButtonLeft={setButtonLeftRef}
+                        setRefButtonRight={setButtonRightRef}
+                        >
+                    </ProjectsDrawer>
+                    <ProjectsCardHologram />
+                    <div className="reveal_sentinel reveal_sentinel_bottom" ref={projectsDrawerSentinelRef}></div>
+                </div>
+            </ThemeContext>
 
             <div className="skills_section" ref={skillsSectionRef}>
                 <div className="skills_section_header">

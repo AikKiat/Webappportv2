@@ -22,9 +22,6 @@ function runExitTimeline() {
     skillsWasSentOut = Boolean(skills && isOnScreen(skills));
 
     getLenis()?.stop();
-    // Lenis.stop() only pauses its own smoothing - it doesn't stop native wheel/
-    // keyboard/scrollbar-drag scrolling of the document underneath. That's what
-    // was producing the second, outer scrollbar.
     document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
 
