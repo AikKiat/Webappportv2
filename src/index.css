@@ -75,3 +75,12 @@
     background-color: rgba(0, 0, 0, .5);
     box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
+
+/* Set by ThemeToggle only for the frame in which data-theme flips, so the
+   theme switch is an instant repaint instead of dozens of concurrent
+   `transition: all` animations on shadows/filters/backgrounds. */
+:root.theme-switching *,
+:root.theme-switching *::before,
+:root.theme-switching *::after {
+    transition: none !important;
+}

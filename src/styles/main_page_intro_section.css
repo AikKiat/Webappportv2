@@ -80,7 +80,7 @@
     height: 100%;
     text-align: center;
     background: transparent;
-    backdrop-filter: blur(1.0rem);
+    backdrop-filter: blur(0.4rem);
     border-radius: 1rem;
     overflow-y : hidden;
     line-height: 2rem;

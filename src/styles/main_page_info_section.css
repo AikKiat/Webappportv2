@@ -8,6 +8,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /* Skip layout+paint while off-screen; contain-intrinsic-size keeps scroll
+       height stable, and `auto` remembers the real size after first render. */
+    content-visibility: auto;
+    contain-intrinsic-size: auto 100svh;
 }
 
 
@@ -24,7 +28,6 @@
     padding-bottom: 10rem;
     perspective: 1000px;
     border-radius: 1rem;
-    will-change: width;
     overflow: hidden;
     gap: 0rem;
 }
@@ -297,7 +300,7 @@
     width: 100%;
     height: fit-content;
     background: #43434321;
-    backdrop-filter: blur(1.0rem);
+    backdrop-filter: blur(0.4rem);
     padding: 1rem;
     font-size: 1.2rem;
     font-weight: 1000;
@@ -323,7 +326,7 @@
 .toggle_messages .swipe_message{
     text-align: center;
     background: #ffcc0075;
-    backdrop-filter: blur(1.0rem);
+    backdrop-filter: blur(0.4rem);
     position: relative;
     bottom: 0%;
     right: 0%;
@@ -348,7 +351,7 @@
     padding: 0.5rem 1rem;
     width: fit-content;
     background: #f039156e;
-    backdrop-filter: blur(1.0rem);
+    backdrop-filter: blur(0.4rem);
     position: relative;
     bottom: 0%;
     left: 0%;
@@ -364,7 +367,7 @@
     padding: 0.5rem 1rem;
     width: fit-content;
     background: #c3ff006e;
-    backdrop-filter: blur(1.0rem);
+    backdrop-filter: blur(0.4rem);
     position: relative;
     bottom: 0%;
     left: 0%;
@@ -484,7 +487,7 @@
     padding: 0.5rem 1rem;
     width: fit-content;
     background: #9d00ff6e;
-    backdrop-filter: blur(1.0rem);
+    backdrop-filter: blur(0.4rem);
     position: relative;
     bottom: 0%;
     left: 0%;

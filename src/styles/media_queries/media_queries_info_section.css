@@ -586,7 +586,7 @@
         padding: 0.5rem;
         width: fit-content;
         background: #c3ff006e;
-        backdrop-filter: blur(1.0rem);
+        backdrop-filter: blur(0.4rem);
         position: relative;
         bottom: 0%;
         left: 0%;

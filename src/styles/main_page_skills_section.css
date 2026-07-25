@@ -10,6 +10,8 @@
     align-items: center;
     perspective: 2500px;
     color: var(--text-color-intro-section);
+    content-visibility: auto;
+    contain-intrinsic-size: auto 100vh;
 }
 
 

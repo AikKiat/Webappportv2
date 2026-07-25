@@ -12,6 +12,8 @@
     flex-direction: row;
     justify-content: center;
     perspective: 2500px;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 100vh;
     /* border: 1px solid #ff2600; */
     /* transform-style: preserve-3d; */
 }
@@ -403,7 +405,6 @@
     overscroll-behavior: contain;
     transition: none;
     background: var(--background-color);
-    backdrop-filter: blur(1.0rem);
 }
 
 .projects_card_showcase.hidden{
@@ -531,7 +532,6 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    backdrop-filter: blur(1.0rem);
     animation: fadeIn 0.3s ease;
 }
 
