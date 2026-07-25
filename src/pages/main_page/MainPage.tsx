@@ -15,7 +15,7 @@ import "../../styles/theme_toggle.css";
 import ThemeToggle from "../../components/ThemeToggle";
 
 import {useBetterScroll} from "../../hooks/useBetterScroll";
-import {useAnimateOnScroll} from "../../hooks/useAnimateOnScroll";
+// import {useAnimateOnScroll} from "../../hooks/useAnimateOnScroll";
 import {useProjectTransitionConductor} from "../../hooks/useProjectTransitionConductor";
 import {registerSection} from "../../store/transitionStore";
 
@@ -89,17 +89,17 @@ export default function MainPage(){
 
     useProjectTransitionConductor();
 
-    useAnimateOnScroll({
-        cardContainer: cardContainerRef,
-        cardsFrontBehind: cardsFrontBehindRef,
-        cards: cardsRef,
-        projectDrawerFront: childRefDrawerFront,
-        projectDrawerSide : childRefDrawerSide,
-        projectCards : childRefProjectCards,
-        projectDrawerLabel : childRefDrawerLabel,
-        projectDrawerButtonLeft : childRefButtonleft,
-        projectDrawerButtonRight : childRefButtonRight,
-    });
+    // useAnimateOnScroll({
+    //     cardContainer: cardContainerRef,
+    //     cardsFrontBehind: cardsFrontBehindRef,
+    //     cards: cardsRef,
+    //     projectDrawerFront: childRefDrawerFront,
+    //     projectDrawerSide : childRefDrawerSide,
+    //     projectCards : childRefProjectCards,
+    //     projectDrawerLabel : childRefDrawerLabel,
+    //     projectDrawerButtonLeft : childRefButtonleft,
+    //     projectDrawerButtonRight : childRefButtonRight,
+    // });
 
 
 

@@ -17,9 +17,6 @@ export const useBetterScroll = () =>{
     gsap.ticker.add(onTick);
     gsap.ticker.lagSmoothing(0);
 
-    // Without this cleanup, every re-mount (e.g. React StrictMode's double
-    // effect run in dev) leaks a live Lenis instance that keeps handling
-    // every wheel/touch event and ticking every frame.
     return () => {
         gsap.ticker.remove(onTick);
         lenis.destroy();
