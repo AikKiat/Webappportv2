@@ -117,9 +117,6 @@ function runDrawerRevealTimeline() {
     const projectDrawerButtonRight = document.querySelector<HTMLElement>("#select_right");
     const projectCards = Array.from(document.querySelectorAll<HTMLElement>(".project_card"));
 
-    // Shadows + front tilt live in runDrawerThemeUpdate so a theme change can
-    // re-run them with the new theme's variable values. drawerOpened is
-    // already true by the time this timeline runs, so they paint here too.
     runDrawerThemeUpdate();
 
     setTimeout(() => {
@@ -169,11 +166,6 @@ function runDrawerThemeUpdate(){
     const projectDrawerFront = document.querySelector<HTMLElement>(".drawer_front");
 
     if (!useIntroSectionTransitionState.getState().drawerOpened) {
-        // The drawer has not been revealed yet, so nothing may be painted
-        // early. Clear any stale inline values (commitStyles bakes resolved
-        // colours into inline style) so the elements fall back to their
-        // hidden stylesheet state; the reveal timeline will paint the
-        // shadows when the sentinel actually fires.
         projectDrawerSide?.style.removeProperty("box-shadow");
         projectDrawerFront?.style.removeProperty("box-shadow");
         projectDrawerFront?.style.removeProperty("transform");
