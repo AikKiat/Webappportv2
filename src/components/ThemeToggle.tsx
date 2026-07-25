@@ -1,5 +1,4 @@
 import { useEffect, useContext, } from "react";
-import type { Theme } from "../pages/main_page/MainPage";
 import { ThemeContext } from "../pages/main_page/MainPage";
 
 

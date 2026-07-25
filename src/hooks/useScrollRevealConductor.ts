@@ -173,10 +173,6 @@ function runDrawerRevealTimeline() {
 function runDrawerThemeUpdate(){
     const projectDrawerSide = document.querySelector<HTMLElement>(".drawer_side");
     const projectDrawerFront = document.querySelector<HTMLElement>(".drawer_front");
-    const projectDrawerLabel = document.querySelector<HTMLElement>(".drawer_label_wording");
-    const projectDrawerButtonLeft = document.querySelector<HTMLElement>("#select_left");
-    const projectDrawerButtonRight = document.querySelector<HTMLElement>("#select_right");
-    const projectCards = Array.from(document.querySelectorAll<HTMLElement>(".project_card"));
 
     tween(projectDrawerSide, {
         boxShadow: "0rem 0rem 0.1rem 1rem var(--background-color), 1.5rem -1rem 1rem 0.1rem #363535",

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext, createContext, useState} from "react";
+import React, { useEffect, useRef, createContext, useState} from "react";
 
 import { introTexts } from "../../constants/constants";
 
