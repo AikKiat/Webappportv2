@@ -2,14 +2,6 @@ import { useEffect } from "react";
 
 import { useIntroSectionTransitionState } from "../store/transitionStore";
 import type { Theme } from "../pages/main_page/MainPage";
-
-// Same shape as useProjectTransitionConductor, but for the one-shot scroll
-// reveals: the sentinel observer (useAnimateOnScroll) flips the zustand state,
-// and this conductor reacts to that state change by running the matching
-// timeline exactly once. The timelines below are direct translations of the
-// old gsap code in useAnimateOnScroll - gsap.to() becomes tween(), which uses
-// the native Web Animations API under the hood.
-
 const colours: string[] = ["#eb77607c", "#6095eb7f", "#60eb757f", "#db60eb85"];
 
 const text = "PROJECTS";
@@ -111,11 +103,30 @@ function runInfoCardsRevealTimeline() {
 }
 
 
+// Buttons start at opacity 0 in css, so every one of them has to be popped in here.
+function popIn(element: HTMLElement | null, delay: number) {
+    if (!element) return;
+
+    tween(element, { opacity: 1 }, { duration: 0.3, delay: delay });
+
+    element.animate([
+        { transform: "scale(0.4)" },
+        { transform: "scale(1.12)" },
+        { transform: "scale(1)" },
+    ], {
+        duration: 450,
+        delay: delay * 1000,
+        easing: powerThreeOut,
+    });
+}
+
+
 function runDrawerRevealTimeline() {
     const projectDrawerLabel = document.querySelector<HTMLElement>(".drawer_label_wording");
     const projectDrawerButtonLeft = document.querySelector<HTMLElement>("#select_left");
     const projectDrawerButtonRight = document.querySelector<HTMLElement>("#select_right");
     const projectCards = Array.from(document.querySelectorAll<HTMLElement>(".project_card"));
+    const stackButtons = Array.from(document.querySelectorAll<HTMLElement>(".browse_next_stack_button"));
 
     runDrawerThemeUpdate();
 
@@ -138,6 +149,10 @@ function runDrawerRevealTimeline() {
         });
     }, 100);
 
+    stackButtons.forEach((stackButton, index) => {
+        popIn(stackButton, 0.7 + index * 0.15);
+    });
+
     if (!projectDrawerLabel || !projectDrawerButtonLeft || !projectDrawerButtonRight) {
         return;
     }
@@ -148,15 +163,19 @@ function runDrawerRevealTimeline() {
         }, 100 * i);
     }
 
-    projectDrawerButtonLeft.textContent = "<";
+    projectDrawerButtonLeft.textContent = "➢";
     tween(projectDrawerButtonLeft, {
-        transform: "perspective(100px) translateZ(20px)", // gsap z: 20, transformPerspective: 100
+        // gsap z: 20, transformPerspective: 100. scaleX(-1) points the arrow left -
+        // the old gsap "FlipH" filter is not a real css filter value.
+        transform: "perspective(100px) translateZ(20px) scaleX(-1)",
+        opacity: 1,
     }, { duration: 0.5, ease: "ease-in-out" });
 
     setTimeout(() => {
-        projectDrawerButtonRight.textContent = ">";
+        projectDrawerButtonRight.textContent = "➢";
         tween(projectDrawerButtonRight, {
             transform: "perspective(100px) translateZ(20px)",
+            opacity: 1,
         }, { duration: 0.5, ease: "ease-in-out" });
     }, 500);
 }
@@ -173,11 +192,11 @@ function runDrawerThemeUpdate(){
     }
 
     tween(projectDrawerSide, {
-        boxShadow: "0rem 0rem 0.1rem 1rem var(--background-color), 1.5rem -1rem 1rem 0.1rem #363535",
+        boxShadow: "0rem 0rem 0.1rem 1rem var(--background-color), 1.5rem -1rem 1rem 0.1rem var(--drawer-edge-shadow)",
     });
 
     tween(projectDrawerFront, {
-        boxShadow: "-1rem 0rem 0.1rem 1rem var(--background-color), 0rem -1rem 1rem 0.1rem #363535",
+        boxShadow: "-1rem 0rem 0.1rem 1rem var(--background-color), 0rem -1rem 1rem 0.1rem var(--drawer-edge-shadow)",
         transform: "rotateY(40deg) rotateZ(-10deg) rotateX(-15deg) translate(12%, 33%)",
     });
 }

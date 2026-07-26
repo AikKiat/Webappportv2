@@ -1,7 +1,22 @@
+/* =========================================================================
+   INFO SECTION - responsive rules
+   Desktop (>900px): cards fanned in a row; several timelines may be open.
+   Mobile  (<=900px): cards stacked in a scrollable column; the store keeps a
+                      single active id, so exactly one timeline is focused.
+   The old hover-based card selection (:has(:hover), .cover_box, ::before blur
+   overlays) is gone - selection is now the tap-to-expand timeline itself.
+   ========================================================================= */
+
+
+/* The carousel wrapper is inert on desktop - `display: contents` removes its box
+   so `.info_card` behaves as a direct flex child exactly as before. It only
+   becomes a positioned slot inside the <=900px block below. */
+.card_slot{
+    display: contents;
+}
 
 
 @media all and (max-width:1600px){
-
 
     /* Info Section*/
 
@@ -17,11 +32,32 @@
         aspect-ratio: 5/8;
     }
 
+    /* Compact control bar: the two toggle buttons + the label, wrapping.
+       Sits above the open timeline (z-index) so it stays tappable. */
     .card_back .card_back_desc{
-        font-size: 1.2rem;
         width: fit-content;
+        max-width: 92%;
         height: fit-content;
-        padding: 0.5rem;
+        padding: 0.5rem 0.7rem;
+        font-size: 1.2rem;
+        z-index: 5;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 0.5rem;
+    }
+
+    /* Open timeline: solid theme fill layered above the card face, so it fully
+       covers its own card instead of letting text bleed across cards. */
+    .qualities_list_timeline_container{
+        z-index: 3;
+        padding: 4rem 1.5rem 2rem 1.5rem;
+        gap: 1.2rem;
+        border-radius: inherit;
+        background: var(--background-color);
+    }
+
+    .qualities_list{
+        z-index: 2;
     }
 
     .inner_card_front .title{
@@ -38,11 +74,9 @@
         font-size: 0.8rem;
     }
 
-
     .inner_card_front{
         gap: 1rem;
     }
-
 
     .tap_button_messages .more_info_message{
         margin: 0rem 0rem 0rem 0rem;
@@ -106,10 +140,19 @@
     }
 
     .card_back .card_back_desc{
-        width: fit-content;
-        padding: 0.5rem;
-        height: fit-content;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+    }
+
+    .card_back_title_header .buttons_container{
+        z-index: 3;            
+    }
+
+    .timeline_title{
+        font-size: 1.1rem;
+    }
+
+    .timeline_desc{
+        font-size: 0.9rem;
     }
 
     .inner_card_front .title{
@@ -146,9 +189,14 @@
         padding: 0.5rem;
         font-size: 0.8rem;
     }
+
+    /* END Info Section*/
 }
 
 @media all and (max-width:1000px){
+
+    /* Info Section*/
+
     .card_container{
         top: 10%;
         left: 0%;
@@ -161,22 +209,14 @@
         aspect-ratio: 5/9;
     }
 
-    .card_back .card_back_desc{
-        width: fit-content;
-        padding: 0.3rem;
-        height: fit-content;
-        font-size: 1.0rem;
-    }
-
     .qualities_list .quality_card{
         top: 3%;
         left: 3%;
         width: 93%;
         height: 93%;
-        /* box-shadow: 0rem 0rem 0rem #e5ff00 , 0rem 0rem 3rem #e5ff00 inset; */
     }
 
-      .tap_button_messages .more_info_message{
+    .tap_button_messages .more_info_message{
         align-self: center;
         text-align: center;
         margin: 0.5rem;
@@ -200,164 +240,163 @@
 
 }
 
+@media all and (max-width:1200px){
+    .card_container{
+        display: block;
+        position: relative;
+        top: 0%;
+        width: 100%;
+        height: 40rem;
+        margin: 0rem;
+        padding: 2rem 0rem 4rem 0rem;
+        perspective: 1400px;
+        overflow: visible;
+    }
+
+    /* Each card becomes an absolutely-centred carousel slot. */
+    .card_slot{
+        display: block;
+        position: absolute;
+        top: 1rem;
+        left: 50%;
+        width: 28rem;
+        margin-left: -14rem;
+        aspect-ratio: 5/7;
+        transform-style: preserve-3d;
+        transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                    opacity 0.5s ease, filter 0.5s ease;
+        cursor: pointer;
+    }
+
+    .card_slot .info_card{
+        position: relative;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Carousel positions - transitions animate the reorder when selection changes. */
+    .card_slot.pos-front{
+        z-index: 3;
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+        filter: none;
+    }
+
+    .card_slot.pos-right .card_back{
+        z-index: 1;
+        transform: translate(46%, -4%) scale(0.82) rotateY(180deg);
+        opacity: 1;
+        filter: blur(1px);
+    }
+
+    .card_slot.pos-left .card_back{
+        z-index: 1;
+        transform: translate(-46%, -4%) scale(0.82) rotateY(180deg);
+        opacity: 1;
+        filter: blur(1px);
+    }
+}
+
 @media all and (max-width:900px){
 
-    /* Info Section*/
-
-    .info_card{
-        width: 20rem;
-        aspect-ratio: 5/7;
-        opacity: 1;
-    }
-
     .card_container{
+        display: block;
+        position: relative;
         top: 0%;
-        padding-bottom: 20rem;
-        padding-right: 5rem;
-        padding-top: 0rem;
-        justify-content: space-around;
+        width: 100%;
+        height: 32rem;
+        margin: 0rem;
+        padding: 2rem 0rem 4rem 0rem;
+        perspective: 1400px;
+        overflow: visible;
+    }
+
+    /* Each card becomes an absolutely-centred carousel slot. */
+    .card_slot{
+        display: block;
+        position: absolute;
+        top: -20%;
+        left: 50%;
+        width: 18rem;
+        margin-left: -9rem;
+        aspect-ratio: 5/7;
         transform-style: preserve-3d;
+        transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                    opacity 0.5s ease, filter 0.5s ease;
+        cursor: pointer;
     }
 
-    .card_container #card_3{
-        opacity: 1;
-        z-index: -1;
-        position: absolute;
-        top: 30%;
+    .card_slot .info_card{
+        position: relative;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
     }
 
-    .card_container #card_3:hover{
+    /* Carousel positions - transitions animate the reorder when selection changes. */
+    .card_slot.pos-front{
         z-index: 3;
-    }
-
-    .card_container #card_3 .card_back::before{
-        z-index: 2;
-        content: "";
-        position: absolute;
-        top: 0%;
-        left: 0%;
-        width: 100%;
-        height: 100%;
-        transform: scale(1);
+        transform: translate(0, 0) scale(1);
         opacity: 1;
-        border-radius: 1.0rem;
-        backdrop-filter: blur(0.2rem);
-        background:  #fcf5da86;
-        box-shadow: 0rem 0rem 3rem var(--background-color)inset, 0rem 0rem 1rem #9f9f9f;
-        transition: all 0.3s ease;
+        filter: none;
     }
 
-    .card_container:has(#card_2:hover, #card_1:hover) #card_3{
-        transform: translateZ(-1.0);
-    }
-
-    .card_container #card_3 .card_back:hover:before{
-        transform: translateZ(-1);
-        position: absolute;
-        opacity: 0;
-        background: var(--background-color);
-        box-shadow:  0rem 1rem #9f9f9f;
-        pointer-events: none;
-    }
-
-    .card_container #card_2 .card_back::before{
-        z-index: 2;
-        transform: translateZ(0);
-        content: "";
-        position: absolute;
-        top: 0%;
-        left: 0%;
-        width: 100%;
-        height: 100%;
-        transform: scale(1);
-        opacity: 1;
-        border-radius: 1.0rem;
-        backdrop-filter: blur(0.2rem);
-        background: #fcf5da86;
-        transition: all 0.3s ease;
-        
-    }
-
-    #card_2 .card_back:hover:before{
-        transform: translateZ(-1);
-        background: transparent;
-        pointer-events: none;
-        backdrop-filter: none;
-    }
-
-
-    .card_container:has(#card_3:hover, #card_1:hover) #card_2 .card_back::before{
-        backdrop-filter: blur(0.2rem);
-        transform: translateZ(1);
-        box-shadow: 0rem 0rem 3rem var(--background-color)inset, 0rem 0rem 1rem #9f9f9f;
-    }
-
-    .card_container:has(#card_3:hover, #card_1:hover) #card_2{
-        transform: translateZ(0);
-    }
-
-    .card_container #card_1 .card_back::before{
-        transform: translateZ(0);
-        z-index: 2;
-        content: "";
-        position: absolute;
-        top: 0%;
-        left: 0%;
-        width: 100%;
-        height: 100%;
-        transform: scale(1.0);
-        opacity: 1;
-        border-radius: 1.0rem;
-        backdrop-filter: blur(0.2rem);
-        background:  #fcf5da86;
-        transition: all 0.3s ease;
-    }
-
-    #card_1 .card_back:hover::before{
-        transform: translateZ(-1);
-        background: transparent;
-        pointer-events: none;
-        backdrop-filter: none;
-    }
-
-    .card_container:has(#card_3:hover, #card_2:hover) #card_1 .card_back::before{
-        backdrop-filter: blur(0.2rem);
-        transform: translateZ(1);
-        box-shadow: 0rem 0rem 3rem var(--background-color)inset, 0rem 0rem 1rem #9f9f9f;
-    }
-
-    .card_container:has(#card_3:hover, #card_2:hover) #card_1{
-        transform: translateZ(-1);
-    }
-
-    .cover_box_1, .cover_box_2{
+    .card_slot.pos-right .card_back{
         z-index: 1;
-        position: absolute;
-        width: 25%;
-        height: 44%;
-        top: 20%;
-        left : 20%;
-        background: var(--background-color);
-        filter: blur(1.0rem);
-        box-shadow: 0rem 0rem 3rem var(--background-color);
-        /* transition: all 0.7s ease; */
+        transform: translate(46%, -4%) scale(0.82) rotateY(180deg);
+        opacity: 1;
+        filter: blur(1px);
     }
 
-    .cover_box_2{
-        left: 53%;
-        /* border: 1px solid #f30606; */
+    .card_slot.pos-left .card_back{
+        z-index: 1;
+        transform: translate(-46%, -4%) scale(0.82) rotateY(180deg);
+        opacity: 1;
+        filter: blur(1px);
     }
 
-    .cover_box_1{
-
+    /* Control bar: label on its own line, buttons beneath - fixes the overlap. */
+    .card_back_title_header .card_back_desc{
+        width: fit-content;
+        max-width: 92%;
+        height: fit-content;
+        padding: 0.5rem 0.7rem;
+        font-size: 1rem;
+        z-index: 5;
+        flex-wrap: wrap;
+        gap: 0.4rem;
     }
 
-    .card_container:has(#card_2:hover, #card_3:hover) .cover_box_1{
-        opacity: 0;
+    .card_back_desc span{
+        order: -1;
+        flex-basis: 100%;
+        font-size: 1.3rem;
     }
 
-    .card_container:has(#card_1:hover, #card_3:hover) .cover_box_2{
-        opacity: 0;
+    .show_more_timeline_view,
+    .show_more_card_swipe_view{
+        font-size: 0.8rem;
+        padding: 0.35rem 0.7rem;
+    }
+
+    .qualities_list_timeline_container{
+        padding: 3.5rem 1.2rem 1.5rem 1.2rem;
+    }
+
+    .timeline_title{
+        font-size: 1rem;
+    }
+
+    .timeline_desc{
+        font-size: 0.85rem;
+    }
+
+    /* Vestigial nodes from the removed hover-selection layout. */
+    .cover_box_1, .cover_box_2{
+        display: none;
     }
 
     /* END Info Section*/
@@ -368,57 +407,6 @@
 
     /* Info Section*/
 
-    .card_container{
-        top: 0%;
-        padding-bottom: 20rem;
-        padding-top: 0rem;
-        height: 100%;
-        transform-style: preserve-3d;
-        flex: none;
-    }
-
-    .card_container #card_1{
-        opacity: 1;
-        position: absolute;
-        top: 15%;
-        left: 10%;
-    }
-
-
-    .card_container #card_3{
-        opacity: 1;
-        position: absolute;
-        top: 40%;
-    }
-
-    .card_container #card_2{
-        opacity: 1;
-        position: absolute;
-        top: 25%;
-        right: 10%
-    }
-
-    .card_container #card_2::before{
-        transform: translateZ(0);
-    }
-
-    .card_container #card_3::before{
-        transform: translateZ(1);
-    }
-
-    .card_container:has(#card_3:hover, #card_2:hover) #card_1{
-        z-index: -3;
-    }
-
-    .card_container:has(#card_2:hover, #card_1:hover) #card_3{
-        z-index: -3;
-    }
-
-    .card_container:has(#card_1:hover, #card_3:hover) #card_2{
-        z-index: -3;
-    }
-
- 
     .inner_card_front{
         gap:1rem;
     }
@@ -429,64 +417,15 @@
 
     .inner_card_front .title{
         font-size: 0.8rem;
+        transform: translateY(2.0rem);
+    }
+
+    .inner_card_front .intro_desc{
+        transform: translateY(2.0rem);
     }
 
     .less_info_message{
         margin: -0.5rem 0rem 0rem 0rem;
-    }
-
-
-    .cover_box_1, .cover_box_2{
-        opacity: 1;
-    }
-
-    .cover_box_1, .cover_box_2{
-        pointer-events: none;
-        opacity: 0;
-        z-index: 1;
-        position: absolute;
-        width: 40%;
-        height: 44%;
-        top: 20%;
-        left : 20%;
-        background: var(--background-color);
-        filter: blur(1.0rem);
-        box-shadow: 0rem 0rem 3rem var(--background-color);
-        /* transition: all 0.7s ease; */
-    }
-
-    .card_container:has(#card_2:hover, #card_3:hover) .cover_box_2{
-        z-index: 0;
-        opacity: 0;
-    }
-
-    .card_container:has(#card_1:hover) .cover_box_1{
-        z-index: 0;
-        opacity: 1;
-    }
-
-    .card_container:has(#card_3:hover) .cover_box_1{
-        z-index: 0;
-        opacity: 1;
-        top:40%;
-    }
-
-
-
-    .cover_box_2{
-        z-index: 0;
-        width: 0rem;
-        left: 30%;
-        border: 1rem solid #f30606;
-    }
-
-    .cover_box_1{
-        width: 30%;
-        height: 30%;
-        z-index: 999;
-        left: 30%;
-        top: 30%;
-        /* border: 1rem solid #06f31a; */
     }
 
     /* END Info Section*/
@@ -496,55 +435,73 @@
 
     /* Info Section*/
 
-    .info_card{
-        width: 15rem;
-        aspect-ratio: 5/8;
-        opacity: 1;
-    }
 
 
     .card_container{
+        display: block;
+        position: relative;
         top: 0%;
-        padding: 0rem;
-        height: 100%;
+        width: 100%;
+        height: 32rem;
+        margin: 0rem;
+        padding: 2rem 0rem 4rem 0rem;
+        perspective: 1400px;
+        overflow: visible;
+    }
+
+    /* Each card becomes an absolutely-centred carousel slot. */
+    .card_slot{
+        display: block;
+        position: absolute;
+        top: -20%;
+        left: 50%;
+        width: 18rem;
+        margin-left: -9rem;
+        aspect-ratio: 5/7;
         transform-style: preserve-3d;
-        flex: none;
+        transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                    opacity 0.5s ease, filter 0.5s ease;
+        cursor: pointer;
     }
 
+    .card_slot .info_card{
+        position: relative;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+    }
 
-    .card_container #card_1{
+    /* Carousel positions - transitions animate the reorder when selection changes. */
+    .card_slot.pos-front{
+        z-index: 3;
+        transform: translate(0, 0) scale(1);
         opacity: 1;
-        position: absolute;
-        top: 5%;
-        left: 5%;
+        filter: none;
     }
 
-
-    .card_container #card_3{
+    .card_slot.pos-right .card_back{  /*Now this is on top*/
+        z-index: 1;
+        transform: translate(0%, -46%) scale(0.82) rotateY(180deg);
         opacity: 1;
-        position: absolute;
-        top: 40%;
+        filter: blur(1px);
     }
 
-    .card_container #card_2{
+    .card_slot.pos-left .card_back{ /*and this is at the bottom*/
+        z-index: 1;
+        transform: translate(0%, 46%) scale(0.82) rotateY(180deg);
         opacity: 1;
-        position: absolute;
-        top: 30%;
-        right: 5%
+        filter: blur(1px);
     }
 
-    .card_container:has(#card_3:hover, #card_2:hover) #card_1{
-        z-index: -3;
-    }
 
-    .card_container:has(#card_2:hover, #card_1:hover) #card_3{
-        z-index: -3;
-    }
+    /* Info section cards themselves */
 
-    .card_container:has(#card_1:hover, #card_3:hover) #card_2{
-        z-index: -3;
+    .card_slot{
+        width: 15rem;
+        margin-left: -7.5rem;
+        aspect-ratio: 5/8;
     }
-
 
     .inner_card_front{
         gap:1rem;
@@ -556,6 +513,23 @@
 
     .inner_card_front .title{
         font-size: 0.7rem;
+        transform: translateY(2.0rem);
+    }
+
+    .inner_card_front .title{
+        font-size: 0.8rem;
+    }
+
+    .inner_card_front .intro_desc{
+        transform: translateY(1.8rem);
+    }
+
+    .timeline_title{
+        font-size: 0.95rem;
+    }
+
+    .timeline_desc{
+        font-size: 0.8rem;
     }
 
     .less_info_message{
@@ -587,27 +561,9 @@
         width: fit-content;
         background: #c3ff006e;
         backdrop-filter: blur(0.4rem);
-        position: relative;
-        bottom: 0%;
-        left: 0%;
         font-size: 0.8rem;
         border-radius: 0.5rem;
         box-shadow: 0.3rem 0.3rem 1rem #5c5c5c, 0.3rem 0.3rem 1rem #ffffff8b inset;
-    }
-
-    .cover_box_1, .cover_box_2{
-        opacity: 1;
-        height: 30%;
-        width: 30%;
-    }
-
-    .cover_box_2{
-        left: 53%;
-        /* border: 1px solid #f30606; */
-    }
-
-    .cover_box_1{
-
     }
 
     /* END Info Section*/

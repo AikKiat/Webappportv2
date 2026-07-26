@@ -51,6 +51,8 @@ interface IntroSectionTransitionState{
     flipCards: (toOpen : boolean) => void;
     revealDrawer: (toOpen : boolean) => void;
     setPhase: (phase: introCardsTransitionPhase) => void;
+    activeTimelineCards : number[],
+    setActiveTimelineCard : (index: number, active: boolean, exclusive?: boolean) => void
 }
 
 export const useIntroSectionTransitionState = create<IntroSectionTransitionState>((set) =>({
@@ -62,5 +64,15 @@ export const useIntroSectionTransitionState = create<IntroSectionTransitionState
     setPhase : (phase) => set({
         phase,
         introOpened : phase === 'closed' ? false : true,
+    }),
+    activeTimelineCards : [1,2,3],
+    setActiveTimelineCard : (index, active, exclusive = false) => set((state) => {
+        if (!active) {
+            return { activeTimelineCards : state.activeTimelineCards.filter((i) => i !== index) };
+        }
+        if (exclusive) {
+            return { activeTimelineCards : [index] };
+        }
+        return { activeTimelineCards : [...new Set([...state.activeTimelineCards, index])] };
     }),
 }))

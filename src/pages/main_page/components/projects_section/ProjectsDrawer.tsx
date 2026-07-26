@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { projects } from "../../../../constants/constants";
 import type { project } from "../../../../constants/constants";
 import { useMediaQuery } from "../../../../hooks/useMediaQuery";
-import { useTransitionStore, registerSection } from "../../../../store/transitionStore";
+import { useTransitionStore, registerSection, useIntroSectionTransitionState } from "../../../../store/transitionStore";
 
 
 interface ProjectsDrawerProps{
@@ -25,15 +25,8 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
 
     const drawerRootRef = useRef<HTMLDivElement>(null);
 
-    let projectNamesArray : string[] = [];
-    projects.map((project) => {
-        projectNamesArray = [...projectNamesArray, project.name];
-    })
+    const currentStartRetrieveIndex = useRef<number>(0);
 
-    let projectsArrays : project[] = [];
-    projects.map((project)=> {
-        projectsArrays = [...projectsArrays, project];
-    })
 
     const nextIndexRef = useRef<number>(-1);
     const projectCardsRef = useRef<HTMLDivElement[]>([]);
@@ -53,6 +46,12 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
 
     const [nextButtonClicked, setNextButtonClicked] = useState<boolean>(false);
     const [beforeButtonClicked, setBeforeButtonClicked] = useState<boolean>(false);
+
+    const [nextStackButtonClicked, setNextStackButtonClicked] = useState<boolean>(false);
+    const [beforeStackButtonClicked, setBeforeStackButtonClicked] = useState<boolean>(false);
+
+    const [projectsWindow, setProjectsWindow] = useState<project[]>([]);
+    const projectNamesArray = useRef<string[]>([]);
 
     const transformStyles = useRef<Record<number, string>>({});
 
@@ -83,16 +82,32 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
 
 
     useEffect(() => {
-        // Once the fullscreen project view has fully closed, drop the raised
-        // card back down. Fires on every phase change (harmless - enableAllTabs
-        // is idempotent) so it also covers the initial mount.
+        getNextProjectsSet(0, projects);
+    }, [])
+
+
+    //the cards of a new batch only exist in the DOM after it renders, so style them here
+    useEffect(() => {
+        raiseCard();
+        enableAllTabs();
+
+        //cards start hidden in css and only the drawer reveal timeline unhides them, but that
+        //runs once. so any batch swapped in after the reveal has to unhide itself.
+        if (useIntroSectionTransitionState.getState().drawerOpened){
+            projectCardsRef.current.forEach((card) => {
+                if (card) card.style.opacity = "1";
+            });
+        }
+    }, [projectsWindow])
+
+
+    useEffect(() => {
         if(phase === "closed"){
             nextIndexRef.current = -1;
             raiseCard();
         }
 
         enableAllTabs();
-
     }, [phase])
 
     function selectSpecificCard(index : number){
@@ -117,6 +132,66 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
         }, 100);
     }
 
+    function getNextProjectsSet(offset : number, projects : project[]) {
+        let projectsArrays : project[] = [];
+        currentStartRetrieveIndex.current += offset;
+        
+        if(currentStartRetrieveIndex.current >= projects.length){
+            currentStartRetrieveIndex.current -= offset;
+        }
+
+        else if (currentStartRetrieveIndex.current < 0){
+            currentStartRetrieveIndex.current = 0;
+        }
+
+        console.log(currentStartRetrieveIndex.current);
+        
+        projectsArrays = projects.slice(currentStartRetrieveIndex.current, currentStartRetrieveIndex.current + 5);
+        let newProjectNamesArray : string[] = [];
+
+        projectsArrays.map((project) => {
+            newProjectNamesArray = [...newProjectNamesArray, project.name];
+        })
+        projectNamesArray.current = newProjectNamesArray;
+
+        //drop refs left behind by a longer previous batch, since cards are index-keyed.
+        //only ever shrink, otherwise this pads the arrays with empty slots
+        if(projectCardsRef.current.length > projectsArrays.length){
+            projectCardsRef.current.length = projectsArrays.length;
+            cardTabsRef.current.length = projectsArrays.length;
+            cardLineHoldersRef.current.length = projectsArrays.length;
+            internalContentsRef.current.length = projectsArrays.length;
+            cardNumbersRef.current.length = projectsArrays.length;
+        }
+
+        nextIndexRef.current = -1;
+        setProjectsWindow(projectsArrays);
+        console.log(projectsWindow);
+        console.log("setting!")
+    }
+
+
+    function selectNextBatch(direction : number){
+        if(direction === 1){
+            setNextStackButtonClicked(true);
+
+            getNextProjectsSet(5, projects);
+
+            setTimeout(() => {
+                setNextStackButtonClicked(false);
+            }, 100);
+        }
+        else if (direction === -1){
+            setBeforeStackButtonClicked(true);
+
+            getNextProjectsSet(-5, projects);
+
+            setTimeout(() => {
+                setBeforeStackButtonClicked(false);
+            }, 100);
+        }
+    }
+
     function selectNext(direction : number){
 
         if(direction === 1){
@@ -134,7 +209,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
             }, 100);
         }
 
-        const maxIndex = projectNamesArray.length-1;
+        const maxIndex = projectNamesArray.current.length-1;
 
         let newIndex : number = nextIndexRef.current + direction;
 
@@ -150,6 +225,8 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
 
     function enableAllTabs(){
         for (let i = 0; i < projectCardsRef.current.length; i ++){
+            if (!cardLineHoldersRef.current[i] || !cardTabsRef.current[i]) continue;
+
             cardLineHoldersRef.current[i].style.opacity = "0.5";
             cardTabsRef.current[i].style.opacity = "0.5"
             cardTabsRef.current[i].style.pointerEvents = "auto";
@@ -206,7 +283,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
     return(
         <div className="projects_drawer" ref={drawerRootRef}>
             <div className="project_cards_container">
-                {projectsArrays.map((project, index) =>{
+                {projectsWindow.map((project, index) =>{
                     
                     let zPos : number = index * -40;
                     let yPos : number = index * -1;
@@ -283,6 +360,14 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                     <span className="drawer_label_wording" ref={refDrawerLabel}></span>
                     <span className={`toggle_button ${nextButtonClicked ? "selected_right" : "unselected"}`} id="select_right" onClick={() => {selectNext(1);}} ref={refButtonRight}></span>
                     <span className={`toggle_button ${beforeButtonClicked ? "selected_left" : "unselected"}`} id="select_left" onClick={() => {selectNext(-1);}} ref={refButtonleft}></span>
+                    <div className="select_next_stack">
+                        <div className={`browse_next_stack_button ${nextStackButtonClicked ? "selected_right" : "unselected"}`} onClick={() => selectNextBatch(1)} id="select_right_stack">
+                            Next Stack
+                        </div>
+                        <div className={`browse_next_stack_button ${beforeStackButtonClicked ? "selected_left" : "unselected"}`} onClick={() => selectNextBatch(-1)} id="select_left_stack">
+                            Previous
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

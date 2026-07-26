@@ -24,10 +24,6 @@ export function ProjectsCardHologram(){
         closeProject();
     }
 
-    // Portalled to <body>: .projects_section sets `perspective` for the
-    // drawer's 3D tilt, which makes any `position: fixed` descendant contain
-    // itself to that section's box instead of the viewport. Rendering outside
-    // that subtree is what lets this actually cover the full screen.
     return createPortal(
         <div className={`projects_card_showcase ${phase === "closed" ? "hidden" : "opened"}`} ref={projectCardRef}>
             <div className={`project_information_card_holder`}>

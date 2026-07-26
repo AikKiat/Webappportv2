@@ -1,10 +1,12 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useMemo } from "react";
 
 
 interface glowingTextProps{
     text : string;
+    typography? : boolean;
+    active? : boolean
 }
 
 const colours : string[] = ["#eb77607c","#6095eb7f", "#60eb757f", "#db60eb85"];
@@ -12,11 +14,30 @@ const colours : string[] = ["#eb77607c","#6095eb7f", "#60eb757f", "#db60eb85"];
 // Memoised: this component renders one span per word, so re-renders are
 // expensive. The underline expand-on-hover is pure CSS (:hover), so nothing
 // here ever needs state - hovering no longer re-renders the whole word tree.
-const GlowingText = React.memo(function GlowingText({text} : glowingTextProps){
-    const lines = useMemo(() => text.split('\n'), [text]);
+const GlowingText = React.memo(function GlowingText({text, typography, active} : glowingTextProps){
 
-    // Random underline colours are picked once per text, not once per render,
-    // so they no longer reshuffle whenever a parent re-renders.
+    const [letters, setLetters] = useState<string[]>([]);
+    const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+    useEffect(() => {
+        if (!active) {
+            setLetters([]);
+            setCurrentIndex(0);
+            return; 
+          }
+          if (currentIndex < text.length) {
+            const timer = setTimeout(() => {
+              setLetters(prev => [...prev, text.charAt(currentIndex)]);
+              setCurrentIndex(prev => prev + 1);
+            }, 25);
+            return () => clearTimeout(timer);
+          }
+        }, [active, currentIndex, text]);
+    
+    let textWindow = typography? letters.join("") : text;
+    const lines = useMemo(() => textWindow.split('\n'), [textWindow]);
+
+
     const underlineColours = useMemo(() => {
         const byWord: Record<string, string> = {};
         lines.forEach((line, lineIndex) => {

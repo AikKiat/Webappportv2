@@ -43,13 +43,13 @@
     aspect-ratio: 7/5;
     transition: all 0.3s ease;
     border-radius: 0.5rem;
-    border: 1px solid rgba(255, 219, 112, 0.28);
-    background: #4d4d4d5e;
+    border: 1px solid var(--project-card-border);
+    background: var(--project-card-bg);
     pointer-events: auto;
     transform-style: preserve-3d;
     backdrop-filter: blur(0.3rem);
     color: var(--text-color-tertiary);
-    box-shadow: 0 0.3rem 0.9rem rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 246, 218, 0.1);
+    box-shadow: 0 0.3rem 0.9rem var(--card-shadow), inset 0 1px 0 rgba(255, 246, 218, 0.1);
     text-shadow: -0.1rem -0.1rem 0.8rem var(--text-shadow-glow), -0.05rem -0.05rem 0.3rem var(--text-shadow-glow-2);
 }
 
@@ -220,7 +220,7 @@
 .project_card:hover .line{
     opacity: 1.0;
     background: var(--card-line-color-hovered);
-    box-shadow: 0rem 0rem 1rem #ffffff;
+    box-shadow: 0rem 0rem 1rem var(--card-line-glow);
 }
 
 
@@ -232,6 +232,9 @@
     position: absolute;
     bottom: 0%;
     left: 0%;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
     width: 200%;
     aspect-ratio: 7/2;
     background: var(--background-color);
@@ -239,8 +242,70 @@
     transform: rotateY(60deg) rotateZ(10deg) rotateX(5deg) translate(-125%, 75%);
     /* box-shadow: 0rem 0rem 0.1rem 1rem var(--background-color), 1.5rem -1rem 1rem 0.1rem #363535; */
     box-shadow: none;
-    
+    pointer-events: none;
 }
+
+.select_next_stack{
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 100%;
+    height: fit-content;
+    display:flex;
+    gap: 5rem;
+    flex-direction: column;
+    /* transform: skew(10deg, -10deg); */
+    align-items: center;
+    justify-content: space-around;
+    /* centred on the label, so the two plates sit clear of the wording, one above one below */
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.browse_next_stack_button{
+    position: relative;
+    height: 3.5rem;
+    aspect-ratio: 2/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    letter-spacing: 0.03em;
+    border-radius: 0.6rem;
+    background: transparent;
+    cursor: pointer;
+    pointer-events: auto;
+    box-shadow: -0.35rem -0.35rem 0.9rem var(--neu-light),
+                0.4rem 0.4rem 0.9rem var(--neu-dark),
+                inset 0.5rem 0.5rem 0.25rem var(--neu-light),
+                inset -0.5rem -0.5rem 0.25rem var(--neu-dark),
+                0rem 0rem 0.1rem 0.5rem var(--neu-inset-ring) inset;
+    transition: all 0.25s ease;
+    /* hidden until the drawer reveal timeline pops them in */
+    opacity: 0;
+}
+
+.browse_next_stack_button.selected_left{
+    animation: selected_animation2 0.5s linear infinite;
+}
+
+.browse_next_stack_button.selected_right{
+    animation: selected_animation2 0.5s ease infinite;
+}
+
+
+/* no offsets here: the column in .select_next_stack already places these two */
+#select_right_stack,
+#select_left_stack{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0.5rem;
+    color: var(--text-color-secondary);
+    text-shadow: -0.3rem -0.3rem 2rem var(--text-shadow-glow), -0.1rem -0.1rem 0.4rem var(--text-shadow-glow-2);
+}
+
+
 
 .drawer_front{
     position: absolute;
@@ -251,7 +316,7 @@
     background: var(--background-color);
     box-shadow: none;
     transform: rotateY(40deg) rotateZ(-10deg) rotateX(-15deg) translate(5%, 33%);
-
+    pointer-events: none;
 }
 
 .drawer_front .drawer_label{
@@ -276,17 +341,33 @@
     border-radius: 50%;
     background: var(--background-color);
     cursor: pointer;
-    box-shadow: -0.2rem -0.2rem 1.0rem var(--neu-light), 0.2rem 0.2rem 0.4rem var(--neu-dark);
+    pointer-events: auto;
+    box-shadow: -0.35rem -0.35rem 0.9rem var(--neu-light),
+                0.4rem 0.4rem 0.9rem var(--neu-dark),
+                inset 0.08rem 0.08rem 0.25rem var(--neu-light),
+                inset -0.08rem -0.08rem 0.25rem var(--neu-dark);
     transition: all 0.25s ease;
-    
+    /* hidden until the drawer reveal timeline pops them in */
+    opacity: 0;
 }
+
+
+.toggle_button::after{
+    content: "";
+    position: absolute;
+    border-radius:50%;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    transform: scale(0.8);
+    box-shadow: 0rem 0rem 3rem 0.1rem var(--neu-ambient-shadow), 0em -0rem 0.1rem var(--neu-inset-ring) inset;
+}
+
+
 
 .toggle_button:hover{
     transform: translateY(-0.1rem);
-}
-
-.toggle_button:active{
-    transform: translateY(0);
 }
 
 .toggle_button.selected_right{
@@ -294,7 +375,20 @@
 }
 
 .toggle_button.selected_left{
-    animation: selected_animation 0.5s ease infinite;
+    animation: selected_animationleftbutton 0.5s ease infinite;
+}
+
+
+@keyframes selected_animation2{
+    0%{
+        transform: scale(1.0);
+    }
+    50%{
+        transform: scale(0.92);
+    }
+    100%{
+        transform: scale(1.0);
+    }
 }
 
 
@@ -307,6 +401,18 @@
     }
     100%{
         transform: scale(1.0);
+    }
+}
+
+@keyframes selected_animationleftbutton{
+    0%{
+        transform: scale(1.0) scaleX(-1);
+    }
+    50%{
+        transform: scale(0.98) scaleX(-1);
+    }
+    100%{
+        transform: scale(1.0) scaleX(-1);
     }
 }
 

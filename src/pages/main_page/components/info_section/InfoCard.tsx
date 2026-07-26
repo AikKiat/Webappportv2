@@ -5,6 +5,7 @@ import {type certInfo, type personal } from "../../../../constants/constants"
 import GlowingText from "./GlowingText";
 
 import {motion, MotionValue, useMotionValue, useTransform} from "motion/react";
+import { useIntroSectionTransitionState } from "../../../../store/transitionStore";
 
 
 interface PersonalCardProps {
@@ -133,6 +134,9 @@ export default function InfoCard({cardsRef, cardsFrontBehindRef, infoDescription
 
     const [firstIndex, setFirstIndex] = useState<number>(-1);
 
+    const timelinesCardRefs = useRef<HTMLDivElement[]>([]);
+    const swipeCardViewsRefs = useRef<HTMLDivElement[]>([]);
+
     useEffect(()=>{
         setcurrentList(personalQualities);
         originalList.current = personalQualities;
@@ -171,8 +175,69 @@ export default function InfoCard({cardsRef, cardsFrontBehindRef, infoDescription
         setcurrentList(originalList.current);
     }
 
+    function expandView(el : HTMLDivElement | null){
+        if(!el) return;
+        el.style.opacity = "1";
+        el.style.height = "100%";
+        el.style.pointerEvents = "auto";
+    }
+
+    function collapseView(el : HTMLDivElement | null){
+        if(!el) return;
+        el.style.opacity = "0";
+        el.style.height = "0%";
+        el.style.pointerEvents = "none";
+    }
+
+    function isMobile(){
+        return window.matchMedia("(max-width: 1100px)").matches;
+    }
+
+    function displayTimelineView(){
+        useIntroSectionTransitionState.getState().setActiveTimelineCard(index, true, isMobile());
+        collapseView(swipeCardViewsRefs.current[index]);
+        expandView(timelinesCardRefs.current[index]);
+    }
+
+    function displaySwipeView(){
+        useIntroSectionTransitionState.getState().setActiveTimelineCard(index, true, isMobile());
+        collapseView(timelinesCardRefs.current[index]);
+        expandView(swipeCardViewsRefs.current[index]);
+    }
+
+    // Tapping a card brings it to the carousel front. Mobile only
+    function selectCard(){
+        if (!isMobile()) return;
+        useIntroSectionTransitionState.getState().setActiveTimelineCard(index, true, true);
+    }
+
+    const active = useIntroSectionTransitionState((s) => s.activeTimelineCards.includes(index));
+    const selectedIndex = useIntroSectionTransitionState((s) => s.activeTimelineCards[0] ?? 2);
+
+    const carouselPos = ((index - selectedIndex) % 3 + 3) % 3;
+    const posClass = carouselPos === 0 ? "pos-front" : carouselPos === 1 ? "pos-right" : "pos-left";
+
+    useEffect(() => {
+        const state = useIntroSectionTransitionState.getState();
+        if (isMobile() && index === 2 && state.activeTimelineCards.length === 0) {
+            state.setActiveTimelineCard(2, true, true);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (active) {
+            collapseView(timelinesCardRefs.current[index]);
+            expandView(swipeCardViewsRefs.current[index]);
+        }
+        // } else {
+        //     collapseView(timelinesCardRefs.current[index]);
+        //     collapseView(swipeCardViewsRefs.current[index]);
+        // }
+    }, [active, index]);
+
 
     return (
+        <div className={`card_slot ${posClass}`} onClick={selectCard}>
         <div className="info_card" id={`card_${index}`} ref={(el) => { if (el) cardsRef.current[index] = el; }}>
             <div className="card_front">
                 {splashText && <span id="splash_text">{splashText}</span>}
@@ -182,26 +247,59 @@ export default function InfoCard({cardsRef, cardsFrontBehindRef, infoDescription
             </div>
             <div className="card_front_behind" id={`behind_${index}`} ref={(el) => { if (el) cardsFrontBehindRef.current[index] = el; }}></div>
             <div className="card_back">
-                <div className="card_back_desc">
+                <div className="card_back_title_header">
+                    <div className="card_back_desc">
                     <span>{infoDescription}</span>
                 </div>
-                <div className="qualities_list">
-                    {currentList && [...currentList].reverse().map((personalQuality: personal) => {
-                        return (
-                        <React.Fragment key={personalQuality.index}>
-                            <PersonalCard
-                                personalQuality={personalQuality}
-                                personalQualities={personalQualities}
-                                onSwipeOut={handleCardSwipedOut}
-                                onReset={resetCardList}
-                                firstIndex={firstIndex}
-                                catergory={infoDescription.toLowerCase()}
-                            />
-                            <div className={`quality_card_behind ${infoDescription.toLowerCase()}`}></div>
-                        </React.Fragment>
-
-                    )})}
+                <div className="buttons_container">
+                    <button className="show_more_timeline_view" onClick={displayTimelineView}>Timeline View</button>
+                    <button className="show_more_card_swipe_view" onClick={displaySwipeView}>More Info</button>
                 </div>
+                </div>
+                
+                    <div
+                        className={`qualities_list_timeline_container ${infoDescription.toLowerCase()}`}
+                        ref={(el) => {if (el) timelinesCardRefs.current[index] = el;}}
+                        style={{ opacity: 0, height: "0%", pointerEvents: "none" }}
+                    >
+                        {personalQualities.map((personalQuality : personal) => (
+                            <div className="timeline_entry" key={personalQuality.index}>
+                                <span className="timeline_marker"></span>
+                                <div className="timeline_content">
+                                    <span className="timeline_title">{personalQuality.title}</span>
+                                    <div className="timeline_desc">
+                                        <GlowingText text={personalQuality.description} typography={true} active={active}></GlowingText>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+
+                    {/* Swipe deck: hidden by default, revealed via "More Info". */}
+                    <div
+                        className="qualities_list"
+                        ref={(el) => {if (el) swipeCardViewsRefs.current[index] = el;}}
+                        style={{ opacity: 0, height: "0%", pointerEvents: "none" }}
+                    >
+                        {currentList && [...currentList].reverse().map((personalQuality: personal) => {
+                            return (
+                            <React.Fragment key={personalQuality.index}>
+                                <PersonalCard
+                                    personalQuality={personalQuality}
+                                    personalQualities={personalQualities}
+                                    onSwipeOut={handleCardSwipedOut}
+                                    onReset={resetCardList}
+                                    firstIndex={firstIndex}
+                                    catergory={infoDescription.toLowerCase()}
+                                />
+                                <div className={`quality_card_behind ${infoDescription.toLowerCase()}`}></div>
+                            </React.Fragment>
+
+                        )})}
+                    </div>
+                </div>
+
             </div>
         </div>
     )

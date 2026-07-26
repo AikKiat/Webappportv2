@@ -1,14 +1,28 @@
 
 
 @media all and (max-width:1600px){
+    
+    #card_1 #splash_text{
+        /* font-size: 1.5rem; */
+        /* top: 50%; */
+    }
+
+    #card_1 #splash_text_2{
+        /* font-size: 1.5rem; */
+        /* top: 50%; */
+    }
 
     #card_2_computer_image{
-        left: -4%;
+        left: -70%;
+        transform: scale(0.6);
     }
 
     #card_3_computer_image{
-        top: 6%;
-        right: 39%;
+        /* top: 6%;
+        right: 39%; */
+        right: 100%;
+        /* transform: scale(0.8); */
+
 }
 }
 
@@ -17,44 +31,45 @@
 @media all and (max-width:1500px){
 
     #card_2_computer_image{
-        left: -10%;
+        left: -90%;
+        transform: scale(0.7);
     }
 
     #card_3_computer_image{
-        right: 39%;
+        right: 100%;
 }
 }
 
 @media all and (max-width:1450px){
 
     #card_2_computer_image{
-        left: -15%;
+        left: -90%;
     }
 
     #card_3_computer_image{
-        right: 40%;
+        right: 100%;
     }
 }
 
 @media all and (max-width:1400px){
 
     #card_2_computer_image{
-        left: -20%;
+        left: -90%;
     }
 
     #card_3_computer_image{
-        right: 35%;
+        right: 100%;
 }
 }
 
 @media all and (max-width:1330px){
 
     #card_2_computer_image{
-        left: -25%;
+        left: -90%;
     }
 
     #card_3_computer_image{
-        right: 30%;
+        right: 100%;
 }
 }
 
@@ -113,8 +128,19 @@
 }
 
 @media all and (max-width:900px){
+
+    #card_1 #splash_text_2{
+        font-size: 1.3rem;
+        /* top: 50%; */
+    }
+
+    #card_1 #splash_text{
+        font-size: 1.3rem;
+        /* top: 50%; */
+    }
     
     #card_2_computer_image{
+        left: -80%;
         transform: scale(0.8);
     }
 
@@ -126,13 +152,13 @@
 @media all and (max-width:500px){
 
     #card_1 #splash_text{
-        font-size: 1.5rem;
-        top: 50%;
+        font-size: 1.2rem;
+        /* top: 50%; */
     }
 
     #card_1 #splash_text_2{
-        font-size: 1.5rem;
-        top: 50%;
+        font-size: 1.2rem;
+        /* top: 50%; */
     }
 
     #card_1_splash_text{
@@ -153,13 +179,13 @@
 @media all and (max-width:430px){
 
     #card_1 #splash_text{
-        font-size: 1.5rem;
-        top: 40%;
+        font-size: 1.05rem;
+        top: 20%;
     }
 
     #card_1 #splash_text_2{
-        font-size: 1.5rem;
-        top: 40%;
+        font-size: 1.05rem;
+        top: 20%;
     }
 
     #card_1_splash_text{
@@ -168,8 +194,8 @@
     }
     
     #card_2_computer_image{
-        left: -90%;
-        transform: scale(0.6);
+        left: -65%;
+        transform: scale(0.5);
     }
 
     #card_3_computer_image{

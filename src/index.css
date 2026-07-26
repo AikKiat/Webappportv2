@@ -29,10 +29,27 @@
     --info-card-more-info-box-shadow: 0.3rem 0.3rem 1rem #5c5c5c, 0.3rem 0.3rem 1rem #ffffff8b inset;
     --info-card-back-bg: #fcf5da;
     --info-card-front-bg: #ffffff00;
+    
+    /* Flashy info-card toggle buttons: vivid gradients + coloured glow. */
+    --btn-timeline-bg: linear-gradient(135deg, #ffb020, #ff5e62);
+    --btn-timeline-glow: rgba(255, 94, 98, 0.5);
+    --btn-more-bg: linear-gradient(135deg, #6a5cff, #4aa3ff);
+    --btn-more-glow: rgba(74, 163, 255, 0.5);
+    --btn-text: #ffffff;
     --skill-element-shown-glow:#fff4ce;
     --skill-element-shown-glow-2:#424141;;
     --skill-element-shown-glow-inset: #fffbeb;
-  } 
+    
+    
+    /* Projects drawer. These were hardcoded darks in the projects stylesheet, so the
+       cards and the neumorphic buttons only ever read correctly in dark mode. */
+    --project-card-bg: #4d4d4d5e;
+    --project-card-border: rgba(160, 122, 30, 0.35);
+    --neu-ambient-shadow: rgba(140, 122, 70, 0.45);
+    --neu-inset-ring: #d8cca4;
+    --drawer-edge-shadow: #d8cca4;
+    --card-line-glow: #8a7c4d;
+  }
 
 
 :root[data-theme="dark"] {
@@ -45,8 +62,10 @@
     --text-color-intro-section: #ffffffd4;
     --text-color-secondary: #ca521f;
     --text-color-tertiary: #290e02;
-    --neu-light: #1c1712;
-    --neu-dark: #1c1712;
+    /* Were both #1c1712 (== background) so every neumorphic button was flat in
+       dark mode. Lighter highlight + darker shadow restores the depth. */
+    --neu-light: #2e2620;
+    --neu-dark: #0b0906;
     --neu-box-shadow-main: #1f1f1fff;
     --neu-box-shadow-glow: rgb(77, 76, 73);
     --intro-header-title-main: #f6d87fb7;
@@ -57,9 +76,21 @@
     --info-card-more-info-box-shadow: 0.1rem 0.1rem 0.5rem #f5b876, 0rem 0rem 2.8rem #f3ccab inset;
     --info-card-back-bg: #fcf5da;
     --info-card-front-bg: #ffffff85;
+    /* Neon-ier in dark mode so they pop against the near-black card. */
+    --btn-timeline-bg: linear-gradient(135deg, #ff8a00, #ff2d55);
+    --btn-timeline-glow: rgba(255, 45, 85, 0.6);
+    --btn-more-bg: linear-gradient(135deg, #00d4ff, #5a5cff);
+    --btn-more-glow: rgba(0, 212, 255, 0.55);
+    --btn-text: #ffffff;
     --skill-element-shown-glow:#450101;
     --skill-element-shown-glow-2:#ae0000;;
     --skill-element-shown-glow-inset: #000000;
+    --project-card-bg: #4d4d4d5e;
+    --project-card-border: rgba(255, 219, 112, 0.28);
+    --neu-ambient-shadow: #0b0b0b;
+    --neu-inset-ring: #353232;
+    --drawer-edge-shadow: #363535;
+    --card-line-glow: #ffffff;
 }
 
 /* Was previously scoped inside a single narrow media query, so the custom

@@ -174,7 +174,8 @@ export default function MainPage(){
                             assetImage={knowingYourselfImage}
                             splashText={null}
                             splashText2={null}
-                            personalQualities={personalQualities.experiences}>
+                            personalQualities={personalQualities.experiences}
+                            >
                         </InfoCard>
                         <InfoCard
                             cardsRef={cardsRef}
