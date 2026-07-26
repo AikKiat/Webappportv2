@@ -252,8 +252,8 @@ export default function InfoCard({cardsRef, cardsFrontBehindRef, infoDescription
                     <span>{infoDescription}</span>
                 </div>
                 <div className="buttons_container">
-                    <button className="show_more_timeline_view" onClick={displayTimelineView}>Timeline View</button>
-                    <button className="show_more_card_swipe_view" onClick={displaySwipeView}>More Info</button>
+                    <button className="show_more_timeline_view" onClick={displayTimelineView}>Timeline</button>
+                    <button className="show_more_card_swipe_view" onClick={displaySwipeView}>Full Info</button>
                 </div>
                 </div>
                 

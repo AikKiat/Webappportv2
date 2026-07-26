@@ -61,8 +61,25 @@
         margin: 1rem 2rem;
     }
 
+    .select_next_stack{
+        gap: 3.5rem;
+    }
+
+    .browse_next_stack_button{
+        height: 2.6rem;
+        font-size: 0.85rem;
+    }
+
     .project_card{
         font-size: 2rem;
+    }
+
+    .project_card .theme_tab{
+        height: 1.6rem;
+        max-width: 12rem;
+        font-size: 0.62rem;
+        letter-spacing: 0.06em;
+        padding: 0 0.5rem;
     }
 
     .project-card.smarthealth .text-container{
@@ -153,6 +170,22 @@
         font-size: 1rem;
     }
 
+    .select_next_stack{
+        gap: 2.5rem;
+    }
+
+    /* The neumorphic spreads have to come down with the button, or the plate is all shadow. */
+    .browse_next_stack_button{
+        height: 2rem;
+        font-size: 0.65rem;
+        border-radius: 0.45rem;
+        box-shadow: -0.2rem -0.2rem 0.5rem var(--neu-light),
+                    0.25rem 0.25rem 0.5rem var(--neu-dark),
+                    inset 0.25rem 0.25rem 0.15rem var(--neu-light),
+                    inset -0.25rem -0.25rem 0.15rem var(--neu-dark),
+                    0rem 0rem 0.1rem 0.25rem var(--neu-inset-ring) inset;
+    }
+
     .internal_contents .title_desc{
         font-size: 0.85rem;
     }
@@ -160,6 +193,16 @@
     .project_cards_container{
         top: 0%;
         left: 20%;
+    }
+
+    /* Both tabs share the card's right edge here, so the theme has to fit the
+       card width rather than the wording. */
+    .project_card .theme_tab{
+        height: 1.4rem;
+        max-width: 10rem;
+        font-size: 0.55rem;
+        letter-spacing: 0.04em;
+        padding: 0 0.4rem;
     }
 }
 
@@ -188,6 +231,16 @@
 
     .drawer_label .toggle_button{
         margin: 0.5rem 1.5rem;
+    }
+
+    .select_next_stack{
+        gap: 2rem;
+    }
+
+    .browse_next_stack_button{
+        height: 1.7rem;
+        font-size: 0.58rem;
+        letter-spacing: 0.02em;
     }
 
     .project_card{

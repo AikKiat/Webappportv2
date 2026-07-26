@@ -190,8 +190,48 @@
     transition: all 0.5s ease;
 }
 
+
+/* Shares the timeframe tab's right edge but sits a row above it. Width is
+   content-driven since themes range from "LLM Security" to a short sentence. */
+.project_card .theme_tab{
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -10%;
+    opacity: 1.0;
+    right: 0%;
+    height: 1.8rem;
+    width: max-content;
+    max-width: 15rem;
+    padding: 0 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--theme-tab-text);
+    background: var(--theme-tab-bg);
+    border: 1px solid var(--theme-tab-border);
+    border-radius: 1rem 1rem 0 1rem;
+    text-shadow: var(--theme-tab-text-glow);
+    box-shadow: var(--theme-tab-shadow);
+    transition: all 0.5s ease;
+}
+
 .project_card:hover .card_tab{
     opacity: 1.0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .project_card:hover .theme_tab{
+        color: var(--theme-tab-hover-text);
+        border-color: var(--theme-tab-hover-border);
+        box-shadow: var(--theme-tab-hover-shadow);
+    }
 }
 
 .project_card .line_holder{

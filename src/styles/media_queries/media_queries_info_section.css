@@ -388,12 +388,28 @@
         padding: 3.5rem 1.2rem 1.5rem 1.2rem;
     }
 
+    .timeline_entry{
+        gap: 0.6rem;
+    }
+
+    /* The small glowing text alone reads too thin here, so it sits on a faint plate. */
+    .timeline_content{
+        flex: 1;
+        min-width: 0;
+        padding: 0.5rem 0.6rem;
+        border-radius: 0.5rem;
+        background: var(--timeline-entry-bg);
+        border: 1px solid var(--timeline-entry-border);
+    }
+
     .timeline_title{
-        font-size: 1rem;
+        font-size: 0.85rem;
     }
 
     .timeline_desc{
-        font-size: 0.85rem;
+        font-size: 0.72rem;
+        line-height: 1.45;
+        opacity: 0.95;
     }
 
     /* Vestigial nodes from the removed hover-selection layout. */
@@ -578,11 +594,16 @@
     }
 
     .timeline_title{
-        font-size: 0.95rem;
+        font-size: 0.8rem;
     }
 
     .timeline_desc{
-        font-size: 0.8rem;
+        font-size: 0.68rem;
+        line-height: 1.4;
+    }
+
+    .timeline_content{
+        padding: 0.4rem 0.5rem;
     }
 
     .less_info_message{

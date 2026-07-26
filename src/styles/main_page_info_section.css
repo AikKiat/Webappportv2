@@ -384,6 +384,8 @@
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    /* .card_back centres its text - the timeline reads better ranged left */
+    text-align: left;
  }
 
  .timeline_title {

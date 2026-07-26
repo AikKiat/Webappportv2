@@ -31,6 +31,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
     const nextIndexRef = useRef<number>(-1);
     const projectCardsRef = useRef<HTMLDivElement[]>([]);
     const cardTabsRef = useRef<HTMLSpanElement[]>([]);
+    const themeTabsRef = useRef<HTMLSpanElement[]>([]);
     const cardLineHoldersRef = useRef<HTMLDivElement[]>([]);
     const internalContentsRef = useRef<HTMLDivElement[]>([]);
     const cardNumbersRef = useRef<HTMLSpanElement[]>([]);
@@ -159,6 +160,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
         if(projectCardsRef.current.length > projectsArrays.length){
             projectCardsRef.current.length = projectsArrays.length;
             cardTabsRef.current.length = projectsArrays.length;
+            themeTabsRef.current.length = projectsArrays.length;
             cardLineHoldersRef.current.length = projectsArrays.length;
             internalContentsRef.current.length = projectsArrays.length;
             cardNumbersRef.current.length = projectsArrays.length;
@@ -231,6 +233,12 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
             cardTabsRef.current[i].style.opacity = "0.5"
             cardTabsRef.current[i].style.pointerEvents = "auto";
             cardLineHoldersRef.current[i].style.pointerEvents = "auto";
+
+            //theme tab only renders for projects that declare one, so it can be absent
+            if (themeTabsRef.current[i]){
+                themeTabsRef.current[i].style.opacity = "0.5";
+                themeTabsRef.current[i].style.pointerEvents = "auto";
+            }
         }
     }
 
@@ -254,6 +262,11 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                 cardTabsRef.current[index].style.pointerEvents = "none";
                 cardLineHoldersRef.current[index].style.pointerEvents = "none";
 
+                if (themeTabsRef.current[index]){
+                    themeTabsRef.current[index].style.opacity = "0";
+                    themeTabsRef.current[index].style.pointerEvents = "none";
+                }
+
                 if (cardNumbersRef.current[index]){
                     cardNumbersRef.current[index].style.opacity = "1";
                 }
@@ -272,6 +285,11 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                 }
                 cardLineHoldersRef.current[index].style.opacity = "1";
                 cardTabsRef.current[index].style.opacity = "1";
+
+                if (themeTabsRef.current[index]){
+                    themeTabsRef.current[index].style.opacity = "1";
+                    themeTabsRef.current[index].style.pointerEvents = "auto";
+                }
 
                 if (cardNumbersRef.current[index]){
                     cardNumbersRef.current[index].style.opacity = "0";
@@ -299,6 +317,11 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                     const cardTabStyle : React.CSSProperties = {
                         transform: `translateX(${isMobile? "0" :"11.7"}rem) translateY(${yPos2}rem) `,
                 
+                    }
+                    //sits directly above the timeframe tab, sharing its right edge, so the two
+                    //read as one stacked label instead of two overlapping plates
+                    const themeTabStyle : React.CSSProperties = {
+                        transform: `translateX(${isMobile? "0" :"11.7"}rem) translateY(${yPos2 - 2.1}rem) `,
                     }
                     const lineHolderStyle : React.CSSProperties = {
                         transform: `translateY(${yPos3}rem) translateZ(-1rem) translateX(${isMobile? `${-2.0 - (2-index * 0.5)}`: "1.4"}rem)`,
@@ -342,6 +365,13 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                                     onClick={raiseCard}
                                     >{`${project.timeFrame}`}
                                 </span>
+                                {project.theme && <span
+                                    className="theme_tab"
+                                    style={themeTabStyle}
+                                    ref={(element) => {if (element) themeTabsRef.current[index] = element;}}
+                                    onClick={raiseCard}
+                                    >{project.theme}
+                                </span>}
                                 <div 
                                     className="line_holder" 
                                     style={lineHolderStyle}
