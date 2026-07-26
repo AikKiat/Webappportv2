@@ -18,10 +18,10 @@
     --card-line-color-main:#474646;
     --text-color-secondary:#333;
     --text-color-tertiary: #333;
-    --neu-light: #fff8e6;
-    --neu-dark: #c9bd93;
+    --neu-light:#f5e5c6;
+    --neu-dark: #d9d5c4;
     --neu-box-shadow-main: #1f1f1fff;
-    --neu-box-shadow-glow: #fef8e2ff;
+    --neu-box-shadow-glow: #fcf5da;
     --intro-header-title-main: #fcf5daad;
     --intro-header-title-backdrop:#fcf5da50;
     --text-shadow-glow: rgb(189, 183, 183);
@@ -46,7 +46,7 @@
     --project-card-bg: #4d4d4d5e;
     --project-card-border: rgba(160, 122, 30, 0.35);
     --neu-ambient-shadow: rgba(140, 122, 70, 0.45);
-    --neu-inset-ring: #d8cca4;
+    --neu-inset-ring: #ebdfbf;
     --drawer-edge-shadow: #d8cca4;
     --card-line-glow: #8a7c4d;
     /* Project theme tab. Light mode stays a quiet light-grey chip so it never

@@ -395,7 +395,7 @@ export default function ProjectsDrawer(props : ProjectsDrawerProps){
                             Next Stack
                         </div>
                         <div className={`browse_next_stack_button ${beforeStackButtonClicked ? "selected_left" : "unselected"}`} onClick={() => selectNextBatch(-1)} id="select_left_stack">
-                            Previous
+                            Prev Stack
                         </div>
                     </div>
                 </div>

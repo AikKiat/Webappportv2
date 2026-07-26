@@ -303,8 +303,9 @@
 }
 
 .browse_next_stack_button{
+    padding: 1rem;
     position: relative;
-    height: 3.5rem;
+    width: fit-content;
     aspect-ratio: 2/1;
     display: flex;
     align-items: center;
@@ -315,11 +316,11 @@
     background: transparent;
     cursor: pointer;
     pointer-events: auto;
-    box-shadow: -0.35rem -0.35rem 0.9rem var(--neu-light),
-                0.4rem 0.4rem 0.9rem var(--neu-dark),
-                inset 0.5rem 0.5rem 0.25rem var(--neu-light),
-                inset -0.5rem -0.5rem 0.25rem var(--neu-dark),
-                0rem 0rem 0.1rem 0.5rem var(--neu-inset-ring) inset;
+    box-shadow: -0.2rem -0.2rem 0.5rem var(--neu-light),
+                    0.25rem 0.25rem 0.5rem var(--neu-dark),
+                    inset 0.25rem 0.25rem 0.15rem var(--neu-light),
+                    inset -0.25rem -0.25rem 0.15rem var(--neu-dark),
+                    0rem 0rem 0.1rem 0.25rem var(--neu-inset-ring) inset;
     transition: all 0.25s ease;
     /* hidden until the drawer reveal timeline pops them in */
     opacity: 0;
