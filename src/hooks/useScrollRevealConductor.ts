@@ -163,7 +163,7 @@ function runDrawerRevealTimeline() {
         }, 100 * i);
     }
 
-    projectDrawerButtonLeft.textContent = "<";
+    projectDrawerButtonLeft.textContent = ">";
     tween(projectDrawerButtonLeft, {
         // gsap z: 20, transformPerspective: 100. scaleX(-1) points the arrow left -
         // the old gsap "FlipH" filter is not a real css filter value.
@@ -172,7 +172,7 @@ function runDrawerRevealTimeline() {
     }, { duration: 0.5, ease: "ease-in-out" });
 
     setTimeout(() => {
-        projectDrawerButtonRight.textContent = "<";
+        projectDrawerButtonRight.textContent = ">";
         tween(projectDrawerButtonRight, {
             transform: "perspective(100px) translateZ(20px)",
             opacity: 1,
