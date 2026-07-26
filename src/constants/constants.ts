@@ -52,6 +52,22 @@ export interface project{
 
 export const projects : project[] = [
     {
+        name : "Current Ongoing Projects",
+        timeFrame : "Current Ongoing",
+        imageSource : "",
+        videoSource : "",
+        imageCollage : null,
+        videoCollage : null,
+        longerDescription : "",
+        uniqueIdName : "current",
+        techstack : ["/icons/java.png"],
+        githubLink : null,
+        titleDesc : "Current Ongoing Projects",
+        checkItOutLinks : ["https://github.com/AikKiat/codecrafters-redis-java"],
+        checkItOutMsgs : [" (Github Repo) Mock Redis (in progress)"],
+        titleThumbnail : ""
+    },
+    {
         name : "AI-Driven Resource Monitor Project (Internship @NCS NEXT)",
         timeFrame : "Sep-Dec 25",
         imageSource : "/images/aidrm.webp",
@@ -163,22 +179,6 @@ export const projects : project[] = [
         checkItOutMsgs : ["(Github Repo) Check it out here!"],
         titleThumbnail : "images/portfoliov1_1.webp"
     },
-    {
-        name : "Current Ongoing Projects",
-        timeFrame : "Current Ongoing",
-        imageSource : "",
-        videoSource : "",
-        imageCollage : null,
-        videoCollage : null,
-        longerDescription : "",
-        uniqueIdName : "current",
-        techstack : ["/icons/java.png"],
-        githubLink : null,
-        titleDesc : "Current Ongoing Projects",
-        checkItOutLinks : ["https://github.com/AikKiat/codecrafters-redis-java"],
-        checkItOutMsgs : [" (Github Repo) Mock Redis (in progress)"],
-        titleThumbnail : ""
-    }
 ]
 
 
