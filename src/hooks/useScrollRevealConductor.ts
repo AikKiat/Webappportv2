@@ -163,7 +163,7 @@ function runDrawerRevealTimeline() {
         }, 100 * i);
     }
 
-    projectDrawerButtonLeft.textContent = ">";
+    projectDrawerButtonLeft.textContent = "<";
     tween(projectDrawerButtonLeft, {
         // gsap z: 20, transformPerspective: 100. scaleX(-1) points the arrow left -
         // the old gsap "FlipH" filter is not a real css filter value.
