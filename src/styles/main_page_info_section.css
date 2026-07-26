@@ -677,6 +677,7 @@
 .inner_card_back_contents_holder{
     z-index: 1;
     position: absolute;
+    padding-top: 2rem;
     top: 0%;
     left: 0%;
     width: 100%;
