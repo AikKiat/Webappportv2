@@ -21,6 +21,7 @@
     /* Info Section*/
 
     .card_container{
+        top: 20%;
         left: 0%;
         width: 100%;
         padding: 0rem 0rem 20rem 5rem;
@@ -129,6 +130,7 @@
 
     .card_container{
         left: 0%;
+        top: 15%;
         width: 100%;
         padding: 0rem 0.5rem 10rem 5rem;
         margin-left: 0rem;
@@ -198,7 +200,7 @@
     /* Info Section*/
 
     .card_container{
-        top: 10%;
+        top: 20%;
         left: 0%;
         width: 100%;
         padding: 0rem 0rem 20rem 5rem;
@@ -244,7 +246,7 @@
     .card_container{
         display: block;
         position: relative;
-        top: 0%;
+        top: 15%;
         width: 100%;
         height: 40rem;
         margin: 0rem;
@@ -304,7 +306,7 @@
     .card_container{
         display: block;
         position: relative;
-        top: 0%;
+        top: 30%;
         width: 100%;
         height: 32rem;
         margin: 0rem;
@@ -319,8 +321,8 @@
         position: absolute;
         top: -20%;
         left: 50%;
-        width: 18rem;
-        margin-left: -9rem;
+        width: 23rem;
+        margin-left: -12rem;
         aspect-ratio: 5/7;
         transform-style: preserve-3d;
         transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
@@ -403,9 +405,13 @@
 
 }
 
-@media all and ((min-width:500px) and (max-width: 750px)){
+@media all and ((min-width:680px) and (max-width: 750px)){
 
     /* Info Section*/
+
+    .card_container{
+        top: 30%;
+    }
 
     .inner_card_front{
         gap:1rem;
@@ -431,6 +437,53 @@
     /* END Info Section*/
 }
 
+@media all and ((min-width:500px) and (max-width: 680px)){
+       /* Info Section*/
+
+    .card_container{
+        top: 50%;
+        height: 60rem;
+    }
+
+    .inner_card_front{
+        gap:1rem;
+    }
+
+    .quality_card .inner_card_front .intro_desc{
+        font-size: 0.8rem;
+    }
+
+    .inner_card_front .title{
+        font-size: 0.8rem;
+        transform: translateY(2.0rem);
+    }
+
+    .inner_card_front .intro_desc{
+        transform: translateY(2.0rem);
+    }
+
+    .less_info_message{
+        margin: -0.5rem 0rem 0rem 0rem;
+    }
+
+    .card_slot.pos-right .card_back{  /*Now this is on top*/
+        z-index: 1;
+        transform: translate(0%, -35%) scale(0.82) rotateY(180deg);
+        opacity: 1;
+        filter: blur(1px);
+    }
+
+    .card_slot.pos-left .card_back{ /*and this is at the bottom*/
+        z-index: 1;
+        transform: translate(0%, 35%) scale(0.82) rotateY(180deg);
+        opacity: 1;
+        filter: blur(1px);
+    }
+
+    /* END Info Section*/
+
+}
+
 @media all and ((min-width:320px) and (max-width: 500px)){
 
     /* Info Section*/
@@ -440,7 +493,7 @@
     .card_container{
         display: block;
         position: relative;
-        top: 0%;
+        top: 30%;
         width: 100%;
         height: 32rem;
         margin: 0rem;

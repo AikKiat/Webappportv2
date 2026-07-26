@@ -190,7 +190,7 @@ export default function InfoCard({cardsRef, cardsFrontBehindRef, infoDescription
     }
 
     function isMobile(){
-        return window.matchMedia("(max-width: 1100px)").matches;
+        return window.matchMedia("(max-width: 1000px)").matches;
     }
 
     function displayTimelineView(){
