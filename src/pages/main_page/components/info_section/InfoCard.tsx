@@ -20,6 +20,7 @@ interface PersonalCardProps {
 const PersonalCard = ({ personalQuality, personalQualities, onSwipeOut, onReset, firstIndex, catergory}: PersonalCardProps) => {
     const x = useMotionValue(0);
     const translateMorph = useTransform(x, [-150, 150], [-18, 18]);
+    const rotateMorph = useTransform(x, [-350,0,350], [-15, 0, 15])
 
     const innerCardBackRef = useRef<HTMLDivElement>(null);
     const innerCardFrontRef = useRef<HTMLDivElement>(null);
@@ -46,7 +47,7 @@ const PersonalCard = ({ personalQuality, personalQualities, onSwipeOut, onReset,
         opacityMorph = useTransform(x, [-350, 0, 350], [0, 1, 0]);
     }
     else{
-        opacityMorph = useTransform(x, [-150, 0, 150], [0, 0, 0]);
+        opacityMorph = useTransform(x, [-150, 0, 150], [1, 0, 1]);
     }
     
 
@@ -58,6 +59,7 @@ const PersonalCard = ({ personalQuality, personalQualities, onSwipeOut, onReset,
                 x,
                 opacity: opacityMorph,
                 translate: translateMorph,
+                rotate: rotateMorph,
             }}
             drag="x"
             dragConstraints={{

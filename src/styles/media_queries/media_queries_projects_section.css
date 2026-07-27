@@ -16,7 +16,8 @@
 
 @media (max-width:1400px){
     .projects_drawer{
-        left: 65%;
+        top: 60%;
+        left: 25%;
         width: 20rem;
         height: 20rem;
     }
@@ -25,7 +26,7 @@
 @media (max-width: 1200px) {
     .projects_drawer{
         top: 50%;
-        left: 60%;
+        left: 30%;
         width: 20rem;
         height: 20rem;
     }
@@ -34,7 +35,7 @@
 @media (max-width: 1000px) {
     .projects_drawer{
         top: 50%;
-        left: 50%;
+        left: 30%;
         width: 20rem;
         height: 20rem;
     }
@@ -48,9 +49,9 @@
 @media (max-width: 900px) {
     .projects_drawer{
         top: 45%;
-        left: 50%;
-        width: 17rem;
-        height: 17rem;
+        left: 30%;
+        width: 20rem;
+        height: 20rem;
     }
 
     .drawer_front .drawer_label{
@@ -94,9 +95,9 @@
 @media (max-width: 810px) {
     .projects_drawer{
         top: 60%;
-        left: 50%;
-        width: 15rem;
-        height: 15rem;
+        left: 30%;
+        width: 17rem;
+        height: 17rem;
     }
 
     .project-card.mlpipeline{
@@ -256,7 +257,7 @@
     .projects_drawer{
         top: 50%;
         left: 35%;
-        width: 12rem;
-        height: 12rem;
+        width: 11rem;
+        height: 11rem;
     }
 }

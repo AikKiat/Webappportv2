@@ -21,36 +21,31 @@
     --neu-light:#f5e5c6;
     --neu-dark: #d9d5c4;
     --neu-box-shadow-main: #1f1f1fff;
-    --neu-box-shadow-glow: #fcf5da;
+    --neu-box-shadow-glow: #fcdada;
     --intro-header-title-main: #fcf5daad;
     --intro-header-title-backdrop:#fcf5da50;
     --text-shadow-glow: rgb(189, 183, 183);
     --text-shadow-glow-2: rgba(31, 31, 31, 0.318);
     --info-card-more-info-box-shadow: 0.3rem 0.3rem 1rem #5c5c5c, 0.3rem 0.3rem 1rem #ffffff8b inset;
     --info-card-back-bg: #fcf5da;
-    --info-card-front-bg: #ffffff00;
+    --info-card-front-bg: #fffffff8;
     
     /* Flashy info-card toggle buttons: vivid gradients + coloured glow. */
-    --btn-timeline-bg: linear-gradient(135deg, #ffb020, #ff5e62);
-    --btn-timeline-glow: rgba(255, 94, 98, 0.5);
-    --btn-more-bg: linear-gradient(135deg, #6a5cff, #4aa3ff);
+    --btn-timeline-bg: linear-gradient(135deg, #f3e2c2, #fbc5c6);
+    --btn-timeline-glow: rgba(18, 16, 16, 0.5);
+    --btn-more-bg: linear-gradient(135deg, #f9edb6, #ff654a);
     --btn-more-glow: rgba(74, 163, 255, 0.5);
-    --btn-text: #ffffff;
+    --btn-text: #343131;
     --skill-element-shown-glow:#fff4ce;
     --skill-element-shown-glow-2:#424141;;
     --skill-element-shown-glow-inset: #fffbeb;
-    
-    
-    /* Projects drawer. These were hardcoded darks in the projects stylesheet, so the
-       cards and the neumorphic buttons only ever read correctly in dark mode. */
+   
     --project-card-bg: #4d4d4d5e;
     --project-card-border: rgba(160, 122, 30, 0.35);
     --neu-ambient-shadow: rgba(140, 122, 70, 0.45);
     --neu-inset-ring: #ebdfbf;
     --drawer-edge-shadow: #d8cca4;
     --card-line-glow: #8a7c4d;
-    /* Project theme tab. Light mode stays a quiet light-grey chip so it never
-       competes with the gold timeframe tab sitting under it. */
     --theme-tab-text: #4a4a4a;
     --theme-tab-bg: linear-gradient(145deg, #f4f4f2, #d5d5d0);
     --theme-tab-border: rgba(60, 60, 60, 0.25);
@@ -59,8 +54,6 @@
     --theme-tab-hover-text: #2b2b2b;
     --theme-tab-hover-border: rgba(60, 60, 60, 0.45);
     --theme-tab-hover-shadow: 0 0.2rem 0.6rem rgba(19, 19, 19, 0.3), inset 0 1px 0 #ffffffcc;
-    /* Faint plate behind each timeline entry on small screens, where the glowing
-       text on its own reads far too thin. */
     --timeline-entry-bg: rgba(255, 255, 255, 0.5);
     --timeline-entry-border: rgba(90, 70, 20, 0.1);
   }
@@ -80,8 +73,8 @@
        dark mode. Lighter highlight + darker shadow restores the depth. */
     --neu-light: #2e2620;
     --neu-dark: #0b0906;
-    --neu-box-shadow-main: #1f1f1fff;
-    --neu-box-shadow-glow: rgb(77, 76, 73);
+    --neu-box-shadow-main: rgba(255, 34, 34, 0.61);
+    --neu-box-shadow-glow: rgb(254, 121, 12);
     --intro-header-title-main: #f6d87fb7;
     --intro-header-title-main-2: #f8ac8e;
     --intro-header-title-backdrop:#6b6b4050;
@@ -89,11 +82,11 @@
     --text-shadow-glow-2: #ff5a5a;
     --info-card-more-info-box-shadow: 0.1rem 0.1rem 0.5rem #f5b876, 0rem 0rem 2.8rem #f3ccab inset;
     --info-card-back-bg: #fcf5da;
-    --info-card-front-bg: #ffffff85;
+    --info-card-front-bg: #fffffff6;
     /* Neon-ier in dark mode so they pop against the near-black card. */
-    --btn-timeline-bg: linear-gradient(135deg, #ff8a00, #ff2d55);
+    --btn-timeline-bg: linear-gradient(135deg, #fa4f1f, #980621);
     --btn-timeline-glow: rgba(255, 45, 85, 0.6);
-    --btn-more-bg: linear-gradient(135deg, #00d4ff, #5a5cff);
+    --btn-more-bg: linear-gradient(135deg, #980621, #fc3617);
     --btn-more-glow: rgba(0, 212, 255, 0.55);
     --btn-text: #ffffff;
     --skill-element-shown-glow:#450101;

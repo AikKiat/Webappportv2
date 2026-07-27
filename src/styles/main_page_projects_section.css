@@ -7,7 +7,7 @@
 .projects_section{
     background: var(--background-color);
     width: 100%;
-    height: 100vh;
+    height: 120vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -49,7 +49,8 @@
     transform-style: preserve-3d;
     backdrop-filter: blur(0.3rem);
     color: var(--text-color-tertiary);
-    box-shadow: 0 0.3rem 0.9rem var(--card-shadow), inset 0 1px 0 rgba(255, 246, 218, 0.1);
+    /* box-shadow: 0 0.3rem 0.9rem var(--card-shadow), inset 0 1px 0 rgba(255, 246, 218, 0.1); */
+    box-shadow: -0.1rem 0.3rem 0.1rem 0.2rem #131313b3;
     text-shadow: -0.1rem -0.1rem 0.8rem var(--text-shadow-glow), -0.05rem -0.05rem 0.3rem var(--text-shadow-glow-2);
 }
 
@@ -191,8 +192,6 @@
 }
 
 
-/* Shares the timeframe tab's right edge but sits a row above it. Width is
-   content-driven since themes range from "LLM Security" to a short sentence. */
 .project_card .theme_tab{
     z-index: 1;
     display: flex;
@@ -253,7 +252,7 @@
     position: absolute;
     right: 0%;
     top: 0%;
-    border-radius: 50%;
+    border-radius: 80%;
     box-shadow: 0rem 0rem 0.1rem 0.05rem var(--background-color) inset;
 }
 
@@ -322,7 +321,6 @@
                     inset -0.25rem -0.25rem 0.15rem var(--neu-dark),
                     0rem 0rem 0.1rem 0.25rem var(--neu-inset-ring) inset;
     transition: all 0.25s ease;
-    /* hidden until the drawer reveal timeline pops them in */
     opacity: 0;
 }
 
@@ -486,7 +484,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 25%;
     width: 25rem;
     height: 25rem;

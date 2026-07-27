@@ -1,16 +1,4 @@
-/* =========================================================================
-   INFO SECTION - responsive rules
-   Desktop (>900px): cards fanned in a row; several timelines may be open.
-   Mobile  (<=900px): cards stacked in a scrollable column; the store keeps a
-                      single active id, so exactly one timeline is focused.
-   The old hover-based card selection (:has(:hover), .cover_box, ::before blur
-   overlays) is gone - selection is now the tap-to-expand timeline itself.
-   ========================================================================= */
 
-
-/* The carousel wrapper is inert on desktop - `display: contents` removes its box
-   so `.info_card` behaves as a direct flex child exactly as before. It only
-   becomes a positioned slot inside the <=900px block below. */
 .card_slot{
     display: contents;
 }
@@ -33,8 +21,6 @@
         aspect-ratio: 5/8;
     }
 
-    /* Compact control bar: the two toggle buttons + the label, wrapping.
-       Sits above the open timeline (z-index) so it stays tappable. */
     .card_back .card_back_desc{
         width: fit-content;
         max-width: 92%;
@@ -47,8 +33,6 @@
         gap: 0.5rem;
     }
 
-    /* Open timeline: solid theme fill layered above the card face, so it fully
-       covers its own card instead of letting text bleed across cards. */
     .qualities_list_timeline_container{
         z-index: 3;
         padding: 4rem 1.5rem 2rem 1.5rem;
@@ -290,14 +274,14 @@
         z-index: 1;
         transform: translate(46%, -4%) scale(0.82) rotateY(180deg);
         opacity: 1;
-        filter: blur(1px);
+        filter: blur(2px);
     }
 
     .card_slot.pos-left .card_back{
         z-index: 1;
         transform: translate(-46%, -4%) scale(0.82) rotateY(180deg);
         opacity: 1;
-        filter: blur(1px);
+        filter: blur(2px);
     }
 }
 
@@ -338,7 +322,6 @@
         height: 100%;
     }
 
-    /* Carousel positions - transitions animate the reorder when selection changes. */
     .card_slot.pos-front{
         z-index: 3;
         transform: translate(0, 0) scale(1);
@@ -349,18 +332,17 @@
     .card_slot.pos-right .card_back{
         z-index: 1;
         transform: translate(46%, -4%) scale(0.82) rotateY(180deg);
-        opacity: 1;
-        filter: blur(1px);
+        opacity: 0.55;
+        filter: blur(3px);
     }
 
     .card_slot.pos-left .card_back{
         z-index: 1;
         transform: translate(-46%, -4%) scale(0.82) rotateY(180deg);
-        opacity: 1;
-        filter: blur(1px);
+        opacity: 0.55;
+        filter: blur(3px);
     }
 
-    /* Control bar: label on its own line, buttons beneath - fixes the overlap. */
     .card_back_title_header .card_back_desc{
         width: fit-content;
         max-width: 92%;
@@ -392,7 +374,7 @@
         gap: 0.6rem;
     }
 
-    /* The small glowing text alone reads too thin here, so it sits on a faint plate. */
+
     .timeline_content{
         flex: 1;
         min-width: 0;
@@ -410,11 +392,6 @@
         font-size: 0.72rem;
         line-height: 1.45;
         opacity: 0.95;
-    }
-
-    /* Vestigial nodes from the removed hover-selection layout. */
-    .cover_box_1, .cover_box_2{
-        display: none;
     }
 
     /* END Info Section*/
@@ -485,15 +462,15 @@
     .card_slot.pos-right .card_back{  /*Now this is on top*/
         z-index: 1;
         transform: translate(0%, -35%) scale(0.82) rotateY(180deg);
-        opacity: 1;
-        filter: blur(1px);
+        opacity: 0.55;
+        filter: blur(3px);
     }
 
     .card_slot.pos-left .card_back{ /*and this is at the bottom*/
         z-index: 1;
         transform: translate(0%, 35%) scale(0.82) rotateY(180deg);
-        opacity: 1;
-        filter: blur(1px);
+        opacity: 0.55;
+        filter: blur(3px);
     }
 
     /* END Info Section*/
@@ -552,15 +529,15 @@
     .card_slot.pos-right .card_back{  /*Now this is on top*/
         z-index: 1;
         transform: translate(0%, -46%) scale(0.82) rotateY(180deg);
-        opacity: 1;
-        filter: blur(1px);
+        opacity: 0.55;
+        filter: blur(3px);
     }
 
     .card_slot.pos-left .card_back{ /*and this is at the bottom*/
         z-index: 1;
         transform: translate(0%, 46%) scale(0.82) rotateY(180deg);
-        opacity: 1;
-        filter: blur(1px);
+        opacity: 0.55;
+        filter: blur(3px);
     }
 
 
@@ -608,6 +585,10 @@
 
     .less_info_message{
         margin: 0.5rem 0rem 0.5rem 0rem;
+    }
+
+    .card_back_title_header .buttons_container{
+        flex-direction: column;
     }
 
     .inner_card_back_contents_holder .more_information{
