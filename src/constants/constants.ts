@@ -75,7 +75,7 @@ export const projects : project[] = [
         theme: "Realtime Energy Market Sim, 3D",
         imageSource : "/images/energymarket_1.webp",
         videoSource : null,
-        imageCollage : ["/images/energymarket_1.webp", "/images/energymarket_2.webp"],
+        imageCollage : ["/images/energy_market_3.png","/images/energymarket_1.webp", "/images/energymarket_2.webp"],
         videoCollage : null,
         longerDescription : "An interactive wholesale electricity market simulator built on an event-driven Spring Boot + Kafka backend, with a declarative React lesson engine and a three.js stage. Part simulator, part learning journal.",
         uniqueIdName : "energymarket",
