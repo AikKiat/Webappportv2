@@ -35,6 +35,7 @@ import type { skill } from "../../constants/constants";
 
 //Components for Projects Section
 import ProjectsDrawer from "./components/projects_section/ProjectsDrawer";
+import FeaturedProjects from "./components/projects_section/FeaturedProjects";
 import { ProjectsCardHologram } from "./components/projects_section/ProjectsCardHologram";
 
 
@@ -195,17 +196,24 @@ export default function MainPage(){
             </div>
             <ThemeContext value={theme}>
                 <div className="projects_section">
-                    <ProjectsDrawer
-                        setRefDrawerFront={setDrawerFrontRef}
-                        setRefDrawerSide={setDrawerSideRef}
-                        setRefDrawerLabel={setDrawerLabelRef}
-                        setRefProjectCards={setProjectCardsRef}
-                        setRefButtonLeft={setButtonLeftRef}
-                        setRefButtonRight={setButtonRightRef}
-                        >
-                    </ProjectsDrawer>
+                    <FeaturedProjects />
+                    {/* The drawer is absolutely positioned against this stage - it owns the
+                        perspective, so featured can flow above it without overlapping. */}
+                    <div className="projects_stage">
+                        <ProjectsDrawer
+                            setRefDrawerFront={setDrawerFrontRef}
+                            setRefDrawerSide={setDrawerSideRef}
+                            setRefDrawerLabel={setDrawerLabelRef}
+                            setRefProjectCards={setProjectCardsRef}
+                            setRefButtonLeft={setButtonLeftRef}
+                            setRefButtonRight={setButtonRightRef}
+                            >
+                        </ProjectsDrawer>
+                        {/* stays inside the stage: it has to trip the drawer reveal at the
+                            drawer's own scroll position, not below the featured strip */}
+                        <div className="reveal_sentinel reveal_sentinel_bottom" ref={projectsDrawerSentinelRef}></div>
+                    </div>
                     <ProjectsCardHologram />
-                    <div className="reveal_sentinel reveal_sentinel_bottom" ref={projectsDrawerSentinelRef}></div>
                 </div>
             </ThemeContext>
 

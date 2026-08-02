@@ -64,6 +64,7 @@ function fromTo(element: HTMLElement | null, from: Keyframe, to: Keyframe, optio
 // Tracks whether the skills section actually took part in the current exit,
 // so the return animation only pulls back in what was actually sent away.
 let skillsWasSentOut = false;
+let featuredWasSentOut = false;
 
 function isOnScreen(element: HTMLElement): boolean {
     const rect = element.getBoundingClientRect();
@@ -78,16 +79,29 @@ function runExitTimeline() {
     const skills = getSection("skillsSection");
     skillsWasSentOut = Boolean(skills && isOnScreen(skills));
 
+    // Opening from a featured card leaves the drawer offscreen above, so the strip
+    // is what the user is actually looking at - it has to leave too.
+    const featured = getSection("featuredProjects");
+    featuredWasSentOut = Boolean(featured && isOnScreen(featured));
+
     document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
 
     drawer.style.pointerEvents = "none";
     if (skillsWasSentOut && skills) skills.style.pointerEvents = "none";
+    if (featuredWasSentOut && featured) featured.style.pointerEvents = "none";
 
     tween(drawer, { transform: "translateX(-120vw)", opacity: 0 }, { //Slide out to the left
         duration: 0.6,
         ease: backIn,
     });
+
+    if (featuredWasSentOut && featured) {
+        tween(featured, { transform: "translateX(120vw)", opacity: 0 }, { //Slide out to the right
+            duration: 0.6,
+            ease: backIn,
+        });
+    }
 
     if (skillsWasSentOut && skills) {
         tween(skills, { transform: "translateX(120vw)", opacity: 0 }, { //Slide out to the right
@@ -115,6 +129,7 @@ function runReturnTimeline() {
     if (!drawer || !hologram) return;
 
     const skills = getSection("skillsSection");
+    const featured = getSection("featuredProjects");
 
     tween(hologram, { transform: "scale(0)", opacity: 0, zIndex: -1000 }, {
         duration: 0.5,
@@ -132,8 +147,17 @@ function runReturnTimeline() {
             document.body.style.overflow = "";
             drawer.style.pointerEvents = "auto";
             if (skillsWasSentOut && skills) skills.style.pointerEvents = "auto";
+            if (featuredWasSentOut && featured) featured.style.pointerEvents = "auto";
         },
     });
+
+    if (featuredWasSentOut && featured) {
+        tween(featured, { transform: "translateX(0)", opacity: 1 }, {
+            duration: 0.6,
+            delay: 0.4,
+            ease: backOut,
+        });
+    }
 
     if (skillsWasSentOut && skills) {
         tween(skills, { transform: "translateX(0)", opacity: 1 }, {

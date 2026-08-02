@@ -4,8 +4,22 @@
     font-family: "Quantico", sans-serif;
 }
 
+/* Now a column: the 3d drawer stage on top, the featured strip flowing below it.
+   The stage keeps the perspective, so .projects_drawer's absolute positioning still
+   resolves against exactly the box it always did. */
 .projects_section{
     background: var(--background-color);
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* border: 1px solid #ff2600; */
+    /* transform-style: preserve-3d; */
+}
+
+.projects_stage{
+    position: relative;
     width: 100%;
     height: 120vh;
     display: flex;
@@ -14,8 +28,6 @@
     perspective: 2500px;
     content-visibility: auto;
     contain-intrinsic-size: auto 100vh;
-    /* border: 1px solid #ff2600; */
-    /* transform-style: preserve-3d; */
 }
 
 .project_cards_container{
@@ -493,6 +505,246 @@
 
 
 
+/* ------------------------------------------------------------------ */
+/* FEATURED strip - the three picks, heading the projects section.     */
+/* Same neumorphic recipe as the drawer's buttons: raised plate on the */
+/* page background, --neu-light highlight up-left, --neu-dark down-right. */
+/* ------------------------------------------------------------------ */
+
+.featured_projects{
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    /* leading the section now, so the air goes above it - the stage below already
+       brings 120vh of its own */
+    padding: 6rem 2rem 3rem;
+    background: var(--background-color);
+}
+
+.featured_header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.featured_projects.revealed .featured_header{
+    opacity: 1;
+    transform: none;
+}
+
+.featured_header_label{
+    font-family: "Quantico", sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.35em;
+    /* letter-spacing pads the right edge, so pull it back to stay optically centred */
+    text-indent: 0.35em;
+    color: var(--text-color-secondary);
+    text-shadow: -0.3rem -0.3rem 2rem var(--text-shadow-glow), -0.1rem -0.1rem 0.4rem var(--text-shadow-glow-2);
+}
+
+.featured_header_sub{
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    opacity: 0.65;
+    color: var(--text-color-intro-section);
+}
+
+.featured_cards{
+    width: 100%;
+    max-width: 78rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.featured_card{
+    position: relative;
+    flex: 1 1 18rem;
+    max-width: 22rem;
+    min-width: 15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    padding: 1.6rem 1.4rem 1.4rem;
+    border-radius: 1.2rem;
+    background: transparent;
+    cursor: pointer;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    box-shadow: -0.35rem -0.35rem 0.9rem var(--neu-light),
+                0.4rem 0.4rem 0.9rem var(--neu-dark),
+                inset 0.15rem 0.15rem 0.3rem var(--neu-light),
+                inset -0.15rem -0.15rem 0.3rem var(--neu-dark),
+                0rem 0rem 0.1rem 0.25rem var(--neu-inset-ring) inset;
+    /* hidden until the drawer reveal flips .revealed on the parent */
+    opacity: 0;
+    transform: translateY(2rem) scale(0.95);
+    transition: opacity 0.55s ease,
+                transform 0.55s cubic-bezier(0.215, 0.61, 0.355, 1),
+                box-shadow 0.25s ease;
+}
+
+.featured_projects.revealed .featured_card{
+    opacity: 1;
+    transform: translateY(0rem) scale(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .featured_projects.revealed .featured_card:hover{
+        transform: translateY(-0.4rem) scale(1);
+        box-shadow: -0.45rem -0.45rem 1.2rem var(--neu-light),
+                    0.5rem 0.5rem 1.2rem var(--neu-dark),
+                    inset 0.15rem 0.15rem 0.3rem var(--neu-light),
+                    inset -0.15rem -0.15rem 0.3rem var(--neu-dark),
+                    0rem 0rem 0.1rem 0.25rem var(--neu-inset-ring) inset;
+    }
+}
+
+.featured_projects.revealed .featured_card:active{
+    transform: translateY(0.05rem) scale(0.99);
+    box-shadow: inset -0.25rem -0.25rem 0.6rem var(--neu-light),
+                inset 0.25rem 0.25rem 0.6rem var(--neu-dark);
+}
+
+/* Ghost rank, pressed into the plate rather than sat on it. */
+.featured_card .featured_rank{
+    position: absolute;
+    top: 0.2rem;
+    right: 0.8rem;
+    font-family: "Quantico", sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0.12;
+    pointer-events: none;
+    color: var(--text-color-secondary);
+}
+
+.featured_card_body{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    /* takes the slack so the techstack + button always sit flush at the bottom,
+       no matter how long the blurb runs */
+    flex: 1 1 auto;
+}
+
+.featured_card .featured_timeframe{
+    width: fit-content;
+    padding: 0.15rem 0.7rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #241a08;
+    background: linear-gradient(145deg, #ffd97a, #f5a623);
+    border: 1px solid #5a3c0a80;
+    border-radius: 10rem;
+    box-shadow: 0 0.1rem 0.35rem rgba(19, 19, 19, 0.35), inset 0 1px 0 #fff8;
+}
+
+.featured_card .featured_name{
+    font-family: "Quantico", sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text-color-intro-section);
+}
+
+.featured_card .featured_desc{
+    font-size: 0.8rem;
+    line-height: 1.45;
+    opacity: 0.75;
+    color: var(--text-color-intro-section);
+}
+
+/* Same glowing-sign treatment as the drawer card's theme tab. */
+.featured_card .featured_theme{
+    width: fit-content;
+    max-width: 100%;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--theme-tab-text);
+    background: var(--theme-tab-bg);
+    border: 1px solid var(--theme-tab-border);
+    border-radius: 1rem 1rem 0 1rem;
+    text-shadow: var(--theme-tab-text-glow);
+    box-shadow: var(--theme-tab-shadow);
+}
+
+.featured_card .featured_techstack{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.featured_card .featured_techstack img{
+    width: 1.6rem;
+    height: 1.6rem;
+    object-fit: contain;
+}
+
+.featured_card .featured_view{
+    align-self: flex-start;
+    margin-top: 0.2rem;
+    padding: 0.35rem 0.9rem;
+    font-family: "Quantico", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #241a08;
+    border: 1px solid #5a3c0a80;
+    border-radius: 10rem;
+    background: linear-gradient(145deg, #ffe08a, #f0b429);
+    box-shadow: 0 0.15rem 0.4rem rgba(0, 0, 0, 0.45), inset 0 1px 0 #fff8;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .featured_card .featured_view:hover{
+        transform: translateY(-0.1rem);
+        box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.5), inset 0 1px 0 #fff8;
+    }
+}
+
+.featured_card .featured_view:active{
+    transform: translateY(0.05rem) scale(0.97);
+    box-shadow: 0 0.05rem 0.2rem rgba(0, 0, 0, 0.4), inset 0 0.1rem 0.3rem rgba(20, 14, 4, 0.3);
+}
+
+/* Reveal is decorative - honour the OS setting rather than animating regardless. */
+@media (prefers-reduced-motion: reduce) {
+    .featured_card,
+    .featured_header{
+        transition: none;
+    }
+}
+
+
 .select_next, .select_before{
     position: absolute;
     z-index: 1;
@@ -772,7 +1024,9 @@
 }
 
 
-.project-card.aidrm .text-container{
+.project-card.aidrm .text-container,
+.project-card.vtscanner .text-container,
+.project-card.energymarket .text-container{
     max-height: 30rem;
 }
 

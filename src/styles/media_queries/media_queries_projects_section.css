@@ -261,3 +261,69 @@
         height: 11rem;
     }
 }
+
+
+/* ---------------- FEATURED strip ---------------- */
+
+/* Three across stops fitting well before the cards hit their min-width, so drop to
+   a single column early rather than leaving one card orphaned on a second row. */
+@media (max-width: 900px) {
+    .featured_projects{
+        gap: 2rem;
+        padding: 4rem 1.5rem 2.5rem;
+    }
+
+    .featured_header_label{
+        font-size: 1.5rem;
+        letter-spacing: 0.25em;
+        text-indent: 0.25em;
+    }
+
+    .featured_header_sub{
+        font-size: 0.75rem;
+    }
+
+    .featured_cards{
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .featured_card{
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 26rem;
+    }
+}
+
+@media (max-width: 460px) {
+    .featured_projects{
+        padding: 3rem 1rem 2rem;
+    }
+
+    .featured_header_label{
+        font-size: 1.2rem;
+    }
+
+    .featured_card{
+        padding: 1.3rem 1.1rem 1.2rem;
+        gap: 0.7rem;
+    }
+
+    .featured_card .featured_rank{
+        font-size: 2.6rem;
+    }
+
+    .featured_card .featured_name{
+        font-size: 0.95rem;
+    }
+
+    .featured_card .featured_desc{
+        font-size: 0.75rem;
+    }
+
+    .featured_card .featured_techstack img{
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+}

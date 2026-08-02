@@ -21,7 +21,7 @@ export const useTransitionStore = create<TransitionState>((set) => ({
     closeProject: () => set({ phase: "returning" }),
 }));
 
-export type SectionKey = "projectsDrawer" | "skillsSection" | "projectFullInformation";
+export type SectionKey = "projectsDrawer" | "featuredProjects" | "skillsSection" | "projectFullInformation";
 
 
 const sectionRegistry = new Map<SectionKey, HTMLElement>();

@@ -70,6 +70,40 @@ export const projects : project[] = [
         titleThumbnail : ""
     },
     {
+        name : "Energy Market Game Simulator",
+        timeFrame : "Aug 26",
+        theme: "Realtime Energy Market Sim, 3D",
+        imageSource : "/images/energymarket_1.webp",
+        videoSource : null,
+        imageCollage : ["/images/energymarket_1.webp", "/images/energymarket_2.webp"],
+        videoCollage : null,
+        longerDescription : "An interactive wholesale electricity market simulator built on an event-driven Spring Boot + Kafka backend, with a declarative React lesson engine and a three.js stage. Part simulator, part learning journal.",
+        uniqueIdName : "energymarket",
+        techstack : ["/icons/java.png", "/icons/spring.png", "/icons/psql.png", "/icons/ts.png", "/icons/react.png", "/icons/docker.png", "/icons/aws.png"],
+        githubLink : "https://github.com/AikKiat/SimpleEnergyMarketSimulator-European-",
+        checkItOutLinks : null,
+        checkItOutMsgs : null,
+        titleDesc : "Interactive Wholesale Electricity Market Simulator, Driven by a Live Merit-Order Auction",
+        titleThumbnail : null
+    },
+    {
+        name : "VirusTotal File Scanner (CloudsineAI Take-Home)",
+        timeFrame : "Jan 26",
+        theme: "File Scanner, GenAI",
+        imageSource : "",
+        videoSource : null,
+        imageCollage : ["/images/virus_total.jpg"],
+        videoCollage : null,
+        longerDescription : "A secure-by-design fullstack file scanner on AWS EC2. Files are offloaded to VirusTotal for scanning across 70+ antivirus engines, then distilled by a streaming LLM summariser into something a lay user can actually read.",
+        uniqueIdName : "vtscanner",
+        techstack : ["/icons/python.png", "/icons/ts.png", "/icons/react.png", "/icons/redis.png", "/icons/docker.png", "/icons/aws.png", "/icons/langchain.png", "/icons/langgraph.png"],
+        githubLink : "https://github.com/AikKiat/protocyber128_Take_Home_Assignment",
+        checkItOutLinks : null,
+        checkItOutMsgs : null,
+        titleDesc : "Secure-by-Design VirusTotal File Scanner with a Streaming AI Summariser, on AWS",
+        titleThumbnail : null
+    },
+    {
         name : "AI-Driven Resource Monitor Project (Internship @NCS NEXT)",
         timeFrame : "Sep-Dec 25",
         theme: "Realtime Agentic Platform",
@@ -189,6 +223,15 @@ export const projects : project[] = [
         titleThumbnail : "images/portfoliov1_1.webp"
     },
 ]
+
+
+//The three projects surfaced in the FEATURED strip below the drawer. Order here is
+//the order they appear in, so the pick is a one-line edit rather than a layout change.
+export const featuredProjectIds : string[] = ["energymarket", "vtscanner", "smarthealth"];
+
+export const featuredProjects : project[] = featuredProjectIds
+    .map((id) => projects.find((project) => project.uniqueIdName === id))
+    .filter((project) : project is project => project !== undefined);
 
 
 export interface skill {
