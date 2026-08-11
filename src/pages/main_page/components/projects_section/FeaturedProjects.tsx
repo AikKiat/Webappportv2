@@ -42,7 +42,6 @@ export default function FeaturedProjects(){
         <div className={`featured_projects ${revealed ? "revealed" : ""}`} ref={featuredRootRef}>
             <div className="featured_header">
                 <span className="featured_header_label">FEATURED</span>
-                <span className="featured_header_sub">The three I would want you to read first</span>
             </div>
 
             <div className="featured_cards">

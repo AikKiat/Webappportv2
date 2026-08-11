@@ -80,9 +80,6 @@ export default function ProjectInformation(props: ProjectInformationProps) {
 
       <div className="text-container">
         <h2 className="title">{props.projectName}</h2>
-        <Suspense fallback={null}>
-          <ProjectMarkdownViewer uniqueIdName={props.uniqueIdName} />
-        </Suspense>
         {props.checkItOutLinks && props.checkItOutMsgs && (
           <div>
             {
@@ -103,6 +100,10 @@ export default function ProjectInformation(props: ProjectInformationProps) {
             }
           </div>
         )}
+        <br/>
+        <Suspense fallback={null}>
+          <ProjectMarkdownViewer uniqueIdName={props.uniqueIdName} />
+        </Suspense>
       </div>
 
       {props.githubLink && (

@@ -81,8 +81,8 @@ export const projects : project[] = [
         uniqueIdName : "energymarket",
         techstack : ["/icons/java.png", "/icons/spring.png", "/icons/psql.png", "/icons/ts.png", "/icons/react.png", "/icons/docker.png", "/icons/aws.png"],
         githubLink : "https://github.com/AikKiat/SimpleEnergyMarketSimulator-European-",
-        checkItOutLinks : null,
-        checkItOutMsgs : null,
+        checkItOutLinks : ["https://simple-energy-market-simulator-euro-one.vercel.app/"],
+        checkItOutMsgs : ["Check out the live hosted application here!"],
         titleDesc : "Interactive Wholesale Electricity Market Simulator, Driven by a Live Merit-Order Auction",
         titleThumbnail : null
     },
