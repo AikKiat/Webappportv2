@@ -436,15 +436,24 @@ const leadership : personal[] = [
 const experiences : personal[] = [
     {
         index : 0,
-        title : "Product Engineering Intern, Asset Development, Next Open Innovation (NCS)",
+        title : "Fullstack AI Security Engineering Intern, Cloudsine Pte Ltd",
+        description : "Developed proprietary Guardrails for client AI products ranging from PII detection services, keyword and vector-based cosine similarity comparisons to detect prompt injection. Integrated products with LiteLLM to support prompt injection from user inputs as well as compromised responses from backend LLMs.",
+        imageSource : "/images/ncs.webp",
+        multiDescription : null,
+        uniqueName : "cloudsine",
+        longerDescription: "My latest internship under Cloudsine Pte Ltd, a mature cybersecurity startup specialising in developing propreitary AI security products. I worked as a Fullstack Engineer primarily involved in backend development, notably improving the end-end response times of various services such as the PII detection service by reducing the workload given to the compute-heavy Microsoft Presidio and writing my own custom PII detection service in Go that supports Regex and NER organic entity classification for Singapore-based data. To further improve performance, I took leverage of Bloom Filters and constructed a custom Bloom filter guard using Go's libraries to process only textual chunks that were probabilisitically likely to contain NER content, thus reducing overhead to the slow NER detection. Overall, all these cut response times by 5x from 31 seconds to ~6 seconds. Apart from that, I also worked on securing enterprise code through SCA, SAST and IaC configurations scans, rewriting Dockerfile build stages to use multi-stage builds, distroless images that cut down on > 100 CVEs. Finally, I created scalable, more streamlined SIEM monitoring by onboarding Elastic Agent sidecars within the Helmchart IaC for log collection, subscribed under a global Elastic Fleet hosting on-prem. Overall, across the 4 months I made good long lasting friendships and greatly honed my skills. I am ever grateful to CloudsineAI for giving me so much exposure to the world of AI security and software developement.",
+    },
+    {
+        index : 1,
+        title : "Fullstack Software Engineering Intern, Next Open Innovation (NCS)",
         description : "Created a **fullstack **AI-Driven **Resource_Monitoring **System to **Streamline **Baggage **Handling at **Airports via **Robotics **Autonomous_Systems. **Designed backend system and **improved **scalability with **measured **performance **metrics.",
         imageSource : "/images/ncs.webp",
         multiDescription : null,
         uniqueName : "ncs",
-        longerDescription: "During my 4 months at NCS as a Product Eng Intern (Asset Dev), I built a **fullstack **AI-Driven **Resource **Monitoring **System that **integrates with an existing **simulation_evironment, to showcase how **AI could be implemented to **streamline the **coordination and **selection of **robotics_systems to handle **baggages. From first **defining the **problem and later on **creating the actual fullstack system with a **modular, **cleanly **layered **software_architecture, I indeed **learnt a great deal about the entire **product_development process alongside **developing **software **systems. More in the **Projects_Section",
+        longerDescription: "During my 4 months at NCS as a Fullstack Software Engineering intern, I built a **fullstack **AI-Driven **Resource **Monitoring **System that **integrates with an existing **simulation_evironment, to showcase how **AI could be implemented to **streamline the **coordination and **selection of **robotics_systems to handle **baggages. From first **defining the **problem and later on **creating the actual fullstack system with a **modular, **cleanly **layered **software_architecture, I indeed **learnt a great deal about the entire **product_development process alongside **developing **software **systems. More in the **Projects_Section",
     },
     {
-        index : 1,
+        index : 2,
         title : "DellInnovateFest 2025",
         description: "A **memorable **1-month long **hackathon hosted by **Dell_Technologies, representing SUTD ans building an **AI-powered **software_product to **address **teenage **mental **well-being in Singapore.",
         imageSource : "/images/dell_inno_1.webp",
