@@ -55,5 +55,3 @@ On the **container** side, uploaded files land in a **dedicated** **tmpfs** **di
 Deployment runs on **AWS** **EC2** via **Docker** **Compose,** with only port **80** (**Nginx**) exposed to the host - backend and Redis are reachable **only** on the internal Docker network.
 
 Migrated secrets from **gitignored** `.env` files to **AWS** **Secrets** **Manager.** I took this time to learn AWS IAM, so the secrets are read at deploy time by an **IAM** **instance** **role** scoped by **ARN** to this **one** **secret.** We dont store the secrets and credentials on the EC2 instance itself, and with the Secrets Manager we can easily rotate our secrets, decoupling this responsibility. 
-
-A **GitHub** **Actions** pipeline builds and containerises both services on every push.
