@@ -26,7 +26,7 @@ export const introTexts : introtext ={
                     `,
     specialisations : ["Fullstack Developer", "Computer Science@SUTD", "Minor in AI"],
     github : "https://github.com/AikKiat",
-    resume: "https://drive.google.com/file/d/14zcGeDbXejAPY9gLe7d6CdP0JOwujquh/view",
+    resume: "https://drive.google.com/file/d/12fZ5eKZMQGqryRexX-Rtp1Y4qbxpLoMR/view",
     // resume : "https://drive.google.com/file/d/1kcRX-xT-qelUz_M5fJlimTzZIjQmIgnl/view",
     linkedin : "https://www.linkedin.com/in/thng-aik-kiat-535a2732a/",
     githubIcon : "/icons/github.png",
@@ -437,7 +437,7 @@ const experiences : personal[] = [
     {
         index : 0,
         title : "Fullstack AI Security Engineering Intern, Cloudsine Pte Ltd",
-        description :"Developed proprietary Guardrails for client AI products ranging from keyword, PII, vector embedding checks and LLM-as-a-judge. Integrated LiteLLM to support prompt injection from user inputs as well as compromised responses from backend LLMs.",
+        description :"Proprietary **Guardrails-as-a-Service **(GaaS) suite for client AI products. Integrated **LiteLLM to support prompt injection from **user **inputs as well as **compromised **responses from **backend **LLMs.",
         imageSource : "",
         multiDescription : null,
         uniqueName : "cloudsine",
@@ -446,7 +446,7 @@ const experiences : personal[] = [
     {
         index : 1,
         title : "Fullstack Software Engineering Intern, Next Open Innovation (NCS)",
-        description : "Created a **fullstack **AI-Driven **Resource_Monitoring **System to **Streamline **Baggage **Handling at **Airports via **Robotics **Autonomous_Systems. **Designed backend system and **improved **scalability with **measured **performance **metrics.",
+        description : "**Fullstack **AI-Driven **Resource_Monitoring **System to **Streamline **Baggage **Handling at **Airports via **Robotics **Autonomous_Systems. **Designed backend system and **improved **scalability with **measured **performance **metrics.",
         imageSource : "/images/ncs.webp",
         multiDescription : null,
         uniqueName : "ncs",
