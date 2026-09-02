@@ -445,12 +445,12 @@ const experiences : personal[] = [
     },
     {
         index : 1,
-        title : "Fullstack Software Engineering Intern, Next Open Innovation (NCS)",
+        title : "AI Product Engineering Intern, Next Open Innovation (NCS)",
         description : "**Fullstack **AI-Driven **Resource_Monitoring **System to **Streamline **Baggage **Handling at **Airports via **Robotics **Autonomous_Systems. **Designed backend system and **improved **scalability with **measured **performance **metrics.",
         imageSource : "/images/ncs.webp",
         multiDescription : null,
         uniqueName : "ncs",
-        longerDescription: "During my 4 months at NCS as a Fullstack Software Engineering intern, I built a **fullstack **AI-Driven **Resource **Monitoring **System that **integrates with an existing **simulation_evironment, to showcase how **AI could be implemented to **streamline the **coordination and **selection of **robotics_systems to handle **baggages. From first **defining the **problem and later on **creating the actual fullstack system with a **modular, **cleanly **layered **software_architecture, I indeed **learnt a great deal about the entire **product_development process alongside **developing **software **systems. More in the **Projects_Section",
+        longerDescription: "During my 4 months at NCS as an AI Product Engineering intern, I built a **fullstack **AI-Driven **Resource **Monitoring **System that **integrates with an existing **simulation_evironment, to showcase how **AI could be implemented to **streamline the **coordination and **selection of **robotics_systems to handle **baggages. From first **defining the **problem and later on **creating the actual fullstack system with a **modular, **cleanly **layered **software_architecture, I indeed **learnt a great deal about the entire **product_development process alongside **developing **software **systems. More in the **Projects_Section",
     },
     {
         index : 2,
