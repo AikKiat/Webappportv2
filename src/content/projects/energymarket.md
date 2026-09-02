@@ -1,5 +1,3 @@
-An **interactive,** **reflective** **learning** **tool** that teaches how a **wholesale** **electricity** **market** actually works — from a single power plant's **run/don't-run** decision all the way up to **negative** **prices** — by letting you **drive** **the** **market** **yourself** with sliders and watch the consequences **clear** in **real** **time.**
-
 This began as my **entrypoint** into understanding the **European** **Energy** **Market,** and my **first** **step** toward understanding **finance** as a **software** **engineer.** Rather than just **reading** about **merit** **order** and **spark** **spreads,** I have **built** a simulator to emulate this concepts in a very interesting, simple and interactive `Three.js` webapp able to fetch realtime information from a Java Spring Boot backend.
 
 Learn more about it in the github link below!
