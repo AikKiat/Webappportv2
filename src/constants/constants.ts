@@ -470,7 +470,7 @@ const experiences : personal[] = [
 const education : personal[] = [
     {
         index : 0,
-        title : "Year 3 Computer Science @SUTD",
+        title : "Year 4 Computer Science @SUTD",
         description : "Currently pursuing **Computer_Science, **Singapore **University **of **Technology **and **Design. Taking on a **minor in **AI, and also currently taking more courses in **Security **(Network and **System Security) to further **expand **my **knowledge.",
         imageSource : "/images/sutd_logo.webp",
         multiDescription : null,
